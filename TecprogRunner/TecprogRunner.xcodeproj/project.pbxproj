@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		67FFA6CF1B99301C00354487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6CE1B99301C00354487 /* main.m */; };
+		67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D11B99301C00354487 /* AppDelegate.m */; };
+		67FFA6D51B99301C00354487 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D41B99301C00354487 /* GameScene.m */; };
+		67FFA6D71B99301C00354487 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 67FFA6D61B99301C00354487 /* GameScene.sks */; };
+		67FFA6DA1B99301C00354487 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D91B99301C00354487 /* GameViewController.m */; };
+		67FFA6DD1B99301C00354487 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67FFA6DB1B99301C00354487 /* Main.storyboard */; };
+		67FFA6DF1B99301C00354487 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67FFA6DE1B99301C00354487 /* Images.xcassets */; };
+		67FFA6E21B99301C00354487 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67FFA6E01B99301C00354487 /* LaunchScreen.xib */; };
+		67FFA6EE1B99301C00354487 /* TecprogRunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6ED1B99301C00354487 /* TecprogRunnerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		67FFA6E81B99301C00354487 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67FFA6C11B99301C00354487 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67FFA6C81B99301C00354487;
+			remoteInfo = TecprogRunner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		67FFA6C91B99301C00354487 /* TecprogRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TecprogRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		67FFA6CD1B99301C00354487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67FFA6CE1B99301C00354487 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		67FFA6D01B99301C00354487 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		67FFA6D11B99301C00354487 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		67FFA6D31B99301C00354487 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		67FFA6D41B99301C00354487 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		67FFA6D61B99301C00354487 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		67FFA6D81B99301C00354487 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		67FFA6D91B99301C00354487 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		67FFA6DC1B99301C00354487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		67FFA6DE1B99301C00354487 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		67FFA6E11B99301C00354487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		67FFA6E71B99301C00354487 /* TecprogRunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TecprogRunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		67FFA6EC1B99301C00354487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67FFA6ED1B99301C00354487 /* TecprogRunnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TecprogRunnerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		67FFA6C61B99301C00354487 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67FFA6E41B99301C00354487 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		67FFA6C01B99301C00354487 = {
+			isa = PBXGroup;
+			children = (
+				67FFA6CB1B99301C00354487 /* TecprogRunner */,
+				67FFA6EA1B99301C00354487 /* TecprogRunnerTests */,
+				67FFA6CA1B99301C00354487 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		67FFA6CA1B99301C00354487 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67FFA6C91B99301C00354487 /* TecprogRunner.app */,
+				67FFA6E71B99301C00354487 /* TecprogRunnerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		67FFA6CB1B99301C00354487 /* TecprogRunner */ = {
+			isa = PBXGroup;
+			children = (
+				67FFA6D01B99301C00354487 /* AppDelegate.h */,
+				67FFA6D11B99301C00354487 /* AppDelegate.m */,
+				67FFA6D31B99301C00354487 /* GameScene.h */,
+				67FFA6D41B99301C00354487 /* GameScene.m */,
+				67FFA6D61B99301C00354487 /* GameScene.sks */,
+				67FFA6D81B99301C00354487 /* GameViewController.h */,
+				67FFA6D91B99301C00354487 /* GameViewController.m */,
+				67FFA6DB1B99301C00354487 /* Main.storyboard */,
+				67FFA6DE1B99301C00354487 /* Images.xcassets */,
+				67FFA6E01B99301C00354487 /* LaunchScreen.xib */,
+				67FFA6CC1B99301C00354487 /* Supporting Files */,
+			);
+			path = TecprogRunner;
+			sourceTree = "<group>";
+		};
+		67FFA6CC1B99301C00354487 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				67FFA6CD1B99301C00354487 /* Info.plist */,
+				67FFA6CE1B99301C00354487 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		67FFA6EA1B99301C00354487 /* TecprogRunnerTests */ = {
+			isa = PBXGroup;
+			children = (
+				67FFA6ED1B99301C00354487 /* TecprogRunnerTests.m */,
+				67FFA6EB1B99301C00354487 /* Supporting Files */,
+			);
+			path = TecprogRunnerTests;
+			sourceTree = "<group>";
+		};
+		67FFA6EB1B99301C00354487 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				67FFA6EC1B99301C00354487 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		67FFA6C81B99301C00354487 /* TecprogRunner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67FFA6F11B99301C00354487 /* Build configuration list for PBXNativeTarget "TecprogRunner" */;
+			buildPhases = (
+				67FFA6C51B99301C00354487 /* Sources */,
+				67FFA6C61B99301C00354487 /* Frameworks */,
+				67FFA6C71B99301C00354487 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TecprogRunner;
+			productName = TecprogRunner;
+			productReference = 67FFA6C91B99301C00354487 /* TecprogRunner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		67FFA6E61B99301C00354487 /* TecprogRunnerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67FFA6F41B99301C00354487 /* Build configuration list for PBXNativeTarget "TecprogRunnerTests" */;
+			buildPhases = (
+				67FFA6E31B99301C00354487 /* Sources */,
+				67FFA6E41B99301C00354487 /* Frameworks */,
+				67FFA6E51B99301C00354487 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				67FFA6E91B99301C00354487 /* PBXTargetDependency */,
+			);
+			name = TecprogRunnerTests;
+			productName = TecprogRunnerTests;
+			productReference = 67FFA6E71B99301C00354487 /* TecprogRunnerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		67FFA6C11B99301C00354487 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Bepid-UnB";
+				TargetAttributes = {
+					67FFA6C81B99301C00354487 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					67FFA6E61B99301C00354487 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 67FFA6C81B99301C00354487;
+					};
+				};
+			};
+			buildConfigurationList = 67FFA6C41B99301C00354487 /* Build configuration list for PBXProject "TecprogRunner" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 67FFA6C01B99301C00354487;
+			productRefGroup = 67FFA6CA1B99301C00354487 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				67FFA6C81B99301C00354487 /* TecprogRunner */,
+				67FFA6E61B99301C00354487 /* TecprogRunnerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		67FFA6C71B99301C00354487 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67FFA6E21B99301C00354487 /* LaunchScreen.xib in Resources */,
+				67FFA6DF1B99301C00354487 /* Images.xcassets in Resources */,
+				67FFA6D71B99301C00354487 /* GameScene.sks in Resources */,
+				67FFA6DD1B99301C00354487 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67FFA6E51B99301C00354487 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		67FFA6C51B99301C00354487 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67FFA6DA1B99301C00354487 /* GameViewController.m in Sources */,
+				67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */,
+				67FFA6D51B99301C00354487 /* GameScene.m in Sources */,
+				67FFA6CF1B99301C00354487 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67FFA6E31B99301C00354487 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67FFA6EE1B99301C00354487 /* TecprogRunnerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		67FFA6E91B99301C00354487 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67FFA6C81B99301C00354487 /* TecprogRunner */;
+			targetProxy = 67FFA6E81B99301C00354487 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		67FFA6DB1B99301C00354487 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67FFA6DC1B99301C00354487 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		67FFA6E01B99301C00354487 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67FFA6E11B99301C00354487 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		67FFA6EF1B99301C00354487 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		67FFA6F01B99301C00354487 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		67FFA6F21B99301C00354487 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TecprogRunner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		67FFA6F31B99301C00354487 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TecprogRunner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		67FFA6F51B99301C00354487 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TecprogRunnerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TecprogRunner.app/TecprogRunner";
+			};
+			name = Debug;
+		};
+		67FFA6F61B99301C00354487 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TecprogRunnerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TecprogRunner.app/TecprogRunner";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		67FFA6C41B99301C00354487 /* Build configuration list for PBXProject "TecprogRunner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67FFA6EF1B99301C00354487 /* Debug */,
+				67FFA6F01B99301C00354487 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67FFA6F11B99301C00354487 /* Build configuration list for PBXNativeTarget "TecprogRunner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67FFA6F21B99301C00354487 /* Debug */,
+				67FFA6F31B99301C00354487 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		67FFA6F41B99301C00354487 /* Build configuration list for PBXNativeTarget "TecprogRunnerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67FFA6F51B99301C00354487 /* Debug */,
+				67FFA6F61B99301C00354487 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 67FFA6C11B99301C00354487 /* Project object */;
+}
