@@ -9,5 +9,17 @@
 #import "HudLayer.h"
 
 @implementation HudLayer
+{
+    CGSize _size;
+}
+
+- (instancetype) initWithSize:(CGSize)size
+{
+    self = [super init];
+    if(self){
+        _size = size;
+    }
+    return self;
+}
 
 @end

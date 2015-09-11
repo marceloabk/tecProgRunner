@@ -6,8 +6,10 @@
 //  Copyright (c) 2015 Bepid-UnB. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
+#import "BasicLayer.h"
 
-@interface BackgroundLayer : SKNode
+@interface BackgroundLayer : SKNode <LayerRequirements>
+
+@property (nonatomic) SKSpriteNode* background;
 
 @end

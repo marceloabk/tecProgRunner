@@ -9,14 +9,39 @@
 #import "GameScene.h"
 
 @implementation GameScene
-
--(void)didMoveToView:(SKView *)view {
+{
+    BackgroundLayer* _background;
+    HudLayer* _hud;
+    GameLayer* _game;
+    SKNode* _sceneLayer;
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (instancetype)initWithSize:(CGSize)size
+{
+    self = [super initWithSize:size];
+    if (self) {
+        _sceneLayer = [[SKNode alloc] init];
+        [self addChild:_sceneLayer];
+        
+        _background = [[BackgroundLayer alloc] initWithSize:self.size];
+        [_sceneLayer addChild:_background];
+        
+        _hud = [[HudLayer alloc] initWithSize:self.size];
+        [_sceneLayer addChild:_hud];
+        
+        _game = [[GameLayer alloc] initWithSize:self.size];
+        [_sceneLayer addChild:_game];
+    }
+    return self;
 }
 
--(void)update:(CFTimeInterval)currentTime {
+-(void) didMoveToView:(SKView *)view {
+}
+
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+}
+
+-(void) update:(CFTimeInterval)currentTime {
 }
 
 @end

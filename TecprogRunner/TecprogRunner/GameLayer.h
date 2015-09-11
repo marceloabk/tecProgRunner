@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Bepid-UnB. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
+#import "BasicLayer.h"
 
-@interface GameLayer : SKNode
+@interface GameLayer : SKNode <LayerRequirements>
 
 @end

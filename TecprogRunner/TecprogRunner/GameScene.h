@@ -7,6 +7,10 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "Player.h"
+#import "GameLayer.h"
+#import "HudLayer.h"
+#import "BackgroundLayer.h"
 
 @interface GameScene : SKScene
 

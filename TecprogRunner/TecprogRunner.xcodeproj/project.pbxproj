@@ -66,6 +66,7 @@
 		E92857451BA25D0300DF4959 /* HudLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HudLayer.m; sourceTree = "<group>"; };
 		E92857471BA25D1100DF4959 /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		E92857481BA25D1100DF4959 /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayer.m; sourceTree = "<group>"; };
+		E92857511BA320AA00DF4959 /* BasicLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +249,7 @@
 		E92857401BA25CB100DF4959 /* GameSceneLayers */ = {
 			isa = PBXGroup;
 			children = (
+				E92857511BA320AA00DF4959 /* BasicLayer.h */,
 				E928574C1BA25D2400DF4959 /* BackgroundLayer */,
 				E928574B1BA25D1D00DF4959 /* HudLayer */,
 				E928574A1BA25D1500DF4959 /* GameLayer */,
