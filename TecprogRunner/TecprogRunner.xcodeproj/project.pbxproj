@@ -86,11 +86,13 @@
 		67FFA6CB1B99301C00354487 /* TecprogRunner */ = {
 			isa = PBXGroup;
 			children = (
+				E928572E1BA2556D00DF4959 /* UI */,
+				E928572D1BA2556600DF4959 /* particles */,
+				E928572C1BA2551900DF4959 /* Scenes */,
+				E92857281BA254E200DF4959 /* Entities */,
+				E92857271BA254D500DF4959 /* Layers */,
 				67FFA6D01B99301C00354487 /* AppDelegate.h */,
 				67FFA6D11B99301C00354487 /* AppDelegate.m */,
-				67FFA6D31B99301C00354487 /* GameScene.h */,
-				67FFA6D41B99301C00354487 /* GameScene.m */,
-				67FFA6D61B99301C00354487 /* GameScene.sks */,
 				67FFA6D81B99301C00354487 /* GameViewController.h */,
 				67FFA6D91B99301C00354487 /* GameViewController.m */,
 				67FFA6DB1B99301C00354487 /* Main.storyboard */,
@@ -125,6 +127,84 @@
 				67FFA6EC1B99301C00354487 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E92857271BA254D500DF4959 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Layers;
+			sourceTree = "<group>";
+		};
+		E92857281BA254E200DF4959 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E928572B1BA2550700DF4959 /* Player */,
+				E928572A1BA2550000DF4959 /* Enemies */,
+				E92857291BA254F600DF4959 /* GameObject */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		E92857291BA254F600DF4959 /* GameObject */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GameObject;
+			sourceTree = "<group>";
+		};
+		E928572A1BA2550000DF4959 /* Enemies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Enemies;
+			sourceTree = "<group>";
+		};
+		E928572B1BA2550700DF4959 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		E928572C1BA2551900DF4959 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				67FFA6D31B99301C00354487 /* GameScene.h */,
+				67FFA6D41B99301C00354487 /* GameScene.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		E928572D1BA2556600DF4959 /* particles */ = {
+			isa = PBXGroup;
+			children = (
+				67FFA6D61B99301C00354487 /* GameScene.sks */,
+			);
+			name = particles;
+			sourceTree = "<group>";
+		};
+		E928572E1BA2556D00DF4959 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E92857301BA2558200DF4959 /* Fonts */,
+				E928572F1BA2557900DF4959 /* Button */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		E928572F1BA2557900DF4959 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Button;
+			sourceTree = "<group>";
+		};
+		E92857301BA2558200DF4959 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +442,7 @@
 				INFOPLIST_FILE = TecprogRunner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -372,6 +453,7 @@
 				INFOPLIST_FILE = TecprogRunner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -428,6 +510,7 @@
 				67FFA6F31B99301C00354487 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		67FFA6F41B99301C00354487 /* Build configuration list for PBXNativeTarget "TecprogRunnerTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +519,7 @@
 				67FFA6F61B99301C00354487 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
