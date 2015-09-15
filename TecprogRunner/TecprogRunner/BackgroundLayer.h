@@ -12,4 +12,6 @@
 
 @property (nonatomic) SKSpriteNode* background;
 
+- (void) moveBackgroundWithDeltaTime:(NSTimeInterval) deltaTime;
+
 @end
