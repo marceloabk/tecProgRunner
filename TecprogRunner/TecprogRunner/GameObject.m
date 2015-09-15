@@ -14,7 +14,7 @@
 //    // Gerar texturas com o nome da imagem
 //}
 //
-//-(SKPhysicsBody *) generatePhysicsBodyWithTextureWithTextureNamed: (NSString *) imagem{
+//-(SKPhysicsBody *) generatePhysicsBodyWithTextureWithTextureNamed: (NSString *) image{
 //    // Gerar corpo físico usando a textura
 //}
 //
