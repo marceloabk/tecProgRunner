@@ -8,13 +8,11 @@
 
 #import "GameLayer.h"
 
-@implementation GameLayer
-{
+@implementation GameLayer{
     CGSize _size;
 }
 
-- (instancetype) initWithSize:(CGSize)size
-{
+-(instancetype)initWithSize:(CGSize)size{
     self = [super init];
     if(self){
         _size = size;

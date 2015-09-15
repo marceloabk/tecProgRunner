@@ -8,14 +8,12 @@
 
 #import "BackgroundLayer.h"
 
-@implementation BackgroundLayer
-{
+@implementation BackgroundLayer{
     CGSize _size;
     float backgroundDefaultVelocity;
 }
 
-- (instancetype) initWithSize:(CGSize)size
-{
+- (instancetype)initWithSize:(CGSize)size{
     self = [super init];
     if(self){
         
@@ -31,7 +29,7 @@
     return self;
 }
 
-- (void) moveBackgroundWithDeltaTime:(NSTimeInterval) deltaTime {
+-(void)moveBackgroundWithDeltaTime:(NSTimeInterval)deltaTime{
 
     //Adapting velocity with frame time
     CGPoint amountToMove = CGPointMake(backgroundDefaultVelocity * deltaTime, 0);

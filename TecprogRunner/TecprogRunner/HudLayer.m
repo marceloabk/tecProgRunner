@@ -8,13 +8,11 @@
 
 #import "HudLayer.h"
 
-@implementation HudLayer
-{
+@implementation HudLayer{
     CGSize _size;
 }
 
-- (instancetype) initWithSize:(CGSize)size
-{
+-(instancetype)initWithSize:(CGSize)size{
     self = [super init];
     if(self){
         _size = size;

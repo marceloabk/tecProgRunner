@@ -21,7 +21,7 @@
     NSTimeInterval _lastUpdateTime;
 }
 
--(instancetype) initWithSize:(CGSize)size{
+-(instancetype)initWithSize:(CGSize)size{
     self = [super initWithSize:size];
     if (self) {
         
@@ -35,7 +35,7 @@
     return self;
 }
 
--(void) didMoveToView:(SKView *)view{
+-(void)didMoveToView:(SKView *)view{
     
     //Adding layers to scene
     [self addChild:_sceneLayer];
