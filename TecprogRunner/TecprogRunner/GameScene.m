@@ -8,8 +8,7 @@
 
 #import "GameScene.h"
 
-@implementation GameScene
-{
+@implementation GameScene{
     
     //Game layers
     BackgroundLayer* _background;
@@ -22,8 +21,7 @@
     NSTimeInterval _lastUpdateTime;
 }
 
-- (instancetype) initWithSize:(CGSize)size
-{
+-(instancetype) initWithSize:(CGSize)size{
     self = [super initWithSize:size];
     if (self) {
         
@@ -37,7 +35,7 @@
     return self;
 }
 
-- (void) didMoveToView:(SKView *)view {
+-(void) didMoveToView:(SKView *)view{
     
     //Adding layers to scene
     [self addChild:_sceneLayer];
@@ -46,25 +44,24 @@
     [_sceneLayer addChild:_game];
 }
 
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 }
 
-- (void) update:(CFTimeInterval)currentTime {
+-(void)update:(CFTimeInterval)currentTime{
     
     //Updating frame time
-    if(_lastUpdateTime) {
+    if(_lastUpdateTime){
         _deltaTime = currentTime - _lastUpdateTime;
-    } else {
+    }else{
         _deltaTime = 0;
     }
     _lastUpdateTime = currentTime;
     
     //Moving background
     [_background moveBackgroundWithDeltaTime:_deltaTime];
-    
 }
 
-- (void) moveSprite:(SKSpriteNode*) sprite withVelocity:(CGPoint) velocity {
+-(void)moveSprite:(SKSpriteNode*)sprite withVelocity:(CGPoint)velocity{
     
     //Adapting velocity with frame time
     CGPoint amountToMove = CGPointMake(velocity.x * _deltaTime, velocity.y * _deltaTime);
