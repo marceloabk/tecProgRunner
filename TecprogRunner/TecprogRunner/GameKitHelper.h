@@ -21,7 +21,7 @@
 
 -(void)authenticateLocalPlayer;
 
--(void)setAuthenticationViewController: (UIViewController *)authenticationViewController;
+-(void)setAuthenticationViewController:(UIViewController *)authenticationViewController;
 
 -(void)setLastError:(NSError *)error;
 
@@ -35,6 +35,6 @@
 
 -(void)presentLeaderboardsOnViewController:(UIViewController *)viewController;
 
--(void)gameCenterViewControllerDidFinish: (GKGameCenterViewController *)gameCenterViewController;
+-(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController;
 
 @end

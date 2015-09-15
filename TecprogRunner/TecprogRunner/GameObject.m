@@ -10,23 +10,23 @@
 
 @implementation GameObject
 
-//-(SKTexture *) generateTextureWithName: (NSString *) name{
+//-(SKTexture *)generateTextureWithName:(NSString *)name{
 //    // Gerar texturas com o nome da imagem
 //}
 //
-//-(SKPhysicsBody *) generatePhysicsBodyWithTextureWithTextureNamed: (NSString *) image{
+//-(SKPhysicsBody *)generatePhysicsBodyWithTextureWithTextureNamed:(NSString *)image{
 //    // Gerar corpo físico usando a textura
 //}
 //
-//-(void) setBasicsAttributes{
+//-(void)setBasicsAttributes{
 //    // Atributos básicos do tipo GameObject
 //}
 //
-//-(void) beginContactWithNode: (SKNode *) node withBitmask: (uint32_t) bitmask andContact: (SKPhysicsContact *) contact{
+//-(void)beginContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact{
 //    // Tratamento para quando começa o contato
 //}
 //
-//-(void) endContactWithNode: (SKNode *) node withBitmask: (uint32_t) bitmask andContact: (SKPhysicsContact *) contact{
+//-(void)endContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact{
 //    // Tratamento para quando termina o contato
 //}
 

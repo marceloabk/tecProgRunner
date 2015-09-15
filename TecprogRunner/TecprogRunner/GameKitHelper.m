@@ -25,7 +25,7 @@
 //    // Autenticar jogador
 //}
 
-//-(void)setAuthenticationViewController: (UIViewController *)authenticationViewController{
+//-(void)setAuthenticationViewController:(UIViewController *)authenticationViewController{
 //    // Definir View Controller de autenticação
 //}
 
@@ -50,7 +50,7 @@
 //    // Mostrar View Controller na tela
 //}
 
-//-(void)gameCenterViewControllerDidFinish: (GKGameCenterViewController *)gameCenterViewController{
+//-(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController{
 //    // Remover View Controller da tela
 //}
 

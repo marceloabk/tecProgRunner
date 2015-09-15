@@ -10,14 +10,14 @@
 
 @interface GameObject : SKSpriteNode
 
--(SKTexture *) generateTextureWithName: (NSString *) name;
+-(SKTexture *)generateTextureWithName:(NSString *)name;
 
--(SKPhysicsBody *) generatePhysicsBodyWithTextureWithTextureNamed: (NSString *) image;
+-(SKPhysicsBody *)generatePhysicsBodyWithTextureWithTextureNamed:(NSString *)image;
 
--(void) setBasicsAttributes;
+-(void)setBasicsAttributes;
 
--(void) beginContactWithNode: (SKNode *) node withBitmask: (uint32_t) bitmask andContact: (SKPhysicsContact *) contact;
+-(void)beginContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact;
 
--(void) endContactWithNode: (SKNode *) node withBitmask: (uint32_t) bitmask andContact: (SKPhysicsContact *) contact;
+-(void)endContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact;
 
 @end
