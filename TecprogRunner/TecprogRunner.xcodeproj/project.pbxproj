@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		09CB5AB11BA8C53C006E3A64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB01BA8C53C006E3A64 /* Foundation.framework */; };
+		09CB5AB41BA8C5A5006E3A64 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */; };
+		09CB5AB61BA8C5AE006E3A64 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */; };
 		67FFA6CF1B99301C00354487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6CE1B99301C00354487 /* main.m */; };
 		67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D11B99301C00354487 /* AppDelegate.m */; };
 		67FFA6D51B99301C00354487 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D41B99301C00354487 /* GameScene.m */; };
@@ -38,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		09CB5AB01BA8C53C006E3A64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		09CB5AB21BA8C5A5006E3A64 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
+		09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
+		09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		67FFA6C91B99301C00354487 /* TecprogRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TecprogRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67FFA6CD1B99301C00354487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67FFA6CE1B99301C00354487 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -76,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09CB5AB61BA8C5AE006E3A64 /* GameKit.framework in Frameworks */,
 				09CB5AB11BA8C53C006E3A64 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +99,8 @@
 		09CB5AAF1BA8C505006E3A64 /* GameKitHelper */ = {
 			isa = PBXGroup;
 			children = (
+				09CB5AB21BA8C5A5006E3A64 /* GameKitHelper.h */,
+				09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */,
 			);
 			name = GameKitHelper;
 			sourceTree = "<group>";
@@ -100,6 +108,7 @@
 		67FFA6C01B99301C00354487 = {
 			isa = PBXGroup;
 			children = (
+				09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */,
 				09CB5AB01BA8C53C006E3A64 /* Foundation.framework */,
 				67FFA6CB1B99301C00354487 /* TecprogRunner */,
 				67FFA6EA1B99301C00354487 /* TecprogRunnerTests */,
@@ -397,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09CB5AB41BA8C5A5006E3A64 /* GameKitHelper.m in Sources */,
 				E92857491BA25D1100DF4959 /* BackgroundLayer.m in Sources */,
 				E928573D1BA25C7600DF4959 /* Enemy.m in Sources */,
 				E92857391BA25BAB00DF4959 /* Entity.m in Sources */,
