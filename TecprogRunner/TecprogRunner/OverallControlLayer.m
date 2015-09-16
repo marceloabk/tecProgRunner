@@ -15,10 +15,7 @@
     
     if(self = [super init]){
 
-        self.menuLayer = [[MenuLayer alloc] initWithSize:size];
-    
-        self.menuLayer.name = @"name";
-        
+        [self loadLayers];
         [self putLayer];
         
     }
@@ -34,17 +31,27 @@
         
     }];
     
+    [self loadLayers];
     [self putLayer];
     
 }
 
+-(void) loadLayers{
+
+    self.menuLayer = [[MenuLayer alloc] initWithSize:CGSizeMake(667, 375)];
+    self.storeLayer = [[StoreLayer alloc] initWithSize:CGSizeMake(667, 375)];
+    
+    self.menuLayer.name = @"layer";
+    self.storeLayer.name = @"layer";
+
+}
 -(void) putLayer{
     
     if([GameData sharedGameData].layerActivated == 1){
         [self addChild:self.menuLayer];
         [self.menuLayer activateLayer];
     }
-    else if([GameData sharedGameData].layerActivated == 1){
+    else if([GameData sharedGameData].layerActivated == 2){
         [self addChild:self.storeLayer];
         [self.storeLayer activateLayer];
     }
