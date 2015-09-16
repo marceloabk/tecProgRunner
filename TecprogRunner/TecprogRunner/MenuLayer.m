@@ -43,7 +43,12 @@
     self.tapToPlayButton.zPosition = 2;
     self.tapToPlayButton.name = @"tapToPlay";
     
+    // actions to fade in and out
+    SKAction *action1 = [SKAction fadeAlphaTo:0.1 duration:1];
+    SKAction *action3 = [SKAction fadeAlphaTo:1 duration:1];
+    SKAction *action4 = [SKAction sequence:@[action1, action3]];
     
+    [self.tapToPlayButton runAction: [SKAction repeatActionForever:action4]];
 }
 
 @end
