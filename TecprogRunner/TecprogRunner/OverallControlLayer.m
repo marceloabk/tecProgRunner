@@ -19,7 +19,7 @@
     
         self.backgroundLayerMenu.name = @"name";
         
-        [self colocarLayer];
+        [self putLayer];
         
     }
     return self;
@@ -34,11 +34,11 @@
         
     }];
     
-    [self colocarLayer];
+    [self putLayer];
     
 }
 
--(void) colocarLayer{
+-(void) putLayer{
     
     if([GameData sharedGameData].layerActivated == 1){
         
