@@ -1,5 +1,5 @@
 //
-//  OverallControlLayer.h
+//  MenuLayer.h
 //  TecprogRunner
 //
 //  Created by Henrique Dutra on 15/09/15.
@@ -7,13 +7,10 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "MenuLayer.h"
 
-@interface OverallControlLayer : SKNode
+@interface MenuLayer : SKNode
 
 -(instancetype) initWithSize: (CGSize) size;
-
-@property (nonatomic)  MenuLayer* menuLayer;
 
 
 @end

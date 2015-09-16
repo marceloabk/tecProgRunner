@@ -15,9 +15,9 @@
     
     if(self = [super init]){
 
-        self.backgroundLayerMenu = [[BackgroundLayerMenu alloc] initWithSize:size];
+        self.menuLayer = [[MenuLayer alloc] initWithSize:size];
     
-        self.backgroundLayerMenu.name = @"name";
+        self.menuLayer.name = @"name";
         
         [self putLayer];
         

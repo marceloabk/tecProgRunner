@@ -15,5 +15,4 @@
 @property (nonatomic) GameControlLayer *gameControlLayer;
 @property (nonatomic) OverallControlLayer *overallControlLayer;
 
-
 @end

@@ -26,6 +26,7 @@
 		6B0FD4031BA90C5B00C22BD6 /* GameControlLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD4021BA90C5B00C22BD6 /* GameControlLayer.m */; };
 		6B0FD4061BA90C6900C22BD6 /* OverallControlLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD4051BA90C6900C22BD6 /* OverallControlLayer.m */; };
 		6B0FD40A1BA90D2600C22BD6 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD4091BA90D2600C22BD6 /* GameData.m */; };
+		6B0FD4101BA9122900C22BD6 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD40F1BA9122900C22BD6 /* MenuLayer.m */; };
 		E92857331BA25B5500DF4959 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857321BA25B5500DF4959 /* GameObject.m */; };
 		E92857361BA25B6B00DF4959 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857351BA25B6B00DF4959 /* Player.m */; };
 		E92857391BA25BAB00DF4959 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857381BA25BAB00DF4959 /* Entity.m */; };
@@ -78,6 +79,8 @@
 		6B0FD4051BA90C6900C22BD6 /* OverallControlLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverallControlLayer.m; sourceTree = "<group>"; };
 		6B0FD4081BA90D2600C22BD6 /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
 		6B0FD4091BA90D2600C22BD6 /* GameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameData.m; sourceTree = "<group>"; };
+		6B0FD40E1BA9122900C22BD6 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
+		6B0FD40F1BA9122900C22BD6 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
 		E92857311BA25B5500DF4959 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		E92857321BA25B5500DF4959 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		E92857341BA25B6B00DF4959 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -242,6 +245,8 @@
 		6B0FD4001BA90C1900C22BD6 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				6B0FD40E1BA9122900C22BD6 /* MenuLayer.h */,
+				6B0FD40F1BA9122900C22BD6 /* MenuLayer.m */,
 				6B0FD3FB1BA90B4A00C22BD6 /* BackgroundLayerMenu.h */,
 				6B0FD3FC1BA90B4A00C22BD6 /* BackgroundLayerMenu.m */,
 			);
@@ -505,6 +510,7 @@
 				6B0FD3F71BA908B800C22BD6 /* OverallScene.m in Sources */,
 				67FFA6DA1B99301C00354487 /* GameViewController.m in Sources */,
 				67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */,
+				6B0FD4101BA9122900C22BD6 /* MenuLayer.m in Sources */,
 				67FFA6D51B99301C00354487 /* GameScene.m in Sources */,
 				6B0FD40A1BA90D2600C22BD6 /* GameData.m in Sources */,
 				E92857361BA25B6B00DF4959 /* Player.m in Sources */,
