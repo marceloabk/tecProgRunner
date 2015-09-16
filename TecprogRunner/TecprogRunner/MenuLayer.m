@@ -14,6 +14,9 @@
     
     if(self = [super init]){
         
+        self.layer = [SKNode node];
+        [self addChild:self.layer];
+        
         self.backgroundLayerMenu = [[BackgroundLayerMenu alloc] initWithSize:size];
         [self loadButtons];
         
@@ -24,8 +27,8 @@
 // method called when entering layer
 -(void) activateLayer{
     
-    [self addChild:self.backgroundLayerMenu];
-    [self addChild:self.tapToPlayButton];
+    [self.layer addChild:self.backgroundLayerMenu];
+    [self.layer addChild:self.tapToPlayButton];
 }
 
 // load all buttons in the menu
@@ -34,6 +37,14 @@
     [self loadTapToPlay];
 }
 
+
+-(void) changeLayer{
+    
+    [self.layer removeFromParent];
+    self.layer = [SKNode node];
+    [self addChild:self.layer];
+    
+}
 -(void) loadTapToPlay{
     
     self.tapToPlayButton = [SKSpriteNode spriteNodeWithImageNamed:@"tapToPlay"];
