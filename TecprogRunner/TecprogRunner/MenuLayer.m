@@ -39,7 +39,7 @@
     self.tapToPlayButton = [SKSpriteNode spriteNodeWithImageNamed:@"tapToPlay"];
     [self.tapToPlayButton setScale:0.5];
     self.tapToPlayButton.anchorPoint = CGPointMake(0, 1);
-    self.tapToPlayButton.position = CGPointMake(211, 375-224);
+    self.tapToPlayButton.position = CGPointMake(251, 375-234);
     self.tapToPlayButton.zPosition = 2;
     self.tapToPlayButton.name = @"tapToPlay";
     
