@@ -59,7 +59,15 @@
         
         }
     }
+    else if([GameData sharedGameData].layerActivated == 2){
+        if([node.name isEqualToString:@"backButtonStore"]){
+            [GameData sharedGameData].layerActivated = 1;
+            [self.overallControlLayer changeLayer];
+        }
+    }
 
+    
+    
 }
 
 
