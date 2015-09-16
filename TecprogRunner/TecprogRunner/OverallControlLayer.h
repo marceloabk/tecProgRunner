@@ -7,10 +7,13 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "BackgroundLayerMenu.h"
 
 @interface OverallControlLayer : SKNode
 
 -(instancetype) initWithSize: (CGSize) size;
 
-    
+@property (nonatomic) BackgroundLayerMenu * backgroundLayerMenu;
+
+
 @end
