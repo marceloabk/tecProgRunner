@@ -13,9 +13,18 @@
 -(instancetype) init{
     self = [super initWithTexture:[SKTexture textureWithImageNamed:@"playerTexture"]];
     if(self != nil){
-        
+        [self generatePhysicsBody];
+         
     }
     return self;
 }
 
+-(SKPhysicsBody *)generatePhysicsBody{
+    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
+    physicsBody.allowsRotation = NO;
+    physicsBody.mass = 100;
+    physicsBody.affectedByGravity = YES;
+
+    return physicsBody;
+}
 @end
