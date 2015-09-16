@@ -7,15 +7,26 @@
 //
 
 #import "GameLayer.h"
+#import "Player.h"
+
+@interface GameLayer()
+
+@property (nonatomic) Player *player;
+
+@end
 
 @implementation GameLayer{
     CGSize _size;
 }
 
--(instancetype)initWithSize:(CGSize)size{
+-(instancetype) initWithSize:(CGSize)size{
     self = [super init];
     if(self){
         _size = size;
+        
+        self.player = [[Player alloc]init];
+        
+        [self addChild:self.player];
     }
     return self;
 }

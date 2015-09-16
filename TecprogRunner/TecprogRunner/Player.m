@@ -24,6 +24,7 @@
     // Placeholder image is too big then we rescale it to fit our screen
     [self setScale:0.1];
     self.texture.filteringMode = SKTextureFilteringNearest;
+    self.position = CGPointMake(self.size.width,self.size.height);
 }
 
 // Generate player physics body
