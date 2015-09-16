@@ -13,5 +13,8 @@
 
 -(instancetype) initWithSize: (CGSize) size;
 
+@property (nonatomic) BackgroundLayerMenu *backgroundLayerMenu;
+
+-(void) activateLayer;
 
 @end

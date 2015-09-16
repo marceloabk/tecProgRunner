@@ -14,10 +14,16 @@
     
     if(self = [super init]){
         
+        self.backgroundLayerMenu = [[BackgroundLayerMenu alloc] initWithSize:size];
         
     }
     return self;
 }
 
+-(void) activateLayer{
+    
+    [self addChild:self.backgroundLayerMenu];
+    
+}
 
 @end
