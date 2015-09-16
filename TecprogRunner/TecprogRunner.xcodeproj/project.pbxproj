@@ -30,6 +30,8 @@
 		6B0FD4121BA9183500C22BD6 /* storeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B0FD4111BA9183500C22BD6 /* storeButton.png */; };
 		6B0FD4161BA91A3900C22BD6 /* StoreLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD4151BA91A3900C22BD6 /* StoreLayer.m */; };
 		6B0FD4191BA91AE400C22BD6 /* BackgroundLayerStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD4181BA91AE400C22BD6 /* BackgroundLayerStore.m */; };
+		6B0FD41C1BA91BBB00C22BD6 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B0FD41A1BA91BBB00C22BD6 /* backButton.png */; };
+		6B0FD41D1BA91BBB00C22BD6 /* storeBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B0FD41B1BA91BBB00C22BD6 /* storeBackground.png */; };
 		E92857331BA25B5500DF4959 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857321BA25B5500DF4959 /* GameObject.m */; };
 		E92857361BA25B6B00DF4959 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857351BA25B6B00DF4959 /* Player.m */; };
 		E92857391BA25BAB00DF4959 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857381BA25BAB00DF4959 /* Entity.m */; };
@@ -89,6 +91,8 @@
 		6B0FD4151BA91A3900C22BD6 /* StoreLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreLayer.m; sourceTree = "<group>"; };
 		6B0FD4171BA91AE400C22BD6 /* BackgroundLayerStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayerStore.h; sourceTree = "<group>"; };
 		6B0FD4181BA91AE400C22BD6 /* BackgroundLayerStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayerStore.m; sourceTree = "<group>"; };
+		6B0FD41A1BA91BBB00C22BD6 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backButton.png; path = Images/backButton.png; sourceTree = SOURCE_ROOT; };
+		6B0FD41B1BA91BBB00C22BD6 /* storeBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = storeBackground.png; path = Images/storeBackground.png; sourceTree = SOURCE_ROOT; };
 		E92857311BA25B5500DF4959 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		E92857321BA25B5500DF4959 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		E92857341BA25B6B00DF4959 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 		6B0FD3EF1BA903F800C22BD6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6B0FD41A1BA91BBB00C22BD6 /* backButton.png */,
+				6B0FD41B1BA91BBB00C22BD6 /* storeBackground.png */,
 				6B0FD4111BA9183500C22BD6 /* storeButton.png */,
 				6B0FD3F01BA906F300C22BD6 /* menuBg.png */,
 				6B0FD3F11BA906F300C22BD6 /* tapToPlay.png */,
@@ -504,7 +510,9 @@
 				67FFA6DF1B99301C00354487 /* Images.xcassets in Resources */,
 				67FFA6D71B99301C00354487 /* GameScene.sks in Resources */,
 				67FFA6DD1B99301C00354487 /* Main.storyboard in Resources */,
+				6B0FD41C1BA91BBB00C22BD6 /* backButton.png in Resources */,
 				6B0FD4121BA9183500C22BD6 /* storeButton.png in Resources */,
+				6B0FD41D1BA91BBB00C22BD6 /* storeBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

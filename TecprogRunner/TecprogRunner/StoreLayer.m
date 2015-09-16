@@ -17,7 +17,7 @@
         self.layer = [SKNode node];
         [self addChild:self.layer];
         
-        self.backgroundLayerMenu = [[BackgroundLayerMenu alloc] initWithSize:size];
+        self.backgroundLayerStore = [[BackgroundLayerStore alloc] initWithSize:size];
         
     }
     return self;
@@ -26,7 +26,7 @@
 
 -(void) activateLayer{
 
-    self.
+    [self.layer addChild:self.backgroundLayerStore];
 
 }
 
