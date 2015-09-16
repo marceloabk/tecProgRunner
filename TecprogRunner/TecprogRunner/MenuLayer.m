@@ -29,22 +29,28 @@
     
     [self.layer addChild:self.backgroundLayerMenu];
     [self.layer addChild:self.tapToPlayButton];
+    [self.layer addChild:self.storeButton];
 }
 
 // load all buttons in the menu
 -(void) loadButtons{
 
     [self loadTapToPlay];
+    [self loadStoreButton];
 }
 
 
--(void) changeLayer{
-    
-    [self.layer removeFromParent];
-    self.layer = [SKNode node];
-    [self addChild:self.layer];
+-(void) loadStoreButton{
+
+    self.storeButton = [SKSpriteNode spriteNodeWithImageNamed:@"storeButton"];
+    self.storeButton.position = CGPointMake(572, 375-306);
+    self.storeButton.anchorPoint = CGPointMake(0, 1);
+    self.storeButton.name = @"storeButton";
+    self.storeButton.zPosition = 2;
+    [self.storeButton setScale:0.5];
     
 }
+
 -(void) loadTapToPlay{
     
     self.tapToPlayButton = [SKSpriteNode spriteNodeWithImageNamed:@"tapToPlay"];
@@ -61,5 +67,14 @@
     
     [self.tapToPlayButton runAction: [SKAction repeatActionForever:action4]];
 }
+
+-(void) changeLayer{
+    
+    [self.layer removeFromParent];
+    self.layer = [SKNode node];
+    [self addChild:self.layer];
+    
+}
+
 
 @end

@@ -16,7 +16,9 @@
 @property (nonatomic) SKNode *layer;
 
 @property (nonatomic) BackgroundLayerMenu *backgroundLayerMenu;
+
 @property (nonatomic) SKSpriteNode *tapToPlayButton;
+@property (nonatomic) SKSpriteNode *storeButton;
 
 -(void) activateLayer;
 
