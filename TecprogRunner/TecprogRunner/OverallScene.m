@@ -7,6 +7,7 @@
 //
 
 #import "OverallScene.h"
+#import "GameData.h"
 
 @implementation OverallScene
 
@@ -37,6 +38,25 @@
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+
+    UITouch * touch = [touches anyObject];
+    CGPoint touchLocation = [touch locationInNode:self];
+    
+    SKNode *node = [self nodeAtPoint:touchLocation];
+    
+    NSLog(@"Node touched = %@", node.name);
+    
+    if([GameData sharedGameData].layerActivated == 1){
+        
+        if([node.name isEqualToString:@"tapToPlay"]){
+            NSLog(@"LETS PLAY");
+        }
+        else if([node.name isEqualToString:@""]){
+        }
+        else{
+        
+        }
+    }
 
 }
 
