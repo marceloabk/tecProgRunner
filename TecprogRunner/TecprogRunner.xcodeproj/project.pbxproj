@@ -19,6 +19,9 @@
 		67FFA6DF1B99301C00354487 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67FFA6DE1B99301C00354487 /* Images.xcassets */; };
 		67FFA6E21B99301C00354487 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67FFA6E01B99301C00354487 /* LaunchScreen.xib */; };
 		67FFA6EE1B99301C00354487 /* TecprogRunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6ED1B99301C00354487 /* TecprogRunnerTests.m */; };
+		6B0FD3F21BA906F300C22BD6 /* menuBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B0FD3F01BA906F300C22BD6 /* menuBg.png */; };
+		6B0FD3F31BA906F300C22BD6 /* tapToPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B0FD3F11BA906F300C22BD6 /* tapToPlay.png */; };
+		6B0FD3F71BA908B800C22BD6 /* OverallScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD3F61BA908B800C22BD6 /* OverallScene.m */; };
 		E92857331BA25B5500DF4959 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857321BA25B5500DF4959 /* GameObject.m */; };
 		E92857361BA25B6B00DF4959 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857351BA25B6B00DF4959 /* Player.m */; };
 		E92857391BA25BAB00DF4959 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857381BA25BAB00DF4959 /* Entity.m */; };
@@ -59,6 +62,10 @@
 		67FFA6E71B99301C00354487 /* TecprogRunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TecprogRunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		67FFA6EC1B99301C00354487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67FFA6ED1B99301C00354487 /* TecprogRunnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TecprogRunnerTests.m; sourceTree = "<group>"; };
+		6B0FD3F01BA906F300C22BD6 /* menuBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menuBg.png; path = Images/menuBg.png; sourceTree = SOURCE_ROOT; };
+		6B0FD3F11BA906F300C22BD6 /* tapToPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tapToPlay.png; path = Images/tapToPlay.png; sourceTree = SOURCE_ROOT; };
+		6B0FD3F51BA908B800C22BD6 /* OverallScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverallScene.h; sourceTree = "<group>"; };
+		6B0FD3F61BA908B800C22BD6 /* OverallScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverallScene.m; sourceTree = "<group>"; };
 		E92857311BA25B5500DF4959 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		E92857321BA25B5500DF4959 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		E92857341BA25B6B00DF4959 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -128,6 +135,8 @@
 		67FFA6CB1B99301C00354487 /* TecprogRunner */ = {
 			isa = PBXGroup;
 			children = (
+				6B0FD3F41BA9089400C22BD6 /* OverallScene */,
+				6B0FD3F81BA9098C00C22BD6 /* Layers */,
 				09CB5AAF1BA8C505006E3A64 /* GameKitHelper */,
 				E928572E1BA2556D00DF4959 /* UI */,
 				E928572D1BA2556600DF4959 /* particles */,
@@ -169,6 +178,31 @@
 				67FFA6EC1B99301C00354487 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6B0FD3EF1BA903F800C22BD6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6B0FD3F01BA906F300C22BD6 /* menuBg.png */,
+				6B0FD3F11BA906F300C22BD6 /* tapToPlay.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		6B0FD3F41BA9089400C22BD6 /* OverallScene */ = {
+			isa = PBXGroup;
+			children = (
+				6B0FD3F51BA908B800C22BD6 /* OverallScene.h */,
+				6B0FD3F61BA908B800C22BD6 /* OverallScene.m */,
+			);
+			name = OverallScene;
+			sourceTree = "<group>";
+		};
+		6B0FD3F81BA9098C00C22BD6 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Layers;
 			sourceTree = "<group>";
 		};
 		E92857281BA254E200DF4959 /* GameEntities */ = {
@@ -228,6 +262,7 @@
 		E928572E1BA2556D00DF4959 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6B0FD3EF1BA903F800C22BD6 /* Images */,
 				E92857301BA2558200DF4959 /* Fonts */,
 				E928572F1BA2557900DF4959 /* Button */,
 			);
@@ -385,6 +420,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B0FD3F31BA906F300C22BD6 /* tapToPlay.png in Resources */,
+				6B0FD3F21BA906F300C22BD6 /* menuBg.png in Resources */,
 				67FFA6E21B99301C00354487 /* LaunchScreen.xib in Resources */,
 				67FFA6DF1B99301C00354487 /* Images.xcassets in Resources */,
 				67FFA6D71B99301C00354487 /* GameScene.sks in Resources */,
@@ -411,6 +448,7 @@
 				E928573D1BA25C7600DF4959 /* Enemy.m in Sources */,
 				E92857391BA25BAB00DF4959 /* Entity.m in Sources */,
 				E92857331BA25B5500DF4959 /* GameObject.m in Sources */,
+				6B0FD3F71BA908B800C22BD6 /* OverallScene.m in Sources */,
 				67FFA6DA1B99301C00354487 /* GameViewController.m in Sources */,
 				67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */,
 				67FFA6D51B99301C00354487 /* GameScene.m in Sources */,
