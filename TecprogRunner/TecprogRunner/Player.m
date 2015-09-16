@@ -14,11 +14,19 @@
     self = [super initWithTexture:[SKTexture textureWithImageNamed:@"playerTexture"]];
     if(self != nil){
         [self generatePhysicsBody];
-         
+        [self setBasicsAttributes];
     }
     return self;
 }
 
+// Set all the basics attributes that player will have
+-(void)setBasicsAttributes{
+    // Placeholder image is too big then we rescale it to fit our screen
+    [self setScale:0.1];
+    self.texture.filteringMode = SKTextureFilteringNearest;
+}
+
+// Generate player physics body
 -(SKPhysicsBody *)generatePhysicsBody{
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     physicsBody.allowsRotation = NO;
@@ -27,4 +35,5 @@
 
     return physicsBody;
 }
+
 @end
