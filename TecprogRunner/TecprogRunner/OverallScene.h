@@ -7,10 +7,13 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "GameControlLayer.h"
+#import "OverallControlLayer.h"
 
 @interface OverallScene : SKScene
 
--(instancetype)initWithSize:(CGSize)size;
+@property (nonatomic) GameControlLayer *gameControlLayer;
+@property (nonatomic) OverallControlLayer *overallControlLayer;
 
-    
+
 @end

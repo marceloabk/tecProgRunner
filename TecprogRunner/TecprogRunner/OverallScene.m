@@ -16,6 +16,8 @@
     
     if(self){
         
+        self.gameControlLayer = [[GameControlLayer alloc] initWithSize:size];
+        self.overallControlLayer = [[OverallControlLayer alloc] initWithSize:size];
         
     
         
