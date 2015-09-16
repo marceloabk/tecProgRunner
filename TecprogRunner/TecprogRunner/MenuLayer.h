@@ -14,6 +14,7 @@
 -(instancetype) initWithSize: (CGSize) size;
 
 @property (nonatomic) BackgroundLayerMenu *backgroundLayerMenu;
+@property (nonatomic) SKSpriteNode *tapToPlayButton;
 
 -(void) activateLayer;
 
