@@ -41,7 +41,7 @@
 -(void) putLayer{
     
     if([GameData sharedGameData].layerActivated == 1){
-        
+        [self addChild:self.menuLayer];
     }
     else{
     }

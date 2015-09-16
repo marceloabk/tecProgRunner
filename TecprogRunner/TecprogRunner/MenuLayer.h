@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "BackgroundLayerMenu.h"
 
 @interface MenuLayer : SKNode
 
