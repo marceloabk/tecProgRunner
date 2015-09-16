@@ -24,6 +24,8 @@
     skView.ignoresSiblingOrder = YES;
     
     // Create and configure the scene.
+    // OverallScene will control all of the architecture of the game
+    
     OverallScene *scene = [[OverallScene alloc] initWithSize:[UIScreen mainScreen].bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     

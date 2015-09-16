@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Bepid-UnB. All rights reserved.
 //
 
+// GameData singleton that will save user data, and control layers inside the OverallScene
+
 #import <Foundation/Foundation.h>
 
 @interface GameData : NSObject <NSCoding>

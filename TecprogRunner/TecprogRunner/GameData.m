@@ -10,6 +10,7 @@
 
 @implementation GameData
 
+// dispatch method that creates the singleton
 + (instancetype)sharedGameData {
     static id sharedInstance = nil;
     
@@ -21,7 +22,7 @@
     return sharedInstance;
 }
 
-
+// load data inside the singleton
 +(instancetype)loadInstance{
     
     NSData* decodedData = [NSData dataWithContentsOfFile: [GameData filePath]];
@@ -34,6 +35,8 @@
     return [[GameData alloc] init];
 }
 
+
+// saving method
 -(void)save{
     
     NSData* encodedData = [NSKeyedArchiver archivedDataWithRootObject: self];
@@ -41,6 +44,7 @@
     
 }
 
+// initialize with Apple's NSCoder
 - (instancetype)initWithCoder:(NSCoder *)decoder{
     
     self = [self init];
@@ -52,14 +56,17 @@
     return self;
 }
 
+// method that will be called the first time the user enters the game
 -(void) start{
 
 }
 
+// encode data
 - (void)encodeWithCoder:(NSCoder *)encoder{
     
 }
 
+// file path
 +(NSString*)filePath{
     
     static NSString* filePath = nil;
