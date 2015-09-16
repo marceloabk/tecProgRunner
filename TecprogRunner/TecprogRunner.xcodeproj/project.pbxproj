@@ -10,6 +10,7 @@
 		09CB5AB11BA8C53C006E3A64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB01BA8C53C006E3A64 /* Foundation.framework */; };
 		09CB5AB41BA8C5A5006E3A64 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */; };
 		09CB5AB61BA8C5AE006E3A64 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */; };
+		678202471BA90F8300957D20 /* playerTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 678202461BA90F8300957D20 /* playerTexture.png */; };
 		67FFA6CF1B99301C00354487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6CE1B99301C00354487 /* main.m */; };
 		67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D11B99301C00354487 /* AppDelegate.m */; };
 		67FFA6D51B99301C00354487 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D41B99301C00354487 /* GameScene.m */; };
@@ -43,6 +44,7 @@
 		09CB5AB21BA8C5A5006E3A64 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
 		09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		678202461BA90F8300957D20 /* playerTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerTexture.png; sourceTree = "<group>"; };
 		67FFA6C91B99301C00354487 /* TecprogRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TecprogRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67FFA6CD1B99301C00354487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67FFA6CE1B99301C00354487 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				E92857341BA25B6B00DF4959 /* Player.h */,
 				E92857351BA25B6B00DF4959 /* Player.m */,
+				678202461BA90F8300957D20 /* playerTexture.png */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			files = (
 				67FFA6E21B99301C00354487 /* LaunchScreen.xib in Resources */,
 				67FFA6DF1B99301C00354487 /* Images.xcassets in Resources */,
+				678202471BA90F8300957D20 /* playerTexture.png in Resources */,
 				67FFA6D71B99301C00354487 /* GameScene.sks in Resources */,
 				67FFA6DD1B99301C00354487 /* Main.storyboard in Resources */,
 			);

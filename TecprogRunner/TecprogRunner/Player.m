@@ -10,4 +10,12 @@
 
 @implementation Player
 
+-(instancetype) init{
+    self = [super initWithTexture:[SKTexture textureWithImageNamed:@"playerTexture"]];
+    if(self != nil){
+        
+    }
+    return self;
+}
+
 @end
