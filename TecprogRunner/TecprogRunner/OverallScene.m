@@ -51,7 +51,9 @@
         if([node.name isEqualToString:@"tapToPlay"]){
             NSLog(@"LETS PLAY");
         }
-        else if([node.name isEqualToString:@""]){
+        else if([node.name isEqualToString:@"storeButton"]){
+            [GameData sharedGameData].layerActivated = 2;
+            [self.overallControlLayer changeLayer];
         }
         else{
         

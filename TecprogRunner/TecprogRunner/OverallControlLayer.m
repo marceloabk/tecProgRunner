@@ -43,7 +43,10 @@
     if([GameData sharedGameData].layerActivated == 1){
         [self addChild:self.menuLayer];
         [self.menuLayer activateLayer];
-        
+    }
+    else if([GameData sharedGameData].layerActivated == 1){
+        [self addChild:self.storeLayer];
+        [self.storeLayer activateLayer];
     }
     else{
     }

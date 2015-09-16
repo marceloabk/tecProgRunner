@@ -8,11 +8,15 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "MenuLayer.h"
+#import "StoreLayer.h"
 
 @interface OverallControlLayer : SKNode
 
 -(instancetype) initWithSize: (CGSize) size;
 
 @property (nonatomic)  MenuLayer* menuLayer;
+@property (nonatomic)  StoreLayer* storeLayer;
+
+-(void) changeLayer;
 
 @end

@@ -28,6 +28,8 @@
 		6B0FD40A1BA90D2600C22BD6 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD4091BA90D2600C22BD6 /* GameData.m */; };
 		6B0FD4101BA9122900C22BD6 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD40F1BA9122900C22BD6 /* MenuLayer.m */; };
 		6B0FD4121BA9183500C22BD6 /* storeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B0FD4111BA9183500C22BD6 /* storeButton.png */; };
+		6B0FD4161BA91A3900C22BD6 /* StoreLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD4151BA91A3900C22BD6 /* StoreLayer.m */; };
+		6B0FD4191BA91AE400C22BD6 /* BackgroundLayerStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD4181BA91AE400C22BD6 /* BackgroundLayerStore.m */; };
 		E92857331BA25B5500DF4959 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857321BA25B5500DF4959 /* GameObject.m */; };
 		E92857361BA25B6B00DF4959 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857351BA25B6B00DF4959 /* Player.m */; };
 		E92857391BA25BAB00DF4959 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857381BA25BAB00DF4959 /* Entity.m */; };
@@ -83,6 +85,10 @@
 		6B0FD40E1BA9122900C22BD6 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
 		6B0FD40F1BA9122900C22BD6 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
 		6B0FD4111BA9183500C22BD6 /* storeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = storeButton.png; path = Images/storeButton.png; sourceTree = SOURCE_ROOT; };
+		6B0FD4141BA91A3900C22BD6 /* StoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreLayer.h; sourceTree = "<group>"; };
+		6B0FD4151BA91A3900C22BD6 /* StoreLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreLayer.m; sourceTree = "<group>"; };
+		6B0FD4171BA91AE400C22BD6 /* BackgroundLayerStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayerStore.h; sourceTree = "<group>"; };
+		6B0FD4181BA91AE400C22BD6 /* BackgroundLayerStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayerStore.m; sourceTree = "<group>"; };
 		E92857311BA25B5500DF4959 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		E92857321BA25B5500DF4959 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		E92857341BA25B6B00DF4959 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -231,6 +237,7 @@
 			children = (
 				6B0FD4041BA90C6900C22BD6 /* OverallControlLayer.h */,
 				6B0FD4051BA90C6900C22BD6 /* OverallControlLayer.m */,
+				6B0FD4131BA91A2500C22BD6 /* Store */,
 				6B0FD4001BA90C1900C22BD6 /* Menu */,
 			);
 			name = OverallControlLayer;
@@ -263,6 +270,17 @@
 				6B0FD4091BA90D2600C22BD6 /* GameData.m */,
 			);
 			name = GameData;
+			sourceTree = "<group>";
+		};
+		6B0FD4131BA91A2500C22BD6 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				6B0FD4141BA91A3900C22BD6 /* StoreLayer.h */,
+				6B0FD4151BA91A3900C22BD6 /* StoreLayer.m */,
+				6B0FD4171BA91AE400C22BD6 /* BackgroundLayerStore.h */,
+				6B0FD4181BA91AE400C22BD6 /* BackgroundLayerStore.m */,
+			);
+			name = Store;
 			sourceTree = "<group>";
 		};
 		E92857281BA254E200DF4959 /* GameEntities */ = {
@@ -514,6 +532,7 @@
 				6B0FD3F71BA908B800C22BD6 /* OverallScene.m in Sources */,
 				67FFA6DA1B99301C00354487 /* GameViewController.m in Sources */,
 				67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */,
+				6B0FD4161BA91A3900C22BD6 /* StoreLayer.m in Sources */,
 				6B0FD4101BA9122900C22BD6 /* MenuLayer.m in Sources */,
 				67FFA6D51B99301C00354487 /* GameScene.m in Sources */,
 				6B0FD40A1BA90D2600C22BD6 /* GameData.m in Sources */,
@@ -522,6 +541,7 @@
 				E92857431BA25CF500DF4959 /* GameLayer.m in Sources */,
 				67FFA6CF1B99301C00354487 /* main.m in Sources */,
 				E92857461BA25D0300DF4959 /* HudLayer.m in Sources */,
+				6B0FD4191BA91AE400C22BD6 /* BackgroundLayerStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
