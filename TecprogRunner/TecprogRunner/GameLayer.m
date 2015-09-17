@@ -31,4 +31,13 @@
     return self;
 }
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [touches anyObject];
+    CGPoint touchLocation = [touch locationInNode:self];
+    
+    if((touchLocation.x < _size.width/2)){
+        [self.player jump];
+    }
+}
+
 @end

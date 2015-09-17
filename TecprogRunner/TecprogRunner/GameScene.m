@@ -47,6 +47,7 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [_game touchesBegan:touches withEvent:event];
 }
 
 -(void)update:(CFTimeInterval)currentTime{

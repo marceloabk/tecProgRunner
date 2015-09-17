@@ -15,6 +15,8 @@
     
     if(self != nil){
         self.physicsBody = [self generatePhysicsBody];
+        self.playerOnGound = true;
+        
         [self setBasicsAttributes];
     }else{
         // There is no alternative path for this else
@@ -41,7 +43,9 @@
 }
 
 -(void) jump{
-    
+    [UIView animateWithDuration:2 animations:^{
+        self.position = CGPointMake(self.position.x, self.position.y + 100);
+    }];
 }
 
 @end
