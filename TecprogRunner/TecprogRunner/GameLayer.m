@@ -31,15 +31,17 @@
     return self;
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+-(void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
     
     if((touchLocation.x < _size.width/2) && self.player.playerOnGound == true){
         NSLog(@"User clicked in left side of game layer");
         [self.player jump];
-    } else {
+    }else if(touchLocation.x > _size.width/2){
         NSLog(@"User clicked in right side of game layer");
+    }else{
+        // Do nothing
     }
 }
 
