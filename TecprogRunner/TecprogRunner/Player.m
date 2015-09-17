@@ -8,6 +8,10 @@
 
 #import "Player.h"
 
+@interface Player()
+
+@end
+
 @implementation Player
 
 -(instancetype) init{
@@ -37,15 +41,24 @@
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     physicsBody.allowsRotation = NO;
     physicsBody.mass = 100;
-    physicsBody.affectedByGravity = YES;
+    physicsBody.affectedByGravity = NO;
 
     return physicsBody;
 }
 
+// Make player perform a jump when called
 -(void) jump{
-    [UIView animateWithDuration:2 animations:^{
-        self.position = CGPointMake(self.position.x, self.position.y + 100);
+    // Need to be improved to make a more realistic jump
+    self.playerOnGound = false;
+    
+    SKAction *jumpAction = [SKAction moveBy:CGVectorMake(0, 150) duration:0.2];
+    SKAction *fallAction = [SKAction moveBy:CGVectorMake(0, -150) duration:0.3];
+    SKAction *playerBackToGround = [SKAction runBlock:^{
+        self.playerOnGound = true;
     }];
+    SKAction *sequence = [SKAction sequence:@[jumpAction,fallAction,playerBackToGround]];
+    
+    [self runAction:sequence];
 }
 
 @end
