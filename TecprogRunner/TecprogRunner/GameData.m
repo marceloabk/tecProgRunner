@@ -10,6 +10,9 @@
 
 @implementation GameData
 
+// Keys to save data
+static NSString* const SSGameDataKey1 = @"highScore";
+
 // dispatch method that creates the singleton
 + (instancetype)sharedGameData {
     static id sharedInstance = nil;
@@ -50,7 +53,9 @@
     self = [self init];
     
     if (self){
-       
+     
+        _highScore = [decoder decodeIntForKey: SSGameDataKey1];
+
     }
     
     return self;
@@ -66,6 +71,8 @@
 // encode data
 - (void)encodeWithCoder:(NSCoder *)encoder{
     
+    [encoder encodeInt:self.highScore forKey: SSGameDataKey1];
+
 }
 
 // file path

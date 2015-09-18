@@ -22,6 +22,7 @@ typedef enum {
 
 @property (nonatomic) layerType layerActivated;
 
+@property (nonatomic) int highScore;
 -(void) start;
 -(void) save;
 
