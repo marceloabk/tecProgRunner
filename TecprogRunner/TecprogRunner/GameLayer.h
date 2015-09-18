@@ -10,4 +10,6 @@
 
 @interface GameLayer : SKNode <LayerRequirements>
 
+-(void)update:(CFTimeInterval)currentTime;
+
 @end

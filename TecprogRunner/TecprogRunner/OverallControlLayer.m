@@ -38,24 +38,30 @@
 
 -(void) loadLayers{
 
-    self.menuLayer = [[MenuLayer alloc] initWithSize:CGSizeMake(667, 375)];
-    self.storeLayer = [[StoreLayer alloc] initWithSize:CGSizeMake(667, 375)];
+    CGSize layerSize = CGSizeMake(667, 375);
+    
+    self.menuLayer = [[MenuLayer alloc] initWithSize:layerSize];
+    self.storeLayer = [[StoreLayer alloc] initWithSize:layerSize];
+    self.gameLayer = [[GameLayer alloc] initWithSize:layerSize];
     
     self.menuLayer.name = @"layer";
     self.storeLayer.name = @"layer";
+    self.gameLayer.name = @"layer";
 
 }
 -(void) putLayer{
     
-    if([GameData sharedGameData].layerActivated == 1){
+    if([GameData sharedGameData].layerActivated == menu){
         [self addChild:self.menuLayer];
         [self.menuLayer activateLayer];
     }
-    else if([GameData sharedGameData].layerActivated == 2){
+    else if([GameData sharedGameData].layerActivated == store){
         [self addChild:self.storeLayer];
         [self.storeLayer activateLayer];
     }
-    else{
+    else if([GameData sharedGameData].layerActivated == game){
+        [self addChild:self.gameLayer];
+        [self.storeLayer activateLayer];
     }
 }
 

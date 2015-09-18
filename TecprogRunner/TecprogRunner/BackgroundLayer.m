@@ -18,30 +18,26 @@
     if(self){
         
         _size = size;
-        self.background = [[SKSpriteNode alloc] initWithColor:[UIColor magentaColor] size:CGSizeMake(size.width/2, size.height/2)];
+        self.background = [[SKSpriteNode alloc] initWithColor:[UIColor magentaColor] size:CGSizeMake(size.width, size.height/2)];
         
         self.background.anchorPoint = CGPointZero;
         
-        backgroundDefaultVelocity = -50;
+        //Setting background sprite initial point
+        CGPoint initialPoint = CGPointMake(_size.width, 0);
+        self.background.position = initialPoint;
         
+        //Setting backgroundMoviment
+        SKAction* backgroundMoviment = [SKAction moveByX:-self.background.size.width*2 y:0 duration:6];
+        SKAction* setBackgroundPosition = [SKAction moveTo:initialPoint duration:0.0];
+        SKAction* backgroundMovimentSequence = [SKAction sequence:@[backgroundMoviment, setBackgroundPosition]];
+        
+        //Running background moviment sequence
+        [self.background runAction:[SKAction repeatActionForever:backgroundMovimentSequence] withKey:@"backgroundMoviment"];
+        
+        //Adding background to view
         [self addChild:self.background];
     }
     return self;
-}
-
--(void)moveBackgroundWithDeltaTime:(NSTimeInterval)deltaTime{
-
-    //Adapting velocity with frame time
-    CGPoint amountToMove = CGPointMake(backgroundDefaultVelocity * deltaTime, 0);
-    
-    //Updating sprite position
-    CGPoint bgPos = self.background.position;
-    self.background.position = CGPointMake(bgPos.x + amountToMove.x, bgPos.y);
-
-    //Resetting background position if it passes the left border
-    if(self.background.position.x <= self.position.x - self.background.size.width) {
-        self.background.position = CGPointMake(_size.width, 0);
-    }
 }
 
 @end

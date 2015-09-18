@@ -59,9 +59,6 @@
         _deltaTime = 0;
     }
     _lastUpdateTime = currentTime;
-    
-    // Moving background
-    [_background moveBackgroundWithDeltaTime:_deltaTime];
 }
 
 -(void)moveSprite:(SKSpriteNode*)sprite withVelocity:(CGPoint)velocity{

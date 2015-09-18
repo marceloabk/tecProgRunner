@@ -8,6 +8,8 @@
 
 #import "GameLayer.h"
 #import "Player.h"
+#import "HudLayer.h"
+#import "BackgroundLayer.h"
 
 @interface GameLayer()
 
@@ -15,23 +17,49 @@
 
 @end
 
-@implementation GameLayer{
+@implementation GameLayer
+{
     CGSize _size;
+    
+    BackgroundLayer *_backgroundLayer;
+    HudLayer* _hudLayer;
+    SKNode* _sceneLayer;
+    
+    // Time variables
+    NSTimeInterval _deltaTime;
+    NSTimeInterval _lastUpdateTime;
 }
 
 -(instancetype) initWithSize:(CGSize)size{
+    
     self = [super init];
     if(self){
         _size = size;
         
         self.player = [[Player alloc]init];
         
+        [self prepareGameLayer];
+        
         [self addChild:self.player];
     }
     return self;
 }
 
--(void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+-(void) prepareGameLayer{
+    
+    _sceneLayer = [[SKNode alloc] init];
+    _backgroundLayer = [[BackgroundLayer alloc] initWithSize:_size];
+    _hudLayer = [[HudLayer alloc] initWithSize:_size];
+    
+    // Adding layers to scene
+    [self addChild:_sceneLayer];
+    [_sceneLayer addChild:_backgroundLayer];
+    [_sceneLayer addChild:_hudLayer];
+
+}
+
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
     
@@ -43,6 +71,17 @@
     }else{
         // Do nothing
     }
+}
+
+-(void) update:(CFTimeInterval)currentTime{
+    
+    // Updating frame time
+    if(_lastUpdateTime){
+        _deltaTime = currentTime - _lastUpdateTime;
+    }else{
+        _deltaTime = 0;
+    }
+    _lastUpdateTime = currentTime;
 }
 
 @end

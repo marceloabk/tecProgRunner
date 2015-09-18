@@ -8,8 +8,13 @@
 
 #import "OverallScene.h"
 #import "GameData.h"
+#import "GameLayer.h"
+
 
 @implementation OverallScene
+{
+    GameLayer* _gameLayer;
+}
 
 - (instancetype)initWithSize:(CGSize)size{
     
@@ -20,6 +25,8 @@
         self.gameControlLayer = [[GameControlLayer alloc] initWithSize:size];
         self.overallControlLayer = [[OverallControlLayer alloc] initWithSize:size];
         
+        _gameLayer = self.overallControlLayer.gameLayer;
+        
         [self addChild:self.gameControlLayer];
         [self addChild:self.overallControlLayer];
         
@@ -29,7 +36,10 @@
 
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-
+    
+    if([GameData sharedGameData].layerActivated == game){
+        [_gameLayer touchesBegan:touches withEvent:event];
+    }
     
 }
 
@@ -46,27 +56,37 @@
     
     NSLog(@"Node touched = %@", node.name);
     
-    if([GameData sharedGameData].layerActivated == 1){
+    if([GameData sharedGameData].layerActivated == menu){
         
         if([node.name isEqualToString:@"tapToPlay"]){
             NSLog(@"LETS PLAY");
+            [GameData sharedGameData].layerActivated = game;
+            [self.overallControlLayer changeLayer];
         }
         else if([node.name isEqualToString:@"storeButton"]){
-            [GameData sharedGameData].layerActivated = 2;
+            [GameData sharedGameData].layerActivated = store;
             [self.overallControlLayer changeLayer];
         }
         else{
         
         }
     }
-    else if([GameData sharedGameData].layerActivated == 2){
+    else if([GameData sharedGameData].layerActivated == store){
         if([node.name isEqualToString:@"backButtonStore"]){
-            [GameData sharedGameData].layerActivated = 1;
+            [GameData sharedGameData].layerActivated = menu;
             [self.overallControlLayer changeLayer];
         }
     }
 
     
+    
+}
+
+-(void) update:(CFTimeInterval)currentTime{
+    
+    if([GameData sharedGameData].layerActivated == game){
+//        [_gameLayer update:currentTime];
+    }
     
 }
 

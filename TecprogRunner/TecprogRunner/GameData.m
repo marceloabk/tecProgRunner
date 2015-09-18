@@ -59,7 +59,7 @@
 // method that will be called the first time the user enters the game
 -(void) start{
 
-    self.layerActivated = 1;
+    self.layerActivated = menu;
     
 }
 

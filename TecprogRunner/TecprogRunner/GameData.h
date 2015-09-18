@@ -10,11 +10,17 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    menu,
+    store,
+    game,
+} layerType;
+
 @interface GameData : NSObject <NSCoding>
 
 +(instancetype)sharedGameData;
 
-@property (nonatomic) int layerActivated;
+@property (nonatomic) layerType layerActivated;
 
 -(void) start;
 -(void) save;
