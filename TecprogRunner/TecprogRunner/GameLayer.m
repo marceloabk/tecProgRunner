@@ -36,10 +36,10 @@
     CGPoint touchLocation = [touch locationInNode:self];
     
     if((touchLocation.x < _size.width/2) && self.player.playerOnGound == true){
-        NSLog(@"User clicked in left side of game layer");
+        NSLog(@"User clicked on left side of game layer and is on ground");
         [self.player jump];
     }else if(touchLocation.x > _size.width/2){
-        NSLog(@"User clicked in right side of game layer");
+        NSLog(@"User clicked on right side of game layer");
     }else{
         // Do nothing
     }

@@ -48,17 +48,34 @@
 
 // Make player perform a jump when called
 -(void) jump{
-    // Need to be improved to make a more realistic jump
     self.playerOnGound = false;
     
-    SKAction *jumpAction = [SKAction moveBy:CGVectorMake(0, 150) duration:0.2];
-    SKAction *fallAction = [SKAction moveBy:CGVectorMake(0, -150) duration:0.3];
+    NSMutableArray *actionsToPlayerFinishJump = [NSMutableArray array];
+    
+    float timeToGetHigherPosition = 0; // Time To perform a small part of jump
+
+    for (int i = 0; i < 9; i++) {
+        timeToGetHigherPosition += 0.006;
+        // Here is used a vector with coordinates (0,16) because the wanted final vector is a (0,144) vector
+        // When move by is used it doesn't make a sum or a scalar multiplication of vectors
+        SKAction *jumpAction = [SKAction moveBy:CGVectorMake(0, 16) duration:timeToGetHigherPosition];
+        [actionsToPlayerFinishJump addObject:jumpAction];
+    }
+    
+    float timeToGetLowestrPosition = 0.054;
+    for (int i = 0; i < 9; i++) {
+        timeToGetLowestrPosition -= 0.006;
+        SKAction *fallAction = [SKAction moveBy:CGVectorMake(0, -16) duration:timeToGetLowestrPosition];
+        [actionsToPlayerFinishJump addObject:fallAction];
+    }
+
     SKAction *playerBackToGround = [SKAction runBlock:^{
         self.playerOnGound = true;
     }];
-    SKAction *sequence = [SKAction sequence:@[jumpAction,fallAction,playerBackToGround]];
     
-    [self runAction:sequence];
+    [actionsToPlayerFinishJump addObject:playerBackToGround];
+
+    [self runAction:[SKAction sequence:actionsToPlayerFinishJump]];
 }
 
 @end
