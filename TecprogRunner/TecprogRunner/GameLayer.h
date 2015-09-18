@@ -11,5 +11,8 @@
 @interface GameLayer : SKNode <LayerRequirements>
 
 -(void)update:(CFTimeInterval)currentTime;
+-(void) activateLayer;
+
+@property (nonatomic) SKNode *layer;
 
 @end

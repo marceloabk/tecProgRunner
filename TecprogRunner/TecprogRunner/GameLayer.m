@@ -28,6 +28,8 @@
     // Time variables
     NSTimeInterval _deltaTime;
     NSTimeInterval _lastUpdateTime;
+    
+    
 }
 
 -(instancetype) initWithSize:(CGSize)size{
@@ -40,7 +42,11 @@
         
         [self prepareGameLayer];
         
-        [self addChild:self.player];
+        self.layer = [SKNode node];
+        [self addChild:self.layer];
+        
+        [self.layer addChild:self.player];
+
     }
     return self;
 }
@@ -52,7 +58,7 @@
     _hudLayer = [[HudLayer alloc] initWithSize:_size];
     
     // Adding layers to scene
-    [self addChild:_sceneLayer];
+    [self.layer addChild:_sceneLayer];
     [_sceneLayer addChild:_backgroundLayer];
     [_sceneLayer addChild:_hudLayer];
 
@@ -83,7 +89,11 @@
     }
     _lastUpdateTime = currentTime;
     
-    NSLog(@"%f", _deltaTime);
+    //NSLog(@"%f", _deltaTime);
+}
+
+-(void) activateLayer{
+    
 }
 
 @end

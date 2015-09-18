@@ -77,6 +77,7 @@
             [self.overallControlLayer changeLayer];
         }
     }
+    
 }
 
 -(void) update:(CFTimeInterval)currentTime{
