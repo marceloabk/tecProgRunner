@@ -14,6 +14,7 @@
 
 @implementation Player
 
+// Initialize Player class
 -(instancetype) init{
     self = [super initWithTexture:[SKTexture textureWithImageNamed:@"playerTexture"]];
     
@@ -23,7 +24,7 @@
         
         [self setBasicsAttributes];
     }else{
-        // There is no alternative path for this else
+        // There is no alternative path for this if
     }
     return self;
 }
