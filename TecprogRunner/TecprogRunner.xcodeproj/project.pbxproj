@@ -11,10 +11,9 @@
 		09CB5AB41BA8C5A5006E3A64 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */; };
 		09CB5AB61BA8C5AE006E3A64 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */; };
 		678202471BA90F8300957D20 /* playerTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 678202461BA90F8300957D20 /* playerTexture.png */; };
-		67A4F5C31BABA3E0004DCA3C /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F5C21BABA3E0004DCA3C /* Projectile.m */; settings = {ASSET_TAGS = (); }; };
+		67A4F5C31BABA3E0004DCA3C /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F5C21BABA3E0004DCA3C /* Projectile.m */; };
 		67FFA6CF1B99301C00354487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6CE1B99301C00354487 /* main.m */; };
 		67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D11B99301C00354487 /* AppDelegate.m */; };
-		67FFA6D51B99301C00354487 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D41B99301C00354487 /* GameScene.m */; };
 		67FFA6D71B99301C00354487 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 67FFA6D61B99301C00354487 /* GameScene.sks */; };
 		67FFA6DA1B99301C00354487 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D91B99301C00354487 /* GameViewController.m */; };
 		67FFA6DD1B99301C00354487 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67FFA6DB1B99301C00354487 /* Main.storyboard */; };
@@ -66,8 +65,6 @@
 		67FFA6CE1B99301C00354487 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		67FFA6D01B99301C00354487 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		67FFA6D11B99301C00354487 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		67FFA6D31B99301C00354487 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
-		67FFA6D41B99301C00354487 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		67FFA6D61B99301C00354487 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		67FFA6D81B99301C00354487 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		67FFA6D91B99301C00354487 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
@@ -182,7 +179,6 @@
 				09CB5AAF1BA8C505006E3A64 /* GameKitHelper */,
 				E928572E1BA2556D00DF4959 /* UI */,
 				E928572D1BA2556600DF4959 /* particles */,
-				E928572C1BA2551900DF4959 /* Scenes */,
 				E92857281BA254E200DF4959 /* GameEntities */,
 				67FFA6D01B99301C00354487 /* AppDelegate.h */,
 				67FFA6D11B99301C00354487 /* AppDelegate.m */,
@@ -246,6 +242,8 @@
 		6B0FD3F81BA9098C00C22BD6 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
+				E92857511BA320AA00DF4959 /* BasicLayer.h */,
+				E92857401BA25CB100DF4959 /* GameSceneLayers */,
 				6B0FD3FF1BA90B6100C22BD6 /* GameControlLayer */,
 				6B0FD3FE1BA90B5700C22BD6 /* OverallControlLayer */,
 			);
@@ -343,14 +341,6 @@
 			name = Player;
 			sourceTree = "<group>";
 		};
-		E928572C1BA2551900DF4959 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				E928573F1BA25CA300DF4959 /* GameScene */,
-			);
-			name = Scenes;
-			sourceTree = "<group>";
-		};
 		E928572D1BA2556600DF4959 /* particles */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,20 +382,9 @@
 			name = "General Entity";
 			sourceTree = "<group>";
 		};
-		E928573F1BA25CA300DF4959 /* GameScene */ = {
-			isa = PBXGroup;
-			children = (
-				E92857401BA25CB100DF4959 /* GameSceneLayers */,
-				67FFA6D31B99301C00354487 /* GameScene.h */,
-				67FFA6D41B99301C00354487 /* GameScene.m */,
-			);
-			name = GameScene;
-			sourceTree = "<group>";
-		};
 		E92857401BA25CB100DF4959 /* GameSceneLayers */ = {
 			isa = PBXGroup;
 			children = (
-				E92857511BA320AA00DF4959 /* BasicLayer.h */,
 				E928574C1BA25D2400DF4959 /* BackgroundLayer */,
 				E928574B1BA25D1D00DF4959 /* HudLayer */,
 				E928574A1BA25D1500DF4959 /* GameLayer */,
@@ -559,7 +538,6 @@
 				67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */,
 				6B0FD4161BA91A3900C22BD6 /* StoreLayer.m in Sources */,
 				6B0FD4101BA9122900C22BD6 /* MenuLayer.m in Sources */,
-				67FFA6D51B99301C00354487 /* GameScene.m in Sources */,
 				6B0FD40A1BA90D2600C22BD6 /* GameData.m in Sources */,
 				E92857361BA25B6B00DF4959 /* Player.m in Sources */,
 				6B0FD3FD1BA90B4A00C22BD6 /* BackgroundLayerMenu.m in Sources */,

@@ -77,15 +77,12 @@
             [self.overallControlLayer changeLayer];
         }
     }
-
-    
-    
 }
 
 -(void) update:(CFTimeInterval)currentTime{
     
     if([GameData sharedGameData].layerActivated == game){
-//        [_gameLayer update:currentTime];
+        [_gameLayer update:currentTime];
     }
     
 }

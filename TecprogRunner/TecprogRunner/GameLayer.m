@@ -82,6 +82,8 @@
         _deltaTime = 0;
     }
     _lastUpdateTime = currentTime;
+    
+    NSLog(@"%f", _deltaTime);
 }
 
 @end
