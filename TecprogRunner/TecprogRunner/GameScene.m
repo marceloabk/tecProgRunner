@@ -10,13 +10,13 @@
 
 @implementation GameScene{
     
-    //Game layers
+    // Game layers
     BackgroundLayer* _background;
     HudLayer* _hud;
     GameLayer* _game;
     SKNode* _sceneLayer;
     
-    //Time variables
+    // Time variables
     NSTimeInterval _deltaTime;
     NSTimeInterval _lastUpdateTime;
 }
@@ -25,19 +25,21 @@
     self = [super initWithSize:size];
     if (self) {
         
-        //Instantiating layers
+        // Instantiating layers
         _sceneLayer = [[SKNode alloc] init];
         _background = [[BackgroundLayer alloc] initWithSize:self.size];
         _hud = [[HudLayer alloc] initWithSize:self.size];
         _game = [[GameLayer alloc] initWithSize:self.size];
-
+        
+        // Creating a Physics Body to gamelayer to start the tests with physics
+        self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
     }
     return self;
 }
 
 -(void)didMoveToView:(SKView *)view{
     
-    //Adding layers to scene
+    // Adding layers to scene
     [self addChild:_sceneLayer];
     [_sceneLayer addChild:_background];
     [_sceneLayer addChild:_hud];
@@ -45,11 +47,12 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [_game touchesBegan:touches withEvent:event];
 }
 
 -(void)update:(CFTimeInterval)currentTime{
     
-    //Updating frame time
+    // Updating frame time
     if(_lastUpdateTime){
         _deltaTime = currentTime - _lastUpdateTime;
     }else{
@@ -57,16 +60,16 @@
     }
     _lastUpdateTime = currentTime;
     
-    //Moving background
+    // Moving background
     [_background moveBackgroundWithDeltaTime:_deltaTime];
 }
 
 -(void)moveSprite:(SKSpriteNode*)sprite withVelocity:(CGPoint)velocity{
     
-    //Adapting velocity with frame time
+    // Adapting velocity with frame time
     CGPoint amountToMove = CGPointMake(velocity.x * _deltaTime, velocity.y * _deltaTime);
     
-    //Updating sprite position
+    // Updating sprite position
     sprite.position = CGPointMake(sprite.position.x + amountToMove.x, sprite.position.y + amountToMove.y);
 }
 

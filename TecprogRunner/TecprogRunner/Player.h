@@ -10,4 +10,7 @@
 
 @interface Player : Entity
 
+@property (nonatomic) BOOL playerOnGound;
+-(void) jump;
+
 @end
