@@ -10,26 +10,35 @@
 
 @implementation GameObject
 
--(SKTexture *)generateTextureWithName:(NSString *)name{
-    // Gerar texturas com o nome da imagem
-    return [SKTexture textureWithImageNamed:name];
+#pragma mark Generating and configuring GameObject
+
+-(SKTexture *) generateTextureWithImageNamed:(NSString *)image{
+    // Generate a texture with the image
+    SKTexture *imageTexture = [self generateTextureWithImageNamed:image];
+    
+    return imageTexture;
 }
 
--(SKPhysicsBody *)generatePhysicsBodyWithTextureWithTextureNamed:(NSString *)image{
-    // Gerar corpo físico usando a textura
-    return [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(100, 100)];
+-(SKPhysicsBody *) generatePhysicsBodyWithImageNamed:(NSString *)image{
+    // Generate a physics body with the image
+    SKTexture *imageTexture = [self generateTextureWithImageNamed:image];
+    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithTexture:imageTexture size:self.size];
+    
+    return physicsBody;
 }
 
--(void)setBasicsAttributes{
-    // Atributos básicos do tipo GameObject
+-(void) setBasicsAttributes{
+    // Set attributes for the default "GameObject"
 }
 
--(void)beginContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact{
-    // Tratamento para quando começa o contato
+#pragma mark Defining Contact methods
+
+-(void) beginContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact{
+    // Handling for when the contact starts
 }
 
--(void)endContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact{
-    // Tratamento para quando termina o contato
+-(void) endContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact{
+    // Handling for when the contact ends
 }
 
 @end
