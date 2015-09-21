@@ -13,28 +13,28 @@
 
 #pragma mark Initialization and sharing
 
--(instancetype)init;
+-(instancetype) init;
 
-+(instancetype)sharedGameKitHelper;
++(instancetype) sharedGameKitHelper;
 
 #pragma mark Authentication
 
--(void)authenticateLocalPlayer;
+-(void) authenticateLocalPlayer;
 
--(void)setAuthenticationViewController:(UIViewController *)authenticationViewController;
+-(void) setAuthenticationViewController:(UIViewController *)authenticationViewController;
 
--(void)setLastError:(NSError *)error;
+-(void) setLastError:(NSError *)error;
 
 #pragma mark Report conquests
 
--(void)reportScore:(int64_t)score forLeaderboardID:(NSString *)leaderboardID;
+-(void) reportScore:(int64_t)score forLeaderboardID:(NSString *)leaderboardID;
 
--(void)reportAchievements:(NSArray *)achievements;
+-(void) reportAchievements:(NSArray *)achievements;
 
 #pragma mark View Controller manipulation
 
--(void)presentLeaderboardsOnViewController:(UIViewController *)viewController;
+-(void) presentLeaderboardsOnViewController:(UIViewController *)viewController;
 
--(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController;
+-(void) gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController;
 
 @end
