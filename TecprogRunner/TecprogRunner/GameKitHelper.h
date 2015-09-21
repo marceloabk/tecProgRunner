@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @import GameKit;
 
-@interface GameKitHelper : NSObject
+@interface GameKitHelper : NSObject <GKGameCenterControllerDelegate>
 
 #pragma mark Initialization and sharing
 

@@ -8,22 +8,41 @@
 
 #import "GameKitHelper.h"
 
-@implementation GameKitHelper
+@implementation GameKitHelper{
+    // Identify if the Game Center is enabled
+    BOOL _GameCenterEnabled;
+}
 
 #pragma mark Initialization and sharing
 
 -(instancetype) init{
+    
+    // Calling the default init for classes in Objective C
     self = [super init];
-    if (self) {
-        
+    
+    if (self != nil) {
+        // Define the initial configuration for GameKitHelper
+        _GameCenterEnabled = YES;
+    }else{
+        _GameCenterEnabled = NO;
+        // Throw a exception
     }
+    
     return self;
 }
 
 +(instancetype) sharedGameKitHelper{
-    // Sharing methods and attributes of the static class
+    // Make the class static and dispatched once
+    static GameKitHelper *sharedGameKitHelper;
+    static dispatch_once_t onceToken;
     
-    return nil;
+    // Dispatching the class in the adress of onceToken
+    dispatch_once(&onceToken, ^{
+        //Allocating and initializing the class
+        sharedGameKitHelper = [[GameKitHelper alloc] init];
+    });
+    
+    return sharedGameKitHelper;
 }
 
 #pragma mark Authentication
@@ -54,11 +73,18 @@
 #pragma mark View Controller manipulation
 
 -(void) presentLeaderboardsOnViewController:(UIViewController *)viewController{
-    // Show View Controller on screen
+    // Allocating and initializing the default Game Center View Controller
+    GKGameCenterViewController *leaderboardViewController = [[GKGameCenterViewController alloc] init];
+    leaderboardViewController.viewState = GKGameCenterViewControllerStateDefault;
+    leaderboardViewController.gameCenterDelegate = self;
+    
+    //Presenting Game Center View Controller on screen
+    [viewController presentViewController:leaderboardViewController animated:YES completion:nil];
 }
 
 -(void) gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController{
     // Remove View Controller from screen
+    [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
