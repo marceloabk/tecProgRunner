@@ -101,12 +101,34 @@ NSString *const PresentAuthenticationViewController = @"present_authentication_v
 #pragma mark Report conquests
 
 -(void) reportScore:(int64_t)score forLeaderboardID:(NSString *)leaderboardID{
-    // Submit 'score' for determined 'leaderboardID'
+    if (_GameCenterEnabled == YES) {
+        // Allocating and initializing and setting up GKScore with 'leaderboardID' that the score will be sent
+        GKScore *scoreReporter = [[GKScore alloc] initWithLeaderboardIdentifier:leaderboardID];
+        scoreReporter.value = score;
+        scoreReporter.context = 0;
+        
+        // Transfering score to a Array (expected by GKScore)
+        NSArray *scores = @[scoreReporter];
+        
+        // Reporting the score
+        [GKScore reportScores:scores withCompletionHandler:^(NSError *error){
+            // In case of error
+            [self setLastError:error];
+        }];
+    }else{
+        NSLog(@"Error in GameKitHelper: Game Center isn't enabled to report score");
+    }
 }
 
 -(void) reportAchievements:(NSArray *)achievements{
-    // Submit 'achievements'
-    // Define if the game will have achievements
+    if (_GameCenterEnabled == YES) {
+        // Report achievements to Game Center
+        [GKAchievement reportAchievements:achievements withCompletionHandler:^(NSError *error){
+            [self setLastError:error];
+        }];
+    }else{
+        NSLog(@"Error in GameKitHelper: Game Center isn't enabled to report achievements");
+    }
 }
 
 #pragma mark View Controller manipulation
