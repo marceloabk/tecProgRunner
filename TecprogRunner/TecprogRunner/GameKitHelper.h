@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 @import GameKit;
 
+extern NSString *const PresentAuthenticationViewController;
+
 @interface GameKitHelper : NSObject <GKGameCenterControllerDelegate>
+
+@property (nonatomic, readonly) UIViewController *authenticationViewController;
+@property (nonatomic, readonly) NSError *lastError;
 
 #pragma mark Initialization and sharing
 

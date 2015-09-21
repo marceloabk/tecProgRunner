@@ -8,6 +8,8 @@
 
 #import "GameKitHelper.h"
 
+NSString *const PresentAuthenticationViewController = @"present_authentication_view_controller";
+
 @implementation GameKitHelper{
     // Identify if the Game Center is enabled
     BOOL _GameCenterEnabled;
@@ -25,7 +27,6 @@
         _GameCenterEnabled = YES;
     }else{
         _GameCenterEnabled = NO;
-        // Throw a exception
     }
     
     return self;
@@ -48,15 +49,53 @@
 #pragma mark Authentication
 
 -(void) authenticateLocalPlayer{
-    // Authenticate player
+    // Get the shared instance of local player
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    
+    localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error){
+        
+        // Format the error presentation
+        [self setLastError:error];
+        
+        if (viewController != nil) {
+            // Set the view controller as authentication view controller
+            [self setAuthenticationViewController:viewController];
+        }else if([[GKLocalPlayer localPlayer] isAuthenticated] == YES){
+            // Local player is authenticated
+            _GameCenterEnabled = YES;
+        }else{
+            _GameCenterEnabled = NO;
+        }
+    };
 }
 
 -(void) setAuthenticationViewController:(UIViewController *)authenticationViewController{
-    // Define Authentication View Controller
+    if (authenticationViewController != nil) {
+        // Set the authenticationViewController as a property of the class
+        self.authenticationViewController = authenticationViewController;
+        
+        // Post notification in defaultCenter
+        [[NSNotificationCenter defaultCenter] postNotificationName:PresentAuthenticationViewController object:self];
+    }else{
+        NSLog(@"Error in GameKitHelper: autheticationViewController = nil");
+    }
 }
 
 -(void) setLastError:(NSError *)error{
-    // To present error of more legible form
+    // Set the current error as a property
+    self.lastError = [error copy];
+    
+    
+    if (self.lastError != nil) {
+        // Get the description of the error
+        NSString *errorDescription = [[self.lastError userInfo] description];
+        
+        // Present message as output
+        NSLog(@"Error in GameKitHelper: %@", errorDescription);
+        
+    }else{
+        // Do nothing
+    }
 }
 
 #pragma mark Report conquests
