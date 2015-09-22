@@ -11,14 +11,16 @@
 
 @implementation GameViewController
 
-- (void)viewDidLoad
-{
+-(void) viewDidLoad{
+    
+    // Call superclass default method for when a view is loaded
     [super viewDidLoad];
-
-    // Configure the view.
+    
+    // Configure the view
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
+    
     /* Sprite Kit applies additional optimizations to improve rendering performance */
     skView.ignoresSiblingOrder = YES;
     skView.showsPhysics = YES;
@@ -33,29 +35,28 @@
     
     // Present the scene.
     [skView presentScene:scene];
+    
 }
 
-- (BOOL)shouldAutorotate
-{
+-(BOOL) shouldAutorotate{
     return YES;
 }
 
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
+-(UIInterfaceOrientationMask) supportedInterfaceOrientations{
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
+    }else{
         return UIInterfaceOrientationMaskAll;
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
+-(void) didReceiveMemoryWarning{
     // Release any cached data, images, etc that aren't in use.
+    [super didReceiveMemoryWarning];
 }
 
-- (BOOL)prefersStatusBarHidden {
+-(BOOL) prefersStatusBarHidden{
     return YES;
 }
 
