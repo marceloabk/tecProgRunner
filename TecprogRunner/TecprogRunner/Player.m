@@ -80,6 +80,7 @@
     [self runAction:[SKAction sequence:actionsToPlayerFinishJump]];
 }
 
+// Make player throw a projectile when called
 -(void) throwProjectile{
     Projectile *projectile = [[Projectile alloc]initWithPosition:self.position];
     [self addChild:projectile];

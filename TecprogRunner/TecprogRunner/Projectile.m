@@ -31,10 +31,12 @@
     return self;
 }
 
+// Set basics projectile attributes
 -(void) setBasicsAttributes{
     self.texture.filteringMode = SKTextureFilteringNearest;
 }
 
+// Generete projectile physics body
 -(SKPhysicsBody *) generatePhysicsBody{
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
     physicsBody.allowsRotation = NO;
@@ -43,7 +45,7 @@
     return physicsBody;
 }
 
-
+// Simulates the trajectory of the launched projectile
 -(void) throwing{
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     CGPoint finalProjectilePosition = CGPointMake(self.position.x + screenWidth, self.position.y);
