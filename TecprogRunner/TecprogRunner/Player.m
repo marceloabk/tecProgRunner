@@ -7,6 +7,7 @@
 //
 
 #import "Player.h"
+#import "Projectile.h"
 
 @interface Player()
 
@@ -77,6 +78,11 @@
     [actionsToPlayerFinishJump addObject:playerBackToGround];
 
     [self runAction:[SKAction sequence:actionsToPlayerFinishJump]];
+}
+
+-(void) throwProjectile{
+    Projectile *projectile = [[Projectile alloc]initWithPosition:self.position];
+    [self addChild:projectile];
 }
 
 @end

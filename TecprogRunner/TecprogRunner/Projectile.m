@@ -23,7 +23,7 @@
         self.physicsBody = [self generatePhysicsBody];
         self.position = position;
         
-        [self throwProjectile];
+        [self throwing];
     }else{
         // There is no alternative path for this if
     }
@@ -44,7 +44,7 @@
 }
 
 
--(void) throwProjectile{
+-(void) throwing{
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     CGPoint finalProjectilePosition = CGPointMake(self.position.x + screenWidth, self.position.y);
     SKAction *moveProjectile = [SKAction moveTo:finalProjectilePosition duration:3];
