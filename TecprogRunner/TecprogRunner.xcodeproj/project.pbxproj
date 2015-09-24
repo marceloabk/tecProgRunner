@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		093A62D81BB46C4F00BF2074 /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = 093A62D71BB46C4F00BF2074 /* Coin.m */; settings = {ASSET_TAGS = (); }; };
 		09CB5AB11BA8C53C006E3A64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB01BA8C53C006E3A64 /* Foundation.framework */; };
 		09CB5AB41BA8C5A5006E3A64 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */; };
 		09CB5AB61BA8C5AE006E3A64 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */; };
@@ -53,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		093A62D41BB46A6200BF2074 /* PhysicsCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsCategories.h; sourceTree = "<group>"; };
+		093A62D61BB46C4F00BF2074 /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coin.h; sourceTree = "<group>"; };
+		093A62D71BB46C4F00BF2074 /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coin.m; sourceTree = "<group>"; };
 		09CB5AB01BA8C53C006E3A64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09CB5AB21BA8C5A5006E3A64 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
@@ -136,6 +139,15 @@
 				093A62D41BB46A6200BF2074 /* PhysicsCategories.h */,
 			);
 			name = PhysicsCategories;
+			sourceTree = "<group>";
+		};
+		093A62D91BB46C5D00BF2074 /* Coin */ = {
+			isa = PBXGroup;
+			children = (
+				093A62D61BB46C4F00BF2074 /* Coin.h */,
+				093A62D71BB46C4F00BF2074 /* Coin.m */,
+			);
+			name = Coin;
 			sourceTree = "<group>";
 		};
 		09CB5AAF1BA8C505006E3A64 /* GameKitHelper */ = {
@@ -316,6 +328,7 @@
 				E928572B1BA2550700DF4959 /* Player */,
 				67A4F5C01BABA3B8004DCA3C /* Projectile */,
 				E928572A1BA2550000DF4959 /* Enemies */,
+				093A62D91BB46C5D00BF2074 /* Coin */,
 			);
 			name = GameEntities;
 			sourceTree = "<group>";
@@ -533,6 +546,7 @@
 				67FFA6DA1B99301C00354487 /* GameViewController.m in Sources */,
 				67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */,
 				6B0FD4161BA91A3900C22BD6 /* StoreLayer.m in Sources */,
+				093A62D81BB46C4F00BF2074 /* Coin.m in Sources */,
 				6B0FD4101BA9122900C22BD6 /* MenuLayer.m in Sources */,
 				6B0FD40A1BA90D2600C22BD6 /* GameData.m in Sources */,
 				E92857361BA25B6B00DF4959 /* Player.m in Sources */,
