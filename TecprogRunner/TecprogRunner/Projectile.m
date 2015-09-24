@@ -22,6 +22,8 @@
         
         self.physicsBody = [self generatePhysicsBody];
         self.position = position;
+        
+        self.physicsBody = [self generatePhysicsBody];
     }else{
         // There is no alternative path for this if
     }
@@ -31,6 +33,14 @@
 
 -(void) setBasicsAttributes{
     self.texture.filteringMode = SKTextureFilteringNearest;
+}
+
+-(SKPhysicsBody *) generatePhysicsBody{
+    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
+    physicsBody.allowsRotation = NO;
+    physicsBody.affectedByGravity = NO;
+    
+    return physicsBody;
 }
 
 @end
