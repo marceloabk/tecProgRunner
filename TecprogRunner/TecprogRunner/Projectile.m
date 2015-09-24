@@ -33,6 +33,9 @@
 
 // Set basics projectile attributes
 -(void) setBasicsAttributes{
+    // Placeholder image is too big then we rescale it to fit our screen
+    [self setScale:0.1];
+    
     self.texture.filteringMode = SKTextureFilteringNearest;
 }
 

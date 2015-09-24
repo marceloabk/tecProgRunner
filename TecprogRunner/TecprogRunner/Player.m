@@ -34,6 +34,7 @@
 -(void) setBasicsAttributes{
     // Placeholder image is too big then we rescale it to fit our screen
     [self setScale:0.1];
+    
     self.texture.filteringMode = SKTextureFilteringNearest;
     self.position = CGPointMake(self.size.width,self.size.height);
 }
@@ -82,9 +83,9 @@
 
 // Make player throw a projectile when called
 -(void) throwProjectile{
-    // 30 pixels of space between player and projectile
-    CGFloat spacing = 30;
-    CGPoint initialProjectilePosition = CGPointMake(self.position.x + self.size.width/2 + spacing, self.position.y);
+    // Initial projectile position is the current player position plus half player width
+    // This way the projectile is created in player border and it doesn't collide with player
+    CGPoint initialProjectilePosition = CGPointMake(self.position.x + self.size.width/2, self.position.y);
     Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition];
     [self.parent addChild:projectile];
 }
