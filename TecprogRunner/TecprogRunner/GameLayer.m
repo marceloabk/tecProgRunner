@@ -40,6 +40,7 @@
         [self.player jump];
     }else if(touchLocation.x > _size.width/2){
         NSLog(@"User clicked on right side of game layer");
+        [self.player throwProjectile];
     }else{
         // Do nothing
     }
