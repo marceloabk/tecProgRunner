@@ -52,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		093A62D41BB46A6200BF2074 /* PhysicsCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsCategories.h; sourceTree = "<group>"; };
 		09CB5AB01BA8C53C006E3A64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09CB5AB21BA8C5A5006E3A64 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
@@ -129,6 +130,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		093A62D51BB46A6A00BF2074 /* PhysicsCategories */ = {
+			isa = PBXGroup;
+			children = (
+				093A62D41BB46A6200BF2074 /* PhysicsCategories.h */,
+			);
+			name = PhysicsCategories;
+			sourceTree = "<group>";
+		};
 		09CB5AAF1BA8C505006E3A64 /* GameKitHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +192,7 @@
 		67FFA6CB1B99301C00354487 /* TecprogRunner */ = {
 			isa = PBXGroup;
 			children = (
+				093A62D51BB46A6A00BF2074 /* PhysicsCategories */,
 				6B0FD4071BA90D1300C22BD6 /* GameData */,
 				6B0FD3F41BA9089400C22BD6 /* OverallScene */,
 				6B0FD3F81BA9098C00C22BD6 /* Layers */,
