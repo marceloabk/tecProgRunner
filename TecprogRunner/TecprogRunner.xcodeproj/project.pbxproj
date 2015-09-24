@@ -35,7 +35,6 @@
 		6B0FD4191BA91AE400C22BD6 /* BackgroundLayerStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD4181BA91AE400C22BD6 /* BackgroundLayerStore.m */; };
 		E92857331BA25B5500DF4959 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857321BA25B5500DF4959 /* GameObject.m */; };
 		E92857361BA25B6B00DF4959 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857351BA25B6B00DF4959 /* Player.m */; };
-		E92857391BA25BAB00DF4959 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857381BA25BAB00DF4959 /* Entity.m */; };
 		E928573D1BA25C7600DF4959 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = E928573C1BA25C7600DF4959 /* Enemy.m */; };
 		E92857431BA25CF500DF4959 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857421BA25CF500DF4959 /* GameLayer.m */; };
 		E92857461BA25D0300DF4959 /* HudLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857451BA25D0300DF4959 /* HudLayer.m */; };
@@ -99,8 +98,6 @@
 		E92857321BA25B5500DF4959 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		E92857341BA25B6B00DF4959 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		E92857351BA25B6B00DF4959 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
-		E92857371BA25BAB00DF4959 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
-		E92857381BA25BAB00DF4959 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		E928573B1BA25C7600DF4959 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		E928573C1BA25C7600DF4959 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
 		E92857411BA25CF500DF4959 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
@@ -305,7 +302,6 @@
 		E92857281BA254E200DF4959 /* GameEntities */ = {
 			isa = PBXGroup;
 			children = (
-				E928573A1BA25BCF00DF4959 /* General Entity */,
 				E92857291BA254F600DF4959 /* GameObject */,
 				E928572B1BA2550700DF4959 /* Player */,
 				67A4F5C01BABA3B8004DCA3C /* Projectile */,
@@ -371,15 +367,6 @@
 			children = (
 			);
 			name = Fonts;
-			sourceTree = "<group>";
-		};
-		E928573A1BA25BCF00DF4959 /* General Entity */ = {
-			isa = PBXGroup;
-			children = (
-				E92857371BA25BAB00DF4959 /* Entity.h */,
-				E92857381BA25BAB00DF4959 /* Entity.m */,
-			);
-			name = "General Entity";
 			sourceTree = "<group>";
 		};
 		E92857401BA25CB100DF4959 /* GameSceneLayers */ = {
@@ -531,7 +518,6 @@
 				6B0FD4031BA90C5B00C22BD6 /* GameControlLayer.m in Sources */,
 				6B0FD4061BA90C6900C22BD6 /* OverallControlLayer.m in Sources */,
 				E928573D1BA25C7600DF4959 /* Enemy.m in Sources */,
-				E92857391BA25BAB00DF4959 /* Entity.m in Sources */,
 				E92857331BA25B5500DF4959 /* GameObject.m in Sources */,
 				6B0FD3F71BA908B800C22BD6 /* OverallScene.m in Sources */,
 				67FFA6DA1B99301C00354487 /* GameViewController.m in Sources */,
