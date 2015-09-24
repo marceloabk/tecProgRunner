@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Bepid-UnB. All rights reserved.
 //
 
-#import "Entity.h"
+#import "GameObject.h"
 
-@interface Player : Entity
+@interface Player : GameObject
 
 @property (nonatomic) BOOL playerOnGound;
 -(void) jump;
