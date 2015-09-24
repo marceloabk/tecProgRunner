@@ -82,8 +82,11 @@
 
 // Make player throw a projectile when called
 -(void) throwProjectile{
-    Projectile *projectile = [[Projectile alloc]initWithPosition:self.position];
-    [self addChild:projectile];
+    // 30 pixels of space between player and projectile
+    CGFloat spacing = 30;
+    CGPoint initialProjectilePosition = CGPointMake(self.position.x + self.size.width/2 + spacing, self.position.y);
+    Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition];
+    [self.parent addChild:projectile];
 }
 
 @end
