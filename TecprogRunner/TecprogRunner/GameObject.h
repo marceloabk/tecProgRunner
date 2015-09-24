@@ -12,7 +12,7 @@
 
 -(SKTexture *)generateTextureWithName:(NSString *)name;
 
--(SKPhysicsBody *)generatePhysicsBodyWithTextureWithTextureNamed:(NSString *)image;
+-(SKPhysicsBody *)generatePhysicsBody;
 
 -(void)setBasicsAttributes;
 

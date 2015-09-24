@@ -15,7 +15,7 @@
     return [SKTexture textureWithImageNamed:name];
 }
 
--(SKPhysicsBody *)generatePhysicsBodyWithTextureWithTextureNamed:(NSString *)image{
+-(SKPhysicsBody *)generatePhysicsBody{
     // Gerar corpo físico usando a textura
     return [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(100, 100)];
 }

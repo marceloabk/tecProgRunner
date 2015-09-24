@@ -10,6 +10,7 @@
 		09CB5AB11BA8C53C006E3A64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB01BA8C53C006E3A64 /* Foundation.framework */; };
 		09CB5AB41BA8C5A5006E3A64 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */; };
 		09CB5AB61BA8C5AE006E3A64 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */; };
+		674BF1741BB38B6A0078578E /* projectileSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 674BF1731BB38B6A0078578E /* projectileSprite.png */; settings = {ASSET_TAGS = (); }; };
 		678202471BA90F8300957D20 /* playerTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 678202461BA90F8300957D20 /* playerTexture.png */; };
 		67A4F5C31BABA3E0004DCA3C /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F5C21BABA3E0004DCA3C /* Projectile.m */; settings = {ASSET_TAGS = (); }; };
 		67FFA6CF1B99301C00354487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6CE1B99301C00354487 /* main.m */; };
@@ -45,6 +46,7 @@
 		09CB5AB21BA8C5A5006E3A64 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
 		09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		674BF1731BB38B6A0078578E /* projectileSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projectileSprite.png; sourceTree = "<group>"; };
 		678202461BA90F8300957D20 /* playerTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerTexture.png; sourceTree = "<group>"; };
 		67A4F5C11BABA3E0004DCA3C /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
 		67A4F5C21BABA3E0004DCA3C /* Projectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile.m; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			children = (
 				67A4F5C11BABA3E0004DCA3C /* Projectile.h */,
 				67A4F5C21BABA3E0004DCA3C /* Projectile.m */,
+				674BF1731BB38B6A0078578E /* projectileSprite.png */,
 			);
 			name = Projectile;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				678202471BA90F8300957D20 /* playerTexture.png in Resources */,
 				67FFA6D71B99301C00354487 /* GameScene.sks in Resources */,
 				67FFA6DD1B99301C00354487 /* Main.storyboard in Resources */,
+				674BF1741BB38B6A0078578E /* projectileSprite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
