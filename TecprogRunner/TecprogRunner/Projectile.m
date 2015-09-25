@@ -41,9 +41,7 @@
 
 // Generete projectile physics body
 -(SKPhysicsBody *) generatePhysicsBody{
-    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
-    physicsBody.allowsRotation = NO;
-    physicsBody.affectedByGravity = NO;
+    SKPhysicsBody *physicsBody = [super generatePhysicsBodyWithImageNamed:@"playerTexture"];
     
     return physicsBody;
 }

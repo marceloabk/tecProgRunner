@@ -41,10 +41,9 @@
 
 // Generate player physics body
 -(SKPhysicsBody *) generatePhysicsBody{
-    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
-    physicsBody.allowsRotation = NO;
+    
+    SKPhysicsBody *physicsBody = [super generatePhysicsBodyWithImageNamed:@"playerTexture"];
     physicsBody.mass = 100;
-    physicsBody.affectedByGravity = NO;
 
     return physicsBody;
 }
