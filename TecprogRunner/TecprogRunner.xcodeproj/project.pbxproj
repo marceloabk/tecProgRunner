@@ -40,6 +40,7 @@
 		6B2D98DF1BB4E8C5005B342E /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98DE1BB4E8C5005B342E /* SettingsLayer.m */; };
 		6B2D98E21BB4E9C0005B342E /* BackgroundLayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */; };
 		6B2D98E41BB4EA4D005B342E /* settingsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B2D98E31BB4EA4D005B342E /* settingsBackground.png */; };
+		E91B95601BB4FF1600BA0E93 /* background_Clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = E91B955F1BB4FF1600BA0E93 /* background_Clouds.png */; settings = {ASSET_TAGS = (); }; };
 		E92857331BA25B5500DF4959 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857321BA25B5500DF4959 /* GameObject.m */; };
 		E92857361BA25B6B00DF4959 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857351BA25B6B00DF4959 /* Player.m */; };
 		E928573D1BA25C7600DF4959 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = E928573C1BA25C7600DF4959 /* Enemy.m */; };
@@ -111,6 +112,7 @@
 		6B2D98E01BB4E9C0005B342E /* BackgroundLayerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayerSettings.h; sourceTree = "<group>"; };
 		6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayerSettings.m; sourceTree = "<group>"; };
 		6B2D98E31BB4EA4D005B342E /* settingsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settingsBackground.png; path = Images/settingsBackground.png; sourceTree = SOURCE_ROOT; };
+		E91B955F1BB4FF1600BA0E93 /* background_Clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_Clouds.png; sourceTree = "<group>"; };
 		E92857311BA25B5500DF4959 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		E92857321BA25B5500DF4959 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		E92857341BA25B6B00DF4959 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		09D0DBAA1BB1CFAF00B0490A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E91B955F1BB4FF1600BA0E93 /* background_Clouds.png */,
 				676BE1B21BB4EF77002A4BAB /* projectileSprite.png */,
 				6B2D98E31BB4EA4D005B342E /* settingsBackground.png */,
 				6B2D98D61BB4E754005B342E /* gameCenterButton.png */,
@@ -530,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67FFA6E21B99301C00354487 /* LaunchScreen.xib in Resources */,
+				E91B95601BB4FF1600BA0E93 /* background_Clouds.png in Resources */,
 				09D0DBB31BB1CFAF00B0490A /* playerTexture.png in Resources */,
 				6B2D98D91BB4E754005B342E /* gameCenterButton.png in Resources */,
 				67FFA6DF1B99301C00354487 /* Images.xcassets in Resources */,
