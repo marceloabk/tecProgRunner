@@ -41,7 +41,9 @@
 
 // Generete projectile physics body
 -(SKPhysicsBody *) generatePhysicsBody{
-    SKPhysicsBody *physicsBody = [super generatePhysicsBodyWithImageNamed:@"playerTexture"];
+    
+    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
+    physicsBody.affectedByGravity = NO;
     
     return physicsBody;
 }
@@ -52,7 +54,9 @@
     CGPoint finalProjectilePosition = CGPointMake(self.position.x + screenWidth, self.position.y);
     SKAction *moveProjectile = [SKAction moveTo:finalProjectilePosition duration:2];
     
-    [self runAction:moveProjectile];
+    [self runAction:moveProjectile completion:^{
+        [self removeFromParent];
+    }];
 }
 
 
