@@ -94,6 +94,8 @@
 
 -(void) activateLayer{
     
+    [self prepareGameLayer];
+    
 }
 
 @end
