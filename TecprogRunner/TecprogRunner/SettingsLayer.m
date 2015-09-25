@@ -14,9 +14,24 @@
 
     if(self = [super init]){
     
+        self.layer = [SKNode node];
+        [self addChild:self.layer];
+        
+        [self loadBackground];
+        [self loadButtons];
+        
     
     }
     return self;
+}
+
+
+-(void) loadBackground{
+
+}
+
+-(void) loadButtons{
+
 }
 
 -(void)activateLayer{
