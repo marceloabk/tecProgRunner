@@ -47,7 +47,7 @@
 -(void) loadSettingsButton{
     
     self.settingsButton = [SKSpriteNode spriteNodeWithImageNamed:@"settingsButton"];
-    self.settingsButton.position = CGPointMake(20, 365);
+    self.settingsButton.position = CGPointMake(20, 360);
     self.settingsButton.anchorPoint = CGPointMake(0, 1);
     self.settingsButton.name = @"settingsButton";
     self.settingsButton.zPosition = 2;

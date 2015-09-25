@@ -74,6 +74,12 @@
             [self.overallControlLayer changeLayer];
         }
     }
+    else if([GameData sharedGameData].layerActivated == settings){
+        if([node.name isEqualToString:@"backButtonSettings"]){
+            [GameData sharedGameData].layerActivated = menu;
+            [self.overallControlLayer changeLayer];
+        }
+    }
     
 }
 
