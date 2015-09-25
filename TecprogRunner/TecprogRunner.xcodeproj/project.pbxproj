@@ -33,6 +33,9 @@
 		6B0FD4101BA9122900C22BD6 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD40F1BA9122900C22BD6 /* MenuLayer.m */; };
 		6B0FD4161BA91A3900C22BD6 /* StoreLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD4151BA91A3900C22BD6 /* StoreLayer.m */; };
 		6B0FD4191BA91AE400C22BD6 /* BackgroundLayerStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD4181BA91AE400C22BD6 /* BackgroundLayerStore.m */; };
+		6B2D98D91BB4E754005B342E /* gameCenterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B2D98D61BB4E754005B342E /* gameCenterButton.png */; };
+		6B2D98DA1BB4E754005B342E /* settingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B2D98D71BB4E754005B342E /* settingsButton.png */; };
+		6B2D98DB1BB4E754005B342E /* storeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B2D98D81BB4E754005B342E /* storeButton.png */; };
 		E92857331BA25B5500DF4959 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857321BA25B5500DF4959 /* GameObject.m */; };
 		E92857361BA25B6B00DF4959 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857351BA25B6B00DF4959 /* Player.m */; };
 		E928573D1BA25C7600DF4959 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = E928573C1BA25C7600DF4959 /* Enemy.m */; };
@@ -95,6 +98,9 @@
 		6B0FD4151BA91A3900C22BD6 /* StoreLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreLayer.m; sourceTree = "<group>"; };
 		6B0FD4171BA91AE400C22BD6 /* BackgroundLayerStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayerStore.h; sourceTree = "<group>"; };
 		6B0FD4181BA91AE400C22BD6 /* BackgroundLayerStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayerStore.m; sourceTree = "<group>"; };
+		6B2D98D61BB4E754005B342E /* gameCenterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameCenterButton.png; sourceTree = "<group>"; };
+		6B2D98D71BB4E754005B342E /* settingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButton.png; sourceTree = "<group>"; };
+		6B2D98D81BB4E754005B342E /* storeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeButton.png; sourceTree = "<group>"; };
 		E92857311BA25B5500DF4959 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		E92857321BA25B5500DF4959 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		E92857341BA25B6B00DF4959 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 		09D0DBAA1BB1CFAF00B0490A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6B2D98D61BB4E754005B342E /* gameCenterButton.png */,
+				6B2D98D71BB4E754005B342E /* settingsButton.png */,
+				6B2D98D81BB4E754005B342E /* storeButton.png */,
 				09D0DBAB1BB1CFAF00B0490A /* backButton.png */,
 				09D0DBAC1BB1CFAF00B0490A /* menuBg.png */,
 				09D0DBAD1BB1CFAF00B0490A /* playerTexture.png */,
@@ -498,12 +507,15 @@
 			files = (
 				67FFA6E21B99301C00354487 /* LaunchScreen.xib in Resources */,
 				09D0DBB31BB1CFAF00B0490A /* playerTexture.png in Resources */,
+				6B2D98D91BB4E754005B342E /* gameCenterButton.png in Resources */,
 				67FFA6DF1B99301C00354487 /* Images.xcassets in Resources */,
 				09D0DBB51BB1CFAF00B0490A /* storeButton.png in Resources */,
 				09D0DBB61BB1CFAF00B0490A /* tapToPlay.png in Resources */,
+				6B2D98DA1BB4E754005B342E /* settingsButton.png in Resources */,
 				09D0DBB41BB1CFAF00B0490A /* storeBackground.png in Resources */,
 				09D0DBB11BB1CFAF00B0490A /* backButton.png in Resources */,
 				67FFA6D71B99301C00354487 /* GameScene.sks in Resources */,
+				6B2D98DB1BB4E754005B342E /* storeButton.png in Resources */,
 				67FFA6DD1B99301C00354487 /* Main.storyboard in Resources */,
 				09D0DBB21BB1CFAF00B0490A /* menuBg.png in Resources */,
 			);

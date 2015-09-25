@@ -19,8 +19,8 @@
     
     if(self){
         
+        // adding layer that is on the screen
         self.overallControlLayer = [[OverallControlLayer alloc] initWithSize:size];
-        
         [self addChild:self.overallControlLayer];
         
     }
@@ -80,7 +80,5 @@
 //    }
     
 }
-
-
 
 @end
