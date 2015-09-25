@@ -12,9 +12,6 @@
 
 
 @implementation OverallScene
-{
-    GameLayer* _gameLayer;
-}
 
 - (instancetype)initWithSize:(CGSize)size{
     
@@ -22,12 +19,8 @@
     
     if(self){
         
-        self.gameControlLayer = [[GameControlLayer alloc] initWithSize:size];
         self.overallControlLayer = [[OverallControlLayer alloc] initWithSize:size];
         
-        _gameLayer = self.overallControlLayer.gameLayer;
-        
-        [self addChild:self.gameControlLayer];
         [self addChild:self.overallControlLayer];
         
     }
@@ -38,7 +31,7 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
     if([GameData sharedGameData].layerActivated == game){
-        [_gameLayer touchesBegan:touches withEvent:event];
+        [self.overallControlLayer.gameLayer touchesBegan:touches withEvent:event];
     }
     
 }
@@ -82,9 +75,9 @@
 
 -(void) update:(CFTimeInterval)currentTime{
     
-    if([GameData sharedGameData].layerActivated == game){
-        [_gameLayer update:currentTime];
-    }
+//    if([GameData sharedGameData].layerActivated == game){
+//        [_gameLayer update:currentTime];
+//    }
     
 }
 
