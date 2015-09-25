@@ -12,4 +12,6 @@
 
 @property (nonatomic) SKSpriteNode* background;
 
+-(instancetype) initWithSize:(CGSize)size;
+
 @end

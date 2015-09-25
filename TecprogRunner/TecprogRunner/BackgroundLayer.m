@@ -10,6 +10,7 @@
 
 @implementation BackgroundLayer{
     CGSize _size;
+    CGPoint _initialPoint;
     float backgroundDefaultVelocity;
 }
 
@@ -18,21 +19,19 @@
     if(self != NULL){
         
         _size = size;
-        self.background = [[SKSpriteNode alloc] initWithColor:[UIColor magentaColor] size:CGSizeMake(size.width, size.height/2)];
         
+        UIColor *magenta = [UIColor magentaColor];
+        CGSize backgroundSize = CGSizeMake(size.width, size.height/2);
+        
+        self.background = [[SKSpriteNode alloc] initWithColor:magenta size:backgroundSize];
         self.background.anchorPoint = CGPointZero;
         
         // Setting background sprite initial point
-        CGPoint initialPoint = CGPointMake(_size.width, 0);
-        self.background.position = initialPoint;
+        _initialPoint = CGPointMake(_size.width, 0);
+        self.background.position = _initialPoint;
         
-        // Setting backgroundMoviment
-        SKAction* backgroundMoviment = [SKAction moveByX:-self.background.size.width*2 y:0 duration:6];
-        SKAction* setBackgroundPosition = [SKAction moveTo:initialPoint duration:0.0];
-        SKAction* backgroundMovimentSequence = [SKAction sequence:@[backgroundMoviment, setBackgroundPosition]];
-        
-        // Running background moviment sequence
-        [self.background runAction:[SKAction repeatActionForever:backgroundMovimentSequence] withKey:@"backgroundMoviment"];
+        // Make the background move to a direction forever
+        [self setBackgroundActions];
         
         // Adding background to view
         [self addChild:self.background];
@@ -41,6 +40,21 @@
     }
     
     return self;
+}
+
+-(void) setBackgroundActions{
+    // Setting backgroundMoviment
+    SKAction* backgroundMoviment = [SKAction moveByX:-self.background.size.width*2 y:0 duration:6];
+    SKAction* setBackgroundPosition = [SKAction moveTo:_initialPoint duration:0.0];
+    
+    // Creating a sequence with the actions
+    SKAction* backgroundMovimentSequence = [SKAction sequence:@[backgroundMoviment, setBackgroundPosition]];
+    
+    // Creating Action to repeat the sequence forever
+    SKAction* repeatMovimentForever = [SKAction repeatActionForever:backgroundMovimentSequence];
+    
+    // Running background moviment sequence
+    [self.background runAction:repeatMovimentForever withKey:@"backgroundMoviment"];
 }
 
 @end
