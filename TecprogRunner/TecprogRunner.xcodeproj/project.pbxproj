@@ -17,6 +17,7 @@
 		09D0DBB41BB1CFAF00B0490A /* storeBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D0DBAE1BB1CFAF00B0490A /* storeBackground.png */; };
 		09D0DBB51BB1CFAF00B0490A /* storeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D0DBAF1BB1CFAF00B0490A /* storeButton.png */; };
 		09D0DBB61BB1CFAF00B0490A /* tapToPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D0DBB01BB1CFAF00B0490A /* tapToPlay.png */; };
+		676BE1B31BB4EF77002A4BAB /* projectileSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 676BE1B21BB4EF77002A4BAB /* projectileSprite.png */; settings = {ASSET_TAGS = (); }; };
 		67A4F5C31BABA3E0004DCA3C /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F5C21BABA3E0004DCA3C /* Projectile.m */; };
 		67FFA6CF1B99301C00354487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6CE1B99301C00354487 /* main.m */; };
 		67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D11B99301C00354487 /* AppDelegate.m */; };
@@ -71,6 +72,7 @@
 		09D0DBAE1BB1CFAF00B0490A /* storeBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeBackground.png; sourceTree = "<group>"; };
 		09D0DBAF1BB1CFAF00B0490A /* storeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeButton.png; sourceTree = "<group>"; };
 		09D0DBB01BB1CFAF00B0490A /* tapToPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tapToPlay.png; sourceTree = "<group>"; };
+		676BE1B21BB4EF77002A4BAB /* projectileSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = projectileSprite.png; path = ../TecprogRunner/projectileSprite.png; sourceTree = "<group>"; };
 		67A4F5C11BABA3E0004DCA3C /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
 		67A4F5C21BABA3E0004DCA3C /* Projectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile.m; sourceTree = "<group>"; };
 		67FFA6C91B99301C00354487 /* TecprogRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TecprogRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +175,7 @@
 		09D0DBAA1BB1CFAF00B0490A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				676BE1B21BB4EF77002A4BAB /* projectileSprite.png */,
 				6B2D98E31BB4EA4D005B342E /* settingsBackground.png */,
 				6B2D98D61BB4E754005B342E /* gameCenterButton.png */,
 				6B2D98D71BB4E754005B342E /* settingsButton.png */,
@@ -531,6 +534,7 @@
 				6B2D98D91BB4E754005B342E /* gameCenterButton.png in Resources */,
 				67FFA6DF1B99301C00354487 /* Images.xcassets in Resources */,
 				09D0DBB51BB1CFAF00B0490A /* storeButton.png in Resources */,
+				676BE1B31BB4EF77002A4BAB /* projectileSprite.png in Resources */,
 				09D0DBB61BB1CFAF00B0490A /* tapToPlay.png in Resources */,
 				6B2D98DA1BB4E754005B342E /* settingsButton.png in Resources */,
 				09D0DBB41BB1CFAF00B0490A /* storeBackground.png in Resources */,
