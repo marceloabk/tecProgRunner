@@ -28,10 +28,25 @@
 
 -(void) loadBackground{
 
+    self.backgroundLayerSettings = [[BackgroundLayerSettings alloc] initWithSize:CGSizeMake(667, 375)];
+
 }
 
 -(void) loadButtons{
+    
+    [self loadBack];
+    
+}
 
+-(void) loadBack{
+    
+    self.backButton = [SKSpriteNode spriteNodeWithImageNamed:@"backButton"];
+    self.backButton.position = CGPointMake(30, 363);
+    self.backButton.anchorPoint = CGPointMake(0, 1);
+    self.backButton.name = @"backButtonSettings";
+    self.backButton.zPosition = 2;
+    [self.backButton setScale:0.5];
+    
 }
 
 -(void)activateLayer{

@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "BackgroundLayerSettings.h"
 
 @interface SettingsLayer : SKNode
 
@@ -14,7 +15,7 @@
 
 @property (nonatomic) SKNode *layer;
 
-//@property (nonatomic)  *backgroundLayerStore;
+@property (nonatomic)  BackgroundLayerSettings*backgroundLayerSettings;
 
 @property (nonatomic) SKSpriteNode *backButton;
 
