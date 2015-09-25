@@ -24,6 +24,7 @@
     SKTexture *imageTexture = [self generateTextureWithImageNamed:image];
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithTexture:imageTexture size:self.size];
     physicsBody.allowsRotation = NO;
+    physicsBody.affectedByGravity = NO;
     
     return physicsBody;
 }
