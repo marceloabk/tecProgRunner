@@ -58,6 +58,9 @@
     self.player = [[Player alloc]init];
     [self.layer addChild:self.player];
     
+    self.pointsScored = 0;
+    [self initiateTimer];
+    
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -93,6 +96,18 @@
 -(void) activateLayer{
     
     [self prepareGameLayer];
+    
+}
+
+-(void) initiateTimer{
+    
+      self.timer = [NSTimer scheduledTimerWithTimeInterval:0.52 target:self selector:@selector(onTick) userInfo:nil repeats:YES];
+}
+
+-(void) onTick{
+    
+    self.pointsScored +=1;
+    [_hudLayer putScoreLabel:self.pointsScored];
     
 }
 

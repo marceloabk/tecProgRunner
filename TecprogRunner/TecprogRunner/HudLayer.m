@@ -28,15 +28,18 @@
 
 -(void) putScoreLabel:(int)points{
 
+    [self.scoreLabel removeFromParent];
+    
 //pointsLabel
     // Creating attributes to customize score label
-    SKColor *fontColor = [SKColor colorWithRed:0.271 green:0.608 blue:0.325 alpha:1];
+    SKColor *fontColor = [UIColor blackColor];
     CGPoint fontPosition = CGPointMake(_size.width*0.5, _size.height*0.9);
 
     NSString *pointsLabelString = [[NSString alloc] initWithFormat:@"%i", points];
 
 // Setting score label
-    self.scoreLabel = [SKLabelNode labelNodeWithText:pointsLabelString];
+    self.scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    self.scoreLabel.text = pointsLabelString;
     self.scoreLabel.fontColor = fontColor;
     self.scoreLabel.fontSize = 45;
     self.scoreLabel.position = fontPosition;
