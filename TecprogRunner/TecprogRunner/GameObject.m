@@ -14,7 +14,7 @@
 
 -(SKTexture *) generateTextureWithImageNamed:(NSString *)image{
     // Generate a texture with the image
-    SKTexture *imageTexture = [self generateTextureWithImageNamed:image];
+    SKTexture *imageTexture = [SKTexture textureWithImageNamed:image];
     
     return imageTexture;
 }
@@ -23,6 +23,7 @@
     // Generate a physics body with the image
     SKTexture *imageTexture = [self generateTextureWithImageNamed:image];
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithTexture:imageTexture size:self.size];
+    physicsBody.allowsRotation = NO;
     
     return physicsBody;
 }
