@@ -12,9 +12,6 @@
 
 
 @implementation OverallScene
-{
-    GameLayer* _gameLayer;
-}
 
 - (instancetype)initWithSize:(CGSize)size{
     
@@ -22,12 +19,8 @@
     
     if(self){
         
-        self.gameControlLayer = [[GameControlLayer alloc] initWithSize:size];
+        // adding layer that is on the screen
         self.overallControlLayer = [[OverallControlLayer alloc] initWithSize:size];
-        
-        _gameLayer = self.overallControlLayer.gameLayer;
-        
-        [self addChild:self.gameControlLayer];
         [self addChild:self.overallControlLayer];
         
     }
@@ -38,7 +31,7 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
     if([GameData sharedGameData].layerActivated == game){
-        [_gameLayer touchesBegan:touches withEvent:event];
+        [self.overallControlLayer.gameLayer touchesBegan:touches withEvent:event];
     }
     
 }
@@ -65,6 +58,10 @@
             [self.overallControlLayer changeLayer];
             
         }
+        else if([node.name isEqualToString:@"settingsButton"]){
+            [GameData sharedGameData].layerActivated = settings;
+            [self.overallControlLayer changeLayer];
+        }
         else if([node.name isEqualToString:@"storeButton"]){
             [GameData sharedGameData].layerActivated = store;
             [self.overallControlLayer changeLayer];
@@ -79,17 +76,21 @@
             [self.overallControlLayer changeLayer];
         }
     }
+    else if([GameData sharedGameData].layerActivated == settings){
+        if([node.name isEqualToString:@"backButtonSettings"]){
+            [GameData sharedGameData].layerActivated = menu;
+            [self.overallControlLayer changeLayer];
+        }
+    }
     
 }
 
 -(void) update:(CFTimeInterval)currentTime{
     
-    if([GameData sharedGameData].layerActivated == game){
-        [_gameLayer update:currentTime];
-    }
+//    if([GameData sharedGameData].layerActivated == game){
+//        [_gameLayer update:currentTime];
+//    }
     
 }
-
-
 
 @end

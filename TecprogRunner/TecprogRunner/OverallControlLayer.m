@@ -43,10 +43,12 @@
     self.menuLayer = [[MenuLayer alloc] initWithSize:layerSize];
     self.storeLayer = [[StoreLayer alloc] initWithSize:layerSize];
     self.gameLayer = [[GameLayer alloc] initWithSize:layerSize];
+    self.settingsLayer = [[SettingsLayer alloc] initWithSize:layerSize];
     
     self.menuLayer.name = @"layer";
     self.storeLayer.name = @"layer";
     self.gameLayer.name = @"layer";
+    self.settingsLayer.name = @"layer";
 
 }
 -(void) putLayer{
@@ -62,6 +64,10 @@
     else if([GameData sharedGameData].layerActivated == game){
 //        [self addChild:self.gameLayer];
         [self.gameLayer activateLayer];
+    }
+    else if([GameData sharedGameData].layerActivated == settings){
+        [self addChild:self.settingsLayer];
+        [self.settingsLayer activateLayer];
     }
 }
 

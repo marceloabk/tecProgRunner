@@ -19,6 +19,8 @@
 
 @property (nonatomic) SKSpriteNode *tapToPlayButton;
 @property (nonatomic) SKSpriteNode *storeButton;
+@property (nonatomic) SKSpriteNode *settingsButton;
+@property (nonatomic) SKSpriteNode *gameCenterButton;
 
 -(void) activateLayer;
 

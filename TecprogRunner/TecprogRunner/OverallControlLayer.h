@@ -10,6 +10,7 @@
 #import "MenuLayer.h"
 #import "StoreLayer.h"
 #import "GameLayer.h"
+#import "SettingsLayer.h"
 
 @interface OverallControlLayer : SKNode
 
@@ -18,6 +19,7 @@
 @property (nonatomic) MenuLayer* menuLayer;
 @property (nonatomic) StoreLayer* storeLayer;
 @property (nonatomic) GameLayer* gameLayer;
+@property (nonatomic) SettingsLayer* settingsLayer ;
 
 -(void) changeLayer;
 

@@ -30,6 +30,8 @@
     [self.layer addChild:self.backgroundLayerMenu];
     [self.layer addChild:self.tapToPlayButton];
     [self.layer addChild:self.storeButton];
+    [self.layer addChild:self.settingsButton];
+    [self.layer addChild:self.gameCenterButton];
 }
 
 // load all buttons in the menu
@@ -37,13 +39,35 @@
 
     [self loadTapToPlay];
     [self loadStoreButton];
+    [self loadSettingsButton];
+    [self loadGameCenterButton];
 }
 
+
+-(void) loadSettingsButton{
+    
+    self.settingsButton = [SKSpriteNode spriteNodeWithImageNamed:@"settingsButton"];
+    self.settingsButton.position = CGPointMake(20, 360);
+    self.settingsButton.anchorPoint = CGPointMake(0, 1);
+    self.settingsButton.name = @"settingsButton";
+    self.settingsButton.zPosition = 2;
+    [self.settingsButton setScale:0.5];
+}
+
+-(void) loadGameCenterButton{
+    
+    self.gameCenterButton = [SKSpriteNode spriteNodeWithImageNamed:@"gameCenterButton"];
+    self.gameCenterButton.position = CGPointMake(39, 375-307);
+    self.gameCenterButton.anchorPoint = CGPointMake(0, 1);
+    self.gameCenterButton.name = @"gameCenterButton";
+    self.gameCenterButton.zPosition = 2;
+    [self.gameCenterButton setScale:0.5];
+}
 
 -(void) loadStoreButton{
 
     self.storeButton = [SKSpriteNode spriteNodeWithImageNamed:@"storeButton"];
-    self.storeButton.position = CGPointMake(572, 375-306);
+    self.storeButton.position = CGPointMake(576, 375-306);
     self.storeButton.anchorPoint = CGPointMake(0, 1);
     self.storeButton.name = @"storeButton";
     self.storeButton.zPosition = 2;

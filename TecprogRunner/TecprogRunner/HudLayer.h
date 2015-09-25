@@ -11,5 +11,8 @@
 @interface HudLayer : SKNode <LayerRequirements>
 
 @property SKLabelNode *scoreLabel;
+@property SKNode *layer;
+
+-(void) putScoreLabel: (int) points;
 
 @end
