@@ -13,6 +13,9 @@
 @property SKLabelNode *scoreLabel;
 @property SKNode *layer;
 
--(void) putScoreLabel: (int) points;
+/**
+ Create and add score label to HudLayer
+*/
+-(void) putScoreLabel:(int) points;
 
 @end

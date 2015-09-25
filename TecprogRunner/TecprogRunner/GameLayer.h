@@ -10,7 +10,14 @@
 
 @interface GameLayer : SKNode <LayerRequirements>
 
--(void)update:(CFTimeInterval)currentTime;
+/**
+ Update from GameLayer
+*/
+-(void) update:(CFTimeInterval)currentTime;
+
+/**
+ Add game layer childs
+*/
 -(void) activateLayer;
 
 @property (nonatomic) SKNode *layer;

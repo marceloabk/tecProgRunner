@@ -21,6 +21,9 @@
 @property (nonatomic) GameLayer* gameLayer;
 @property (nonatomic) SettingsLayer* settingsLayer ;
 
+/**
+ Change layer according to activated layer in GameData singleton
+*/
 -(void) changeLayer;
 
 @end

@@ -37,15 +37,6 @@
     self = [super init];
     if(self){
         _size = size;
-        
-        self.player = [[Player alloc]init];
-        
-        self.layer = [SKNode node];
-        [self addChild:self.layer];
-        
-        [self.layer addChild:self.player];
-        [self prepareGameLayer];
-
     }
     return self;
 }
@@ -55,11 +46,17 @@
     _sceneLayer = [[SKNode alloc] init];
     _backgroundLayer = [[BackgroundLayer alloc] initWithSize:_size];
     _hudLayer = [[HudLayer alloc] initWithSize:_size];
+    self.layer = [SKNode node];
     
-    // Adding layers to scene
+    // Adding layers to game layer
+    [self addChild:self.layer];
     [self.layer addChild:_sceneLayer];
     [_sceneLayer addChild:_backgroundLayer];
     [_sceneLayer addChild:_hudLayer];
+    
+    //Instantiating and adding to game layer
+    self.player = [[Player alloc]init];
+    [self.layer addChild:self.player];
     
 }
 

@@ -26,7 +26,7 @@
     return self;
 }
 
--(void) putScoreLabel: (int) points{
+-(void) putScoreLabel:(int)points{
 
 //pointsLabel
     // Creating attributes to customize score label
