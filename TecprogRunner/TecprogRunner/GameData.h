@@ -19,15 +19,13 @@ typedef enum {
 
 @interface GameData : NSObject <NSCoding>
 
+@property (nonatomic) layerType layerActivated;
+@property (nonatomic) int highScore;
 
 /**
  Dispatch method that creates the singleton
-*/
-+(instancetype)sharedGameData;
-
-@property (nonatomic) layerType layerActivated;
-
-@property (nonatomic) int highScore;
+ */
++(instancetype) sharedGameData;
 
 /**
  Start with menu as activated layer.
