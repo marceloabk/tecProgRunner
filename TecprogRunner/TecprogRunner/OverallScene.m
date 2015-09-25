@@ -56,6 +56,10 @@
             [GameData sharedGameData].layerActivated = game;
             [self.overallControlLayer changeLayer];
         }
+        else if([node.name isEqualToString:@"settingsButton"]){
+            [GameData sharedGameData].layerActivated = settings;
+            [self.overallControlLayer changeLayer];
+        }
         else if([node.name isEqualToString:@"storeButton"]){
             [GameData sharedGameData].layerActivated = store;
             [self.overallControlLayer changeLayer];

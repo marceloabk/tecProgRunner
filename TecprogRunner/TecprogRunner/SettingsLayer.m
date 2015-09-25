@@ -35,7 +35,6 @@
 -(void) loadButtons{
     
     [self loadBack];
-    
 }
 
 -(void) loadBack{
@@ -50,6 +49,9 @@
 }
 
 -(void)activateLayer{
+
+    [self.layer addChild:self.backgroundLayerSettings];
+    [self.layer addChild:self.backButton];
 
 }
 
