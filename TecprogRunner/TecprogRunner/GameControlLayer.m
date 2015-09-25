@@ -10,14 +10,17 @@
 
 @implementation GameControlLayer
 
--(instancetype) initWithSize: (CGSize) size{
+-(instancetype) initWithSize:(CGSize)size{
     
-    if(self = [super init]){
+    self = [super init];
+    
+    if(self != NULL){
         
         
-        
-        
+    }else{
+        // Throw exception
     }
+    
     return self;
 }
 

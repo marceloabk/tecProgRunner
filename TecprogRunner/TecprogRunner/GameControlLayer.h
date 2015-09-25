@@ -10,6 +10,6 @@
 
 @interface GameControlLayer : SKNode
 
--(instancetype) initWithSize: (CGSize) size;
+-(instancetype) initWithSize:(CGSize)size;
 
 @end
