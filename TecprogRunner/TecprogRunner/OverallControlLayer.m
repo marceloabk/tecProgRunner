@@ -60,7 +60,7 @@
         [self.storeLayer activateLayer];
     }
     else if([GameData sharedGameData].layerActivated == game){
-        [self addChild:self.gameLayer];
+//        [self addChild:self.gameLayer];
         [self.gameLayer activateLayer];
     }
 }

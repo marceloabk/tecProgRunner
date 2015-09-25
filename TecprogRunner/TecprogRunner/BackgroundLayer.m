@@ -27,7 +27,7 @@
         self.background.anchorPoint = CGPointZero;
         
         // Setting background sprite initial point
-        _initialPoint = CGPointMake(_size.width, 0);
+        _initialPoint = CGPointMake(_size.width, -self.background.size.height*0.8);
         self.background.position = _initialPoint;
         
         // Make the background move to a direction forever

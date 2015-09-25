@@ -40,12 +40,11 @@
         
         self.player = [[Player alloc]init];
         
-        [self prepareGameLayer];
-        
         self.layer = [SKNode node];
         [self addChild:self.layer];
         
         [self.layer addChild:self.player];
+        [self prepareGameLayer];
 
     }
     return self;
@@ -61,7 +60,7 @@
     [self.layer addChild:_sceneLayer];
     [_sceneLayer addChild:_backgroundLayer];
     [_sceneLayer addChild:_hudLayer];
-
+    
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -90,6 +89,7 @@
     _lastUpdateTime = currentTime;
     
     //NSLog(@"%f", _deltaTime);
+
 }
 
 -(void) activateLayer{
