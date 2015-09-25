@@ -10,4 +10,6 @@
 
 @interface HudLayer : SKNode <LayerRequirements>
 
+@property SKLabelNode *scoreLabel;
+
 @end
