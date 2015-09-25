@@ -30,7 +30,11 @@
     
     [GameData sharedGameData].layerActivated = menu;
     
-    OverallScene *scene = [[OverallScene alloc] initWithSize:[UIScreen mainScreen].bounds.size];
+    // Setting a default screen size for to base positions of sprites
+    CGSize screenSize = CGSizeMake(667, 375);
+    
+    // Allocating and initializing first scene
+    OverallScene *scene = [[OverallScene alloc] initWithSize:screenSize];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
