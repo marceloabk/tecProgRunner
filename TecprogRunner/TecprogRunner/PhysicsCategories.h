@@ -14,7 +14,8 @@ typedef NS_ENUM(NSUInteger, ColliderType){
     // 'Binary Shift Right Operation' for differentiate type of objects in physics
     ColliderTypePlayer = 1 << 0,
     ColliderTypeProjectile = 1 << 1,
-    ColliderTypeEnemy = 1 << 2
+    ColliderTypeEnemy = 1 << 2,
+    ColliderTypeCoin = 1 << 3
 };
 
 #endif
