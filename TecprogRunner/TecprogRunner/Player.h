@@ -12,5 +12,6 @@
 
 @property (nonatomic) BOOL playerOnGound;
 -(void) jump;
+-(void) throwProjectile;
 
 @end
