@@ -55,7 +55,8 @@
     [_sceneLayer addChild:_hudLayer];
     
     //Instantiating and adding to game layer
-    self.player = [[Player alloc]init];
+    CGPoint playerPosition = CGPointMake(50, 50);
+    self.player = [[Player alloc]initWithPosition:playerPosition];
     [self.layer addChild:self.player];
     
     self.pointsScored = 0;
