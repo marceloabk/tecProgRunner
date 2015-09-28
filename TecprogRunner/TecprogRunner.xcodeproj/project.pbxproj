@@ -19,6 +19,7 @@
 		09D0DBB61BB1CFAF00B0490A /* tapToPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D0DBB01BB1CFAF00B0490A /* tapToPlay.png */; };
 		676BE1B31BB4EF77002A4BAB /* projectileSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 676BE1B21BB4EF77002A4BAB /* projectileSprite.png */; settings = {ASSET_TAGS = (); }; };
 		67A4F5C31BABA3E0004DCA3C /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F5C21BABA3E0004DCA3C /* Projectile.m */; };
+		67C0F7791BB95DC6003A02B1 /* WeakEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C0F7781BB95DC6003A02B1 /* WeakEnemy.m */; settings = {ASSET_TAGS = (); }; };
 		67FFA6CF1B99301C00354487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6CE1B99301C00354487 /* main.m */; };
 		67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D11B99301C00354487 /* AppDelegate.m */; };
 		67FFA6D71B99301C00354487 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 67FFA6D61B99301C00354487 /* GameScene.sks */; };
@@ -75,6 +76,8 @@
 		676BE1B21BB4EF77002A4BAB /* projectileSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = projectileSprite.png; path = ../TecprogRunner/projectileSprite.png; sourceTree = "<group>"; };
 		67A4F5C11BABA3E0004DCA3C /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
 		67A4F5C21BABA3E0004DCA3C /* Projectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile.m; sourceTree = "<group>"; };
+		67C0F7771BB95DC6003A02B1 /* WeakEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakEnemy.h; sourceTree = "<group>"; };
+		67C0F7781BB95DC6003A02B1 /* WeakEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakEnemy.m; sourceTree = "<group>"; };
 		67FFA6C91B99301C00354487 /* TecprogRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TecprogRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67FFA6CD1B99301C00354487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67FFA6CE1B99301C00354487 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -369,6 +372,8 @@
 			children = (
 				E928573B1BA25C7600DF4959 /* Enemy.h */,
 				E928573C1BA25C7600DF4959 /* Enemy.m */,
+				67C0F7771BB95DC6003A02B1 /* WeakEnemy.h */,
+				67C0F7781BB95DC6003A02B1 /* WeakEnemy.m */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -577,6 +582,7 @@
 				6B0FD4101BA9122900C22BD6 /* MenuLayer.m in Sources */,
 				6B0FD40A1BA90D2600C22BD6 /* GameData.m in Sources */,
 				6B2D98DF1BB4E8C5005B342E /* SettingsLayer.m in Sources */,
+				67C0F7791BB95DC6003A02B1 /* WeakEnemy.m in Sources */,
 				E92857361BA25B6B00DF4959 /* Player.m in Sources */,
 				6B0FD3FD1BA90B4A00C22BD6 /* BackgroundLayerMenu.m in Sources */,
 				E92857431BA25CF500DF4959 /* GameLayer.m in Sources */,
