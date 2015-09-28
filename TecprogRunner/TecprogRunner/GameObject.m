@@ -12,6 +12,18 @@
 
 #pragma mark Generating and configuring GameObject
 
+// init the GameObject with a position
+-(instancetype) initWithPosition:(CGPoint)position{
+    self = [super init];
+    if(self != nil){
+        
+    }else{
+        // There is no alternative path for this if
+    }
+    
+    return self;
+}
+
 -(SKTexture *) generateTextureWithImageNamed:(NSString *)image{
     // Generate a texture with the image
     SKTexture *imageTexture = [SKTexture textureWithImageNamed:image];

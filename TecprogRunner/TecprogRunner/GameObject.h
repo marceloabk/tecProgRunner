@@ -12,6 +12,8 @@
 
 #pragma mark Generating and configuring GameObject
 
+-(instancetype) initWithPosition:(CGPoint)position;
+
 -(SKTexture *) generateTextureWithImageNamed:(NSString *)image;
 
 -(SKPhysicsBody *) generatePhysicsBodyWithImageNamed:(NSString *)image;
