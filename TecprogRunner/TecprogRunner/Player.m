@@ -15,13 +15,16 @@
 
 @implementation Player
 
-// Initialize Player class
--(instancetype) init{
+// Initialize Player class with a position
+-(instancetype)initWithPosition:(CGPoint)position{
     self = [super initWithTexture:[SKTexture textureWithImageNamed:@"playerTexture"]];
     
     if(self != nil){
         self.physicsBody = [self generatePhysicsBody];
+        
         self.playerOnGound = true;
+        
+        self.position = position;
         
         [self setBasicsAttributes];
     }else{
@@ -36,7 +39,6 @@
     [self setScale:0.1];
     
     self.texture.filteringMode = SKTextureFilteringNearest;
-    self.position = CGPointMake(self.size.width,self.size.height);
 }
 
 // Generate player physics body
