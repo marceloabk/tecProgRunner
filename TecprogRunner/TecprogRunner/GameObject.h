@@ -16,6 +16,8 @@
 
 -(SKPhysicsBody *) generatePhysicsBodyWithImageNamed:(NSString *)image;
 
+-(SKPhysicsBody *) generatePhysicsBody;
+
 -(void) setBasicsAttributes;
 
 #pragma mark Defining Contact methods

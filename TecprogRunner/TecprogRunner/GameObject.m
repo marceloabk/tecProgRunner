@@ -29,6 +29,13 @@
     return physicsBody;
 }
 
+-(SKPhysicsBody *) generatePhysicsBody{
+    // Generate a physics body
+    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(100, 100)];
+    
+    return physicsBody;
+}
+
 -(void) setBasicsAttributes{
     // Set attributes for the default "GameObject"
 }
