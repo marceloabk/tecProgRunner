@@ -22,7 +22,7 @@
     if(self != nil){
         self.physicsBody = [self generatePhysicsBody];
         
-        self.playerOnGound = true;
+        self.playerOnGround = true;
         
         self.position = position;
         
@@ -54,7 +54,7 @@
 
 // Make player perform a jump when called
 -(void) jump{
-    self.playerOnGound = false;
+    self.playerOnGround = false;
     
     NSMutableArray *actionsToPlayerFinishJump = [NSMutableArray array];
     
@@ -76,7 +76,7 @@
     }
 
     SKAction *playerBackToGround = [SKAction runBlock:^{
-        self.playerOnGound = true;
+        self.playerOnGround = true;
     }];
     
     [actionsToPlayerFinishJump addObject:playerBackToGround];

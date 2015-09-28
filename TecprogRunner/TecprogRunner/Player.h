@@ -10,7 +10,7 @@
 
 @interface Player : GameObject
 
-@property (nonatomic) BOOL playerOnGound;
+@property (nonatomic) BOOL playerOnGround;
 -(void) jump;
 -(void) throwProjectile;
 

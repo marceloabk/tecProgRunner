@@ -69,7 +69,7 @@
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
     
-    if((touchLocation.x < _size.width/2) && self.player.playerOnGound == true){
+    if((touchLocation.x < _size.width/2) && self.player.playerOnGround == true){
         NSLog(@"User clicked on left side of game layer and is on ground");
         [self.player jump];
     }else if(touchLocation.x > _size.width/2){
