@@ -108,6 +108,15 @@
 
 -(void) pausedClicked{
     
+    if(self.paused ==1){
+        self.paused = false;
+    }
+    else if(self.paused != 1){
+        self.paused = true;
+    }
+    else{
+        // do nothing
+    }
 }
 
 -(void) update:(CFTimeInterval)currentTime{
@@ -134,6 +143,7 @@
     
       self.timer = [NSTimer scheduledTimerWithTimeInterval:0.52 target:self selector:@selector(onTick) userInfo:nil repeats:YES];
 }
+
 
 -(void) onTick{
     
