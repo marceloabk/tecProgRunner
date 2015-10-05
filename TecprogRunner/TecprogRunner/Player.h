@@ -10,8 +10,19 @@
 
 @interface Player : GameObject
 
+/**
+ Boolean that indicates whether player is on the ground
+*/
 @property (nonatomic) BOOL playerOnGround;
+
+/**
+ run jump procedures
+*/
 -(void) jump;
+
+/**
+ run throw projectile procedures
+*/
 -(void) throwProjectile;
 
 @end

@@ -42,29 +42,6 @@
     return self;
 }
 
--(void) prepareGameLayer{
-    
-    _sceneLayer = [[SKNode alloc] init];
-    _backgroundLayer = [[BackgroundLayer alloc] initWithSize:_size];
-    _hudLayer = [[HudLayer alloc] initWithSize:_size];
-    self.layer = [SKNode node];
-    
-    // Adding layers to game layer
-    [self addChild:self.layer];
-    [self.layer addChild:_sceneLayer];
-    [_sceneLayer addChild:_backgroundLayer];
-    [_sceneLayer addChild:_hudLayer];
-    
-    //Instantiating and adding to game layer
-    CGPoint playerPosition = CGPointMake(50, 50);
-    self.player = [[Player alloc]initWithPosition:playerPosition];
-    [self.layer addChild:self.player];
-    
-    self.pointsScored = 0;
-    [self initiateTimer];
-    
-}
-
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
     UITouch *touch = [touches anyObject];
@@ -97,7 +74,24 @@
 
 -(void) activateLayer{
     
-    [self prepareGameLayer];
+    _sceneLayer = [[SKNode alloc] init];
+    _backgroundLayer = [[BackgroundLayer alloc] initWithSize:_size];
+    _hudLayer = [[HudLayer alloc] initWithSize:_size];
+    self.layer = [SKNode node];
+    
+    // Adding layers to game layer
+    [self addChild:self.layer];
+    [self.layer addChild:_sceneLayer];
+    [_sceneLayer addChild:_backgroundLayer];
+    [_sceneLayer addChild:_hudLayer];
+    
+    //Instantiating and adding to game layer
+    CGPoint playerPosition = CGPointMake(50, 50);
+    self.player = [[Player alloc]initWithPosition:playerPosition];
+    [self.layer addChild:self.player];
+    
+    self.pointsScored = 0;
+    [self initiateTimer];
     
 }
 

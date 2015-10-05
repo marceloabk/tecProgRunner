@@ -20,6 +20,11 @@ typedef enum {
 @interface GameData : NSObject <NSCoding>
 
 @property (nonatomic) GameDataLayerType layerActivated;
+
+/**
+ Store high score game
+ Should restart at every game start
+ */
 @property (nonatomic) int highScore;
 
 /**
