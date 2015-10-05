@@ -31,7 +31,7 @@
     [GameData sharedGameData].layerActivated = menu;
     
     // Setting a default screen size for to base positions of sprites
-    CGSize screenSize = CGSizeMake(667, 375);
+    CGSize screenSize = CGSizeMake(DEFAULT_LAYER_WIDTH, DEFAULT_LAYER_HEIGHT);
     
     // Allocating and initializing first scene
     OverallScene *scene = [[OverallScene alloc] initWithSize:screenSize];

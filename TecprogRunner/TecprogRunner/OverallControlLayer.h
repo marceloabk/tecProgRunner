@@ -12,6 +12,9 @@
 #import "GameLayer.h"
 #import "SettingsLayer.h"
 
+#define DEFAULT_LAYER_WIDTH 667
+#define DEFAULT_LAYER_HEIGHT 375
+
 @interface OverallControlLayer : SKNode
 
 -(instancetype) initWithSize: (CGSize) size;

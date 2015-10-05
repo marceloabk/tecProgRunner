@@ -8,10 +8,9 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "BackgroundLayerMenu.h"
+#import "BasicLayer.h"
 
-@interface MenuLayer : SKNode
-
--(instancetype) initWithSize: (CGSize) size;
+@interface MenuLayer : SKNode <LayerRequirements>
 
 @property (nonatomic) SKNode *layer;
 
@@ -21,7 +20,5 @@
 @property (nonatomic) SKSpriteNode *storeButton;
 @property (nonatomic) SKSpriteNode *settingsButton;
 @property (nonatomic) SKSpriteNode *gameCenterButton;
-
--(void) activateLayer;
 
 @end

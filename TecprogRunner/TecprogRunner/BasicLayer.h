@@ -14,7 +14,12 @@
 @protocol LayerRequirements <NSObject>
 
 @required
+
+/// Initialize with size
 - (instancetype) initWithSize:(CGSize)size;
+
+/// Add all chilldren from layer
+-(void) activateLayer;
 
 @end
 

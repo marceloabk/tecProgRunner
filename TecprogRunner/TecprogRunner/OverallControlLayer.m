@@ -23,6 +23,7 @@
 
 -(void) changeLayer{
     
+    // Removing all layers from parent
     [self enumerateChildNodesWithName:@"layer" usingBlock:^(SKNode *node, BOOL *stop){
         
         SKSpriteNode *layer = (SKSpriteNode *) node;
@@ -35,6 +36,7 @@
 
 -(void) loadLayers{
     
+    // Get specific type of layer to change
     GameDataLayerType layerType = [GameData sharedGameData].layerActivated;
     
     [self putLayer:layerType];
@@ -42,24 +44,29 @@
 }
 -(void) putLayer:(GameDataLayerType) layerType{
     
-    CGSize layerSize = CGSizeMake(667, 375);
+    // Set layer size
+    CGSize layerSize = CGSizeMake(DEFAULT_LAYER_WIDTH, DEFAULT_LAYER_HEIGHT);
     
     if(layerType == menu){
+        // Initialize menu layer and activate
         self.menuLayer = [[MenuLayer alloc] initWithSize:layerSize];
         [self addChild:self.menuLayer];
         [self.menuLayer activateLayer];
     }
     else if(layerType == store){
+        // Initialize store layer and activate
         self.storeLayer = [[StoreLayer alloc] initWithSize:layerSize];
         [self addChild:self.storeLayer];
         [self.storeLayer activateLayer];
     }
     else if(layerType == game){
+        // Initialize game layer and activate
         self.gameLayer = [[GameLayer alloc] initWithSize:layerSize];
         [self addChild:self.gameLayer];
         [self.gameLayer activateLayer];
     }
     else if(layerType == settings){
+        // Initialize settings layer and activate
         self.settingsLayer = [[SettingsLayer alloc] initWithSize:layerSize];
         [self addChild:self.settingsLayer];
         [self.settingsLayer activateLayer];
