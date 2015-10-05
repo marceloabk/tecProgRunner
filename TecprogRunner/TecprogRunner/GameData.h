@@ -15,11 +15,11 @@ typedef enum {
     store,
     game,
     settings
-} layerType;
+} GameDataLayerType;
 
 @interface GameData : NSObject <NSCoding>
 
-@property (nonatomic) layerType layerActivated;
+@property (nonatomic) GameDataLayerType layerActivated;
 @property (nonatomic) int highScore;
 
 /**

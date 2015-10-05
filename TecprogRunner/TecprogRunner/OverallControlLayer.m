@@ -16,7 +16,6 @@
     if(self = [super init]){
 
         [self loadLayers];
-        [self putLayer];
         
     }
     return self;
@@ -32,40 +31,36 @@
     }];
     
     [self loadLayers];
-    [self putLayer];
-    
 }
 
 -(void) loadLayers{
-
-    CGSize layerSize = CGSizeMake(667, 375);
     
-    self.menuLayer = [[MenuLayer alloc] initWithSize:layerSize];
-    self.storeLayer = [[StoreLayer alloc] initWithSize:layerSize];
-    self.gameLayer = [[GameLayer alloc] initWithSize:layerSize];
-    self.settingsLayer = [[SettingsLayer alloc] initWithSize:layerSize];
+    GameDataLayerType layerType = [GameData sharedGameData].layerActivated;
     
-    self.menuLayer.name = @"layer";
-    self.storeLayer.name = @"layer";
-    self.gameLayer.name = @"layer";
-    self.settingsLayer.name = @"layer";
+    [self putLayer:layerType];
 
 }
--(void) putLayer{
+-(void) putLayer:(GameDataLayerType) layerType{
     
-    if([GameData sharedGameData].layerActivated == menu){
+    CGSize layerSize = CGSizeMake(667, 375);
+    
+    if(layerType == menu){
+        self.menuLayer = [[MenuLayer alloc] initWithSize:layerSize];
         [self addChild:self.menuLayer];
         [self.menuLayer activateLayer];
     }
-    else if([GameData sharedGameData].layerActivated == store){
+    else if(layerType == store){
+        self.storeLayer = [[StoreLayer alloc] initWithSize:layerSize];
         [self addChild:self.storeLayer];
         [self.storeLayer activateLayer];
     }
-    else if([GameData sharedGameData].layerActivated == game){
+    else if(layerType == game){
+        self.gameLayer = [[GameLayer alloc] initWithSize:layerSize];
         [self addChild:self.gameLayer];
         [self.gameLayer activateLayer];
     }
-    else if([GameData sharedGameData].layerActivated == settings){
+    else if(layerType == settings){
+        self.settingsLayer = [[SettingsLayer alloc] initWithSize:layerSize];
         [self addChild:self.settingsLayer];
         [self.settingsLayer activateLayer];
     }

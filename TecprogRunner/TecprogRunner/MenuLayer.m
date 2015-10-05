@@ -16,6 +16,7 @@
         
         self.layer = [SKNode node];
         [self addChild:self.layer];
+        self.name = @"layer";
         
         self.backgroundLayerMenu = [[BackgroundLayerMenu alloc] initWithSize:size];
         [self loadButtons];

@@ -17,6 +17,8 @@
         self.layer = [SKNode node];
         [self addChild:self.layer];
         
+        self.name = @"layer";
+        
         [self loadBackground];
         [self loadButtons];
         
