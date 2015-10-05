@@ -18,24 +18,30 @@
     
     // Configure the view
     SKView * skView = (SKView *)self.view;
+    
+    NSAssert((skView != NULL), @"SKview is NULL");
+    
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
     
-    /* Sprite Kit applies additional optimizations to improve rendering performance */
+    // Sprite Kit applies additional optimizations to improve rendering performance
     skView.ignoresSiblingOrder = YES;
     skView.showsPhysics = YES;
     
-    // Create and configure the scene.
-    // OverallScene will control all of the architecture of the game
-    
     [GameData sharedGameData].layerActivated = menu;
     
-    // Setting a default screen size for to base positions of sprites
+    // Create and configure the scene...
+    // ...Setting a default screen size for to base positions of sprites
     CGSize screenSize = CGSizeMake(DEFAULT_LAYER_WIDTH, DEFAULT_LAYER_HEIGHT);
     
-    // Allocating and initializing first scene
+    // ...Allocating and initializing first scene
+    // OverallScene will control all of the architecture of the game
     OverallScene *scene = [[OverallScene alloc] initWithSize:screenSize];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    
+    NSAssert((scene != NULL), @"OverrallScene is NULL");
+    
+    // ...Adjust contents according to the screen size
+    scene.scaleMode = SKSceneScaleModeFill;
     
     // Present the scene.
     [skView presentScene:scene];
@@ -53,6 +59,7 @@
     }else{
         return UIInterfaceOrientationMaskAll;
     }
+    
 }
 
 -(void) didReceiveMemoryWarning{
