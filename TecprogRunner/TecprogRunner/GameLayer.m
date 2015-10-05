@@ -110,9 +110,11 @@
     
     if(self.paused ==1){
         self.paused = false;
+        [self initiateTimer];
     }
     else if(self.paused != 1){
         self.paused = true;
+        [self deactivateTimer];
     }
     else{
         // do nothing
@@ -136,6 +138,14 @@
 -(void) activateLayer{
     
     [self prepareGameLayer];
+    
+}
+
+-(void) deactivateTimer{
+
+    [self.timer invalidate];
+    self.timer = nil;
+    
     
 }
 
