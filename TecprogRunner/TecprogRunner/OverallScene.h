@@ -11,6 +11,9 @@
 
 @interface OverallScene : SKScene
 
+/**
+ Overall Control Layer controls changing layer
+*/
 @property (nonatomic) OverallControlLayer *overallControlLayer;
 
 @end

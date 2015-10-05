@@ -19,9 +19,24 @@
 
 -(instancetype) initWithSize: (CGSize) size;
 
+/**
+ Menu layer contains Buttons to setting, store, game center and Game
+ */
 @property (nonatomic) MenuLayer* menuLayer;
+
+/**
+ Store layer contains buttons to back to menu, list of itens that can be purchased
+ */
 @property (nonatomic) StoreLayer* storeLayer;
+
+/**
+ Game layer contains the game objects, background and hud
+ */
 @property (nonatomic) GameLayer* gameLayer;
+
+/**
+ Settings layer contains the game options
+ */
 @property (nonatomic) SettingsLayer* settingsLayer ;
 
 /**

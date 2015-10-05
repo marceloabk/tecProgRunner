@@ -10,6 +10,4 @@
 
 @interface BackgroundLayer : SKNode <LayerRequirements>
 
--(instancetype) initWithSize:(CGSize)size;
-
 @end
