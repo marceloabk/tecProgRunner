@@ -25,6 +25,8 @@
     HudLayer* _hudLayer;
     SKNode* _sceneLayer;
     
+    SKSpriteNode* _pauseButton;
+
     // Time variables
     NSTimeInterval _deltaTime;
     NSTimeInterval _lastUpdateTime;
@@ -38,6 +40,7 @@
     if(self){
         _size = size;
         self.name = @"layer";
+        
     }
     return self;
 }
@@ -55,6 +58,9 @@
     [_sceneLayer addChild:_backgroundLayer];
     [_sceneLayer addChild:_hudLayer];
     
+    // Pause button
+    [self loadPause];
+
     //Instantiating and adding to game layer
     CGPoint playerPosition = CGPointMake(50, 50);
     self.player = [[Player alloc]initWithPosition:playerPosition];
@@ -65,12 +71,31 @@
     
 }
 
+-(void) loadPause{
+
+    _pauseButton = [SKSpriteNode spriteNodeWithImageNamed:@"pauseButton"];
+    [_pauseButton setScale:0.5];
+    _pauseButton.anchorPoint = CGPointMake(0, 1);
+    _pauseButton.position = CGPointMake(15, 365);
+    _pauseButton.zPosition = 10000000;
+    _pauseButton.name = @"pauseGame";
+    
+    [self addChild:_pauseButton];
+}
+
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
     
-    if((touchLocation.x < _size.width/2) && self.player.playerOnGround == true){
+    SKNode *node = [self nodeAtPoint:touchLocation];
+    
+    if([node.name isEqualToString:@"pauseGame"]){
+       
+        //pause or unpause game;
+        [self pausedClicked];
+    }
+    else if((touchLocation.x < _size.width/2) && self.player.playerOnGround == true){
         NSLog(@"User clicked on left side of game layer and is on ground");
         [self.player jump];
     }else if(touchLocation.x > _size.width/2){
@@ -79,6 +104,10 @@
     }else{
         // Do nothing
     }
+}
+
+-(void) pausedClicked{
+    
 }
 
 -(void) update:(CFTimeInterval)currentTime{

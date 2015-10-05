@@ -41,7 +41,7 @@
     self.scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     self.scoreLabel.text = pointsLabelString;
     self.scoreLabel.fontColor = fontColor;
-    self.scoreLabel.fontSize = 45;
+    self.scoreLabel.fontSize = 38;
     self.scoreLabel.position = fontPosition;
     self.scoreLabel.zPosition = 2;
     

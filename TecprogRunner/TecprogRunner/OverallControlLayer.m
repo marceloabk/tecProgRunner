@@ -71,6 +71,9 @@
         [self addChild:self.settingsLayer];
         [self.settingsLayer activateLayer];
     }
+//    else if(layerType == pause){
+//        // Pause game layer
+//    }
 }
 
 

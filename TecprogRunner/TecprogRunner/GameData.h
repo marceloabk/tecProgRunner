@@ -14,7 +14,8 @@ typedef enum {
     menu,
     store,
     game,
-    settings
+    settings,
+    paused
 } GameDataLayerType;
 
 @interface GameData : NSObject <NSCoding>
