@@ -47,18 +47,28 @@
     return physicsBody;
 }
 
--(void) setBasicsAttributes{
     // Set attributes for the default "GameObject"
+-(void) setBasicsAttributes{
+    
 }
 
 #pragma mark Defining Contact methods
 
--(void) beginContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact{
     // Handling for when the contact starts
+-(void) beginContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact{
+    
+    // Getting body names
+    NSString *bodyA = contact.bodyA.node.name;
+    NSString *bodyB = contact.bodyB.node.name;
+    
+    NSLog(@"Contact started between %@ and %@", bodyA, bodyB);
 }
-
--(void) endContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact{
     // Handling for when the contact ends
+-(void) endContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact{
+    NSString *bodyA = contact.bodyA.node.name;
+    NSString *bodyB = contact.bodyB.node.name;
+    
+    NSLog(@"Contact ended between %@ and %@", bodyA, bodyB);
 }
 
 @end
