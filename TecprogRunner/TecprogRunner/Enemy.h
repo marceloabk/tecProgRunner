@@ -8,6 +8,8 @@
 
 #import "GameObject.h"
 
+#define INITIAL_ENEMY_IMAGE @""
+
 @interface Enemy : GameObject
 
 @end
