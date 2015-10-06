@@ -23,6 +23,12 @@
 -(SKTexture *) generateTextureWithImageNamed:(NSString *)image;
 
 /**
+ Generate a Mutable Array with SKTexture
+ Used for animations
+ */
+-(NSMutableArray*) generateAnimationImages:(NSString*)modelImageName andCount:(int)count;
+
+/**
  Generate physics body with image named
 */
 -(SKPhysicsBody *) generatePhysicsBodyWithImageNamed:(NSString *)image;

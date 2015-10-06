@@ -32,6 +32,32 @@
     return imageTexture;
 }
 
+-(NSMutableArray*) generateAnimationImages:(NSString*)modelImageName andCount:(int)count{
+    
+    const unsigned int initialIndex = 1;
+    
+    // Array used to storage textures
+    NSMutableArray *texturesArray = [NSMutableArray array];
+    
+    // Fill the array with player running textures
+    for (int index = initialIndex; index <= count; index++) {
+        
+        // Selecting image
+        NSString *imageName = [NSString stringWithFormat:@"%@%i", modelImageName, index];
+        
+        NSLog(@"Generating texture with image named: %@", imageName);
+        
+        // Making texture with the image
+        SKTexture *texture = [self generateTextureWithImageNamed:imageName];
+        
+        // Add the new texture to the Array
+        [texturesArray addObject:texture];
+        
+    }
+    
+    return texturesArray;
+}
+
 -(SKPhysicsBody *) generatePhysicsBodyWithImageNamed:(NSString *)image{
     
     // Generate a physics body with the image
