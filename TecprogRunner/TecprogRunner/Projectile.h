@@ -7,9 +7,18 @@
 //
 
 #import "GameObject.h"
+#import "PhysicsCategories.h"
+
+#define DEFAULT_PROJECTILE_IMAGE @"projectile"
+#define PLAYER_NAME @"Player"
+#define ENEMY_NAME @"Enemy"
 
 @interface Projectile : GameObject
 
--(instancetype) initWithPosition:(CGPoint)position;
+/**
+ Initialize the projectile with a position
+ and a string representing the class of the owner
+*/
+-(instancetype) initWithPosition:(CGPoint)position andOwner:(NSString*)ownerName;
 
 @end

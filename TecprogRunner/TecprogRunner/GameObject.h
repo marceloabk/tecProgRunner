@@ -33,6 +33,13 @@
 */
 -(SKPhysicsBody *) generatePhysicsBodyWithImageNamed:(NSString *)image;
 
+
+/**
+ Invert horizontally
+*/
+-(void) invertSpriteX:(BOOL)option;
+
+
 /**
  Generate physics body
 */

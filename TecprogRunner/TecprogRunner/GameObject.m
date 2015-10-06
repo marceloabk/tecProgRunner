@@ -70,6 +70,17 @@
     return physicsBody;
 }
 
+-(void) invertSpriteX:(BOOL)option{
+    
+    if (option == YES) {
+        // Invert the xScale using the absolut value
+        self.xScale = -fabs(self.xScale);
+    }else{
+        self.xScale = fabs(self.xScale);
+    }
+    
+}
+
 -(SKPhysicsBody *) generatePhysicsBody{
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(100, 100)];
     
@@ -90,6 +101,7 @@
     
     NSLog(@"Contact started between %@ and %@", bodyA, bodyB);
 }
+
 -(void) endContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact{
     
     // Getting body names
