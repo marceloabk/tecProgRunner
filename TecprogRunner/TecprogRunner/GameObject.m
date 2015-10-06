@@ -28,6 +28,7 @@
     
     // Generate a texture with the image
     SKTexture *imageTexture = [SKTexture textureWithImageNamed:image];
+    imageTexture.filteringMode = SKTextureFilteringNearest;
     
     return imageTexture;
 }
