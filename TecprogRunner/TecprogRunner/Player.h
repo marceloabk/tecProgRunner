@@ -23,9 +23,9 @@
 -(void) jump;
 
 /**
- Make player run
+ Make the animation of player running
 */
--(SKAction*) runAnimation;
+-(SKAction*) runningAnimation;
 
 /**
  run throw projectile procedures

@@ -28,6 +28,10 @@
     if(self != nil){
         NSLog(@"Player initialized with texture successfully");
         
+        // Make player run
+        SKAction *running = [self runningAnimation];
+        [self runAction: running];
+        
         self.physicsBody = [self generatePhysicsBody];
         self.playerOnGround = true;
         self.position = position;
@@ -48,7 +52,6 @@
     // Placeholder image is too big then we rescale it to fit our screen
     [self setScale:0.1];
     
-    self.texture.filteringMode = SKTextureFilteringNearest;
 }
 
 // Generate player physics body
@@ -64,7 +67,7 @@
 }
 
 // Load animations of player running
--(SKAction*) loadRunAnimation{
+-(SKAction*) loadRunningAnimation{
     
     NSLog(@"Loading Run Animation");
     
@@ -77,10 +80,10 @@
     return run;
 }
 
--(SKAction *) runAnimation{
+-(SKAction *) runningAnimation{
     
     // Load animations
-    SKAction *runAnimation = [self loadRunAnimation];
+    SKAction *runAnimation = [self loadRunningAnimation];
     
     // Make animations repeat forever
     SKAction *repeatAnimation = [SKAction repeatActionForever:runAnimation];
@@ -89,9 +92,23 @@
     
 }
 
+-(SKAction*) loadJumpAnimation{
+    NSLog(@"Loading Jump Animation");
+    
+    // Creating a Mutable Array filled with Run Animations
+    NSMutableArray *jumpTextures = [super generateAnimationImages:@"playerJumping" andCount:2];
+    
+    // Using textures to make an action with certain time
+    SKAction *jump = [SKAction animateWithTextures:jumpTextures timePerFrame:0.3];
+    
+    return jump;
+}
+
 // Make player perform a jump when called
 -(void) jump{
     self.playerOnGround = false;
+    
+    [self runAction:[self loadJumpAnimation]];
     
     NSMutableArray *actionsToPlayerFinishJump = [NSMutableArray array];
     

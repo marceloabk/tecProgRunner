@@ -10,4 +10,5 @@
 
 @interface Coin : GameObject
 
+
 @end

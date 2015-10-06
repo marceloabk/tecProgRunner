@@ -138,10 +138,6 @@
     CGPoint playerPosition = CGPointMake(50, 50);
     self.player = [[Player alloc]initWithPosition:playerPosition];
     
-    // Make player run
-    SKAction *running = [self.player runAnimation];
-    [self.player runAction:running];
-    
     // Add player to the layer
     [self.layer addChild:self.player];
 }
