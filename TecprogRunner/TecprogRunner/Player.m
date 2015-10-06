@@ -47,7 +47,7 @@
     return self;
 }
 
-// Set all the basics attributes that player will have
+// Set some basics attributes that player will have
 -(void) setBasicsAttributes{
     // Placeholder image is too big then we rescale it to fit our screen
     [self setScale:0.1];
@@ -62,6 +62,8 @@
     physicsBody.mass = 100;
     physicsBody.affectedByGravity = NO;
     physicsBody.allowsRotation = NO;
+    physicsBody.categoryBitMask = ColliderTypePlayer;
+    physicsBody.collisionBitMask = ColliderTypeProjectile | ColliderTypeEnemy;
 
     return physicsBody;
 }

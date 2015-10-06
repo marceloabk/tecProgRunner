@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "PhysicsCategories.h"
 
 @interface GameObject : SKSpriteNode
 

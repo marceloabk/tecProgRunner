@@ -7,7 +7,6 @@
 //
 
 #import "GameObject.h"
-#import "PhysicsCategories.h"
 
 #define DEFAULT_PROJECTILE_IMAGE @"projectile"
 #define PLAYER_NAME @"Player"

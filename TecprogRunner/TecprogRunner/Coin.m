@@ -48,6 +48,10 @@
     physicsBody.affectedByGravity = NO;
     physicsBody.allowsRotation = NO;
     
+    // Defining types for Collision
+    physicsBody.collisionBitMask = ColliderTypePlayer;
+    physicsBody.categoryBitMask = ColliderTypeCoin;
+    
     return physicsBody;
 }
 

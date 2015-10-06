@@ -15,7 +15,9 @@ typedef NS_ENUM(NSUInteger, ColliderType){
     ColliderTypePlayer = 1 << 0,
     ColliderTypeProjectile = 1 << 1,
     ColliderTypeEnemy = 1 << 2,
-    ColliderTypeCoin = 1 << 3
+    ColliderTypeCoin = 1 << 3,
+    ColliderTypeWeakEnemy = 1 << 4,
+    ColliderTypeObstacle = 1 << 5
 };
 
 #endif
