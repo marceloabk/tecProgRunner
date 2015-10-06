@@ -8,6 +8,8 @@
 
 #import "GameObject.h"
 
+#define INITIAL_PLAYER_IMAGE @"playerRunning1"
+
 @interface Player : GameObject
 
 /**
@@ -19,6 +21,11 @@
  run jump procedures
 */
 -(void) jump;
+
+/**
+ Make player run
+*/
+-(SKAction*) runAnimation;
 
 /**
  run throw projectile procedures

@@ -123,16 +123,27 @@
     [_sceneLayer addChild:_backgroundLayer];
     [_sceneLayer addChild:_hudLayer];
     
-    //Instantiating and adding to game layer
-    CGPoint playerPosition = CGPointMake(50, 50);
-    self.player = [[Player alloc]initWithPosition:playerPosition];
-    [self.layer addChild:self.player];
+    // Put player on the layer
+    [self initializePlayer];
     
     self.pointsScored = 0;
     [self initiateTimer];
     
     // Pause button
     [self loadPause];
+}
+
+-(void) initializePlayer{
+    // Instantiating and adding to game layer
+    CGPoint playerPosition = CGPointMake(50, 50);
+    self.player = [[Player alloc]initWithPosition:playerPosition];
+    
+    // Make player run
+    SKAction *running = [self.player runAnimation];
+    [self.player runAction:running];
+    
+    // Add player to the layer
+    [self.layer addChild:self.player];
 }
 
 -(void) deactivateTimer{

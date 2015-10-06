@@ -10,26 +10,35 @@
 #import "Projectile.h"
 
 @interface Player()
-
 @end
 
 @implementation Player
 
 // Initialize Player class with a position
 -(instancetype)initWithPosition:(CGPoint)position{
-    self = [super initWithTexture:[SKTexture textureWithImageNamed:@"playerTexture"]];
+    
+    // Creating a texture for the  player
+    SKTexture *playerTexture = [super generateTextureWithImageNamed:INITIAL_PLAYER_IMAGE];
+    
+    NSAssert((playerTexture != NULL), @"Texture generated for player is NULL");
+    
+    self = [super initWithTexture:playerTexture];
     
     if(self != nil){
+        NSLog(@"Player initialized with texture successfully");
+        
         self.physicsBody = [self generatePhysicsBody];
-        
         self.playerOnGround = true;
-        
         self.position = position;
         
         [self setBasicsAttributes];
     }else{
+        
+        NSLog(@"Player can't be initialized");
+        
         // There is no alternative path for this if
     }
+    
     return self;
 }
 
@@ -44,12 +53,39 @@
 // Generate player physics body
 -(SKPhysicsBody *) generatePhysicsBody{
     
+    // Using a rectangle as PhysicsBody
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     physicsBody.mass = 100;
     physicsBody.affectedByGravity = NO;
     physicsBody.allowsRotation = NO;
 
     return physicsBody;
+}
+
+// Load animations of player running
+-(SKAction*) loadRunAnimation{
+    
+    NSLog(@"Loading Run Animation");
+    
+    // Creating a Mutable Array filled with Run Animations
+    NSMutableArray *runTextures = [super generateAnimationImages:@"playerRunning" andCount:6];
+    
+    // Using textures to make an action
+    SKAction *run = [SKAction animateWithTextures:runTextures timePerFrame:0.1];
+    
+    return run;
+}
+
+-(SKAction *) runAnimation{
+    
+    // Load animations
+    SKAction *runAnimation = [self loadRunAnimation];
+    
+    // Make animations repeat forever
+    SKAction *repeatAnimation = [SKAction repeatActionForever:runAnimation];
+    
+    return repeatAnimation;
+    
 }
 
 // Make player perform a jump when called

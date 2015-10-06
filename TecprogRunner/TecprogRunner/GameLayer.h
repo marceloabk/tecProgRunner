@@ -23,10 +23,13 @@
 @property (nonatomic) SKNode *layer;
 
 /**
- timer for points
+ Timer for points
 */
 @property (nonatomic) NSTimer *timer;
 
+/**
+ Variable to storage points
+*/
 @property (nonatomic) int pointsScored;
 
 
