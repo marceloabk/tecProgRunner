@@ -7,6 +7,7 @@
 //
 
 #import "GameObject.h"
+#define INITIAL_COIN_IMAGE @"Coin1"
 
 @interface Coin : GameObject
 
