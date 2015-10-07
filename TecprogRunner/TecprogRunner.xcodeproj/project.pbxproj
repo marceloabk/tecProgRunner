@@ -37,6 +37,7 @@
 		09CB5AB11BA8C53C006E3A64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB01BA8C53C006E3A64 /* Foundation.framework */; };
 		09CB5AB41BA8C5A5006E3A64 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */; };
 		09CB5AB61BA8C5AE006E3A64 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */; };
+		677DE20A1BC4B98E00C002ED /* weakEnemyTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 677DE2091BC4B98E00C002ED /* weakEnemyTexture.png */; settings = {ASSET_TAGS = (); }; };
 		67A4F5C31BABA3E0004DCA3C /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F5C21BABA3E0004DCA3C /* Projectile.m */; };
 		67C0F7791BB95DC6003A02B1 /* WeakEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C0F7781BB95DC6003A02B1 /* WeakEnemy.m */; };
 		67FFA6CF1B99301C00354487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6CE1B99301C00354487 /* main.m */; };
@@ -108,6 +109,7 @@
 		09CB5AB21BA8C5A5006E3A64 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
 		09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		677DE2091BC4B98E00C002ED /* weakEnemyTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weakEnemyTexture.png; sourceTree = "<group>"; };
 		67A4F5C11BABA3E0004DCA3C /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
 		67A4F5C21BABA3E0004DCA3C /* Projectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile.m; sourceTree = "<group>"; };
 		67C0F7771BB95DC6003A02B1 /* WeakEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakEnemy.h; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				095DE9271BC488E5004BCD3B /* storeBackground.png */,
 				095DE9281BC488E5004BCD3B /* storeButton.png */,
 				095DE9291BC488E5004BCD3B /* tapToPlay.png */,
+				677DE2091BC4B98E00C002ED /* weakEnemyTexture.png */,
 			);
 			path = Images;
 			sourceTree = SOURCE_ROOT;
@@ -607,6 +610,7 @@
 				67FFA6DF1B99301C00354487 /* Images.xcassets in Resources */,
 				095DE93C1BC488E5004BCD3B /* playerRunning6.png in Resources */,
 				095DE9421BC488E5004BCD3B /* storeButton.png in Resources */,
+				677DE20A1BC4B98E00C002ED /* weakEnemyTexture.png in Resources */,
 				095DE9381BC488E5004BCD3B /* playerRunning2.png in Resources */,
 				095DE93D1BC488E5004BCD3B /* playerTexture.png in Resources */,
 				095DE9321BC488E5004BCD3B /* gameCenterButton.png in Resources */,
