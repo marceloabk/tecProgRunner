@@ -7,7 +7,13 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "TrainingCenterBackground.h"
 
 @interface TrainingCenterBackground : SKNode
+
+-(instancetype) initWithSize: (CGSize) size;
+
+//background sprite
+@property (nonatomic) SKSpriteNode* background;
 
 @end

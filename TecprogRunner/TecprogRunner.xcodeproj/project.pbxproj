@@ -423,10 +423,10 @@
 		6BF9FB771BC57BEC004878CC /* Training Center */ = {
 			isa = PBXGroup;
 			children = (
-				6BF9FB7B1BC57C33004878CC /* TrainingCenterBackground.h */,
-				6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */,
 				6BF9FB7E1BC57C40004878CC /* TrainingCenterLayer.h */,
 				6BF9FB7F1BC57C40004878CC /* TrainingCenterLayer.m */,
+				6BF9FB7B1BC57C33004878CC /* TrainingCenterBackground.h */,
+				6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */,
 			);
 			name = "Training Center";
 			sourceTree = "<group>";

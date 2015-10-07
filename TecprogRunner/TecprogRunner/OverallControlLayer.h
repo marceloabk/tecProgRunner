@@ -11,6 +11,7 @@
 #import "StoreLayer.h"
 #import "GameLayer.h"
 #import "SettingsLayer.h"
+#import "TrainingCenterLayer.h"
 
 #define DEFAULT_LAYER_WIDTH 667
 #define DEFAULT_LAYER_HEIGHT 375
@@ -38,6 +39,11 @@
  Settings layer contains the game options
  */
 @property (nonatomic) SettingsLayer* settingsLayer ;
+
+/**
+ Training center layer contains the characters training sessions
+ */
+@property (nonatomic) TrainingCenterLayer* trainingCenterLayer ;
 
 /**
  Change layer according to activated layer in GameData singleton

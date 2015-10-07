@@ -71,6 +71,13 @@
         [self addChild:self.settingsLayer];
         [self.settingsLayer activateLayer];
     }
+    else if(layerType == trainingCenter){
+        // Initialize settings layer and activate
+        self.trainingCenterLayer = [[TrainingCenterLayer alloc] initWithSize:layerSize];
+        [self addChild:self.trainingCenterLayer];
+        [self.trainingCenterLayer activateLayer];
+    }
+    
 //    else if(layerType == pause){
 //        // Pause game layer
 //    }

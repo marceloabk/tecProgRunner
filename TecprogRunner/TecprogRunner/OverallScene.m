@@ -65,6 +65,10 @@
             [GameData sharedGameData].layerActivated = store;
             [self.overallControlLayer changeLayer];
         }
+        else if([node.name isEqualToString:@"trainingCenterButton"]){
+            [GameData sharedGameData].layerActivated = trainingCenter;
+            [self.overallControlLayer changeLayer];
+        }
         else{
         
         }
@@ -81,6 +85,17 @@
             [self.overallControlLayer changeLayer];
         }
     }
+    else if([GameData sharedGameData].layerActivated == trainingCenter){
+        if([node.name isEqualToString:@"backTrainingCenter"]){
+            [GameData sharedGameData].layerActivated = menu;
+            [self.overallControlLayer changeLayer];
+        }
+    }
+    else{
+    
+    
+    }
+    
     
 }
 

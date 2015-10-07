@@ -15,7 +15,7 @@ typedef enum {
     store,
     game,
     settings,
-    paused
+    trainingCenter,
 } GameDataLayerType;
 
 @interface GameData : NSObject <NSCoding>
