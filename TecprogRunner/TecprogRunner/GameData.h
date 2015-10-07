@@ -27,11 +27,11 @@ typedef enum {
 @property (nonatomic) unsigned int highScore;
 
 // characters atributes
-@property (nonatomic) unsigned int levelSpeed;
 @property (nonatomic) unsigned int levelJump;
 @property (nonatomic) unsigned int levelLuck;
+@property (nonatomic) unsigned int levelPower;
 @property (nonatomic) unsigned int levelShooting;
-@property (nonatomic) unsigned int power;
+@property (nonatomic) unsigned int levelSpeed;
 
 //Dispatch method that creates the singleton
 +(instancetype) sharedGameData;

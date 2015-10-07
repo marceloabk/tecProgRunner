@@ -8,10 +8,18 @@
 
 #import "GameData.h"
 
+#define STARTING_LEVEL 1
+
 @implementation GameData
 
 // Keys to save data
 static NSString* const SSGameDataKey1 = @"highScore";
+static NSString* const SSGameDataKey2 = @"levelJump";
+static NSString* const SSGameDataKey3 = @"levelLuck";
+static NSString* const SSGameDataKey4 = @"levelPower";
+static NSString* const SSGameDataKey5 = @"levelShooting";
+static NSString* const SSGameDataKey6 = @"levelSpeed";
+
 
 // dispatch method that creates the singleton
 + (instancetype)sharedGameData {
@@ -55,6 +63,11 @@ static NSString* const SSGameDataKey1 = @"highScore";
     if (self){
      
         _highScore = [decoder decodeIntForKey: SSGameDataKey1];
+        _levelJump = [decoder decodeIntForKey: SSGameDataKey2];
+        _levelLuck = [decoder decodeIntForKey: SSGameDataKey3];
+        _levelPower = [decoder decodeIntForKey: SSGameDataKey4];
+        _levelShooting = [decoder decodeIntForKey: SSGameDataKey5];
+        _levelSpeed = [decoder decodeIntForKey: SSGameDataKey6];
 
     }
     
@@ -66,13 +79,22 @@ static NSString* const SSGameDataKey1 = @"highScore";
 
     self.layerActivated = menu;
     
+    self.levelJump = STARTING_LEVEL;
+    self.levelLuck = STARTING_LEVEL;
+    self.levelShooting = STARTING_LEVEL;
+    self.levelSpeed = STARTING_LEVEL;
+    self.levelPower = STARTING_LEVEL;
 }
 
 // encode data
 - (void)encodeWithCoder:(NSCoder *)encoder{
     
     [encoder encodeInt:self.highScore forKey: SSGameDataKey1];
-
+    [encoder encodeInt:self.levelJump forKey: SSGameDataKey2];
+    [encoder encodeInt:self.levelLuck forKey: SSGameDataKey3];
+    [encoder encodeInt:self.levelPower forKey: SSGameDataKey4];
+    [encoder encodeInt:self.levelShooting forKey: SSGameDataKey5];
+    [encoder encodeInt:self.levelSpeed forKey: SSGameDataKey6];
 }
 
 // file path
