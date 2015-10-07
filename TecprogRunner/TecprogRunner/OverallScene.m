@@ -19,6 +19,15 @@
     
     if(self){
         
+        // check for the users first time entering
+        
+        if([[NSUserDefaults standardUserDefaults] objectForKey:@"primeiraVez"] == NULL){
+            [[NSUserDefaults standardUserDefaults] setObject:@"comecouJogoPelaPrimeiraVez" forKey:@"primeiraVez"];
+            
+            [[GameData sharedGameData] start];
+        }
+        
+        
         // adding layer that is on the screen
         self.overallControlLayer = [[OverallControlLayer alloc] initWithSize:size];
         [self addChild:self.overallControlLayer];

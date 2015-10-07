@@ -7,6 +7,7 @@
 //
 
 #import "TrainingCenterLayer.h"
+#import "GameData.h"
 
 @implementation TrainingCenterLayer
 
@@ -55,5 +56,11 @@
     [self.layer addChild:self.backButton];
     
 }
+
+-(int) returnLevel : (int) skillType{
+
+    return [GameData sharedGameData].levelJump;
+}
+
 
 @end
