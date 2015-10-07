@@ -20,5 +20,6 @@
 @property (nonatomic) SKSpriteNode *storeButton;
 @property (nonatomic) SKSpriteNode *settingsButton;
 @property (nonatomic) SKSpriteNode *gameCenterButton;
+@property (nonatomic) SKSpriteNode *trainingCenterButton;
 
 @end

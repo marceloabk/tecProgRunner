@@ -57,6 +57,8 @@
 		6B0FD4191BA91AE400C22BD6 /* BackgroundLayerStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD4181BA91AE400C22BD6 /* BackgroundLayerStore.m */; };
 		6B2D98DF1BB4E8C5005B342E /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98DE1BB4E8C5005B342E /* SettingsLayer.m */; };
 		6B2D98E21BB4E9C0005B342E /* BackgroundLayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */; };
+		6BB8A3BC1BC58FC7004DD4C8 /* trainingCenterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A3BB1BC58FC7004DD4C8 /* trainingCenterButton.png */; settings = {ASSET_TAGS = (); }; };
+		6BB8A3BE1BC590E3004DD4C8 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A3BD1BC590E3004DD4C8 /* background.png */; settings = {ASSET_TAGS = (); }; };
 		6BF9FB7D1BC57C33004878CC /* TrainingCenterBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */; settings = {ASSET_TAGS = (); }; };
 		6BF9FB801BC57C40004878CC /* TrainingCenterLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9FB7F1BC57C40004878CC /* TrainingCenterLayer.m */; settings = {ASSET_TAGS = (); }; };
 		E92857331BA25B5500DF4959 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857321BA25B5500DF4959 /* GameObject.m */; };
@@ -148,6 +150,8 @@
 		6B2D98DE1BB4E8C5005B342E /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
 		6B2D98E01BB4E9C0005B342E /* BackgroundLayerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayerSettings.h; sourceTree = "<group>"; };
 		6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayerSettings.m; sourceTree = "<group>"; };
+		6BB8A3BB1BC58FC7004DD4C8 /* trainingCenterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trainingCenterButton.png; path = Images/trainingCenterButton.png; sourceTree = SOURCE_ROOT; };
+		6BB8A3BD1BC590E3004DD4C8 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Images/background.png; sourceTree = SOURCE_ROOT; };
 		6BF9FB7B1BC57C33004878CC /* TrainingCenterBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCenterBackground.h; sourceTree = "<group>"; };
 		6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingCenterBackground.m; sourceTree = "<group>"; };
 		6BF9FB7E1BC57C40004878CC /* TrainingCenterLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCenterLayer.h; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 		095DE90D1BC488E5004BCD3B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6BB8A3BB1BC58FC7004DD4C8 /* trainingCenterButton.png */,
 				095DE90E1BC488E5004BCD3B /* backButton.png */,
 				095DE90F1BC488E5004BCD3B /* background_Clouds.png */,
 				095DE9101BC488E5004BCD3B /* Coin */,
@@ -478,6 +483,7 @@
 		E928572E1BA2556D00DF4959 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6BB8A3BD1BC590E3004DD4C8 /* background.png */,
 				095DE90D1BC488E5004BCD3B /* Images */,
 				E92857301BA2558200DF4959 /* Fonts */,
 				E928572F1BA2557900DF4959 /* Button */,
@@ -620,6 +626,7 @@
 				095DE93A1BC488E5004BCD3B /* playerRunning4.png in Resources */,
 				67FFA6E21B99301C00354487 /* LaunchScreen.xib in Resources */,
 				095DE92B1BC488E5004BCD3B /* background_Clouds.png in Resources */,
+				6BB8A3BC1BC58FC7004DD4C8 /* trainingCenterButton.png in Resources */,
 				095DE92F1BC488E5004BCD3B /* Coin4.png in Resources */,
 				095DE9371BC488E5004BCD3B /* playerRunning1.png in Resources */,
 				095DE9401BC488E5004BCD3B /* settingsButton.png in Resources */,
@@ -646,6 +653,7 @@
 				67FFA6DD1B99301C00354487 /* Main.storyboard in Resources */,
 				095DE9351BC488E5004BCD3B /* playerJumping1.png in Resources */,
 				095DE92E1BC488E5004BCD3B /* Coin3.png in Resources */,
+				6BB8A3BE1BC590E3004DD4C8 /* background.png in Resources */,
 				095DE92D1BC488E5004BCD3B /* Coin2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -32,6 +32,7 @@
     [self.layer addChild:self.tapToPlayButton];
     [self.layer addChild:self.storeButton];
     [self.layer addChild:self.settingsButton];
+    [self.layer addChild:self.trainingCenterButton];
     [self.layer addChild:self.gameCenterButton];
 }
 
@@ -42,6 +43,7 @@
     [self loadStoreButton];
     [self loadSettingsButton];
     [self loadGameCenterButton];
+    [self loadTrainingCenterButton];
 }
 
 
@@ -58,7 +60,7 @@
 -(void) loadGameCenterButton{
     
     self.gameCenterButton = [SKSpriteNode spriteNodeWithImageNamed:@"gameCenterButton"];
-    self.gameCenterButton.position = CGPointMake(39, 375-307);
+    self.gameCenterButton.position = CGPointMake(475, 375-316);
     self.gameCenterButton.anchorPoint = CGPointMake(0, 1);
     self.gameCenterButton.name = @"gameCenterButton";
     self.gameCenterButton.zPosition = 2;
@@ -68,11 +70,22 @@
 -(void) loadStoreButton{
 
     self.storeButton = [SKSpriteNode spriteNodeWithImageNamed:@"storeButton"];
-    self.storeButton.position = CGPointMake(576, 375-306);
+    self.storeButton.position = CGPointMake(575, 375-316);
     self.storeButton.anchorPoint = CGPointMake(0, 1);
     self.storeButton.name = @"storeButton";
     self.storeButton.zPosition = 2;
     [self.storeButton setScale:0.5];
+    
+}
+
+-(void) loadTrainingCenterButton{
+    
+    self.trainingCenterButton = [SKSpriteNode spriteNodeWithImageNamed:@"trainingCenterButton"];
+    self.trainingCenterButton.position = CGPointMake(45, 375-306);
+    self.trainingCenterButton.anchorPoint = CGPointMake(0, 1);
+    self.trainingCenterButton.name = @"trainingCenterButton";
+    self.trainingCenterButton.zPosition = 2;
+    [self.trainingCenterButton setScale:0.5];
     
 }
 
