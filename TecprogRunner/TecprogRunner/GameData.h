@@ -22,25 +22,26 @@ typedef enum {
 
 @property (nonatomic) GameDataLayerType layerActivated;
 
-/**
- Store high score game
- Should restart at every game start
- */
-@property (nonatomic) int highScore;
+// Store high score game
+// Should restart at every game start
+@property (nonatomic) unsigned int highScore;
 
-/**
- Dispatch method that creates the singleton
- */
+// characters atributes
+@property (nonatomic) unsigned int levelSpeed;
+@property (nonatomic) unsigned int levelJump;
+@property (nonatomic) unsigned int levelLuck;
+@property (nonatomic) unsigned int levelShooting;
+@property (nonatomic) unsigned int power;
+
+//Dispatch method that creates the singleton
 +(instancetype) sharedGameData;
 
-/**
- Start with menu as activated layer.
-*/
+// Start with menu as activated layer.
 -(void) start;
 
-/**
- Writing game data to local file.
-*/
+//Writing game data to local file.
 -(void) save;
+
+
 
 @end
