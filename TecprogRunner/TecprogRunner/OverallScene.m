@@ -14,13 +14,15 @@
 @implementation OverallScene
 
 - (instancetype)initWithSize:(CGSize)size{
-    
+    DebugLog(@"initializating");
     self = [super initWithSize:size];
     
     if(self){
         
         // adding layer that is on the screen
         self.overallControlLayer = [[OverallControlLayer alloc] initWithSize:size];
+        
+        DebugLog(@"adding overallControlLayer as child node");
         [self addChild:self.overallControlLayer];
         
     }
@@ -47,14 +49,14 @@
     
     SKNode *node = [self nodeAtPoint:touchLocation];
     
-    NSLog(@"Node touched = %@", node.name);
+    DebugLog(@"Node touched = %@", node.name);
     
     if([GameData sharedGameData].layerActivated == menu){
         
+        DebugLog(@"%@ node in menu",node.name);
         if([node.name isEqualToString:@"tapToPlay"]){
             [GameData sharedGameData].layerActivated = game;
             [self.overallControlLayer changeLayer];
-            
         }
         else if([node.name isEqualToString:@"settingsButton"]){
             [GameData sharedGameData].layerActivated = settings;
@@ -65,20 +67,33 @@
             [self.overallControlLayer changeLayer];
         }
         else{
-        
+            DebugLog(@"node %@ unknown for menu",node.name);
         }
     }
     else if([GameData sharedGameData].layerActivated == store){
+        
+        DebugLog(@"%@ node in store",node.name);
         if([node.name isEqualToString:@"backButtonStore"]){
             [GameData sharedGameData].layerActivated = menu;
             [self.overallControlLayer changeLayer];
         }
+        else{
+            DebugLog(@"node %@ unknown for menu",node.name);
+        }
     }
     else if([GameData sharedGameData].layerActivated == settings){
+        
+        DebugLog(@"%@ node in settings",node.name);
         if([node.name isEqualToString:@"backButtonSettings"]){
             [GameData sharedGameData].layerActivated = menu;
             [self.overallControlLayer changeLayer];
         }
+        else{
+            DebugLog(@"node %@ unknown for menu",node.name);
+        }
+    }
+    else {
+        DebugLog(@"unknown layer type ");
     }
     
 }

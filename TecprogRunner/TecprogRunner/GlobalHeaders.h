@@ -12,10 +12,10 @@
 #import <SpriteKit/SpriteKit.h>
 #import <Foundation/Foundation.h>
 
-#if DEBUG == 0
-#define DebugLog(...)
-#elif DEBUG == 1
-#define DebugLog(...) NSLog(__VA_ARGS__)
+#ifdef DEBUG
+#   define DebugLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#   define DebugLog(...)
 #endif
 
 #define DEFAULT_LAYER_WIDTH 667
