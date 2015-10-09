@@ -52,7 +52,6 @@
     if([GameData sharedGameData].layerActivated == menu){
         
         if([node.name isEqualToString:@"tapToPlay"]){
-            NSLog(@"LETS PLAY");
             [GameData sharedGameData].layerActivated = game;
             [self.overallControlLayer changeLayer];
             

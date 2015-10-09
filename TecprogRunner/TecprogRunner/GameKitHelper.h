@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Bepid-UnB. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "GlobalHeaders.h"
 @import GameKit;
 
 extern NSString *const PresentAuthenticationViewController;

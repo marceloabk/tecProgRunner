@@ -6,14 +6,12 @@
 //  Copyright (c) 2015 Bepid-UnB. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
+#import "GlobalHeaders.h"
 #import "MenuLayer.h"
 #import "StoreLayer.h"
 #import "GameLayer.h"
 #import "SettingsLayer.h"
 
-#define DEFAULT_LAYER_WIDTH 667
-#define DEFAULT_LAYER_HEIGHT 375
 
 @interface OverallControlLayer : SKNode
 

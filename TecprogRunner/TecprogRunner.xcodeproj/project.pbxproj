@@ -163,6 +163,7 @@
 		E92857511BA320AA00DF4959 /* BasicLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicLayer.h; sourceTree = "<group>"; };
 		E93489141BC7FDBA0038CCF1 /* PhysicsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsController.h; sourceTree = "<group>"; };
 		E93489151BC7FDBA0038CCF1 /* PhysicsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsController.m; sourceTree = "<group>"; };
+		E93489181BC801690038CCF1 /* GlobalHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHeaders.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +302,7 @@
 				E928572E1BA2556D00DF4959 /* UI */,
 				E928572D1BA2556600DF4959 /* particles */,
 				E92857281BA254E200DF4959 /* GameEntities */,
+				E93489181BC801690038CCF1 /* GlobalHeaders.h */,
 				67FFA6D01B99301C00354487 /* AppDelegate.h */,
 				67FFA6D11B99301C00354487 /* AppDelegate.m */,
 				67FFA6D81B99301C00354487 /* GameViewController.h */,

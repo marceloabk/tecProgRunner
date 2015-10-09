@@ -6,7 +6,7 @@
 //  Copyright © 2015 Bepid-UnB. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "GlobalHeaders.h"
 #import "GameObject.h"
 
 @interface PhysicsController : NSObject

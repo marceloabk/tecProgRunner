@@ -9,7 +9,7 @@
 #ifndef TecprogRunner_BasicLayer_h
 #define TecprogRunner_BasicLayer_h
 
-#import <SpriteKit/SpriteKit.h>
+#import "GlobalHeaders.h"
 
 @protocol LayerRequirements <NSObject>
 

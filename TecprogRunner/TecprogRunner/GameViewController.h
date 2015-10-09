@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SpriteKit/SpriteKit.h>
+#import "GlobalHeaders.h"
 #import "GameData.h"
 
 @interface GameViewController : UIViewController

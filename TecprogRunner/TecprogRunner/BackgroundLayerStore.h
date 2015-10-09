@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Bepid-UnB. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
+#import "GlobalHeaders.h"
 
 @interface BackgroundLayerStore : SKNode
 
