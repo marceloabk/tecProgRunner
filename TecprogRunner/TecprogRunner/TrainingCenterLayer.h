@@ -18,7 +18,7 @@
 @property (nonatomic)  TrainingCenterBackground*trainingCenterBackground;
 
 @property (nonatomic) SKSpriteNode *backButton;
-
+@property (nonatomic) SKSpriteNode *atributesTable;
 -(void) activateLayer;
 
 @end

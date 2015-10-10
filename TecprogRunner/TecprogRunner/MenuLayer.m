@@ -81,7 +81,7 @@
 -(void) loadTrainingCenterButton{
     
     self.trainingCenterButton = [SKSpriteNode spriteNodeWithImageNamed:@"trainingCenterButton"];
-    self.trainingCenterButton.position = CGPointMake(45, 375-306);
+    self.trainingCenterButton.position = CGPointMake(45, 375-322);
     self.trainingCenterButton.anchorPoint = CGPointMake(0, 1);
     self.trainingCenterButton.name = @"trainingCenterButton";
     self.trainingCenterButton.zPosition = 2;
@@ -113,6 +113,5 @@
     [self addChild:self.layer];
     
 }
-
 
 @end

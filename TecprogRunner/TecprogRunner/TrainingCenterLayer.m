@@ -37,6 +37,7 @@
 -(void) loadButtons{
     
     [self loadBack];
+    [self loadAtributesTable];
 }
 
 -(void) loadBack{
@@ -50,10 +51,21 @@
     
 }
 
+
+-(void) loadAtributesTable{
+
+    self.atributesTable = [SKSpriteNode spriteNodeWithImageNamed:@"atributesTable"];
+    self.atributesTable.position = CGPointMake(50, 375-34);
+    self.atributesTable.anchorPoint = CGPointMake(0, 1);
+    self.atributesTable.zPosition = 2;
+    [self.atributesTable setScale:0.5];
+}
+
 -(void)activateLayer{
     
     [self.layer addChild:self.trainingCenterBackground];
     [self.layer addChild:self.backButton];
+    [self.layer addChild:self.atributesTable];
     
 }
 

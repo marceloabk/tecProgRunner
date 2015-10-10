@@ -19,7 +19,7 @@
     
     if(self){
         
-        // check for the users first time entering
+        // check for the users first time entered
         
         if([[NSUserDefaults standardUserDefaults] objectForKey:@"primeiraVez"] == NULL){
             [[NSUserDefaults standardUserDefaults] setObject:@"comecouJogoPelaPrimeiraVez" forKey:@"primeiraVez"];
