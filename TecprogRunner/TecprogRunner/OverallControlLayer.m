@@ -13,6 +13,7 @@
 
 -(instancetype) initWithSize: (CGSize) size{
     
+    DebugLog(@"initializating");
     if(self = [super init]){
 
         [self loadLayers];
@@ -23,6 +24,7 @@
 
 -(void) changeLayer{
     
+    DebugLog(@"Removing layers...");
     // Removing all layers from parent
     [self enumerateChildNodesWithName:@"layer" usingBlock:^(SKNode *node, BOOL *stop){
         
@@ -36,6 +38,7 @@
 
 -(void) loadLayers{
     
+    DebugLog(@"Loading layers...");
     // Get specific type of layer to change
     GameDataLayerType layerType = [GameData sharedGameData].layerActivated;
     
@@ -48,24 +51,28 @@
     CGSize layerSize = CGSizeMake(DEFAULT_LAYER_WIDTH, DEFAULT_LAYER_HEIGHT);
     
     if(layerType == menu){
+        DebugLog(@"putting menu layer...");
         // Initialize menu layer and activate
         self.menuLayer = [[MenuLayer alloc] initWithSize:layerSize];
         [self addChild:self.menuLayer];
         [self.menuLayer activateLayer];
     }
     else if(layerType == store){
+        DebugLog(@"putting store layer...");
         // Initialize store layer and activate
         self.storeLayer = [[StoreLayer alloc] initWithSize:layerSize];
         [self addChild:self.storeLayer];
         [self.storeLayer activateLayer];
     }
     else if(layerType == game){
+        DebugLog(@"putting game layer...");
         // Initialize game layer and activate
         self.gameLayer = [[GameLayer alloc] initWithSize:layerSize];
         [self addChild:self.gameLayer];
         [self.gameLayer activateLayer];
     }
     else if(layerType == settings){
+        DebugLog(@"putting settings layer...");
         // Initialize settings layer and activate
         self.settingsLayer = [[SettingsLayer alloc] initWithSize:layerSize];
         [self addChild:self.settingsLayer];

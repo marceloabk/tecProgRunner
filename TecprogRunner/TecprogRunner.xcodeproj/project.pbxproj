@@ -74,6 +74,8 @@
 		E92857431BA25CF500DF4959 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857421BA25CF500DF4959 /* GameLayer.m */; };
 		E92857461BA25D0300DF4959 /* HudLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857451BA25D0300DF4959 /* HudLayer.m */; };
 		E92857491BA25D1100DF4959 /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857481BA25D1100DF4959 /* BackgroundLayer.m */; };
+		E93489161BC7FDBA0038CCF1 /* PhysicsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93489151BC7FDBA0038CCF1 /* PhysicsController.m */; settings = {ASSET_TAGS = (); }; };
+		E93489171BC7FDBA0038CCF1 /* PhysicsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93489151BC7FDBA0038CCF1 /* PhysicsController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +185,9 @@
 		E92857471BA25D1100DF4959 /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		E92857481BA25D1100DF4959 /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayer.m; sourceTree = "<group>"; };
 		E92857511BA320AA00DF4959 /* BasicLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicLayer.h; sourceTree = "<group>"; };
+		E93489141BC7FDBA0038CCF1 /* PhysicsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsController.h; sourceTree = "<group>"; };
+		E93489151BC7FDBA0038CCF1 /* PhysicsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsController.m; sourceTree = "<group>"; };
+		E93489181BC801690038CCF1 /* GlobalHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHeaders.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +327,7 @@
 				E928572E1BA2556D00DF4959 /* UI */,
 				E928572D1BA2556600DF4959 /* particles */,
 				E92857281BA254E200DF4959 /* GameEntities */,
+				E93489181BC801690038CCF1 /* GlobalHeaders.h */,
 				67FFA6D01B99301C00354487 /* AppDelegate.h */,
 				67FFA6D11B99301C00354487 /* AppDelegate.m */,
 				67FFA6D81B99301C00354487 /* GameViewController.h */,
@@ -529,6 +535,7 @@
 		E92857401BA25CB100DF4959 /* GameSceneLayers */ = {
 			isa = PBXGroup;
 			children = (
+				E93489131BC7FD640038CCF1 /* PhysicsController */,
 				E928574C1BA25D2400DF4959 /* BackgroundLayer */,
 				E928574B1BA25D1D00DF4959 /* HudLayer */,
 				E928574A1BA25D1500DF4959 /* GameLayer */,
@@ -561,6 +568,15 @@
 				E92857481BA25D1100DF4959 /* BackgroundLayer.m */,
 			);
 			name = BackgroundLayer;
+			sourceTree = "<group>";
+		};
+		E93489131BC7FD640038CCF1 /* PhysicsController */ = {
+			isa = PBXGroup;
+			children = (
+				E93489141BC7FDBA0038CCF1 /* PhysicsController.h */,
+				E93489151BC7FDBA0038CCF1 /* PhysicsController.m */,
+			);
+			name = PhysicsController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -732,6 +748,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67FFA6EE1B99301C00354487 /* TecprogRunnerTests.m in Sources */,
+				E93489171BC7FDBA0038CCF1 /* PhysicsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

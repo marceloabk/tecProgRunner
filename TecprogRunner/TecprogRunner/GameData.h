@@ -8,7 +8,7 @@
 
 // GameData singleton that will save user data, and control layers inside the OverallScene
 
-#import <Foundation/Foundation.h>
+#import "GlobalHeaders.h"
 
 typedef enum {
     menu,
