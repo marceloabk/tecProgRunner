@@ -84,6 +84,9 @@
         [self addChild:self.trainingCenterLayer];
         [self.trainingCenterLayer activateLayer];
     }
+    else {
+        DebugLog(@"unknown layer type");
+    }
     
 //    else if(layerType == pause){
 //        // Pause game layer

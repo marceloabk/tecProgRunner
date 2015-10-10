@@ -727,6 +727,7 @@
 				67FFA6DA1B99301C00354487 /* GameViewController.m in Sources */,
 				67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */,
 				6BF9FB801BC57C40004878CC /* TrainingCenterLayer.m in Sources */,
+				E93489161BC7FDBA0038CCF1 /* PhysicsController.m in Sources */,
 				6B0FD4161BA91A3900C22BD6 /* StoreLayer.m in Sources */,
 				093A62D81BB46C4F00BF2074 /* Coin.m in Sources */,
 				6B0FD4101BA9122900C22BD6 /* MenuLayer.m in Sources */,

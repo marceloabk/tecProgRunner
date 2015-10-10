@@ -105,19 +105,16 @@
             DebugLog(@"node %@ unknown for menu",node.name);
         }
     }
-    else {
-        DebugLog(@"unknown layer type ");
-    }
     else if([GameData sharedGameData].layerActivated == trainingCenter){
         if([node.name isEqualToString:@"backTrainingCenter"]){
             [GameData sharedGameData].layerActivated = menu;
             [self.overallControlLayer changeLayer];
         }
     }
-    else{
-    
-    
+    else {
+        DebugLog(@"unknown layer type ");
     }
+    
     
     
 }
