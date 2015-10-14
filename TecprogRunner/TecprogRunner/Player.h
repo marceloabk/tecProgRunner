@@ -28,7 +28,7 @@
 -(SKAction*) runningAnimation;
 
 /**
- run throw projectile procedures
+ Throw projectile procedures
 */
 -(void) throwProjectile;
 

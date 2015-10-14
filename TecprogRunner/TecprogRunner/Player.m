@@ -26,20 +26,19 @@
     self = [super initWithTexture:playerTexture];
     
     if(self != nil){
-        NSLog(@"Player initialized with texture successfully");
+        DebugLog(@"Player initialized with texture successfully");
+        
+        [self setBasicsAttributes];
         
         // Make player run
         SKAction *running = [self runningAnimation];
-        [self runAction: running];
+        [self runAction:running];
         
-        self.physicsBody = [self generatePhysicsBody];
-        self.playerOnGround = true;
         self.position = position;
         
-        [self setBasicsAttributes];
     }else{
         
-        NSLog(@"Player can't be initialized");
+        DebugLog(@"Player can't be initialized");
         
         // There is no alternative path for this if
     }
@@ -52,6 +51,10 @@
     // Placeholder image is too big then we rescale it to fit our screen
     [self setScale:0.1];
     
+    // Generate a Physics Body for Player
+    self.physicsBody = [self generatePhysicsBody];
+    
+    self.playerOnGround = true;
 }
 
 // Generate player physics body
@@ -61,27 +64,16 @@
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     physicsBody.mass = 100;
     physicsBody.affectedByGravity = NO;
-    physicsBody.allowsRotation = NO;
+    physicsBody.allowsRotation = YES;
+    
+    // Defining types for Collision
     physicsBody.categoryBitMask = ColliderTypePlayer;
     physicsBody.collisionBitMask = ColliderTypeProjectile | ColliderTypeEnemy;
 
     return physicsBody;
 }
 
-// Load animations of player running
--(SKAction*) loadRunningAnimation{
-    
-    NSLog(@"Loading Run Animation");
-    
-    // Creating a Mutable Array filled with Run Animations
-    NSMutableArray *runTextures = [super generateAnimationImages:@"playerRunning" andCount:6];
-    
-    // Using textures to make an action
-    SKAction *run = [SKAction animateWithTextures:runTextures timePerFrame:0.1];
-    
-    return run;
-}
-
+// Repeat running animation forever
 -(SKAction *) runningAnimation{
     
     // Load animations
@@ -94,8 +86,22 @@
     
 }
 
+// Load animations of player running
+-(SKAction*) loadRunningAnimation{
+    
+    DebugLog(@"Loading Run Animation");
+    
+    // Creating a Mutable Array filled with Run Animations
+    NSMutableArray *runTextures = [super generateAnimationImages:@"playerRunning" andCount:6];
+    
+    // Using textures to make an action
+    SKAction *run = [SKAction animateWithTextures:runTextures timePerFrame:0.1];
+    
+    return run;
+}
+
 -(SKAction*) loadJumpAnimation{
-    NSLog(@"Loading Jump Animation");
+    DebugLog(@"Loading Jump Animation");
     
     // Creating a Mutable Array filled with Run Animations
     NSMutableArray *jumpTextures = [super generateAnimationImages:@"playerJumping" andCount:2];
