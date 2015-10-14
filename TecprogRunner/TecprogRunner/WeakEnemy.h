@@ -8,6 +8,13 @@
 
 #import "Enemy.h"
 
+#define INITIAL_WEAK_ENEMY_IMAGE @"weakEnemyIdle1"
+
 @interface WeakEnemy : Enemy
+
+/**
+ Make the animation of weak enemy in idle state
+*/
+-(SKAction*) idleAnimation;
 
 @end
