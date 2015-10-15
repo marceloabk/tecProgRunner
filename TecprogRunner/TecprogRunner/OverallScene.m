@@ -25,6 +25,7 @@
             [[NSUserDefaults standardUserDefaults] setObject:@"comecouJogoPelaPrimeiraVez" forKey:@"primeiraVez"];
             
             [[GameData sharedGameData] start];
+            [[GameData sharedGameData] save];
         }
         
         

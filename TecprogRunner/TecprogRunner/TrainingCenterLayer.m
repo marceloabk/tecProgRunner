@@ -59,6 +59,31 @@
     [self loadShootingStars];
     [self loadSpeedStars];
     
+    
+    self.levelJumpStars.position = CGPointMake(207, 375-103);
+    self.levelLuckStars.position = CGPointMake(207, 375-150);
+    self.levelPowerStars.position = CGPointMake(207, 375-197);
+    self.levelShootingStars.position = CGPointMake(207, 375-250);
+    self.levelSpeedStars.position = CGPointMake(207, 375-300);
+    
+    self.levelJumpStars.anchorPoint = CGPointMake(0, 1);
+    self.levelLuckStars.anchorPoint = CGPointMake(0, 1);
+    self.levelPowerStars.anchorPoint = CGPointMake(0, 1);
+    self.levelShootingStars.anchorPoint = CGPointMake(0, 1);
+    self.levelSpeedStars.anchorPoint = CGPointMake(0, 1);
+    
+    self.levelJumpStars.zPosition = 100;
+    self.levelLuckStars.zPosition = 100;
+    self.levelPowerStars.zPosition = 100;
+    self.levelShootingStars.zPosition = 100;
+    self.levelSpeedStars.zPosition = 100;
+    
+    [self.levelJumpStars setScale:0.5];
+    [self.levelLuckStars setScale:0.5];
+    [self.levelPowerStars setScale:0.5];
+    [self.levelShootingStars setScale:0.5];
+    [self.levelSpeedStars setScale:0.5];
+    
 }
 
 -(void) loadJumpStars{
@@ -120,6 +145,11 @@
     [self.layer addChild:self.trainingCenterBackground];
     [self.layer addChild:self.backButton];
     [self.layer addChild:self.atributesTable];
+    [self.layer addChild:self.levelJumpStars];
+    [self.layer addChild:self.levelLuckStars];
+    [self.layer addChild:self.levelPowerStars];
+    [self.layer addChild:self.levelShootingStars];
+    [self.layer addChild:self.levelSpeedStars];
     
 }
 

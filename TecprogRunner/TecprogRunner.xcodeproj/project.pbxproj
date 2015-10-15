@@ -57,7 +57,6 @@
 		6B0FD4191BA91AE400C22BD6 /* BackgroundLayerStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FD4181BA91AE400C22BD6 /* BackgroundLayerStore.m */; };
 		6B2D98DF1BB4E8C5005B342E /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98DE1BB4E8C5005B342E /* SettingsLayer.m */; };
 		6B2D98E21BB4E9C0005B342E /* BackgroundLayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */; };
-		6BB8A4161BD00413004DD4C8 /* atributesTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A40D1BD00413004DD4C8 /* atributesTable.png */; settings = {ASSET_TAGS = (); }; };
 		6BB8A4171BD00413004DD4C8 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A40E1BD00413004DD4C8 /* background.png */; settings = {ASSET_TAGS = (); }; };
 		6BB8A4181BD00413004DD4C8 /* levelStars5.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A40F1BD00413004DD4C8 /* levelStars5.png */; settings = {ASSET_TAGS = (); }; };
 		6BB8A4191BD00413004DD4C8 /* levelStars4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A4101BD00413004DD4C8 /* levelStars4.png */; settings = {ASSET_TAGS = (); }; };
@@ -66,6 +65,7 @@
 		6BB8A41C1BD00413004DD4C8 /* levelStars2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A4131BD00413004DD4C8 /* levelStars2.png */; settings = {ASSET_TAGS = (); }; };
 		6BB8A41D1BD00413004DD4C8 /* selectAtributeMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A4141BD00413004DD4C8 /* selectAtributeMessage.png */; settings = {ASSET_TAGS = (); }; };
 		6BB8A41E1BD00413004DD4C8 /* trainingCenterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A4151BD00413004DD4C8 /* trainingCenterButton.png */; settings = {ASSET_TAGS = (); }; };
+		6BB8A4201BD0127A004DD4C8 /* atributesTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A41F1BD0127A004DD4C8 /* atributesTable.png */; settings = {ASSET_TAGS = (); }; };
 		6BF9FB7D1BC57C33004878CC /* TrainingCenterBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */; settings = {ASSET_TAGS = (); }; };
 		6BF9FB801BC57C40004878CC /* TrainingCenterLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9FB7F1BC57C40004878CC /* TrainingCenterLayer.m */; settings = {ASSET_TAGS = (); }; };
 		E92857331BA25B5500DF4959 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857321BA25B5500DF4959 /* GameObject.m */; };
@@ -159,7 +159,6 @@
 		6B2D98DE1BB4E8C5005B342E /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
 		6B2D98E01BB4E9C0005B342E /* BackgroundLayerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayerSettings.h; sourceTree = "<group>"; };
 		6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayerSettings.m; sourceTree = "<group>"; };
-		6BB8A40D1BD00413004DD4C8 /* atributesTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = atributesTable.png; path = ../TecprogRunner/atributesTable.png; sourceTree = "<group>"; };
 		6BB8A40E1BD00413004DD4C8 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../TecprogRunner/background.png; sourceTree = "<group>"; };
 		6BB8A40F1BD00413004DD4C8 /* levelStars5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = levelStars5.png; path = ../TecprogRunner/levelStars5.png; sourceTree = "<group>"; };
 		6BB8A4101BD00413004DD4C8 /* levelStars4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = levelStars4.png; path = ../TecprogRunner/levelStars4.png; sourceTree = "<group>"; };
@@ -168,6 +167,7 @@
 		6BB8A4131BD00413004DD4C8 /* levelStars2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = levelStars2.png; path = ../TecprogRunner/levelStars2.png; sourceTree = "<group>"; };
 		6BB8A4141BD00413004DD4C8 /* selectAtributeMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selectAtributeMessage.png; path = ../TecprogRunner/selectAtributeMessage.png; sourceTree = "<group>"; };
 		6BB8A4151BD00413004DD4C8 /* trainingCenterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trainingCenterButton.png; path = ../TecprogRunner/trainingCenterButton.png; sourceTree = "<group>"; };
+		6BB8A41F1BD0127A004DD4C8 /* atributesTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atributesTable.png; sourceTree = "<group>"; };
 		6BF9FB7B1BC57C33004878CC /* TrainingCenterBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCenterBackground.h; sourceTree = "<group>"; };
 		6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingCenterBackground.m; sourceTree = "<group>"; };
 		6BF9FB7E1BC57C40004878CC /* TrainingCenterLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCenterLayer.h; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 		095DE90D1BC488E5004BCD3B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				6BB8A40D1BD00413004DD4C8 /* atributesTable.png */,
+				6BB8A41F1BD0127A004DD4C8 /* atributesTable.png */,
 				6BB8A40E1BD00413004DD4C8 /* background.png */,
 				6BB8A40F1BD00413004DD4C8 /* levelStars5.png */,
 				6BB8A4101BD00413004DD4C8 /* levelStars4.png */,
@@ -659,7 +659,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BB8A4161BD00413004DD4C8 /* atributesTable.png in Resources */,
 				095DE92C1BC488E5004BCD3B /* Coin1.png in Resources */,
 				095DE93A1BC488E5004BCD3B /* playerRunning4.png in Resources */,
 				67FFA6E21B99301C00354487 /* LaunchScreen.xib in Resources */,
@@ -684,6 +683,7 @@
 				6BB8A4181BD00413004DD4C8 /* levelStars5.png in Resources */,
 				095DE9331BC488E5004BCD3B /* menuBg.png in Resources */,
 				67FFA6D71B99301C00354487 /* GameScene.sks in Resources */,
+				6BB8A4201BD0127A004DD4C8 /* atributesTable.png in Resources */,
 				095DE9411BC488E5004BCD3B /* storeBackground.png in Resources */,
 				095DE9311BC488E5004BCD3B /* Coin6.png in Resources */,
 				095DE9301BC488E5004BCD3B /* Coin5.png in Resources */,
