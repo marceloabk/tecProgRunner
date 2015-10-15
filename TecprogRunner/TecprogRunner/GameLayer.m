@@ -10,7 +10,6 @@
 #import "Player.h"
 #import "HudLayer.h"
 #import "BackgroundLayer.h"
-#import "StrongEnemy.h"
 
 @interface GameLayer()
 
@@ -41,9 +40,7 @@
     if(self){
         _size = size;
         self.name = @"layer";
-        
-        StrongEnemy *se = [[StrongEnemy alloc]initWithPosition:CGPointMake(200, 200)];
-        [self addChild:se];
+
     }
     return self;
 }
