@@ -6,8 +6,10 @@
 //  Copyright © 2015 Bepid-UnB. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
+#import "Enemy.h"
 
-@interface StrongEnemy : SKNode
+#define INITIAL_STRONG_ENEMY_IMAGE @"StrongEnemyIdle1"
+
+@interface StrongEnemy : Enemy
 
 @end
