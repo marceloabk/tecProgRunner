@@ -8,7 +8,7 @@
 
 #import "Enemy.h"
 
-#define INITIAL_STRONG_ENEMY_IMAGE @"StrongEnemyIdle1"
+#define INITIAL_STRONG_ENEMY_IMAGE @"enemyIdle1"
 
 @interface StrongEnemy : Enemy
 

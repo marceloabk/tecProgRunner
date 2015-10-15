@@ -38,5 +38,10 @@
     return self;
 }
 
+// Set all the basics attributes that weak enemy will have
+-(void) setBasicsAttributes{
+    // Placeholder image is too big then we rescale it to fit our screen
+    [self setScale:0.2];
+}
 
 @end
