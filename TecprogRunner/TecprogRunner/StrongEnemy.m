@@ -42,6 +42,8 @@
 -(void) setBasicsAttributes{
     // Placeholder image is too big then we rescale it to fit our screen
     [self setScale:0.2];
+    
+    self.physicsBody = [self generatePhysicsBody];
 }
 
 // Generate Strong Enemy physics body
@@ -57,6 +59,17 @@
     physicsBody.categoryBitMask = ColliderTypeStrongEnemy;
     
     return physicsBody;
+}
+
+// Load animations of Strong enemy in idle state
+-(SKAction*) loadIdleAnimation{
+    
+    DebugLog(@"Loading idle Animation");
+    
+    NSMutableArray *idleTextures = [super generateAnimationImages:@"weakEnemyIdle" andCount:2];
+    SKAction *idle = [SKAction animateWithTextures:idleTextures timePerFrame:0.3];
+    
+    return idle;
 }
 
 @end
