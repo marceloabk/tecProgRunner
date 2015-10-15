@@ -19,6 +19,14 @@
 
 @property (nonatomic) SKSpriteNode *backButton;
 @property (nonatomic) SKSpriteNode *atributesTable;
+
+@property (nonatomic) SKSpriteNode *levelSpeedStars;
+@property (nonatomic) SKSpriteNode *levelJumpStars;
+@property (nonatomic) SKSpriteNode *levelLuckStars;
+@property (nonatomic) SKSpriteNode *levelShootingStars;
+@property (nonatomic) SKSpriteNode *levelPowerStars;
+
+
 -(void) activateLayer;
 
 @end

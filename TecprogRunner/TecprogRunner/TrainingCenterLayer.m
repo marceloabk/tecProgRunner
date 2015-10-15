@@ -22,7 +22,7 @@
         
         [self loadBackground];
         [self loadButtons];
-        
+        [self loadStars];
         
     }
     return self;
@@ -51,6 +51,60 @@
     
 }
 
+-(void) loadStars{
+    
+    [self loadJumpStars];
+    [self loadLuckStars];
+    [self loadPowerStars];
+    [self loadShootingStars];
+    [self loadSpeedStars];
+    
+}
+
+-(void) loadJumpStars{
+
+    int level = [self returnLevel:1];
+    NSString *spriteName = [[NSString alloc] initWithFormat:@"levelStars%i", level];
+    
+    self.levelJumpStars = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
+
+}
+
+-(void) loadLuckStars{
+    
+    int level = [self returnLevel:2];
+    NSString *spriteName = [[NSString alloc] initWithFormat:@"levelStars%i", level];
+    
+    self.levelLuckStars = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
+    
+}
+
+-(void) loadPowerStars{
+    
+    int level = [self returnLevel:3];
+    NSString *spriteName = [[NSString alloc] initWithFormat:@"levelStars%i", level];
+    
+    self.levelPowerStars = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
+    
+}
+
+-(void) loadShootingStars{
+    
+    int level = [self returnLevel:4];
+    NSString *spriteName = [[NSString alloc] initWithFormat:@"levelStars%i", level];
+    
+    self.levelShootingStars = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
+    
+}
+
+-(void) loadSpeedStars{
+    
+    int level = [self returnLevel:5];
+    NSString *spriteName = [[NSString alloc] initWithFormat:@"levelStars%i", level];
+    
+    self.levelSpeedStars = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
+    
+}
 
 -(void) loadAtributesTable{
 
@@ -71,7 +125,25 @@
 
 -(int) returnLevel : (int) skillType{
 
-    return [GameData sharedGameData].levelJump;
+    if(skillType ==1){
+        return [GameData sharedGameData].levelJump;
+    }
+    else if(skillType ==2){
+        return [GameData sharedGameData].levelLuck;
+    }
+    else if(skillType ==3){
+        return [GameData sharedGameData].levelPower;
+    }
+    else if(skillType ==4){
+        return [GameData sharedGameData].levelShooting;
+    }
+    else if(skillType ==5){
+        return [GameData sharedGameData].levelSpeed;
+    }
+    else{
+        return 0;
+    }
+    
 }
 
 
