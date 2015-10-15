@@ -72,4 +72,13 @@
     return idle;
 }
 
+// Repeat idle animation forever
+-(SKAction*) idleAnimation{
+    
+    SKAction *idleAnimation = [self loadIdleAnimation];
+    SKAction *repeatAnimation = [SKAction repeatActionForever:idleAnimation];
+    
+    return repeatAnimation;
+}
+
 @end
