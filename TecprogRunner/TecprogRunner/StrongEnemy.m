@@ -38,10 +38,25 @@
     return self;
 }
 
-// Set all the basics attributes that weak enemy will have
+// Set all the basics attributes that strong enemy will have
 -(void) setBasicsAttributes{
     // Placeholder image is too big then we rescale it to fit our screen
     [self setScale:0.2];
+}
+
+// Generate Strong Enemy physics body
+-(SKPhysicsBody *) generatePhysicsBody{
+    
+    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
+    physicsBody.mass = 100;
+    physicsBody.affectedByGravity = NO;
+    physicsBody.allowsRotation = NO;
+    
+    // Defining types for Collision
+    physicsBody.collisionBitMask = ColliderTypePlayer | ColliderTypeProjectile | ColliderTypeEnemy;
+    physicsBody.categoryBitMask = ColliderTypeEnemy;
+    
+    return physicsBody;
 }
 
 @end
