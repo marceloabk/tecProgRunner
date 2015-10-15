@@ -28,6 +28,8 @@
         SKAction *idle = [self idleAnimation];
         [self runAction:idle];
         
+        [self setBasicsAttributes];
+        
     }else{
         
         DebugLog(@"Weak Enemy can't be initialized");
@@ -41,7 +43,7 @@
 // Set all the basics attributes that strong enemy will have
 -(void) setBasicsAttributes{
     // Placeholder image is too big then we rescale it to fit our screen
-    [self setScale:0.2];
+    [self setScale:0.1];
     
     self.physicsBody = [self generatePhysicsBody];
 }
@@ -66,7 +68,7 @@
     
     DebugLog(@"Loading idle Animation");
     
-    NSMutableArray *idleTextures = [super generateAnimationImages:@"weakEnemyIdle" andCount:2];
+    NSMutableArray *idleTextures = [super generateAnimationImages:@"enemyIdle" andCount:2];
     SKAction *idle = [SKAction animateWithTextures:idleTextures timePerFrame:0.3];
     
     return idle;
