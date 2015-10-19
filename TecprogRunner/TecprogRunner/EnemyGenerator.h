@@ -10,4 +10,7 @@
 
 @interface EnemyGenerator : SKNode
 
+-(instancetype)initWithSize:(CGSize)size;
+-(void)newEnemyWithScore:(unsigned int)score;
+
 @end
