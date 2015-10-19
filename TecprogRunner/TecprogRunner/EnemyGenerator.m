@@ -35,7 +35,7 @@
     CGFloat floorHeight = 50;
     CGPoint enemyPosition = CGPointMake(_size.width - margin, floorHeight);
     
-    int probability = 1;
+    int probability = [self probabilityToCreateAnEnemyBasedOnTheScore:score];
     switch (probability) {
         case 1:
         {
@@ -54,6 +54,29 @@
         default:
             break;
     }
+}
+
+-(int)probabilityToCreateAnEnemyBasedOnTheScore:(unsigned int)score{
+    
+    unsigned int probabilityValue = 0;
+    // If score is less then 40 we create a weak enemy
+    // Else if the score is less then 400 we have 45% of chance to create an strong enemy
+    // and 55% of chance to create an weak enemy
+    // Else we create an strong enemy
+    if(score < 40){
+        probabilityValue = 1;
+    }else if(score < 400){
+        const unsigned int randomizer = arc4random() % 100;
+        if(randomizer < 45){
+            probabilityValue = 2;
+        }else{
+            probabilityValue = 1;
+        }
+    }else{
+        probabilityValue = 2;
+    }
+    
+    return probabilityValue;
 }
 
 
