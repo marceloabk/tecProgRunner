@@ -29,10 +29,11 @@
     return self;
 }
 
+// Create a new enemy based on the score
 -(void)newEnemyWithScore:(unsigned int)score{
     
-    CGFloat margin = 80;
-    CGFloat floorHeight = 50;
+    CGFloat margin = 80; // Pixels
+    CGFloat floorHeight = 50; // Pixels
     CGPoint enemyPosition = CGPointMake(_size.width - margin, floorHeight);
     
     int probability = [self probabilityToCreateAnEnemyBasedOnTheScore:score];
@@ -56,6 +57,7 @@
     }
 }
 
+// Generate a probability to create an enemy based on the score
 -(int)probabilityToCreateAnEnemyBasedOnTheScore:(unsigned int)score{
     
     unsigned int probabilityValue = 0;
