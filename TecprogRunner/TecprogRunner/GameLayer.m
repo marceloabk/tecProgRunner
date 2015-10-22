@@ -40,7 +40,7 @@
     if(self){
         _size = size;
         self.name = @"layer";
-        
+
     }
     return self;
 }

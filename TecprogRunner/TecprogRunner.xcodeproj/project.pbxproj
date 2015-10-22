@@ -40,8 +40,10 @@
 		09E25D151BCDD90800A20E8C /* storeBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 09E25CF81BCDD90800A20E8C /* storeBackground.png */; settings = {ASSET_TAGS = (); }; };
 		09E25D161BCDD90800A20E8C /* storeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 09E25CF91BCDD90800A20E8C /* storeButton.png */; settings = {ASSET_TAGS = (); }; };
 		09E25D171BCDD90800A20E8C /* tapToPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 09E25CFA1BCDD90800A20E8C /* tapToPlay.png */; settings = {ASSET_TAGS = (); }; };
+		6792F7391BCF220E006030DE /* StrongEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6792F7381BCF220E006030DE /* StrongEnemy.m */; settings = {ASSET_TAGS = (); }; };
 		67A4F5C31BABA3E0004DCA3C /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F5C21BABA3E0004DCA3C /* Projectile.m */; };
 		67C0F7791BB95DC6003A02B1 /* WeakEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C0F7781BB95DC6003A02B1 /* WeakEnemy.m */; };
+		67F76BA71BCF300600BA4A62 /* EnemyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F76BA61BCF300600BA4A62 /* EnemyGenerator.m */; settings = {ASSET_TAGS = (); }; };
 		67FFA6CF1B99301C00354487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6CE1B99301C00354487 /* main.m */; };
 		67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D11B99301C00354487 /* AppDelegate.m */; };
 		67FFA6D71B99301C00354487 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 67FFA6D61B99301C00354487 /* GameScene.sks */; };
@@ -118,10 +120,14 @@
 		09E25CF81BCDD90800A20E8C /* storeBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeBackground.png; sourceTree = "<group>"; };
 		09E25CF91BCDD90800A20E8C /* storeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeButton.png; sourceTree = "<group>"; };
 		09E25CFA1BCDD90800A20E8C /* tapToPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tapToPlay.png; sourceTree = "<group>"; };
+		6792F7371BCF220E006030DE /* StrongEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrongEnemy.h; sourceTree = "<group>"; };
+		6792F7381BCF220E006030DE /* StrongEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrongEnemy.m; sourceTree = "<group>"; };
 		67A4F5C11BABA3E0004DCA3C /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
 		67A4F5C21BABA3E0004DCA3C /* Projectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile.m; sourceTree = "<group>"; };
 		67C0F7771BB95DC6003A02B1 /* WeakEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakEnemy.h; sourceTree = "<group>"; };
 		67C0F7781BB95DC6003A02B1 /* WeakEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakEnemy.m; sourceTree = "<group>"; };
+		67F76BA51BCF300600BA4A62 /* EnemyGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyGenerator.h; sourceTree = "<group>"; };
+		67F76BA61BCF300600BA4A62 /* EnemyGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyGenerator.m; sourceTree = "<group>"; };
 		67FFA6C91B99301C00354487 /* TecprogRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TecprogRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67FFA6CD1B99301C00354487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67FFA6CE1B99301C00354487 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -491,6 +497,10 @@
 				E928573C1BA25C7600DF4959 /* Enemy.m */,
 				67C0F7771BB95DC6003A02B1 /* WeakEnemy.h */,
 				67C0F7781BB95DC6003A02B1 /* WeakEnemy.m */,
+				6792F7371BCF220E006030DE /* StrongEnemy.h */,
+				6792F7381BCF220E006030DE /* StrongEnemy.m */,
+				67F76BA51BCF300600BA4A62 /* EnemyGenerator.h */,
+				67F76BA61BCF300600BA4A62 /* EnemyGenerator.m */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -714,6 +724,7 @@
 			files = (
 				09CB5AB41BA8C5A5006E3A64 /* GameKitHelper.m in Sources */,
 				E92857491BA25D1100DF4959 /* BackgroundLayer.m in Sources */,
+				67F76BA71BCF300600BA4A62 /* EnemyGenerator.m in Sources */,
 				6B0FD4061BA90C6900C22BD6 /* OverallControlLayer.m in Sources */,
 				E928573D1BA25C7600DF4959 /* Enemy.m in Sources */,
 				6BF9FB7D1BC57C33004878CC /* TrainingCenterBackground.m in Sources */,
@@ -723,6 +734,7 @@
 				67FFA6DA1B99301C00354487 /* GameViewController.m in Sources */,
 				67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */,
 				6BF9FB801BC57C40004878CC /* TrainingCenterLayer.m in Sources */,
+				6792F7391BCF220E006030DE /* StrongEnemy.m in Sources */,
 				E93489161BC7FDBA0038CCF1 /* PhysicsController.m in Sources */,
 				6B0FD4161BA91A3900C22BD6 /* StoreLayer.m in Sources */,
 				093A62D81BB46C4F00BF2074 /* Coin.m in Sources */,
