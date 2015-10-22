@@ -2,9 +2,9 @@
 //  PhysicsController.m
 //  TecprogRunner
 //
-//  Created by Lucas Araujo on 10/9/15.
-//  Copyright © 2015 Bepid-UnB. All rights reserved.
+//  Control physics inside the game
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "PhysicsController.h"
 

@@ -2,9 +2,9 @@
 //  GlobalHeaders.h
 //  TecprogRunner
 //
-//  Created by Lucas Araujo on 10/9/15.
-//  Copyright © 2015 Bepid-UnB. All rights reserved.
+//  Definitions for the project
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #ifndef GlobalHeaders_h
 #define GlobalHeaders_h

@@ -2,9 +2,9 @@
 //  PhysicsCategories.h
 //  TecprogRunner
 //
-//  Created by Julio Xavier on 24/09/15.
-//  Copyright © 2015 Bepid-UnB. All rights reserved.
+//  Used to define types of ColliderTypes
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #ifndef PhysicsCategories_h
 #define PhysicsCategories_h

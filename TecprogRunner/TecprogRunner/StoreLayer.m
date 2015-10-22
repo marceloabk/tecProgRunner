@@ -2,9 +2,9 @@
 //  StoreLayer.m
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 16/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Player store
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "StoreLayer.h"
 

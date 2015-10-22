@@ -2,9 +2,10 @@
 //  OverallControlLayer.m
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 15/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
 //
+//  Control the layers in the game and their disposition
+//
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "OverallControlLayer.h"
 #import "GameData.h"

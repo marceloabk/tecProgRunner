@@ -2,9 +2,9 @@
 //  GameKitHelper.m
 //  TecprogRunner
 //
-//  Created by Julio Xavier on 15/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Simplify communication with game center
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "GameKitHelper.h"
 

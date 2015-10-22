@@ -2,9 +2,9 @@
 //  Projectile.m
 //  TecprogRunner
 //
-//  Created by Marcelo Cristiano Araujo Silva on 17/09/15.
-//  Copyright © 2015 Bepid-UnB. All rights reserved.
+//  Distinguishes Projectile and his functions
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "Projectile.h"
 

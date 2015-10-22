@@ -2,11 +2,9 @@
 //  GameData.h
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 15/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Singleton that will save user data, and control layers inside the OverallScene
 //
-
-// GameData singleton that will save user data, and control layers inside the OverallScene
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "GlobalHeaders.h"
 
@@ -22,8 +20,10 @@ typedef enum {
 
 @property (nonatomic) GameDataLayerType layerActivated;
 
-// Store high score game
-// Should restart at every game start
+/**
+ Used to store game high score
+ Should restart at every game start
+*/
 @property (nonatomic) unsigned int highScore;
 
 // characters atributes

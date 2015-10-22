@@ -2,9 +2,9 @@
 //  TrainingCenterBackground.m
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 07/10/15.
-//  Copyright © 2015 Bepid-UnB. All rights reserved.
+//  Contain a background for Training Center
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "TrainingCenterBackground.h"
 

@@ -2,9 +2,9 @@
 //  BackgroundLayerMenu.m
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 15/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Principal menu background
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "BackgroundLayerMenu.h"
 
