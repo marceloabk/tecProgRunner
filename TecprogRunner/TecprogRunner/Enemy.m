@@ -11,7 +11,6 @@
 
 @implementation Enemy
 
-// Initialize Enemy with a position
 -(instancetype)initWithPosition:(CGPoint)position{
 
     // Loading a texture for the enemy
@@ -41,7 +40,7 @@
     return self;
 }
 
-// Set some basics attributes that enemy will have
+
 -(void) setBasicsAttributes{
     // Placeholder image is too big then we rescale it to fit our screen
     [self setScale:0.1];
@@ -49,7 +48,7 @@
     self.physicsBody = [self generatePhysicsBody];
 }
 
-// Generate Enemy physics body
+
 -(SKPhysicsBody *) generatePhysicsBody{
     
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
@@ -75,7 +74,6 @@
     [self.parent addChild:projectile];
 }
 
-// Repeat idle animation forever
 -(SKAction*) idleAnimation{
     
     // Load animation
@@ -87,7 +85,6 @@
     return repeatAnimation;
 }
 
-// Load animations of weak enemy in idle state
 -(SKAction*) loadIdleAnimation{
     
     DebugLog(@"Loading idle Animation");

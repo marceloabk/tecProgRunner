@@ -14,14 +14,17 @@
 
 -(instancetype) initWithSize:(CGSize)size{
     self = [super init];
-    if(self){
+    if(self != NULL){
         _size = size;
         
         self.layer = [SKNode node];
+        
         [self addChild:self.layer];
         
         // Adding a label to count score during the game
         [self putScoreLabel:0];
+    }else{
+        // Exception
     }
     return self;
 }
@@ -30,14 +33,13 @@
 
     [self.scoreLabel removeFromParent];
     
-//pointsLabel
     // Creating attributes to customize score label
     SKColor *fontColor = [UIColor blackColor];
     CGPoint fontPosition = CGPointMake(_size.width*0.5, _size.height*0.9);
 
     NSString *pointsLabelString = [[NSString alloc] initWithFormat:@"%i", points];
 
-// Setting score label
+    // Setting score label
     self.scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     self.scoreLabel.text = pointsLabelString;
     self.scoreLabel.fontColor = fontColor;

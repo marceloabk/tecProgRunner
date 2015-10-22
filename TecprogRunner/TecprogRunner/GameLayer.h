@@ -20,6 +20,9 @@
 */
 -(void) activateLayer;
 
+/**
+ Layer that represent GameLayer on screen
+ */
 @property (nonatomic) SKNode *layer;
 
 /**

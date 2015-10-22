@@ -10,12 +10,20 @@
 
 @interface HudLayer : SKNode <LayerRequirements>
 
-@property SKLabelNode *scoreLabel;
+
+/**
+ Layer that represent HudLayer on screen
+ */
 @property SKNode *layer;
 
 /**
- Create and add score label to HudLayer
+ Represent score in screen visually
 */
--(void) putScoreLabel:(int) points;
+@property SKLabelNode *scoreLabel;
+
+/**
+ Add score label in HudLayer
+*/
+-(void) putScoreLabel:(int)points;
 
 @end

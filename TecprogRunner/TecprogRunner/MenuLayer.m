@@ -10,9 +10,11 @@
 
 @implementation MenuLayer
 
--(instancetype) initWithSize: (CGSize) size{
+-(instancetype) initWithSize:(CGSize)size{
     
-    if(self = [super init]){
+    self = [super init];
+    
+    if(self != NULL){
         
         self.layer = [SKNode node];
         [self addChild:self.layer];
@@ -21,11 +23,13 @@
         self.backgroundLayerMenu = [[BackgroundLayerMenu alloc] initWithSize:size];
         [self loadButtons];
         
+    }else{
+        // Exception
     }
+    
     return self;
 }
 
-// method called when entering layer
 -(void) activateLayer{
     
     [self.layer addChild:self.backgroundLayerMenu];

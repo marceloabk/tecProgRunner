@@ -11,9 +11,16 @@
 
 @interface TrainingCenterBackground : SKNode
 
--(instancetype) initWithSize: (CGSize) size;
+/**
+ Initialize Training Center Background
+ with a size
+*/
+-(instancetype) initWithSize:(CGSize)size;
 
-//background sprite
+/**
+ Sprite that represent
+ Training Center background on screen
+*/
 @property (nonatomic) SKSpriteNode* background;
 
 @end

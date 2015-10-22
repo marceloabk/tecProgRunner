@@ -10,10 +10,9 @@
 
 @implementation BackgroundLayerSettings
 
--(instancetype) initWithSize: (CGSize) size{
+-(instancetype) initWithSize:(CGSize)size{
     
     if(self = [super init]){
-        
         [self addBackgroundSprite];
     }
     return self;

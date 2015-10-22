@@ -17,8 +17,7 @@
 
 @end
 
-@implementation GameLayer
-{
+@implementation GameLayer{
     CGSize _size;
     
     BackgroundLayer *_backgroundLayer;
@@ -67,14 +66,14 @@
     
     if([node.name isEqualToString:@"pauseGame"]){
        
-        //pause or unpause game;
+        // Pause or unpause game;
         [self pausedClicked];
     }
     else if((touchLocation.x < _size.width/2) && self.player.playerOnGround == true){
-        NSLog(@"User clicked on left side of game layer and is on ground");
+        DebugLog(@"User clicked on left side of game layer and is on ground");
         [self.player jump];
     }else if(touchLocation.x > _size.width/2){
-        NSLog(@"User clicked on right side of game layer");
+        DebugLog(@"User clicked on right side of game layer");
         [self.player throwProjectile];
     }else{
         // Do nothing
@@ -92,7 +91,7 @@
         [self deactivateTimer];
     }
     else{
-        // do nothing
+        // Do nothing
     }
 }
 
@@ -106,7 +105,6 @@
     }
     _lastUpdateTime = currentTime;
     
-    //NSLog(@"%f", _deltaTime);
 
 }
 
@@ -151,14 +149,14 @@
 }
 
 -(void) initiateTimer{
-    
       self.timer = [NSTimer scheduledTimerWithTimeInterval:0.52 target:self selector:@selector(onTick) userInfo:nil repeats:YES];
 }
 
 
 -(void) onTick{
     
-    self.pointsScored +=1;
+    self.pointsScored+=1;
+    
     [_hudLayer putScoreLabel:self.pointsScored];
     
 }

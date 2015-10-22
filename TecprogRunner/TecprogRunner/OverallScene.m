@@ -13,13 +13,17 @@
 
 @implementation OverallScene
 
-- (instancetype)initWithSize:(CGSize)size{
-    DebugLog(@"initializating");
+-(instancetype) initWithSize:(CGSize)size{
+    
+    DebugLog(@"Initializing");
+    
     self = [super initWithSize:size];
     
-    if(self){
+    NSAssert((self!=NULL), @"Overall Scene is NULL");
+    
+    if(self != NULL){
         
-        // check for the users first time entered
+        // Check for the users first time entered
         
         if([[NSUserDefaults standardUserDefaults] objectForKey:@"primeiraVez"] == NULL){
             [[NSUserDefaults standardUserDefaults] setObject:@"comecouJogoPelaPrimeiraVez" forKey:@"primeiraVez"];
@@ -28,13 +32,16 @@
         }
         
         
-        // adding layer that is on the screen
+        // Adding layer that is on the screen
         self.overallControlLayer = [[OverallControlLayer alloc] initWithSize:size];
         
         DebugLog(@"adding overallControlLayer as child node");
         [self addChild:self.overallControlLayer];
         
+    }else{
+        // There's no alternative path
     }
+    
     return self;
 }
 

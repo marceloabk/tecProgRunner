@@ -10,11 +10,17 @@
 
 @implementation PhysicsController
 
-- (instancetype)init
-{
+- (instancetype)init{
+    
     self = [super init];
-    if (self) {
+    
+    if (self!=NULL) {
+        
         self.bodies = [[NSMutableArray <GameObject*> alloc] init];
+        
+    }else{
+        
+        // There is no alternative path
     }
     return self;
 }

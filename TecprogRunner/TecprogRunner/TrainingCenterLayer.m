@@ -11,9 +11,11 @@
 
 @implementation TrainingCenterLayer
 
--(instancetype)initWithSize:(CGSize)size{
+-(instancetype) initWithSize:(CGSize)size{
     
-    if(self = [super init]){
+    self = [super init];
+    
+    if(self != NULL){
         
         self.layer = [SKNode node];
         [self addChild:self.layer];
@@ -24,6 +26,8 @@
         [self loadButtons];
         
         
+    }else{
+        // Exception
     }
     return self;
 }
@@ -61,7 +65,7 @@
     [self.atributesTable setScale:0.5];
 }
 
--(void)activateLayer{
+-(void) activateLayer{
     
     [self.layer addChild:self.trainingCenterBackground];
     [self.layer addChild:self.backButton];
@@ -69,7 +73,7 @@
     
 }
 
--(int) returnLevel : (int) skillType{
+-(int) returnLevel:(int)skillType{
 
     return [GameData sharedGameData].levelJump;
 }

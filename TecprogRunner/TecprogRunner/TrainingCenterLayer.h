@@ -11,14 +11,34 @@
 
 @interface TrainingCenterLayer : SKNode
 
--(instancetype) initWithSize: (CGSize) size;
+/**
+ Initialize Training Center using a size
+ */
+-(instancetype) initWithSize:(CGSize)size;
 
+/**
+ Layer that represent Training Center on screen
+ */
 @property (nonatomic) SKNode *layer;
 
-@property (nonatomic)  TrainingCenterBackground*trainingCenterBackground;
+/**
+ Represent background on Game Layer
+*/
+@property (nonatomic)  TrainingCenterBackground *trainingCenterBackground;
 
+/**
+ Button to return
+*/
 @property (nonatomic) SKSpriteNode *backButton;
+
+/**
+ Table with player attributes
+*/
 @property (nonatomic) SKSpriteNode *atributesTable;
+
+/**
+ Method used to activate Training Center layer
+*/
 -(void) activateLayer;
 
 @end

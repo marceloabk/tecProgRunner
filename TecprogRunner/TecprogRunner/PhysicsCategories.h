@@ -9,7 +9,9 @@
 #ifndef PhysicsCategories_h
 #define PhysicsCategories_h
 
-// Defining types with binary
+/**
+ Categorize types of physics body
+*/
 typedef NS_ENUM(NSUInteger, ColliderType){
     // 'Binary Shift Right Operation' for differentiate type of objects in physics
     ColliderTypePlayer = 1 << 0,

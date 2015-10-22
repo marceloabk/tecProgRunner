@@ -15,10 +15,14 @@
 
 @required
 
-/// Initialize with size
+/**
+ Initialize the layer with a size
+*/
 - (instancetype) initWithSize:(CGSize)size;
 
-/// Add all chilldren from layer
+/**
+ Add all children for the layer
+*/
 -(void) activateLayer;
 
 @end

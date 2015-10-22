@@ -10,9 +10,16 @@
 
 @interface BackgroundLayerMenu : SKNode
 
--(instancetype) initWithSize: (CGSize) size;
+/**
+ Initialize Menu Backgroun Layer
+ with a size
+*/
+-(instancetype) initWithSize:(CGSize)size;
 
-//background sprite
+/**
+ Sprite used to represent
+ background visually
+*/
 @property (nonatomic) SKSpriteNode* background;
 
 

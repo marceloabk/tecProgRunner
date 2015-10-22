@@ -10,9 +10,11 @@
 
 @implementation StoreLayer
 
--(instancetype) initWithSize: (CGSize) size{
+-(instancetype) initWithSize:(CGSize)size{
     
-    if(self = [super init]){
+    self = [super init];
+    
+    if(self != NULL){
 
         self.layer = [SKNode node];
         [self addChild:self.layer];
@@ -20,7 +22,10 @@
         
         [self loadBackground];
         [self loadButtons];
+    }else{
+        // Exception
     }
+    
     return self;
 }
 

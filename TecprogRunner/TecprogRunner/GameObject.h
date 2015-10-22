@@ -14,7 +14,7 @@
 #pragma mark Generating and configuring GameObject
 
 /**
- Init Game object with right position
+ Initialize Game object with right position
 */
 -(instancetype) initWithPosition:(CGPoint)position;
 
@@ -36,13 +36,13 @@
 
 
 /**
- Invert horizontally
+ Invert Sprite horizontally
 */
 -(void) invertSpriteX:(BOOL)option;
 
 
 /**
- Generate physics body
+ Generate physics body for the GameObject
 */
 -(SKPhysicsBody *) generatePhysicsBody;
 
@@ -53,8 +53,14 @@
 
 #pragma mark Defining Contact methods
 
+/**
+ Handle when a Contact begin
+*/
 -(void) beginContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact;
 
+/**
+ Handle when a Contact end
+*/
 -(void) endContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact;
 
 @end

@@ -11,14 +11,30 @@
 
 @interface SettingsLayer : SKNode
 
--(instancetype) initWithSize: (CGSize) size;
+/**
+ Initialize Settings Layer
+ with a size
+*/
+-(instancetype) initWithSize:(CGSize)size;
 
+/**
+ Layer that represent Settings on screen
+*/
 @property (nonatomic) SKNode *layer;
 
-@property (nonatomic)  BackgroundLayerSettings*backgroundLayerSettings;
+/**
+ Represent background on Settings Layer
+*/
+@property (nonatomic) BackgroundLayerSettings *backgroundLayerSettings;
 
+/**
+ Button to return
+*/
 @property (nonatomic) SKSpriteNode *backButton;
 
+/**
+ Method used to activate Settings Layer
+*/
 -(void) activateLayer;
 
 @end

@@ -10,9 +10,11 @@
 
 @implementation BackgroundLayerStore
 
--(instancetype) initWithSize: (CGSize) size{
+-(instancetype) initWithSize:(CGSize)size{
     
-    if(self = [super init]){
+    self = [super init];
+    
+    if(self != NULL){
         
         [self addBackgroundSprite];
         

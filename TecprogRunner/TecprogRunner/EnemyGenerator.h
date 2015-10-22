@@ -2,9 +2,9 @@
 //  EnemyGenerator.h
 //  TecprogRunner
 //
-//  Created by Marcelo Cristiano Araujo Silva on 14/10/15.
-//  Copyright © 2015 Bepid-UnB. All rights reserved.
+//  Generate Enemies in the game
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import <SpriteKit/SpriteKit.h>
 

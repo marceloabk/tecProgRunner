@@ -2,9 +2,9 @@
 //  StrongEnemy.h
 //  TecprogRunner
 //
-//  Created by Marcelo Cristiano Araujo Silva on 14/10/15.
-//  Copyright © 2015 Bepid-UnB. All rights reserved.
+//  Distinguishes Strong Enemy and his functions
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "Enemy.h"
 

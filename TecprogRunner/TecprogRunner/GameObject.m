@@ -12,9 +12,9 @@
 
 #pragma mark Generating and configuring GameObject
 
-// init the GameObject with a position
 -(instancetype) initWithPosition:(CGPoint)position{
     self = [super init];
+    
     if(self != nil){
         
     }else{

@@ -10,9 +10,16 @@
 
 @interface BackgroundLayerStore : SKNode
 
--(instancetype) initWithSize: (CGSize) size;
+/**
+ Init Store Background Layer
+ with a size
+ */
+-(instancetype) initWithSize:(CGSize)size;
 
-//background sprite
+/**
+ Sprite that represent background
+ visually
+ */
 @property (nonatomic) SKSpriteNode* background;
 
 

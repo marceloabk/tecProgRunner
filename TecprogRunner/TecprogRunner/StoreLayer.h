@@ -11,14 +11,30 @@
 
 @interface StoreLayer : SKNode
 
--(instancetype) initWithSize: (CGSize) size;
+/**
+ Initialize Store Layer
+ with a size
+ */
+-(instancetype) initWithSize:(CGSize)size;
 
+/**
+ Layer that represent Store on screen
+ */
 @property (nonatomic) SKNode *layer;
 
+/**
+ Represent background on Store Layer
+ */
 @property (nonatomic) BackgroundLayerStore *backgroundLayerStore;
 
+/**
+ Button to return
+ */
 @property (nonatomic) SKSpriteNode *backButton;
 
+/**
+ Method used to activate Settings Layer
+ */
 -(void) activateLayer;
 
 @end
