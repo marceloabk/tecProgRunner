@@ -16,7 +16,10 @@
 
 @interface OverallControlLayer : SKNode
 
--(instancetype) initWithSize: (CGSize) size;
+/**
+ Initialize OverallControlLayer using a size
+*/
+-(instancetype)initWithSize:(CGSize)size;
 
 /**
  Menu layer contains Buttons to setting, store, game center and Game
