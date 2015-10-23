@@ -16,8 +16,9 @@
     CGSize _size;
     CGPoint _initialPoint;
     float backgroundDefaultVelocity;
-    GameObject* _firstGround;
-    GameObject* _secondGround;
+    
+    
+    NSMutableArray<GameObject*>* _tiles;
     
     SKSpriteNode* _firstClouds;
     SKSpriteNode* _secondClouds;
@@ -28,33 +29,41 @@
     
     if(self != NULL){
         
+        _tiles = [[NSMutableArray<GameObject*> alloc] init];
         _size = size;
         
         CGSize backgroundSize = CGSizeMake(_size.width,_size.height*0.1);
     
         [self setClouds];
         
-        _firstGround = [self createTileGroundWithSize:backgroundSize];
-        _firstGround.position = CGPointMake(0.0, 0.0);
+        // Initializating initial tiles
+        GameObject *firstGround = [self createTileGroundWithSize:backgroundSize];
+        firstGround.position = CGPointMake(0.0, 0.0);
         
-        _secondGround = [self createTileGroundWithSize:backgroundSize];
-        _secondGround.position = CGPointMake(backgroundSize.width, 0.0);
+        GameObject *secondGround = [self createTileGroundWithSize:backgroundSize];
+        secondGround.position = CGPointMake(backgroundSize.width, 0.0);
         
         GameObject* airGround = [self createTileGroundWithSize:backgroundSize];
-        airGround.position = CGPointMake(backgroundSize.width, size.height/4);
+        airGround.position = CGPointMake(backgroundSize.width + 100, size.height/4);
         
         GameObject* secondAirGround = [self createTileGroundWithSize:backgroundSize];
-        secondAirGround.position = CGPointMake(backgroundSize.width+ 150, size.height/1.5);
+        secondAirGround.position = CGPointMake(backgroundSize.width+ 250, size.height/1.5);
         
         // Adding clouds to view
         [self addChild:_firstClouds];
         [self addChild:_secondClouds];
         
         // Adding background to view
-        [self addChild:_firstGround];
-        [self addChild:_secondGround];
+        [self addChild:firstGround];
+        [self addChild:secondGround];
         [self addChild:airGround];
         [self addChild:secondAirGround];
+        
+        // adding tile to array
+        [_tiles addObject:firstGround];
+        [_tiles addObject:secondGround];
+        [_tiles addObject:airGround];
+        [_tiles addObject:secondAirGround];
         
     }else{
         // Throw exception
@@ -97,7 +106,9 @@
     tile.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
     
     tile.physicsBody.categoryBitMask = ColliderTypeGround;
+    tile.physicsBody.affectedByGravity = false;
     tile.physicsBody.dynamic = false;
+    tile.physicsBody.allowsRotation = false;
     tile.physicsBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeEnemy | ColliderTypeObstacle;
     tile.velocity = CGVectorMake(-TILE_VELOCITY_X, 0.0);
     
@@ -105,8 +116,12 @@
 }
 
 -(void) update:(CFTimeInterval)currentTime{
-    if(_firstGround.position.x + _firstGround.size.width/2 <= 0.0){
-        _firstGround.position = CGPointMake(_size.width + _firstGround.size.width/2, 0.0);
+    
+    for (GameObject* tile in _tiles) {
+        if(tile.position.x + tile.size.width/2 <= 0.0){
+            tile.position = CGPointMake(_size.width + tile.size.width/2, tile.position.y);
+        }
     }
+    
 }
 @end

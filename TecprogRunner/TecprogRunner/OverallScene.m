@@ -75,7 +75,8 @@
             [self.overallControlLayer changeLayer];
             
             self.physicsWorld.contactDelegate = self.overallControlLayer.gameLayer.physicsController;
-            self.physicsWorld.gravity = CGVectorMake(0.0, 0.0);
+            self.physicsWorld.gravity = CGVectorMake(0.0, -6.0);
+
         }
         else if([node.name isEqualToString:@"settingsButton"]){
             [GameData sharedGameData].layerActivated = settings;

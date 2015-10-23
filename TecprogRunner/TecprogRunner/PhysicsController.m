@@ -40,12 +40,6 @@
     //Update every object position
     for(GameObject* obj in self.bodies){
         
-        if(obj.isOnGround == false && ![obj.name isEqualToString:@"ground"]){
-            obj.velocity = CGVectorMake(obj.velocity.dx, obj.velocity.dy - GRAVITY);
-        }
-        else {
-            //Do not apply gravity while object is on ground
-        }
         [obj updateWithDeltaTime:delta];
     }
 }
@@ -55,13 +49,11 @@
     BOOL bodyAisGround = [contact.bodyA.node.name isEqualToString:@"ground"];
     BOOL bodyBisGround = [contact.bodyB.node.name isEqualToString:@"ground"];
     
-
-    
     //If a body touches the ground... he isOnGround
     if(bodyAisGround && !bodyBisGround){
         GameObject* gameObj = ((GameObject*)contact.bodyB.node);
         
-        BOOL bodyAboveGround = contact.contactNormal.dy == 1 && contact.contactNormal.dx == 0;
+        BOOL bodyAboveGround = contact.contactNormal.dy >= 1 && contact.contactNormal.dx <= 0;
         
         if(bodyAboveGround){
             gameObj.isOnGround = true;
@@ -72,12 +64,15 @@
     } else if(bodyBisGround && !bodyAisGround){
         GameObject* gameObj = ((GameObject*)contact.bodyA.node);
         
-        BOOL bodyAboveGround = contact.contactNormal.dy == 1 && contact.contactNormal.dx == 0;
+        BOOL bodyAboveGround = contact.contactNormal.dy >= 1 && contact.contactNormal.dx <= 0;
         
         if(bodyAboveGround){
             gameObj.isOnGround = true;
             gameObj.velocity = CGVectorMake(gameObj.velocity.dx, 0.0);
         }
+    }
+    else {
+        // ground contact ground and body contact body do not interfers in gravity mechanics
     }
 }
 
@@ -86,12 +81,45 @@
     BOOL bodyAisGround = [contact.bodyA.node.name isEqualToString:@"ground"];
     BOOL bodyBisGround = [contact.bodyB.node.name isEqualToString:@"ground"];
     
+    if(contact.contactNormal.dy == 1){
+        NSLog(@"normal equal 1");
+    }
+    
     //If a body dont touches the ground... he !isOnGround
     if(bodyAisGround && !bodyBisGround){
-        ((GameObject*)contact.bodyB.node).isOnGround = false;
+        
+        GameObject* gameObj = ((GameObject*)contact.bodyA.node);
+        gameObj.isOnGround = false;
+        
+        // Ensures that obj is above ground
+        for (SKPhysicsBody* bodyContacted in gameObj.physicsBody.allContactedBodies) {
+            if(bodyContacted != contact.bodyA && [bodyContacted.node.name isEqualToString:@"ground"]){
+                
+                if(contact.contactNormal.dy == 0){
+                    gameObj.isOnGround = true;
+                    break;
+                }
+                
+            }
+        }
         
     } else if(bodyBisGround && !bodyAisGround){
-        ((GameObject*)contact.bodyA.node).isOnGround = false;
+        
+        GameObject* gameObj = ((GameObject*)contact.bodyB.node);
+        gameObj.isOnGround = false;
+        
+        // Ensures that obj is above ground
+        for (SKPhysicsBody* bodyContacted in gameObj.physicsBody.allContactedBodies) {
+            if(bodyContacted != contact.bodyB && [bodyContacted.node.name isEqualToString:@"ground"]){
+                
+                if(contact.contactNormal.dy == 0){
+                    gameObj.isOnGround = true;
+                    break;
+                }
+                
+            }
+        }
+
     }
 }
 

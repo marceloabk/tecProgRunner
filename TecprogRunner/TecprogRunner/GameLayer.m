@@ -129,6 +129,7 @@
     CGPoint playerPosition = CGPointMake(50, 200);
     self.player = [[Player alloc]initWithPosition:playerPosition];
     self.player.physicsBody.allowsRotation = false;
+    self.player.physicsBody.affectedByGravity = true;
     
     // Add player to the layer
     [self.layer addChild:self.player];

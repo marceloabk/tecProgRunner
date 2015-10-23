@@ -147,7 +147,9 @@ typedef enum playerMoviments{
 -(void) jump{
     
     if(self.isOnGround){
-         self.velocity = CGVectorMake(self.velocity.dx, self.velocity.dy + JUMP_IMPULSE);
+        self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.physicsBody.velocity.dy + JUMP_IMPULSE);
+        
+        self.isOnGround = false;
     }
     else {
         // Player can't jump while is in the air, by now
@@ -171,7 +173,6 @@ typedef enum playerMoviments{
     
     // Changing animation depending player status is on ground
     if(isOnGround == true){
-
         [self changeToAction:PlayerMovimentRun];
     }
     else {
@@ -185,8 +186,10 @@ typedef enum playerMoviments{
     
     [super updateWithDeltaTime:deltaTime];
     
-    if(self.velocity.dy <= 0 && !self.isOnGround){
+    if(self.physicsBody.velocity.dy <= 0 && !self.isOnGround){
         [self changeToAction:PlayerMovimentFall];
+    } else if(self.physicsBody.velocity.dy > 0 && !self.isOnGround){
+        [self changeToAction:PlayerMovimentJump];
     }
 }
 
