@@ -73,6 +73,8 @@
         if([node.name isEqualToString:@"tapToPlay"]){
             [GameData sharedGameData].layerActivated = game;
             [self.overallControlLayer changeLayer];
+            
+            self.physicsWorld.contactDelegate = self.overallControlLayer.gameLayer.physicsController;
         }
         else if([node.name isEqualToString:@"settingsButton"]){
             [GameData sharedGameData].layerActivated = settings;
@@ -121,8 +123,6 @@
     else {
         DebugLog(@"unknown layer type ");
     }
-    
-    
     
 }
 

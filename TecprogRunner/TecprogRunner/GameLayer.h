@@ -7,18 +7,11 @@
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "BasicLayer.h"
+#import "PhysicsController.h"
 
 @interface GameLayer : SKNode <LayerRequirements>
 
-/**
- Update from GameLayer
-*/
--(void) update:(CFTimeInterval)currentTime;
-
-/**
- Add game layer childs
-*/
--(void) activateLayer;
+@property (nonatomic) PhysicsController* physicsController;
 
 /**
  Layer that represent GameLayer on screen
@@ -35,5 +28,14 @@
 */
 @property (nonatomic) int pointsScored;
 
+/**
+ Update from GameLayer
+ */
+-(void) update:(CFTimeInterval)currentTime;
+
+/**
+ Add game layer childs
+ */
+-(void) activateLayer;
 
 @end

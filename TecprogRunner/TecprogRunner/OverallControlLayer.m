@@ -58,17 +58,22 @@
     if(layerType == menu){
         DebugLog(@"putting menu layer...");
         [self presentMenuLayer:layerSize];
+        
     }else if(layerType == store){
         [self presentStoreLayer:layerSize];
+        
     }else if(layerType == game){
         DebugLog(@"putting game layer...");
         [self presentGameLayer:layerSize];
+        
     }else if(layerType == settings){
         DebugLog(@"putting settings layer...");
         [self presentSettingsLayer:layerSize];
+        
     }else if(layerType == trainingCenter){
         DebugLog(@"putting training center layer");
         [self presentTrainingCenterLayer:layerSize];
+        
     }else{
         DebugLog(@"unknown layer type");
     }

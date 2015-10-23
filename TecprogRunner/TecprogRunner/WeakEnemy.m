@@ -60,8 +60,8 @@
     physicsBody.allowsRotation = NO;
     
     // Defining types for Collision
-    physicsBody.collisionBitMask = ColliderTypePlayer | ColliderTypeProjectile | ColliderTypeEnemy;
-    physicsBody.categoryBitMask = ColliderTypeWeakEnemy;
+    physicsBody.collisionBitMask = ColliderTypePlayer | ColliderTypeProjectile | ColliderTypeGround;
+    physicsBody.categoryBitMask = ColliderTypeEnemy;
     
     return physicsBody;
 }

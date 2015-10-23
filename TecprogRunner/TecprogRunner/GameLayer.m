@@ -10,7 +10,6 @@
 #import "Player.h"
 #import "HudLayer.h"
 #import "BackgroundLayer.h"
-#import "PhysicsController.h"
 
 @interface GameLayer()
 
@@ -19,8 +18,6 @@
 @end
 
 @implementation GameLayer{
-    
-    PhysicsController* _physicsWorld;
     
     CGSize _size;
     
@@ -36,14 +33,37 @@
     
     self = [super init];
     if(self){
-        _physicsWorld = [[PhysicsController alloc] init];
+        _physicsController = [[PhysicsController alloc] init];
         _size = size;
         self.name = @"layer";
+        
+        [self createGroundBody];
 
     }
     return self;
 }
 
+-(void) createGroundBody{
+    
+    CGFloat groundHeight = 50;
+    CGFloat groundWidth = 500;
+    
+    CGPoint initialPoint = CGPointMake(0.0, groundHeight);
+    CGPoint finalPoint = CGPointMake(groundWidth, groundHeight);
+    
+    GameObject *ground = [[GameObject alloc] initWithColor:[UIColor blackColor] size:CGSizeMake(400, 100)];
+    ground.position = CGPointMake(0.0, 0.0);
+    ground.name = @"ground";
+    SKPhysicsBody* groundBody = [SKPhysicsBody bodyWithEdgeFromPoint:initialPoint toPoint:finalPoint];
+    groundBody.categoryBitMask = ColliderTypeGround;
+    groundBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeEnemy | ColliderTypeObstacle;
+    
+    ground.physicsBody = groundBody;
+    
+    [self addChild:ground];
+    
+    [_physicsController.bodies addObject:ground];
+}
 
 -(void) loadPause{
 
@@ -97,7 +117,7 @@
 
 -(void) update:(CFTimeInterval)currentTime{
     
-    [_physicsWorld update:currentTime];
+    [_physicsController update:currentTime];
 
 }
 
@@ -126,11 +146,14 @@
 
 -(void) initializePlayer{
     // Instantiating and adding to game layer
-    CGPoint playerPosition = CGPointMake(50, 50);
+    CGPoint playerPosition = CGPointMake(50, 200);
     self.player = [[Player alloc]initWithPosition:playerPosition];
+
     
     // Add player to the layer
     [self.layer addChild:self.player];
+    
+    [_physicsController.bodies addObject:self.player];
 }
 
 -(void) deactivateTimer{

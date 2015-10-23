@@ -9,6 +9,8 @@
 #import "GlobalHeaders.h"
 #import "GameObject.h"
 
+#define GRAVITY 25
+
 @interface PhysicsController : NSObject <SKPhysicsContactDelegate>
 
 /**

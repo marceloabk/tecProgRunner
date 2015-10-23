@@ -12,6 +12,7 @@
 @interface GameObject : SKSpriteNode
 
 @property (nonatomic) CGVector velocity;
+@property (nonatomic) BOOL isOnGround;
 
 #pragma mark Generating and configuring GameObject
 

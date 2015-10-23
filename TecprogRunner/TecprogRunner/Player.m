@@ -9,6 +9,8 @@
 #import "Player.h"
 #import "Projectile.h"
 
+#define JUMP_IMPULSE 500
+
 @interface Player()
 @end
 
@@ -55,6 +57,7 @@
     self.physicsBody = [self generatePhysicsBody];
     
     self.playerOnGround = true;
+    self.isOnGround = false;
 }
 
 // Generate player physics body
@@ -68,7 +71,7 @@
     
     // Defining types for Collision
     physicsBody.categoryBitMask = ColliderTypePlayer;
-    physicsBody.collisionBitMask = ColliderTypeProjectile | ColliderTypeEnemy;
+    physicsBody.collisionBitMask = ColliderTypeProjectile | ColliderTypeEnemy | ColliderTypeGround;
 
     return physicsBody;
 }
@@ -114,36 +117,45 @@
 
 // Make player perform a jump when called
 -(void) jump{
-    self.playerOnGround = false;
+//    self.playerOnGround = false;
+//    
+//
+//    
+//    NSMutableArray *actionsToPlayerFinishJump = [NSMutableArray array];
+//    
+//    float timeToGetHigherPosition = 0; // Time To perform a small part of jump
+//
+//    for (int i = 0; i < 9; i++) {
+//        timeToGetHigherPosition += 0.006;
+//        // Here is used a vector with coordinates (0,16) because the wanted final vector is a (0,144) vector
+//        // When move by is used it doesn't make a sum or a scalar multiplication of vectors
+//        SKAction *jumpAction = [SKAction moveBy:CGVectorMake(0, 16) duration:timeToGetHigherPosition];
+//        [actionsToPlayerFinishJump addObject:jumpAction];
+//    }
+//    
+//    float timeToGetLowestrPosition = 0.054;
+//    for (int i = 0; i < 9; i++) {
+//        timeToGetLowestrPosition -= 0.006;
+//        SKAction *fallAction = [SKAction moveBy:CGVectorMake(0, -16) duration:timeToGetLowestrPosition];
+//        [actionsToPlayerFinishJump addObject:fallAction];
+//    }
+//
+//    SKAction *playerBackToGround = [SKAction runBlock:^{
+//        self.playerOnGround = true;
+//    }];
+//    
+//    [actionsToPlayerFinishJump addObject:playerBackToGround];
+//
+//    [self runAction:[SKAction sequence:actionsToPlayerFinishJump]];
     
-    [self runAction:[self loadJumpAnimation]];
-    
-    NSMutableArray *actionsToPlayerFinishJump = [NSMutableArray array];
-    
-    float timeToGetHigherPosition = 0; // Time To perform a small part of jump
-
-    for (int i = 0; i < 9; i++) {
-        timeToGetHigherPosition += 0.006;
-        // Here is used a vector with coordinates (0,16) because the wanted final vector is a (0,144) vector
-        // When move by is used it doesn't make a sum or a scalar multiplication of vectors
-        SKAction *jumpAction = [SKAction moveBy:CGVectorMake(0, 16) duration:timeToGetHigherPosition];
-        [actionsToPlayerFinishJump addObject:jumpAction];
+    if(self.isOnGround){
+//        [self runAction:[self loadJumpAnimation]];
+         self.velocity = CGVectorMake(self.velocity.dx, self.velocity.dy + JUMP_IMPULSE);
     }
-    
-    float timeToGetLowestrPosition = 0.054;
-    for (int i = 0; i < 9; i++) {
-        timeToGetLowestrPosition -= 0.006;
-        SKAction *fallAction = [SKAction moveBy:CGVectorMake(0, -16) duration:timeToGetLowestrPosition];
-        [actionsToPlayerFinishJump addObject:fallAction];
+    else {
+        // Player can't jump while is in the air, by now
     }
 
-    SKAction *playerBackToGround = [SKAction runBlock:^{
-        self.playerOnGround = true;
-    }];
-    
-    [actionsToPlayerFinishJump addObject:playerBackToGround];
-
-    [self runAction:[SKAction sequence:actionsToPlayerFinishJump]];
 }
 
 // Make player throw a projectile when called
@@ -156,6 +168,18 @@
     Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition andOwner:className];
     
     [self.parent addChild:projectile];
+}
+
+-(void) setIsOnGround:(BOOL)isOnGround{
+    
+    if(isOnGround == true){
+        [self runAction:[self loadRunningAnimation]];
+    }
+    else {
+        [self runAction:[self loadJumpAnimation]];
+    }
+    
+    super.isOnGround = isOnGround;
 }
 
 @end
