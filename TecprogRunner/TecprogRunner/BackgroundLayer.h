@@ -9,12 +9,16 @@
 
 #define GREEN_COLOR [UIColor greenColor]
 #define MAGENTA_COLOR [UIColor magentaColor]
-#define GROUND_MOVIMENT_TIME 8
-#define CLOUD_MOVIMENT_TIME 240
-#define TIME_CORRECTION 0.02
+#define TILE_VELOCITY_X 100
 
 #import "BasicLayer.h"
 
+@class PhysicsController;
+
 @interface BackgroundLayer : SKNode <LayerRequirements>
+
+-(void) addBackgroundGameObjectsToPhysicsController:(PhysicsController*) physicsController;
+
+-(void) update:(CFTimeInterval)currentTime;
 
 @end

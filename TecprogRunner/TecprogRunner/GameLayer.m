@@ -45,24 +45,24 @@
 
 -(void) createGroundBody{
     
-    CGFloat groundHeight = 50;
-    CGFloat groundWidth = 500;
-    
-    CGPoint initialPoint = CGPointMake(0.0, groundHeight);
-    CGPoint finalPoint = CGPointMake(groundWidth, groundHeight);
-    
-    GameObject *ground = [[GameObject alloc] initWithColor:[UIColor blackColor] size:CGSizeMake(400, 100)];
-    ground.position = CGPointMake(0.0, 0.0);
-    ground.name = @"ground";
-    SKPhysicsBody* groundBody = [SKPhysicsBody bodyWithEdgeFromPoint:initialPoint toPoint:finalPoint];
-    groundBody.categoryBitMask = ColliderTypeGround;
-    groundBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeEnemy | ColliderTypeObstacle;
-    
-    ground.physicsBody = groundBody;
-    
-    [self addChild:ground];
-    
-    [_physicsController.bodies addObject:ground];
+//    CGFloat groundHeight = 50;
+//    CGFloat groundWidth = 500;
+//    
+//    CGPoint initialPoint = CGPointMake(0.0, groundHeight);
+//    CGPoint finalPoint = CGPointMake(groundWidth, groundHeight);
+//    
+//    GameObject *ground = [[GameObject alloc] initWithColor:[UIColor blackColor] size:CGSizeMake(400, 100)];
+//    ground.position = CGPointMake(0.0, 0.0);
+//    ground.name = @"ground";
+//    SKPhysicsBody* groundBody = [SKPhysicsBody bodyWithEdgeFromPoint:initialPoint toPoint:finalPoint];
+//    groundBody.categoryBitMask = ColliderTypeGround;
+//    groundBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeEnemy | ColliderTypeObstacle;
+//    
+//    ground.physicsBody = groundBody;
+//    
+//    [self addChild:ground];
+//    
+//    [_physicsController.bodies addObject:ground];
 }
 
 -(void) loadPause{
@@ -118,13 +118,14 @@
 -(void) update:(CFTimeInterval)currentTime{
     
     [_physicsController update:currentTime];
-
+    [_backgroundLayer update:currentTime];
 }
 
 -(void) activateLayer{
     
     _sceneLayer = [[SKNode alloc] init];
     _backgroundLayer = [[BackgroundLayer alloc] initWithSize:_size];
+    [_backgroundLayer addBackgroundGameObjectsToPhysicsController:self.physicsController];
     _hudLayer = [[HudLayer alloc] initWithSize:_size];
     self.layer = [SKNode node];
     
