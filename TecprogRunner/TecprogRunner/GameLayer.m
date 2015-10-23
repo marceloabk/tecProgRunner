@@ -36,33 +36,9 @@
         _physicsController = [[PhysicsController alloc] init];
         _size = size;
         self.name = @"layer";
-        
-        [self createGroundBody];
 
     }
     return self;
-}
-
--(void) createGroundBody{
-    
-//    CGFloat groundHeight = 50;
-//    CGFloat groundWidth = 500;
-//    
-//    CGPoint initialPoint = CGPointMake(0.0, groundHeight);
-//    CGPoint finalPoint = CGPointMake(groundWidth, groundHeight);
-//    
-//    GameObject *ground = [[GameObject alloc] initWithColor:[UIColor blackColor] size:CGSizeMake(400, 100)];
-//    ground.position = CGPointMake(0.0, 0.0);
-//    ground.name = @"ground";
-//    SKPhysicsBody* groundBody = [SKPhysicsBody bodyWithEdgeFromPoint:initialPoint toPoint:finalPoint];
-//    groundBody.categoryBitMask = ColliderTypeGround;
-//    groundBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeEnemy | ColliderTypeObstacle;
-//    
-//    ground.physicsBody = groundBody;
-//    
-//    [self addChild:ground];
-//    
-//    [_physicsController.bodies addObject:ground];
 }
 
 -(void) loadPause{
@@ -70,8 +46,11 @@
     _pauseButton = [SKSpriteNode spriteNodeWithImageNamed:@"pauseButton"];
     [_pauseButton setScale:0.5];
     _pauseButton.anchorPoint = CGPointMake(0, 1);
+    #warning CGPoint not catalogated, it is magic point
     _pauseButton.position = CGPointMake(15, 365);
+    #warning posX and posY not catalogated, it is magic numbers
     _pauseButton.zPosition = 10000000;
+    #warning zPosition not catalogated, it is magic number
     _pauseButton.name = @"pauseGame";
     
     [self addChild:_pauseButton];
@@ -149,7 +128,7 @@
     // Instantiating and adding to game layer
     CGPoint playerPosition = CGPointMake(50, 200);
     self.player = [[Player alloc]initWithPosition:playerPosition];
-
+    self.player.physicsBody.allowsRotation = false;
     
     // Add player to the layer
     [self.layer addChild:self.player];

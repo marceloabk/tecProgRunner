@@ -43,6 +43,9 @@
         GameObject* airGround = [self createTileGroundWithSize:backgroundSize];
         airGround.position = CGPointMake(backgroundSize.width, size.height/4);
         
+        GameObject* secondAirGround = [self createTileGroundWithSize:backgroundSize];
+        secondAirGround.position = CGPointMake(backgroundSize.width+ 150, size.height/1.5);
+        
         // Adding clouds to view
         [self addChild:_firstClouds];
         [self addChild:_secondClouds];
@@ -51,6 +54,7 @@
         [self addChild:_firstGround];
         [self addChild:_secondGround];
         [self addChild:airGround];
+        [self addChild:secondAirGround];
         
     }else{
         // Throw exception

@@ -55,18 +55,29 @@
     BOOL bodyAisGround = [contact.bodyA.node.name isEqualToString:@"ground"];
     BOOL bodyBisGround = [contact.bodyB.node.name isEqualToString:@"ground"];
     
+
+    
     //If a body touches the ground... he isOnGround
     if(bodyAisGround && !bodyBisGround){
         GameObject* gameObj = ((GameObject*)contact.bodyB.node);
         
-        gameObj.isOnGround = true;
-        gameObj.velocity = CGVectorMake(gameObj.velocity.dx, 0.0);
+        BOOL bodyAboveGround = contact.contactNormal.dy == 1 && contact.contactNormal.dx == 0;
+        
+        if(bodyAboveGround){
+            gameObj.isOnGround = true;
+            gameObj.velocity = CGVectorMake(gameObj.velocity.dx, 0.0);
+        }
+        
         
     } else if(bodyBisGround && !bodyAisGround){
         GameObject* gameObj = ((GameObject*)contact.bodyA.node);
         
-        gameObj.isOnGround = true;
-        gameObj.velocity = CGVectorMake(gameObj.velocity.dx, 0.0);
+        BOOL bodyAboveGround = contact.contactNormal.dy == 1 && contact.contactNormal.dx == 0;
+        
+        if(bodyAboveGround){
+            gameObj.isOnGround = true;
+            gameObj.velocity = CGVectorMake(gameObj.velocity.dx, 0.0);
+        }
     }
 }
 
