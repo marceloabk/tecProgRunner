@@ -11,6 +11,12 @@
 
 #define JUMP_IMPULSE 500
 
+typedef enum playerMoviments{
+    PlayerMovimentRun,
+    PlayerMovimentJump,
+    PlayerMovimentFall
+}playerMoviments;
+
 @interface Player()
 @end
 
@@ -100,56 +106,47 @@
     // Using textures to make an action
     SKAction *run = [SKAction animateWithTextures:runTextures timePerFrame:0.1];
     
-    return run;
+    SKAction *runForever = [SKAction repeatActionForever:run];
+    
+    return runForever;
 }
 
 -(SKAction*) loadJumpAnimation{
     DebugLog(@"Loading Jump Animation");
     
     // Creating a Mutable Array filled with Run Animations
-    NSMutableArray *jumpTextures = [super generateAnimationImages:@"playerJumping" andCount:2];
+//    NSMutableArray *jumpTextures = [super generateAnimationImages:@"playerJumping" andCount:2];
+    
+    SKTexture *jumpTexture = [self generateTextureWithImageNamed:@"playerJumping1"];
     
     // Using textures to make an action with certain time
-    SKAction *jump = [SKAction animateWithTextures:jumpTextures timePerFrame:0.3];
+    SKAction *jump = [SKAction animateWithTextures:@[jumpTexture] timePerFrame:0.3];
     
-    return jump;
+    SKAction *repeatJumpForEver = [SKAction repeatActionForever:jump];
+    
+    return repeatJumpForEver;
+}
+
+-(SKAction*) loadFallAnimation{
+    DebugLog(@"Loading Fall Animation");
+    
+    // Creating a Mutable Array filled with Run Animations
+    //    NSMutableArray *jumpTextures = [super generateAnimationImages:@"playerFalling" andCount:2];
+    
+    SKTexture *fallTexture = [self generateTextureWithImageNamed:@"playerFalling1"];
+    
+    // Using textures to make an action with certain time
+    SKAction *fall = [SKAction animateWithTextures:@[fallTexture] timePerFrame:0.3];
+    
+    SKAction *repeatfallForEver = [SKAction repeatActionForever:fall];
+    
+    return repeatfallForEver;
 }
 
 // Make player perform a jump when called
 -(void) jump{
-//    self.playerOnGround = false;
-//    
-//
-//    
-//    NSMutableArray *actionsToPlayerFinishJump = [NSMutableArray array];
-//    
-//    float timeToGetHigherPosition = 0; // Time To perform a small part of jump
-//
-//    for (int i = 0; i < 9; i++) {
-//        timeToGetHigherPosition += 0.006;
-//        // Here is used a vector with coordinates (0,16) because the wanted final vector is a (0,144) vector
-//        // When move by is used it doesn't make a sum or a scalar multiplication of vectors
-//        SKAction *jumpAction = [SKAction moveBy:CGVectorMake(0, 16) duration:timeToGetHigherPosition];
-//        [actionsToPlayerFinishJump addObject:jumpAction];
-//    }
-//    
-//    float timeToGetLowestrPosition = 0.054;
-//    for (int i = 0; i < 9; i++) {
-//        timeToGetLowestrPosition -= 0.006;
-//        SKAction *fallAction = [SKAction moveBy:CGVectorMake(0, -16) duration:timeToGetLowestrPosition];
-//        [actionsToPlayerFinishJump addObject:fallAction];
-//    }
-//
-//    SKAction *playerBackToGround = [SKAction runBlock:^{
-//        self.playerOnGround = true;
-//    }];
-//    
-//    [actionsToPlayerFinishJump addObject:playerBackToGround];
-//
-//    [self runAction:[SKAction sequence:actionsToPlayerFinishJump]];
     
     if(self.isOnGround){
-//        [self runAction:[self loadJumpAnimation]];
          self.velocity = CGVectorMake(self.velocity.dx, self.velocity.dy + JUMP_IMPULSE);
     }
     else {
@@ -172,14 +169,46 @@
 
 -(void) setIsOnGround:(BOOL)isOnGround{
     
+    // Changing animation depending player status is on ground
     if(isOnGround == true){
-        [self runAction:[self loadRunningAnimation]];
+
+        [self changeToAction:PlayerMovimentRun];
     }
     else {
-        [self runAction:[self loadJumpAnimation]];
+        [self changeToAction:PlayerMovimentJump];
     }
     
     super.isOnGround = isOnGround;
+}
+
+-(void) updateWithDeltaTime:(CFTimeInterval)deltaTime{
+    
+    [super updateWithDeltaTime:deltaTime];
+    
+    if(self.velocity.dy <= 0 && !self.isOnGround){
+        [self changeToAction:PlayerMovimentFall];
+    }
+}
+
+-(void) changeToAction:(playerMoviments) moviment{
+
+    [self removeAllActions];
+    
+    switch (moviment) {
+        case PlayerMovimentRun:
+            [self runAction:[self loadRunningAnimation]];
+            break;
+        case PlayerMovimentJump:
+            [self runAction:[self loadJumpAnimation]];
+            break;
+            
+        case PlayerMovimentFall:
+            [self runAction:[self loadFallAnimation]];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

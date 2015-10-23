@@ -28,6 +28,16 @@
 -(SKAction*) runningAnimation;
 
 /**
+ Make the animation of player Jumping
+*/
+-(SKAction*) loadJumpAnimation;
+
+/**
+ Make the animation of player Falling
+*/
+-(SKAction*) loadFallAnimation;
+
+/**
  Throw projectile procedures
 */
 -(void) throwProjectile;
