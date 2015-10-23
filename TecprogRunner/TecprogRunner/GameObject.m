@@ -112,4 +112,11 @@
     NSLog(@"Contact ended between %@ and %@", bodyA, bodyB);
 }
 
+-(void) updateWithDeltaTime:(CFTimeInterval)deltaTime{
+    
+    CGFloat newX = self.position.x + self.velocity.dx * deltaTime;
+    CGFloat newY = self.position.y + self.velocity.dy * deltaTime;
+    
+    self.position = CGPointMake(newX, newY);
+}
 @end

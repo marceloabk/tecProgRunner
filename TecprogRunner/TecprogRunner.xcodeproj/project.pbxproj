@@ -336,6 +336,7 @@
 		67FFA6CB1B99301C00354487 /* TecprogRunner */ = {
 			isa = PBXGroup;
 			children = (
+				E93489131BC7FD640038CCF1 /* PhysicsController */,
 				093A62D51BB46A6A00BF2074 /* PhysicsCategories */,
 				6B0FD4071BA90D1300C22BD6 /* GameData */,
 				6B0FD3F41BA9089400C22BD6 /* OverallScene */,
@@ -548,7 +549,6 @@
 		E92857401BA25CB100DF4959 /* GameSceneLayers */ = {
 			isa = PBXGroup;
 			children = (
-				E93489131BC7FD640038CCF1 /* PhysicsController */,
 				E928574C1BA25D2400DF4959 /* BackgroundLayer */,
 				E928574B1BA25D1D00DF4959 /* HudLayer */,
 				E928574A1BA25D1500DF4959 /* GameLayer */,

@@ -8,13 +8,15 @@
 
 #import "PhysicsController.h"
 
-@implementation PhysicsController
+@implementation PhysicsController{
+    CFTimeInterval _lastTime;
+}
 
 - (instancetype)init{
     
     self = [super init];
     
-    if (self!=NULL) {
+    if (self != NULL) {
         
         self.bodies = [[NSMutableArray <GameObject*> alloc] init];
         
@@ -26,7 +28,19 @@
 }
 
 -(void) update:(CFTimeInterval)currentTime{
+
+    //Update delta
+    if (_lastTime == 0) {
+        _lastTime = currentTime;
+    }
     
+    CFTimeInterval delta = currentTime - _lastTime;
+    _lastTime = currentTime;
+    
+    //Update every object position
+    for(GameObject* obj in self.bodies){
+        [obj updateWithDeltaTime:delta];
+    }
 }
 
 @end

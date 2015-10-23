@@ -9,7 +9,7 @@
 #import "GlobalHeaders.h"
 #import "GameObject.h"
 
-@interface PhysicsController : NSObject
+@interface PhysicsController : NSObject <SKPhysicsContactDelegate>
 
 /**
  Array of bodies inside physics world

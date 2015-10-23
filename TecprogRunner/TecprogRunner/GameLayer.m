@@ -10,6 +10,7 @@
 #import "Player.h"
 #import "HudLayer.h"
 #import "BackgroundLayer.h"
+#import "PhysicsController.h"
 
 @interface GameLayer()
 
@@ -18,6 +19,9 @@
 @end
 
 @implementation GameLayer{
+    
+    PhysicsController* _physicsWorld;
+    
     CGSize _size;
     
     BackgroundLayer *_backgroundLayer;
@@ -25,11 +29,6 @@
     SKNode* _sceneLayer;
     
     SKSpriteNode* _pauseButton;
-
-    // Time variables
-    NSTimeInterval _deltaTime;
-    NSTimeInterval _lastUpdateTime;
-    
     
 }
 
@@ -37,6 +36,7 @@
     
     self = [super init];
     if(self){
+        _physicsWorld = [[PhysicsController alloc] init];
         _size = size;
         self.name = @"layer";
 
@@ -97,14 +97,7 @@
 
 -(void) update:(CFTimeInterval)currentTime{
     
-    // Updating frame time
-    if(_lastUpdateTime){
-        _deltaTime = currentTime - _lastUpdateTime;
-    }else{
-        _deltaTime = 0;
-    }
-    _lastUpdateTime = currentTime;
-    
+    [_physicsWorld update:currentTime];
 
 }
 
@@ -145,17 +138,17 @@
     [self.timer invalidate];
     self.timer = nil;
     
-    
 }
 
 -(void) initiateTimer{
-      self.timer = [NSTimer scheduledTimerWithTimeInterval:0.52 target:self selector:@selector(onTick) userInfo:nil repeats:YES];
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.52 target:self selector:@selector(onTick) userInfo:nil repeats:YES];
 }
 
 
 -(void) onTick{
     
-    self.pointsScored+=1;
+    self.pointsScored += 1;
     
     [_hudLayer putScoreLabel:self.pointsScored];
     

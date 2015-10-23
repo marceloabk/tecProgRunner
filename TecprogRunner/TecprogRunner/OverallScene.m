@@ -128,9 +128,9 @@
 
 -(void) update:(CFTimeInterval)currentTime{
     
-//    if([GameData sharedGameData].layerActivated == game){
-//        [_gameLayer update:currentTime];
-//    }
+    if([GameData sharedGameData].layerActivated == game){
+        [self.overallControlLayer.gameLayer update:currentTime];
+    }
     
 }
 

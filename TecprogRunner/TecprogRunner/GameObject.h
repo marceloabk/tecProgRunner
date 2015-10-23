@@ -11,6 +11,8 @@
 
 @interface GameObject : SKSpriteNode
 
+@property (nonatomic) CGVector velocity;
+
 #pragma mark Generating and configuring GameObject
 
 /**
@@ -62,5 +64,11 @@
  Handle when a Contact end
 */
 -(void) endContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact;
+
+/**
+ Update Object position in reference to his velocity
+ @param DeltaTime is the variation time between frames
+*/
+-(void) updateWithDeltaTime:(CFTimeInterval) deltaTime;
 
 @end
