@@ -14,6 +14,6 @@
 
 -(void) addBackgroundGameObjectsToPhysicsController:(PhysicsController*) physicsController;
 
--(void) update:(CFTimeInterval)currentTime;
+-(void) updateWithDeltaTime:(CFTimeInterval)deltaTime;
 
 @end

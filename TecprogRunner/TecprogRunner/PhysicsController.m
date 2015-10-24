@@ -11,7 +11,7 @@
 
 
 @implementation PhysicsController{
-    CFTimeInterval _lastTime;
+
 }
 
 - (instancetype)init{
@@ -29,20 +29,12 @@
     return self;
 }
 
--(void) update:(CFTimeInterval)currentTime{
-
-    //Update delta
-    if (_lastTime == 0) {
-        _lastTime = currentTime;
-    }
-    
-    CFTimeInterval delta = currentTime - _lastTime;
-    _lastTime = currentTime;
+-(void) updateWithDeltaTime:(CFTimeInterval)deltaTime{
     
     //Update every object position
     for(GameObject* obj in self.bodies){
         
-        [obj updateWithDeltaTime:delta];
+        [obj updateWithDeltaTime:deltaTime];
     }
 }
 

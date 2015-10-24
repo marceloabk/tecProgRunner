@@ -115,7 +115,7 @@
     return tile;
 }
 
--(void) update:(CFTimeInterval)currentTime{
+-(void) updateWithDeltaTime:(CFTimeInterval)deltaTime{
     
     for (GameObject* tile in _tiles) {
         if(tile.position.x + tile.size.width/2 <= 0.0){

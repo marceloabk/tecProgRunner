@@ -31,6 +31,6 @@
 /**
  Each frame physics controller updates physics world, applying bodies velocities.
 */
--(void) update:(CFTimeInterval)currentTime;
+-(void) updateWithDeltaTime:(CFTimeInterval)deltaTime;
 
 @end

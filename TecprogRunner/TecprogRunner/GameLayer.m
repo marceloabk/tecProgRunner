@@ -28,6 +28,8 @@
     
     SKSpriteNode* _pauseButton;
     
+    CFTimeInterval _lastTime;
+    
 }
 
 -(instancetype) initWithSize:(CGSize)size{
@@ -60,46 +62,57 @@
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    UITouch *touch = [touches anyObject];
-    CGPoint touchLocation = [touch locationInNode:self];
+    if(self.paused == false){
     
-    SKNode *node = [self nodeAtPoint:touchLocation];
-    
-    if([node.name isEqualToString:@"pauseGame"]){
-       
-        // Pause or unpause game;
-        [self pausedClicked];
-    }
-    else if((touchLocation.x < _size.width/2) && self.player.playerOnGround == true){
-        DebugLog(@"User clicked on left side of game layer and is on ground");
-        [self.player jump];
-    }else if(touchLocation.x > _size.width/2){
-        DebugLog(@"User clicked on right side of game layer");
-        [self.player throwProjectile];
-    }else{
-        // Do nothing
+        UITouch *touch = [touches anyObject];
+        CGPoint touchLocation = [touch locationInNode:self];
+        
+        SKNode *node = [self nodeAtPoint:touchLocation];
+        
+        if([node.name isEqualToString:@"pauseGame"]){
+           
+            // Pause or unpause game;
+            [self pausedClicked];
+        }
+        else if((touchLocation.x < _size.width/2) && self.player.playerOnGround == true){
+            DebugLog(@"User clicked on left side of game layer and is on ground");
+            [self.player jump];
+        }else if(touchLocation.x > _size.width/2){
+            DebugLog(@"User clicked on right side of game layer");
+            [self.player throwProjectile];
+        }else{
+            // Do nothing
+        }
     }
 }
 
 -(void) pausedClicked{
     
-    if(self.paused ==1){
+    if(self.paused == true){
         self.paused = false;
         [self initiateTimer];
     }
-    else if(self.paused != 1){
+    else {
         self.paused = true;
         [self deactivateTimer];
-    }
-    else{
-        // Do nothing
     }
 }
 
 -(void) update:(CFTimeInterval)currentTime{
     
-    [_physicsController update:currentTime];
-    [_backgroundLayer update:currentTime];
+    //Update delta
+    if (_lastTime == 0) {
+        _lastTime = currentTime;
+    }
+    
+    CFTimeInterval delta = currentTime - _lastTime;
+    _lastTime = currentTime;
+    
+    if(self.paused == false){
+        [_physicsController updateWithDeltaTime:delta];
+        [_backgroundLayer updateWithDeltaTime:delta];
+    }
+    
 }
 
 -(void) activateLayer{
