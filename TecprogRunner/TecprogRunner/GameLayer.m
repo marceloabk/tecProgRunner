@@ -10,6 +10,7 @@
 #import "Player.h"
 #import "HudLayer.h"
 #import "BackgroundLayer.h"
+#import "Coin.h"
 
 @interface GameLayer()
 
@@ -34,6 +35,7 @@
     self = [super init];
     if(self){
         _physicsController = [[PhysicsController alloc] init];
+        _physicsController.gameLayer = self;
         _size = size;
         self.name = @"layer";
 
@@ -120,6 +122,9 @@
     self.pointsScored = 0;
     [self initiateTimer];
     
+    //Initiating loop of coin generation
+    [self generateCoin];
+    
     // Pause button
     [self loadPause];
 }
@@ -128,8 +133,6 @@
     // Instantiating and adding to game layer
     CGPoint playerPosition = CGPointMake(50, 200);
     self.player = [[Player alloc]initWithPosition:playerPosition];
-    self.player.physicsBody.allowsRotation = false;
-    self.player.physicsBody.affectedByGravity = true;
     
     // Add player to the layer
     [self.layer addChild:self.player];
@@ -149,12 +152,34 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.52 target:self selector:@selector(onTick) userInfo:nil repeats:YES];
 }
 
+-(void) generateCoin{
+
+    Coin *newCoin = [Coin generateCoinInParent:self.layer withPosition:CGPointMake(_size.width/2, _size.height*0.9)];
+    
+    if(newCoin != nil){
+        
+        // Adding coin to physics controller for updating moviment
+        [self.physicsController.bodies addObject:newCoin];
+        
+    } else {
+        // Nothing to do
+    }
+    
+    // Setting timer to next coin generation
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(generateCoin) userInfo:nil repeats:NO];
+}
 
 -(void) onTick{
     
     self.pointsScored += 1;
     
     [_hudLayer putScoreLabel:self.pointsScored];
+    
+}
+
+-(void) playerContactCoin:(Coin *)coin{
+    
+    [coin runScoredMoviment];
     
 }
 

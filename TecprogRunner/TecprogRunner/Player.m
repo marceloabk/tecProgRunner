@@ -61,6 +61,8 @@ typedef enum playerMoviments{
     
     // Generate a Physics Body for Player
     self.physicsBody = [self generatePhysicsBody];
+    self.physicsBody.allowsRotation = false;
+    self.physicsBody.affectedByGravity = true;
     
     self.playerOnGround = true;
     self.isOnGround = false;
@@ -78,7 +80,8 @@ typedef enum playerMoviments{
     // Defining types for Collision
     physicsBody.categoryBitMask = ColliderTypePlayer;
     physicsBody.collisionBitMask = ColliderTypeProjectile | ColliderTypeEnemy | ColliderTypeGround;
-
+    physicsBody.contactTestBitMask = ColliderTypeCoin;
+    
     return physicsBody;
 }
 

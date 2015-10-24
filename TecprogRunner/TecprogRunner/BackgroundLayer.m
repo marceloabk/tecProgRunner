@@ -47,7 +47,7 @@
         airGround.position = CGPointMake(backgroundSize.width + 100, size.height/4);
         
         GameObject* secondAirGround = [self createTileGroundWithSize:backgroundSize];
-        secondAirGround.position = CGPointMake(backgroundSize.width+ 250, size.height/1.5);
+        secondAirGround.position = CGPointMake(backgroundSize.width+ 250, size.height/2);
         
         // Adding clouds to view
         [self addChild:_firstClouds];
@@ -110,7 +110,7 @@
     tile.physicsBody.dynamic = false;
     tile.physicsBody.allowsRotation = false;
     tile.physicsBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeEnemy | ColliderTypeObstacle;
-    tile.velocity = CGVectorMake(-TILE_VELOCITY_X, 0.0);
+    tile.velocity = CGVectorMake(-BACKGROUND_VELOCITY_X, 0.0);
     
     return tile;
 }

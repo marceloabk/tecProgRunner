@@ -9,7 +9,7 @@
 #import "BasicLayer.h"
 #import "PhysicsController.h"
 
-@interface GameLayer : SKNode <LayerRequirements>
+@interface GameLayer : SKNode <LayerRequirements, GameObjectsContact>
 
 @property (nonatomic) PhysicsController* physicsController;
 

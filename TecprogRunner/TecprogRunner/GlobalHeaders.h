@@ -21,4 +21,8 @@
 #define DEFAULT_LAYER_WIDTH 667
 #define DEFAULT_LAYER_HEIGHT 375
 
+#define GREEN_COLOR [UIColor greenColor]
+#define MAGENTA_COLOR [UIColor magentaColor]
+#define BACKGROUND_VELOCITY_X 100
+
 #endif /* GlobalHeaders_h */

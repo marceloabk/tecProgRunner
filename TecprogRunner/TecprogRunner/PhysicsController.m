@@ -7,6 +7,8 @@
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "PhysicsController.h"
+#import "Player.h"
+
 
 @implementation PhysicsController{
     CFTimeInterval _lastTime;
@@ -46,9 +48,15 @@
 
 -(void) didBeginContact:(SKPhysicsContact *)contact{
     
-    BOOL bodyAisGround = [contact.bodyA.node.name isEqualToString:@"ground"];
-    BOOL bodyBisGround = [contact.bodyB.node.name isEqualToString:@"ground"];
     
+    SKNode* nodeA = contact.bodyA.node;
+    SKNode* nodeB = contact.bodyB.node;
+    
+    
+    
+    BOOL bodyAisGround = [nodeA.name isEqualToString:@"ground"];
+    BOOL bodyBisGround = [nodeB.name isEqualToString:@"ground"];
+
     //If a body touches the ground... he isOnGround
     if(bodyAisGround && !bodyBisGround){
         GameObject* gameObj = ((GameObject*)contact.bodyB.node);
@@ -73,6 +81,23 @@
     }
     else {
         // ground contact ground and body contact body do not interfers in gravity mechanics
+        
+        BOOL bodyAisCoin = [nodeA isKindOfClass:[Coin class]];
+        BOOL bodyBisCoin = [nodeB isKindOfClass:[Coin class]];
+        
+        BOOL bodyAisPlayer = [nodeA isKindOfClass:[Player class]];
+        BOOL bodyBisPlayer = [nodeB isKindOfClass:[Player class]];
+        
+        if(bodyAisCoin && bodyBisPlayer){
+            Coin* coin = (Coin*)nodeA;
+            [self.gameLayer playerContactCoin:coin];
+            
+        }
+        else if(bodyBisCoin && bodyAisPlayer){
+            Coin* coin = (Coin*)nodeB;
+            [self.gameLayer playerContactCoin:coin];
+            
+        }
     }
 }
 

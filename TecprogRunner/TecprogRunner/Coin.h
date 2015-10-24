@@ -11,5 +11,8 @@
 
 @interface Coin : GameObject
 
++(Coin*) generateCoinInParent:(SKNode*) parent withPosition:(CGPoint) position;
+
+- (void) runScoredMoviment;
 
 @end

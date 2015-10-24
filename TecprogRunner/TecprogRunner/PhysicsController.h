@@ -8,10 +8,20 @@
 
 #import "GlobalHeaders.h"
 #import "GameObject.h"
+#import "Coin.h"
 
 #define GRAVITY 25
 
+@protocol GameObjectsContact <NSObject>
+
+@required
+-(void) playerContactCoin:(Coin*) coin;
+
+@end
+
 @interface PhysicsController : NSObject <SKPhysicsContactDelegate>
+
+@property (nonatomic) id<GameObjectsContact> gameLayer;
 
 /**
  Array of bodies inside physics world

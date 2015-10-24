@@ -49,8 +49,9 @@
     physicsBody.allowsRotation = NO;
     
     // Defining types for Collision
-    physicsBody.collisionBitMask = ColliderTypePlayer;
+    physicsBody.contactTestBitMask = ColliderTypePlayer;
     physicsBody.categoryBitMask = ColliderTypeCoin;
+    physicsBody.collisionBitMask = 0;
     
     return physicsBody;
 }
@@ -82,4 +83,35 @@
     
 }
 
+
++(Coin*) generateCoinInParent:(SKNode*) parent withPosition:(CGPoint) position{
+    
+    if(parent != nil){
+        
+        Coin *newCoin = [[Coin alloc] initWithPosition:position];
+        [parent addChild:newCoin];
+        newCoin.velocity = CGVectorMake(-BACKGROUND_VELOCITY_X, 0.0);
+        
+        return newCoin;
+        
+    } else {
+        
+        DebugLog(@"Not able to instantiate coin - parent is nil");
+        return nil;
+    }
+}
+
+-(void) runScoredMoviment {
+
+    SKAction *large = [SKAction scaleBy:1.5 duration:0.1];
+    
+    SKAction *dissapear = [SKAction scaleTo:0.0 duration:0.3];
+    
+    SKAction *sequenceMoviment = [SKAction sequence:@[large, dissapear]];
+    
+    [self runAction:sequenceMoviment completion:^{
+        [self removeFromParent];
+    }];
+    
+}
 @end
