@@ -8,33 +8,48 @@
 
 #import "Coin.h"
 
+#define COIN_DEFAULT_VALUE 100
+
 @implementation Coin
 
-// Initialize Coin class with a position
--(instancetype)initWithPosition:(CGPoint)position{
-    
+- (instancetype)init
+{
     // Creating a texture for the Coin
     SKTexture *coinTexture = [super generateTextureWithImageNamed:INITIAL_COIN_IMAGE];
     
     // Init the Sprite with the texture created
     self = [super initWithTexture:coinTexture];
-    
-    if(self != nil){
-        NSLog(@"Coin initialized with texture successfully");
+    if (self) {
         
         // Make coin spin
         SKAction *spinning = [self spinningAnimation];
         [self runAction: spinning];
         
+        // Generating physics Body
         self.physicsBody = [self generatePhysicsBody];
-        self.position = position;
         
         [self setBasicsAttributes];
+        
+        DebugLog(@"Coin instantiated");
+    }
+    else {
+        
+        DebugLog(@"Could not instantiate coin");
+    }
+    return self;
+}
+
+// Initialize Coin class with a position
+-(instancetype)initWithPosition:(CGPoint)position{
+    
+    self = [self init];
+    
+    if(self != nil){
+        // setting position
+        self.position = position;
+    
     }else{
-        
-        NSLog(@"Player can't be initialized");
-        
-        // There is no alternative path for this if
+        // nothing to do
     }
     
     return self;
@@ -44,7 +59,8 @@
     
     [super setBasicsAttributes];
     
-    self.value = 100;
+    // setting basic coin value
+    self.value = COIN_DEFAULT_VALUE;
 }
 
 // Generate projectile physics body
@@ -58,7 +74,7 @@
     // Defining types for Collision
     physicsBody.contactTestBitMask = ColliderTypePlayer;
     physicsBody.categoryBitMask = ColliderTypeCoin;
-    physicsBody.collisionBitMask = 0;
+    physicsBody.collisionBitMask = ColliderTypeNone;
     
     return physicsBody;
 }
