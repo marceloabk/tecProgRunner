@@ -40,6 +40,13 @@
     return self;
 }
 
+-(void) setBasicsAttributes {
+    
+    [super setBasicsAttributes];
+    
+    self.value = 100;
+}
+
 // Generate projectile physics body
 -(SKPhysicsBody *) generatePhysicsBody{
     

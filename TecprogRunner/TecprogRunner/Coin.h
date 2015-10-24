@@ -11,6 +11,8 @@
 
 @interface Coin : GameObject
 
+@property (nonatomic) unsigned int value;
+
 +(Coin*) generateCoinInParent:(SKNode*) parent withPosition:(CGPoint) position;
 
 - (void) runScoredMoviment;

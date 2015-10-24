@@ -172,7 +172,7 @@
 -(void) onTick{
     
     self.pointsScored += 1;
-    
+
     [_hudLayer putScoreLabel:self.pointsScored];
     
 }
@@ -180,6 +180,7 @@
 -(void) playerContactCoin:(Coin *)coin{
     
     [coin runScoredMoviment];
+    [GameData sharedGameData].currentScore += coin.value;
     
 }
 

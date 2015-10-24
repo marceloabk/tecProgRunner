@@ -8,6 +8,7 @@
 
 #import "BasicLayer.h"
 #import "PhysicsController.h"
+#import "GameData.h"
 
 @interface GameLayer : SKNode <LayerRequirements, GameObjectsContact>
 
