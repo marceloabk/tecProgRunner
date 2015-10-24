@@ -24,12 +24,6 @@ typedef enum {
 @property (nonatomic) GameDataLayerType layerActivated;
 
 /**
- Store game current score
- Should restart at every game start
- */
-@property (nonatomic) unsigned int currentScore;
-
-/**
  Store game high score
  Should not restart at every game start
 */

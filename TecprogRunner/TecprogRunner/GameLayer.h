@@ -24,10 +24,8 @@
 */
 @property (nonatomic) NSTimer *timer;
 
-/**
- Variable to storage points
-*/
 @property (nonatomic) int pointsScored;
+@property (nonatomic) int timePassed;
 
 /**
  Update from GameLayer

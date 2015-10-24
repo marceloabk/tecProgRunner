@@ -22,8 +22,18 @@
 @property SKLabelNode *scoreLabel;
 
 /**
- Add score label in HudLayer
+ Represent time passed in screen visually
+ */
+@property SKLabelNode *timeLabel;
+
+/**
+ Update score label in HudLayer
 */
 -(void) putScoreLabel:(int)points;
+
+/**
+ Update time label in HudLayer
+ */
+-(void) putTimeLabel:(int)points;
 
 @end
