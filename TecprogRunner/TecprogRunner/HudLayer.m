@@ -22,7 +22,7 @@
         [self addChild:self.layer];
         
         // Adding a label to count score during the game
-        [self putScoreLabel:0];
+        [self putTimeLabel:0];
     }else{
         // Exception
     }
@@ -32,16 +32,12 @@
 -(void) putTimeLabel:(int)timePassed{
     
     if(self.timeLabel == nil){
-        // Creating attributes to customize score label
-        SKColor *fontColor = [UIColor blackColor];
+        // Settint font position
         CGPoint fontPosition = CGPointMake(_size.width*0.5, _size.height*0.9);
         
         // Setting score label
-        self.timeLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-        self.timeLabel.fontColor = fontColor;
-        self.timeLabel.fontSize = 38;
+        self.timeLabel = [Label label];
         self.timeLabel.position = fontPosition;
-        self.timeLabel.zPosition = 2;
         
         // Adding score label to layer
         [self addChild:self.timeLabel];
@@ -55,16 +51,12 @@
 -(void) putScoreLabel:(int)points{
     
     if(self.scoreLabel == nil){
-        // Creating attributes to customize score label
-        SKColor *fontColor = [UIColor blackColor];
+        // Settint font position
         CGPoint fontPosition = CGPointMake(_size.width*0.8, _size.height*0.9);
         
         // Setting score label
-        self.scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-        self.scoreLabel.fontColor = fontColor;
-        self.scoreLabel.fontSize = 38;
+        self.scoreLabel = [Label label];
         self.scoreLabel.position = fontPosition;
-        self.scoreLabel.zPosition = 2;
         
         // Adding score label to layer
         [self addChild:self.scoreLabel];

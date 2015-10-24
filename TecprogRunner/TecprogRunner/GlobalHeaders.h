@@ -23,6 +23,21 @@
 
 #define GREEN_COLOR [UIColor greenColor]
 #define MAGENTA_COLOR [UIColor magentaColor]
-#define BACKGROUND_VELOCITY_X 100
+#define BACKGROUND_VELOCITY_X (-100)
+
+
+#pragma mark Defining z position objects
+
+#define ZPOSITION_COIN 2
+
+#define ZPOSITION_PLAYER 3
+#define ZPOSITION_ENEMIES 3
+
+#define ZPOSITION_BACKGROUND_PLATFORM 4
+
+#define ZPOSITION_PROJECTILE 5
+
+#define ZPOSITION_HUD 10
+
 
 #endif /* GlobalHeaders_h */

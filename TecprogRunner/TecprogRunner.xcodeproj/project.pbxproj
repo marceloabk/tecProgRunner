@@ -63,6 +63,7 @@
 		6B2D98E21BB4E9C0005B342E /* BackgroundLayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */; };
 		6BF9FB7D1BC57C33004878CC /* TrainingCenterBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */; settings = {ASSET_TAGS = (); }; };
 		6BF9FB801BC57C40004878CC /* TrainingCenterLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9FB7F1BC57C40004878CC /* TrainingCenterLayer.m */; settings = {ASSET_TAGS = (); }; };
+		E913DED71BDBD0A600DB3FC9 /* Label.m in Sources */ = {isa = PBXBuildFile; fileRef = E913DED61BDBD0A600DB3FC9 /* Label.m */; settings = {ASSET_TAGS = (); }; };
 		E92857331BA25B5500DF4959 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857321BA25B5500DF4959 /* GameObject.m */; };
 		E92857361BA25B6B00DF4959 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857351BA25B6B00DF4959 /* Player.m */; };
 		E928573D1BA25C7600DF4959 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = E928573C1BA25C7600DF4959 /* Enemy.m */; };
@@ -164,6 +165,8 @@
 		6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingCenterBackground.m; sourceTree = "<group>"; };
 		6BF9FB7E1BC57C40004878CC /* TrainingCenterLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCenterLayer.h; sourceTree = "<group>"; };
 		6BF9FB7F1BC57C40004878CC /* TrainingCenterLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingCenterLayer.m; sourceTree = "<group>"; };
+		E913DED51BDBD0A600DB3FC9 /* Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Label.h; sourceTree = "<group>"; };
+		E913DED61BDBD0A600DB3FC9 /* Label.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Label.m; sourceTree = "<group>"; };
 		E92857311BA25B5500DF4959 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		E92857321BA25B5500DF4959 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		E92857341BA25B6B00DF4959 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -542,6 +545,8 @@
 		E92857301BA2558200DF4959 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E913DED51BDBD0A600DB3FC9 /* Label.h */,
+				E913DED61BDBD0A600DB3FC9 /* Label.m */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -732,6 +737,7 @@
 				6B0FD3F71BA908B800C22BD6 /* OverallScene.m in Sources */,
 				6B2D98E21BB4E9C0005B342E /* BackgroundLayerSettings.m in Sources */,
 				67FFA6DA1B99301C00354487 /* GameViewController.m in Sources */,
+				E913DED71BDBD0A600DB3FC9 /* Label.m in Sources */,
 				67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */,
 				6BF9FB801BC57C40004878CC /* TrainingCenterLayer.m in Sources */,
 				6792F7391BCF220E006030DE /* StrongEnemy.m in Sources */,

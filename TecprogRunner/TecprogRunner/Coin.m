@@ -113,7 +113,7 @@
         
         Coin *newCoin = [[Coin alloc] initWithPosition:position];
         [parent addChild:newCoin];
-        newCoin.velocity = CGVectorMake(-BACKGROUND_VELOCITY_X, 0.0);
+        newCoin.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
         
         return newCoin;
         

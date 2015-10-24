@@ -110,7 +110,7 @@
     tile.physicsBody.dynamic = false;
     tile.physicsBody.allowsRotation = false;
     tile.physicsBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeEnemy | ColliderTypeObstacle;
-    tile.velocity = CGVectorMake(-BACKGROUND_VELOCITY_X, 0.0);
+    tile.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
     
     return tile;
 }
