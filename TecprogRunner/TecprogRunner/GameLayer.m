@@ -29,6 +29,7 @@
     SKSpriteNode* _pauseButton;
     
     CFTimeInterval _lastTime;
+    CFTimeInterval _pausedTime;
     
 }
 
@@ -62,38 +63,51 @@
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    if(self.paused == false){
+    UITouch *touch = [touches anyObject];
+    CGPoint touchLocation = [touch locationInNode:self];
     
-        UITouch *touch = [touches anyObject];
-        CGPoint touchLocation = [touch locationInNode:self];
+    SKNode *node = [self nodeAtPoint:touchLocation];
+    
+    if([node.name isEqualToString:@"pauseGame"]){
         
-        SKNode *node = [self nodeAtPoint:touchLocation];
+        // Pause or unpause game;
+        [self pausedClicked];
         
-        if([node.name isEqualToString:@"pauseGame"]){
-           
-            // Pause or unpause game;
-            [self pausedClicked];
-        }
-        else if((touchLocation.x < _size.width/2) && self.player.playerOnGround == true){
-            DebugLog(@"User clicked on left side of game layer and is on ground");
-            [self.player jump];
-        }else if(touchLocation.x > _size.width/2){
-            DebugLog(@"User clicked on right side of game layer");
-            [self.player throwProjectile];
-        }else{
-            // Do nothing
-        }
+        
     }
+    else {
+        if(self.paused == false){
+            
+            if((touchLocation.x < _size.width/2) && self.player.playerOnGround == true){
+                DebugLog(@"User clicked on left side of game layer and is on ground");
+                [self.player jump];
+            }else if(touchLocation.x > _size.width/2){
+                DebugLog(@"User clicked on right side of game layer");
+                [self.player throwProjectile];
+            }else{
+                // Do nothing
+            }
+        }
+
+    }
+    
 }
 
 -(void) pausedClicked{
     
     if(self.paused == true){
+        self.scene.view.paused = false;
         self.paused = false;
+        
+        NSLog(@"%.3f e %.3f", _lastTime, _pausedTime);
+        _pausedTime = CACurrentMediaTime();
+        
         [self initiateTimer];
     }
     else {
+        self.scene.view.paused = true;
         self.paused = true;
+
         [self deactivateTimer];
     }
 }
@@ -104,8 +118,15 @@
     if (_lastTime == 0) {
         _lastTime = currentTime;
     }
+    CFTimeInterval delta;
+    if(_pausedTime == 0){
+        delta = currentTime - _lastTime;
+    }
+    else {
+        delta = currentTime - _pausedTime;
+        _pausedTime = 0;
+    }
     
-    CFTimeInterval delta = currentTime - _lastTime;
     _lastTime = currentTime;
     
     if(self.paused == false){
