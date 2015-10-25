@@ -55,6 +55,7 @@
 		6B2D98DF1BB4E8C5005B342E /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98DE1BB4E8C5005B342E /* SettingsLayer.m */; };
 		6B2D98E21BB4E9C0005B342E /* BackgroundLayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */; };
 		6B49F9381BDD662800E7164D /* atributesTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B49F9371BDD662800E7164D /* atributesTable.png */; };
+		6B49F93C1BDD684400E7164D /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B49F93B1BDD684400E7164D /* iRate.m */; };
 		6BB8A4171BD00413004DD4C8 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A40E1BD00413004DD4C8 /* background.png */; };
 		6BB8A4181BD00413004DD4C8 /* levelStars5.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A40F1BD00413004DD4C8 /* levelStars5.png */; };
 		6BB8A4191BD00413004DD4C8 /* levelStars4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A4101BD00413004DD4C8 /* levelStars4.png */; };
@@ -163,6 +164,8 @@
 		6B2D98E01BB4E9C0005B342E /* BackgroundLayerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayerSettings.h; sourceTree = "<group>"; };
 		6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayerSettings.m; sourceTree = "<group>"; };
 		6B49F9371BDD662800E7164D /* atributesTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = atributesTable.png; path = ../TecprogRunner/atributesTable.png; sourceTree = "<group>"; };
+		6B49F93A1BDD684400E7164D /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		6B49F93B1BDD684400E7164D /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		6BB8A40E1BD00413004DD4C8 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../TecprogRunner/background.png; sourceTree = "<group>"; };
 		6BB8A40F1BD00413004DD4C8 /* levelStars5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = levelStars5.png; path = ../TecprogRunner/levelStars5.png; sourceTree = "<group>"; };
 		6BB8A4101BD00413004DD4C8 /* levelStars4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = levelStars4.png; path = ../TecprogRunner/levelStars4.png; sourceTree = "<group>"; };
@@ -360,6 +363,7 @@
 		67FFA6CB1B99301C00354487 /* TecprogRunner */ = {
 			isa = PBXGroup;
 			children = (
+				6B49F9391BDD682700E7164D /* iRate */,
 				E93489131BC7FD640038CCF1 /* PhysicsController */,
 				093A62D51BB46A6A00BF2074 /* PhysicsCategories */,
 				6B0FD4071BA90D1300C22BD6 /* GameData */,
@@ -480,6 +484,15 @@
 				6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		6B49F9391BDD682700E7164D /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				6B49F93A1BDD684400E7164D /* iRate.h */,
+				6B49F93B1BDD684400E7164D /* iRate.m */,
+			);
+			name = iRate;
 			sourceTree = "<group>";
 		};
 		6BF9FB771BC57BEC004878CC /* Training Center */ = {
@@ -761,6 +774,7 @@
 				67FFA6DA1B99301C00354487 /* GameViewController.m in Sources */,
 				E913DED71BDBD0A600DB3FC9 /* Label.m in Sources */,
 				67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */,
+				6B49F93C1BDD684400E7164D /* iRate.m in Sources */,
 				6BF9FB801BC57C40004878CC /* TrainingCenterLayer.m in Sources */,
 				6792F7391BCF220E006030DE /* StrongEnemy.m in Sources */,
 				E93489161BC7FDBA0038CCF1 /* PhysicsController.m in Sources */,
