@@ -11,7 +11,7 @@
 
 
 @implementation PhysicsController{
-
+    NSMutableArray<GameObject*> *_bodies;
 }
 
 - (instancetype)init{
@@ -20,7 +20,7 @@
     
     if (self != NULL) {
         
-        self.bodies = [[NSMutableArray <GameObject*> alloc] init];
+        _bodies = [[NSMutableArray <GameObject*> alloc] init];
         
     }else{
         
@@ -32,7 +32,7 @@
 -(void) updateWithDeltaTime:(CFTimeInterval)deltaTime{
     
     //Update every object position
-    for(GameObject* obj in self.bodies){
+    for(GameObject* obj in _bodies){
         
         [obj updateWithDeltaTime:deltaTime];
     }
@@ -135,13 +135,17 @@
     
     if(body != nil){
         
-        if(self.bodies == nil){
-            
-            self.bodies = [[NSMutableArray<GameObject*> alloc] init];
+        if(_bodies == nil){
+            _bodies = [[NSMutableArray<GameObject*> alloc] init];
         }
-
-        DebugLog(@"adding body with name: %@", body.name);
-        [self.bodies addObject:body];
+        
+        if([_bodies containsObject:body] == false){
+            [_bodies addObject:body];
+            DebugLog(@"adding body with name: %@", body.name);
+        }
+        else {
+            DebugLog(@"Body is already in physiscs array bodies");
+        }
     }
     else {
         DebugLog(@"Body is nil");

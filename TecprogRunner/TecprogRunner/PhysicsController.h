@@ -26,7 +26,7 @@
 /**
  Array of bodies inside physics world
 */
-@property (nonatomic) NSMutableArray<GameObject*> *bodies;
+
 
 /**
  Each frame physics controller updates physics world, applying bodies velocities.
