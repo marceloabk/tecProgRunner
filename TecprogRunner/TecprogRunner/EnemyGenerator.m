@@ -78,22 +78,22 @@
     // ...and 55% of chance to create an weak enemy
     // Else we create an strong enemy
     
+    
+    // We have 33% of chance to wait and 66% to create an enemy
     unsigned const int chanceToCreateEnemyOrWait = [self randomizeNumberBetween:0 and:2];
     
-    if (chanceToCreateEnemyOrWait == 0) {
+    if (chanceToCreateEnemyOrWait == 0){
         probabilityValue = 3;
-    } else {
-        if(score < 40){
-            probabilityValue = 1;
-        }else if(score < 400){
-            if([self randomizeNumberBetween:0 and:100] < 45){
-                probabilityValue = 2;
-            }else{
-                probabilityValue = 1;
-            }
-        }else{
+    }else if(score < 40){
+        probabilityValue = 1;
+    }else if(score < 400){
+        if([self randomizeNumberBetween:0 and:100] < 45){
             probabilityValue = 2;
+        }else{
+            probabilityValue = 1;
         }
+    }else{
+        probabilityValue = 2;
     }
 
     return probabilityValue;
