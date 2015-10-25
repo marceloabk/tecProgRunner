@@ -36,6 +36,9 @@
 */
 @property (nonatomic) SKSpriteNode *atributesTable;
 
+/**
+ Method used to activate Training Center layer
+*/
 @property (nonatomic) SKSpriteNode *levelSpeedStars;
 @property (nonatomic) SKSpriteNode *levelJumpStars;
 @property (nonatomic) SKSpriteNode *levelLuckStars;
