@@ -77,19 +77,23 @@
     // Else if the score is less then 400 we have 45% of chance to create an strong enemy...
     // ...and 55% of chance to create an weak enemy
     // Else we create an strong enemy
-
-
-    if(score < 40){
-        probabilityValue = 1;
-    }else if(score < 400){
-        const unsigned int randomizer = arc4random() % 100;
-        if(randomizer < 45){
-            probabilityValue = 2;
-        }else{
+    
+    unsigned const int chanceToCreateEnemyOrWait = [self randomizeNumberBetween:0 and:2];
+    
+    if (chanceToCreateEnemyOrWait == 0) {
+        probabilityValue = 3;
+    } else {
+        if(score < 40){
             probabilityValue = 1;
+        }else if(score < 400){
+            if([self randomizeNumberBetween:0 and:100] < 45){
+                probabilityValue = 2;
+            }else{
+                probabilityValue = 1;
+            }
+        }else{
+            probabilityValue = 2;
         }
-    }else{
-        probabilityValue = 2;
     }
 
     return probabilityValue;
