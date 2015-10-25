@@ -62,6 +62,7 @@
     
     // Defining types for Collision
     physicsBody.collisionBitMask = ColliderTypePlayer | ColliderTypeProjectile | ColliderTypeGround;
+    physicsBody.contactTestBitMask = ColliderTypeProjectile;
     physicsBody.categoryBitMask = ColliderTypeEnemy;
     
     return physicsBody;

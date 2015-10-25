@@ -12,6 +12,7 @@
 #import "BackgroundLayer.h"
 #import "Coin.h"
 #import "EnemyGenerator.h"
+
 @interface GameLayer()
 
 @property (nonatomic) Player *player;

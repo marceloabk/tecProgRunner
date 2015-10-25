@@ -8,7 +8,8 @@
 
 #import "PhysicsController.h"
 #import "Player.h"
-
+#import "Enemy.h"
+#import "Projectile.h"
 
 @implementation PhysicsController{
     NSMutableArray<GameObject*> *_bodies;
@@ -46,9 +47,21 @@
     
     BOOL bodyAisGround = [nodeA.name isEqualToString:@"ground"];
     BOOL bodyBisGround = [nodeB.name isEqualToString:@"ground"];
+    
+    BOOL bodyAisCoin = [nodeA isKindOfClass:[Coin class]];
+    BOOL bodyBisCoin = [nodeB isKindOfClass:[Coin class]];
+    
+    BOOL bodyAisPlayer = [nodeA isKindOfClass:[Player class]];
+    BOOL bodyBisPlayer = [nodeB isKindOfClass:[Player class]];
+    
+    BOOL bodyAisEnemy = [nodeA isKindOfClass:[Enemy class]];
+    BOOL bodyBisEnemy = [nodeB isKindOfClass:[Enemy class]];
+    
+    BOOL bodyAisProjectile = [nodeA isKindOfClass:[Projectile class]];
+    BOOL bodyBisProjectile = [nodeB isKindOfClass:[Projectile class]];
 
     //If a body touches the ground... he isOnGround
-    if(bodyAisGround && !bodyBisGround){
+    if((bodyAisGround || bodyBisGround) && (bodyAisPlayer || bodyBisPlayer)){
         GameObject* gameObj = ((GameObject*)contact.bodyB.node);
         
         BOOL bodyAboveGround = contact.contactNormal.dy >= 1 && contact.contactNormal.dx <= 0;
@@ -57,26 +70,8 @@
             gameObj.isOnGround = true;
             gameObj.velocity = CGVectorMake(gameObj.velocity.dx, 0.0);
         }
-        
-        
-    } else if(bodyBisGround && !bodyAisGround){
-        GameObject* gameObj = ((GameObject*)contact.bodyA.node);
-        
-        BOOL bodyAboveGround = contact.contactNormal.dy >= 1 && contact.contactNormal.dx <= 0;
-        
-        if(bodyAboveGround){
-            gameObj.isOnGround = true;
-            gameObj.velocity = CGVectorMake(gameObj.velocity.dx, 0.0);
-        }
-    }
-    else {
+    }else if((bodyAisCoin || bodyBisCoin) && (bodyAisPlayer || bodyBisPlayer)){
         // ground contact ground and body contact body do not interfers in gravity mechanics
-        
-        BOOL bodyAisCoin = [nodeA isKindOfClass:[Coin class]];
-        BOOL bodyBisCoin = [nodeB isKindOfClass:[Coin class]];
-        
-        BOOL bodyAisPlayer = [nodeA isKindOfClass:[Player class]];
-        BOOL bodyBisPlayer = [nodeB isKindOfClass:[Player class]];
         
         if(bodyAisCoin && bodyBisPlayer){
             Coin* coin = (Coin*)nodeA;
@@ -87,6 +82,19 @@
             Coin* coin = (Coin*)nodeB;
             [self.gameLayer playerContactCoin:coin];
             
+        }
+    }else if((bodyAisEnemy || bodyBisEnemy) && (bodyAisProjectile || bodyBisProjectile)){
+       
+        Enemy* enemy;
+        if(bodyAisEnemy){
+            enemy = (Enemy*)contact.bodyA.node;
+        }else if (bodyBisEnemy){
+            enemy = (Enemy*)contact.bodyB.node;
+        }
+        
+        enemy.lives--;
+        if (enemy.lives == 0) {
+            [enemy removeFromParent];
         }
     }
 }
