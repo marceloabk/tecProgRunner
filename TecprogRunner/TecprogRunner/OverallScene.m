@@ -102,6 +102,15 @@
             [GameData sharedGameData].layerActivated = menu;
             [self.overallControlLayer changeLayer];
         }
+        else if([node.name isEqualToString:@"freeCoinsCard"]){
+            
+        }
+        else if([node.name isEqualToString:@"coinsCard"]){
+            
+        }
+        else if([node.name isEqualToString:@"gemsCard"]){
+            
+        }
         else{
             DebugLog(@"node %@ unknown for menu",node.name);
         }

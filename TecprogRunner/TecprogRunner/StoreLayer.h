@@ -33,6 +33,13 @@
 @property (nonatomic) SKSpriteNode *backButton;
 
 /**
+Store cards
+ */
+@property (nonatomic) SKSpriteNode *coinsCard;
+@property (nonatomic) SKSpriteNode *gemsCard;
+@property (nonatomic) SKSpriteNode *freeCoinsCard;
+
+/**
  Method used to activate Settings Layer
  */
 -(void) activateLayer;
