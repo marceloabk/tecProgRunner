@@ -15,7 +15,7 @@
 }
 
 // Initialize EnemyGenerator with a position
--(instancetype)initWithSize:(CGSize)size{
+-(instancetype) initWithSize:(CGSize)size{
     
     self = [super init];
     if(self != nil){
@@ -30,7 +30,7 @@
 }
 
 // Create a new enemy based on the score
--(void)newEnemyWithScore:(unsigned int)score{
+-(void) newEnemyWithScore:(unsigned int)score{
     
     CGFloat margin = 80; // Pixels
     CGFloat floorHeight = 50; // Pixels
@@ -70,13 +70,14 @@
 }
 
 // Generate a probability to create an enemy based on the score
--(int)probabilityToCreateAnEnemyBasedOnTheScore:(unsigned int)score{
+-(int) probabilityToCreateAnEnemyBasedOnTheScore:(unsigned int)score{
     
     unsigned int probabilityValue = 0;
     // If score is less then 40 we create a weak enemy
     // Else if the score is less then 400 we have 45% of chance to create an strong enemy...
     // ...and 55% of chance to create an weak enemy
     // Else we create an strong enemy
+
 
     if(score < 40){
         probabilityValue = 1;
@@ -94,9 +95,14 @@
     return probabilityValue;
 }
 
-// Randomize a number between the
--(unsigned int)randomizeNumberBetween:(unsigned int)firstNumber and:(unsigned int)secondNumber{
-    unsigned int randomizedNumber = firstNumber + (arc4random() % secondNumber);
+// Randomize a number between the firstNumber and the secondNumber
+-(unsigned int) randomizeNumberBetween:(unsigned int)firstNumber and:(unsigned int)secondNumber{
+    // Exemple:
+    // if I want a number between 2 and 4
+    // realSecondNumber = 4 - 2 + 1 = 3
+    // randomizedNumber = 2 + (0 or 1 or 2)
+    unsigned int realSecondNumber = secondNumber - firstNumber + 1;
+    unsigned int randomizedNumber = firstNumber + (arc4random() % realSecondNumber);
     return randomizedNumber;
 }
 
