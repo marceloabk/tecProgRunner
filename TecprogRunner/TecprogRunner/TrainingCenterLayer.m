@@ -155,6 +155,9 @@
     [self.layer addChild:self.levelShootingStars];
     [self.layer addChild:self.levelSpeedStars];
     
+    [self loadCoinsAndGems];
+
+    
 }
 
 -(int) returnLevel:(int)skillType{
@@ -180,5 +183,40 @@
     
 }
 
+
+-(void) loadCoinsAndGems{
+
+    SKSpriteNode *coinsImage = [SKSpriteNode spriteNodeWithImageNamed:@"Coin1"];
+    coinsImage.anchorPoint = CGPointMake(0, 1);
+    coinsImage.position = CGPointMake(380, 375-15);
+    coinsImage.zPosition = 10;
+//    [coinsImage setScale:0.];
+    
+    SKSpriteNode *gemsImage = [SKSpriteNode spriteNodeWithImageNamed:@"Coin2"];
+    gemsImage.anchorPoint = CGPointMake(0, 1);
+    gemsImage.position = CGPointMake(582, 375-15);
+    gemsImage.zPosition = 10;
+    
+    self.coinsLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+    self.coinsLabel.position = CGPointMake(624, 333);
+    self.coinsLabel.text = [[NSString alloc] initWithFormat:@"%i", [GameData sharedGameData].coins];
+    self.coinsLabel.fontColor = [UIColor whiteColor];
+    self.coinsLabel.fontSize = 33;
+    self.coinsLabel.zPosition = 10;
+    
+    [self.gemsLabel addChild:self.coinsLabel];
+    self.gemsLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+    self.gemsLabel.position = CGPointMake(424, 333);
+    self.gemsLabel.text = [[NSString alloc] initWithFormat:@"%i", [GameData sharedGameData].gems];
+    self.gemsLabel.fontColor = [UIColor whiteColor];
+    self.gemsLabel.fontSize = 33;
+    self.gemsLabel.zPosition = 10;
+    
+    [self.layer addChild:self.coinsLabel];
+    [self.layer addChild:self.gemsLabel];
+    [self.layer addChild:coinsImage];
+    [self.layer addChild:gemsImage];
+
+}
 
 @end

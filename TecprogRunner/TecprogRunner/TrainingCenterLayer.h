@@ -39,13 +39,24 @@
 /**
  Method used to activate Training Center layer
 */
+-(void) activateLayer;
+
+/**
+Nodes with levels
+ */
 @property (nonatomic) SKSpriteNode *levelSpeedStars;
 @property (nonatomic) SKSpriteNode *levelJumpStars;
 @property (nonatomic) SKSpriteNode *levelLuckStars;
 @property (nonatomic) SKSpriteNode *levelShootingStars;
 @property (nonatomic) SKSpriteNode *levelPowerStars;
 
+/**
+Cons and gems labels
+ */
 
--(void) activateLayer;
+@property (nonatomic) SKLabelNode *coinsLabel;
+@property (nonatomic) SKLabelNode *gemsLabel;
+
+
 
 @end
