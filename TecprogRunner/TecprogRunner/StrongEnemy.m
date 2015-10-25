@@ -46,6 +46,8 @@
     [self setScale:0.1];
     
     self.physicsBody = [self generatePhysicsBody];
+    
+    self.lives = 4;
 
 }
 
@@ -59,6 +61,7 @@
     
     // Defining types for Collision
     physicsBody.collisionBitMask = ColliderTypePlayer | ColliderTypeProjectile | ColliderTypeGround;
+    physicsBody.contactTestBitMask = ColliderTypeProjectile;
     physicsBody.categoryBitMask = ColliderTypeEnemy;
     
     return physicsBody;

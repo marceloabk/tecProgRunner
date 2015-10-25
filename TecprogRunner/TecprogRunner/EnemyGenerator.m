@@ -47,6 +47,8 @@
         {
             WeakEnemy *weakEnemey = [[WeakEnemy alloc]initWithPosition:enemyPosition];
             weakEnemey.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
+            weakEnemey.name = @"enemy";
+            
             [self.physicsBodyAdder addBody:weakEnemey];
             [self.parent addChild:weakEnemey];
             DebugLog(@"Weak enemy created");
@@ -56,6 +58,8 @@
         {
             StrongEnemy *strongEnemy = [[StrongEnemy alloc]initWithPosition:enemyPosition];
             strongEnemy.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
+            strongEnemy.name = @"enemy";
+
             [self.physicsBodyAdder addBody:strongEnemy];
             [self.parent addChild:strongEnemy];
             DebugLog(@"Strong enemy created");

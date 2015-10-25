@@ -163,6 +163,9 @@
     NSString *className = [NSString stringWithFormat:@"%@", self.class];
     Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition andOwner:className];
     
+    projectile.name = @"projectile";
+    [self.physicsBodyAdder addBody:projectile];
+
     [self.parent addChild:projectile];
 }
 
