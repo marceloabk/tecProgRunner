@@ -46,9 +46,10 @@
     [self setScale:0.1];
     
     self.physicsBody = [self generatePhysicsBody];
+
 }
 
-
+// Generate Enemy physics body
 -(SKPhysicsBody *) generatePhysicsBody{
     
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];

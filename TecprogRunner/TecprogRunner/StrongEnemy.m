@@ -46,6 +46,7 @@
     [self setScale:0.1];
     
     self.physicsBody = [self generatePhysicsBody];
+
 }
 
 // Generate Strong Enemy physics body
@@ -53,11 +54,11 @@
     
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     physicsBody.mass = 100;
-    physicsBody.affectedByGravity = NO;
+    physicsBody.affectedByGravity = YES;
     physicsBody.allowsRotation = NO;
     
     // Defining types for Collision
-    physicsBody.collisionBitMask = ColliderTypePlayer | ColliderTypeProjectile;
+    physicsBody.collisionBitMask = ColliderTypePlayer | ColliderTypeProjectile | ColliderTypeGround;
     physicsBody.categoryBitMask = ColliderTypeEnemy;
     
     return physicsBody;

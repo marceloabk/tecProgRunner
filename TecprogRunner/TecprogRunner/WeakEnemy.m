@@ -48,7 +48,7 @@
     
     // Generate and set physics body
     self.physicsBody = [self generatePhysicsBody];
-
+    
 }
 
 
@@ -56,7 +56,7 @@
     
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     physicsBody.mass = 100;
-    physicsBody.affectedByGravity = NO;
+    physicsBody.affectedByGravity = YES;
     physicsBody.allowsRotation = NO;
     
     // Defining types for Collision

@@ -9,6 +9,7 @@
 #import "GameObject.h"
 
 #define INITIAL_ENEMY_IMAGE @"enemyIdle1"
+#define ENEMY_VELOCITY -100
 
 @interface Enemy : GameObject
 

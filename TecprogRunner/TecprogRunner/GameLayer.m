@@ -11,7 +11,7 @@
 #import "HudLayer.h"
 #import "BackgroundLayer.h"
 #import "Coin.h"
-
+#import "EnemyGenerator.h"
 @interface GameLayer()
 
 @property (nonatomic) Player *player;
@@ -173,6 +173,10 @@
     [self.layer addChild:self.player];
     
     [_physicsController addBody:self.player];
+    
+    EnemyGenerator *eg = [[EnemyGenerator alloc]initWithSize:_size];
+    [self addChild:eg];
+    [eg newEnemyWithScore:100];
 }
 
 -(void) deactivateTimer{

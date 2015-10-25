@@ -34,7 +34,7 @@
     
     CGFloat margin = 80; // Pixels
     CGFloat floorHeight = 50; // Pixels
-    CGPoint enemyPosition = CGPointMake(_size.width - margin, floorHeight);
+    CGPoint enemyPosition = CGPointMake(_size.width - margin, floorHeight + margin);
     
     int probability = [self probabilityToCreateAnEnemyBasedOnTheScore:score];
     
@@ -45,6 +45,7 @@
         case 1:
         {
             WeakEnemy *weakEnemey = [[WeakEnemy alloc]initWithPosition:enemyPosition];
+            weakEnemey.physicsBody.velocity = CGVectorMake(-100, weakEnemey.velocity.dy);
             [self.parent addChild:weakEnemey];
             DebugLog(@"Weak enemy created");
             break;
@@ -52,6 +53,7 @@
         case 2:
         {
             StrongEnemy *strongEnemy = [[StrongEnemy alloc]initWithPosition:enemyPosition];
+            strongEnemy.physicsBody.velocity = CGVectorMake(-100, strongEnemy.velocity.dy);
             [self.parent addChild:strongEnemy];
             DebugLog(@"Strong enemy created");
             break;
