@@ -46,6 +46,8 @@
     [self setScale:0.1];
     
     self.physicsBody = [self generatePhysicsBody];
+    
+    self.lives = 4;
 
 }
 

@@ -13,6 +13,8 @@
 
 @interface Enemy : GameObject
 
+@property (nonatomic) int lives;
+
 /**
  Throw projectile procedures
  */

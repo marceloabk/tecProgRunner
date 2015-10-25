@@ -49,6 +49,7 @@
     // Generate and set physics body
     self.physicsBody = [self generatePhysicsBody];
     
+    self.lives = 2;
 }
 
 
