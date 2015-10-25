@@ -2,17 +2,19 @@
 //  StoreLayer.m
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 16/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Player store
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "StoreLayer.h"
 
 @implementation StoreLayer
 
--(instancetype) initWithSize: (CGSize) size{
+-(instancetype) initWithSize:(CGSize)size{
     
-    if(self = [super init]){
+    self = [super init];
+    
+    if(self != NULL){
 
         self.layer = [SKNode node];
         [self addChild:self.layer];
@@ -20,7 +22,10 @@
         
         [self loadBackground];
         [self loadButtons];
+    }else{
+        // Exception
     }
+    
     return self;
 }
 

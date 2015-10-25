@@ -2,18 +2,17 @@
 //  BackgroundLayerSettings.m
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 24/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Background for Settings
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "BackgroundLayerSettings.h"
 
 @implementation BackgroundLayerSettings
 
--(instancetype) initWithSize: (CGSize) size{
+-(instancetype) initWithSize:(CGSize)size{
     
     if(self = [super init]){
-        
         [self addBackgroundSprite];
     }
     return self;

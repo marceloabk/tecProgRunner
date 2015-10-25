@@ -2,9 +2,9 @@
 //  OverallControlLayer.h
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 15/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Control the layers in the game and their disposition
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "GlobalHeaders.h"
 #import "MenuLayer.h"
@@ -16,7 +16,10 @@
 
 @interface OverallControlLayer : SKNode
 
--(instancetype) initWithSize: (CGSize) size;
+/**
+ Initialize OverallControlLayer using a size
+*/
+-(instancetype)initWithSize:(CGSize)size;
 
 /**
  Menu layer contains Buttons to setting, store, game center and Game

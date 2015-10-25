@@ -2,9 +2,9 @@
 //  OverallScene.m
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 15/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Scene used to contain and show layers
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "OverallScene.h"
 #import "GameData.h"
@@ -13,13 +13,17 @@
 
 @implementation OverallScene
 
-- (instancetype)initWithSize:(CGSize)size{
-    DebugLog(@"initializating");
+-(instancetype) initWithSize:(CGSize)size{
+    
+    DebugLog(@"Initializing");
+    
     self = [super initWithSize:size];
     
-    if(self){
+    NSAssert((self!=NULL), @"Overall Scene is NULL");
+    
+    if(self != NULL){
         
-        // check for the users first time entered
+        // Check for the users first time entered
         
         if([[NSUserDefaults standardUserDefaults] objectForKey:@"primeiraVez"] == NULL){
             [[NSUserDefaults standardUserDefaults] setObject:@"comecouJogoPelaPrimeiraVez" forKey:@"primeiraVez"];
@@ -29,13 +33,16 @@
         }
         
         
-        // adding layer that is on the screen
+        // Adding layer that is on the screen
         self.overallControlLayer = [[OverallControlLayer alloc] initWithSize:size];
         
         DebugLog(@"adding overallControlLayer as child node");
         [self addChild:self.overallControlLayer];
         
+    }else{
+        // There's no alternative path
     }
+    
     return self;
 }
 
@@ -67,6 +74,10 @@
         if([node.name isEqualToString:@"tapToPlay"]){
             [GameData sharedGameData].layerActivated = game;
             [self.overallControlLayer changeLayer];
+            
+            self.physicsWorld.contactDelegate = self.overallControlLayer.gameLayer.physicsController;
+            self.physicsWorld.gravity = CGVectorMake(0.0, -6.0);
+
         }
         else if([node.name isEqualToString:@"settingsButton"]){
             [GameData sharedGameData].layerActivated = settings;
@@ -116,15 +127,13 @@
         DebugLog(@"unknown layer type ");
     }
     
-    
-    
 }
 
 -(void) update:(CFTimeInterval)currentTime{
     
-//    if([GameData sharedGameData].layerActivated == game){
-//        [_gameLayer update:currentTime];
-//    }
+    if([GameData sharedGameData].layerActivated == game){
+        [self.overallControlLayer.gameLayer update:currentTime];
+    }
     
 }
 

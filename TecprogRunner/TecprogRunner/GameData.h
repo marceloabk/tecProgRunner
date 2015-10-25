@@ -2,11 +2,9 @@
 //  GameData.h
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 15/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Singleton that will save user data, and control layers inside the OverallScene
 //
-
-// GameData singleton that will save user data, and control layers inside the OverallScene
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "GlobalHeaders.h"
 
@@ -20,26 +18,56 @@ typedef enum {
 
 @interface GameData : NSObject <NSCoding>
 
+/**
+ Identify which layer is activated at time
+*/
 @property (nonatomic) GameDataLayerType layerActivated;
 
-// Store high score game
-// Should restart at every game start
+/**
+ Store game high score
+ Should not restart at every game start
+*/
 @property (nonatomic) unsigned int highScore;
 
-// characters atributes
+/**
+ Store the player jump level
+*/
 @property (nonatomic) unsigned int levelJump;
+
+/**
+ Store the player luck level
+ */
 @property (nonatomic) unsigned int levelLuck;
+
+/**
+ Store the player power level
+ */
 @property (nonatomic) unsigned int levelPower;
+
+/**
+ Store the player shooting level
+ */
 @property (nonatomic) unsigned int levelShooting;
+
+/**
+ Store the player speed level
+ */
 @property (nonatomic) unsigned int levelSpeed;
 
-//Dispatch method that creates the singleton
+/**
+ Dispatch method that creates the singleton
+*/
 +(instancetype) sharedGameData;
 
-// Start with menu as activated layer.
+/**
+ Start the GameData
+ with pre-defined configuration
+*/
 -(void) start;
 
-//Writing game data to local file.
+/**
+ Write GameData to a local file
+*/
 -(void) save;
 
 

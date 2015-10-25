@@ -2,23 +2,24 @@
 //  GameLayer.m
 //  TecprogRunner
 //
-//  Created by Lucas Araujo on 9/10/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Contain the game play
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "GameLayer.h"
 #import "Player.h"
 #import "HudLayer.h"
 #import "BackgroundLayer.h"
-
+#import "Coin.h"
+#import "EnemyGenerator.h"
 @interface GameLayer()
 
 @property (nonatomic) Player *player;
 
 @end
 
-@implementation GameLayer
-{
+@implementation GameLayer{
+    
     CGSize _size;
     
     BackgroundLayer *_backgroundLayer;
@@ -26,11 +27,9 @@
     SKNode* _sceneLayer;
     
     SKSpriteNode* _pauseButton;
-
-    // Time variables
-    NSTimeInterval _deltaTime;
-    NSTimeInterval _lastUpdateTime;
     
+    CFTimeInterval _lastTime;
+    CFTimeInterval _pausedTime;
     
 }
 
@@ -38,21 +37,25 @@
     
     self = [super init];
     if(self){
+        _physicsController = [[PhysicsController alloc] init];
+        _physicsController.gameLayer = self;
         _size = size;
         self.name = @"layer";
-        
+
     }
     return self;
 }
-
 
 -(void) loadPause{
 
     _pauseButton = [SKSpriteNode spriteNodeWithImageNamed:@"pauseButton"];
     [_pauseButton setScale:0.5];
     _pauseButton.anchorPoint = CGPointMake(0, 1);
+    #warning CGPoint not catalogated, it is magic point
     _pauseButton.position = CGPointMake(15, 365);
+    #warning posX and posY not catalogated, it is magic numbers
     _pauseButton.zPosition = 10000000;
+    #warning zPosition not catalogated, it is magic number
     _pauseButton.name = @"pauseGame";
     
     [self addChild:_pauseButton];
@@ -66,54 +69,78 @@
     SKNode *node = [self nodeAtPoint:touchLocation];
     
     if([node.name isEqualToString:@"pauseGame"]){
-       
-        //pause or unpause game;
+        
+        // Pause or unpause game;
         [self pausedClicked];
+        
+        
     }
-    else if((touchLocation.x < _size.width/2) && self.player.playerOnGround == true){
-        NSLog(@"User clicked on left side of game layer and is on ground");
-        [self.player jump];
-    }else if(touchLocation.x > _size.width/2){
-        NSLog(@"User clicked on right side of game layer");
-        [self.player throwProjectile];
-    }else{
-        // Do nothing
+    else {
+        if(self.paused == false){
+            
+            if((touchLocation.x < _size.width/2) && self.player.playerOnGround == true){
+                DebugLog(@"User clicked on left side of game layer and is on ground");
+                [self.player jump];
+            }else if(touchLocation.x > _size.width/2){
+                DebugLog(@"User clicked on right side of game layer");
+                [self.player throwProjectile];
+            }else{
+                // Do nothing
+            }
+        }
+
     }
+    
 }
 
 -(void) pausedClicked{
     
-    if(self.paused ==1){
+    if(self.paused == true){
+        self.scene.view.paused = false;
         self.paused = false;
+        
+        NSLog(@"%.3f e %.3f", _lastTime, _pausedTime);
+        _pausedTime = CACurrentMediaTime();
+        
         [self initiateTimer];
     }
-    else if(self.paused != 1){
+    else {
+        self.scene.view.paused = true;
         self.paused = true;
+
         [self deactivateTimer];
-    }
-    else{
-        // do nothing
     }
 }
 
 -(void) update:(CFTimeInterval)currentTime{
     
-    // Updating frame time
-    if(_lastUpdateTime){
-        _deltaTime = currentTime - _lastUpdateTime;
-    }else{
-        _deltaTime = 0;
+    //Update delta
+    if (_lastTime == 0) {
+        _lastTime = currentTime;
     }
-    _lastUpdateTime = currentTime;
+    CFTimeInterval delta;
+    if(_pausedTime == 0){
+        delta = currentTime - _lastTime;
+    }
+    else {
+        delta = currentTime - _pausedTime;
+        _pausedTime = 0;
+    }
     
-    //NSLog(@"%f", _deltaTime);
-
+    _lastTime = currentTime;
+    
+    if(self.paused == false){
+        [_physicsController updateWithDeltaTime:delta];
+        [_backgroundLayer updateWithDeltaTime:delta];
+    }
+    
 }
 
 -(void) activateLayer{
     
     _sceneLayer = [[SKNode alloc] init];
-    _backgroundLayer = [[BackgroundLayer alloc] initWithSize:_size];
+    _backgroundLayer = [[BackgroundLayer alloc] initWithSize:_size andBodyAdder:self];
+    
     _hudLayer = [[HudLayer alloc] initWithSize:_size];
     self.layer = [SKNode node];
     
@@ -129,17 +156,26 @@
     self.pointsScored = 0;
     [self initiateTimer];
     
+    //Initiating loop of coin generation
+    [self generateCoin];
+    
     // Pause button
     [self loadPause];
 }
 
 -(void) initializePlayer{
     // Instantiating and adding to game layer
-    CGPoint playerPosition = CGPointMake(50, 50);
+    CGPoint playerPosition = CGPointMake(50, 200);
     self.player = [[Player alloc]initWithPosition:playerPosition];
     
     // Add player to the layer
     [self.layer addChild:self.player];
+    
+    [_physicsController addBody:self.player];
+    
+    EnemyGenerator *eg = [[EnemyGenerator alloc]initWithSize:_size andBodyAdder:self];
+    [self addChild:eg];
+    [eg newEnemyWithScore:100];
 }
 
 -(void) deactivateTimer{
@@ -147,20 +183,51 @@
     [self.timer invalidate];
     self.timer = nil;
     
-    
 }
 
 -(void) initiateTimer{
     
-      self.timer = [NSTimer scheduledTimerWithTimeInterval:0.52 target:self selector:@selector(onTick) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.52 target:self selector:@selector(onTick) userInfo:nil repeats:YES];
 }
 
+-(void) generateCoin{
+
+    Coin *newCoin = [Coin generateCoinInParent:self.layer withPosition:CGPointMake(_size.width, _size.height*0.45)];
+    
+    if(newCoin != nil){
+        
+        // Adding coin to physics controller for updating moviment
+        [self.physicsController addBody:newCoin];
+        
+    } else {
+        // Nothing to do
+    }
+    srand(CACurrentMediaTime());
+    double timeBetweenCoins = 1 + rand() % 5;
+    
+    // Setting timer to next coin generation
+    [NSTimer scheduledTimerWithTimeInterval:timeBetweenCoins target:self selector:@selector(generateCoin) userInfo:nil repeats:NO];
+}
 
 -(void) onTick{
     
-    self.pointsScored +=1;
+    self.timePassed += 1;
+
+    [_hudLayer putTimeLabel:self.timePassed];
+    
+}
+
+-(void) playerContactCoin:(Coin *)coin{
+    
+    [coin runScoredMoviment];
+    self.pointsScored += coin.value;
+    
     [_hudLayer putScoreLabel:self.pointsScored];
     
+}
+
+-(void) addBody:(GameObject *)body{
+    [self.physicsController addBody:body];
 }
 
 @end

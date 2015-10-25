@@ -2,9 +2,9 @@
 //  HudLayer.m
 //  TecprogRunner
 //
-//  Created by Lucas Araujo on 9/10/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Contain aditional information, like score
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "HudLayer.h"
 
@@ -14,40 +14,58 @@
 
 -(instancetype) initWithSize:(CGSize)size{
     self = [super init];
-    if(self){
+    if(self != NULL){
         _size = size;
         
         self.layer = [SKNode node];
+        
         [self addChild:self.layer];
         
         // Adding a label to count score during the game
-        [self putScoreLabel:0];
+        [self putTimeLabel:0];
+    }else{
+        // Exception
     }
     return self;
 }
 
+-(void) putTimeLabel:(int)timePassed{
+    
+    if(self.timeLabel == nil){
+        // Settint font position
+        CGPoint fontPosition = CGPointMake(_size.width*0.5, _size.height*0.9);
+        
+        // Setting score label
+        self.timeLabel = [Label label];
+        self.timeLabel.position = fontPosition;
+        
+        // Adding score label to layer
+        [self addChild:self.timeLabel];
+    }
+
+    NSString *timeLabelString = [[NSString alloc] initWithFormat:@"%i", timePassed];
+    
+    self.timeLabel.text = timeLabelString;
+}
+
 -(void) putScoreLabel:(int)points{
-
-    [self.scoreLabel removeFromParent];
     
-//pointsLabel
-    // Creating attributes to customize score label
-    SKColor *fontColor = [UIColor blackColor];
-    CGPoint fontPosition = CGPointMake(_size.width*0.5, _size.height*0.9);
-
+    if(self.scoreLabel == nil){
+        // Settint font position
+        CGPoint fontPosition = CGPointMake(_size.width*0.8, _size.height*0.9);
+        
+        // Setting score label
+        self.scoreLabel = [Label label];
+        self.scoreLabel.position = fontPosition;
+        
+        // Adding score label to layer
+        [self addChild:self.scoreLabel];
+    }
+    
     NSString *pointsLabelString = [[NSString alloc] initWithFormat:@"%i", points];
-
-// Setting score label
-    self.scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    self.scoreLabel.text = pointsLabelString;
-    self.scoreLabel.fontColor = fontColor;
-    self.scoreLabel.fontSize = 38;
-    self.scoreLabel.position = fontPosition;
-    self.scoreLabel.zPosition = 2;
     
-    // Adding score label to layer
-    [self addChild:self.scoreLabel];
-
+    self.scoreLabel.text = pointsLabelString;
+    
 }
 
 @end

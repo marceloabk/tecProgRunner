@@ -1,27 +1,26 @@
 //
-//  WeakEnemy.m
+//  StrongEnemy.m
 //  TecprogRunner
 //
-//  Distinguishes Weak Enemy and his functions
+//  Distinguishes Strong Enemy and his functions
 //
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
-#import "WeakEnemy.h"
+#import "StrongEnemy.h"
 
-@implementation WeakEnemy
+@implementation StrongEnemy
 
-
+// Initialize StrongEnemy with a position
 -(instancetype) initWithPosition:(CGPoint)position{
     
-    // Loading a texture for the weak enemy
-    SKTexture *weakEnemyTexture = [super generateTextureWithImageNamed:INITIAL_WEAK_ENEMY_IMAGE];
-
-    // Init the Sprite with the texture created
-    self = [super initWithTexture:weakEnemyTexture];
-
+    // Loading a texture for the strong enemy
+    SKTexture *strongEnemyTexture = [super generateTextureWithImageNamed:INITIAL_STRONG_ENEMY_IMAGE];
+    
+    self = [super initWithTexture:strongEnemyTexture];
+    
     if(self != nil){
         
-        DebugLog(@"Weak Enemy initialized with texture successfully");
+        DebugLog(@"Strong Enemy initialized with texture successfully");
         
         self.position = position;
         
@@ -41,17 +40,16 @@
     return self;
 }
 
-
+// Set all the basics attributes that strong enemy will have
 -(void) setBasicsAttributes{
     // Placeholder image is too big then we rescale it to fit our screen
-    [self setScale:0.2];
+    [self setScale:0.1];
     
-    // Generate and set physics body
     self.physicsBody = [self generatePhysicsBody];
-    
+
 }
 
-
+// Generate Strong Enemy physics body
 -(SKPhysicsBody *) generatePhysicsBody{
     
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
@@ -66,30 +64,24 @@
     return physicsBody;
 }
 
-
--(SKAction*) idleAnimation{
-    
-    // Load animation
-    SKAction *idleAnimation = [self loadIdleAnimation];
-    
-    // Make animation repeat forever
-    SKAction *repeatAnimation = [SKAction repeatActionForever:idleAnimation];
-    
-    return repeatAnimation;
-}
-
-// Load animations of weak enemy in idle state
+// Load animations of Strong enemy in idle state
 -(SKAction*) loadIdleAnimation{
     
     DebugLog(@"Loading idle Animation");
     
-    // Creating a Mutable Array filled with Idle Animations
-    NSMutableArray *idleTextures = [super generateAnimationImages:@"weakEnemyIdle" andCount:2];
-    
-    // Using textures to make an action
+    NSMutableArray *idleTextures = [super generateAnimationImages:@"enemyIdle" andCount:2];
     SKAction *idle = [SKAction animateWithTextures:idleTextures timePerFrame:0.3];
     
     return idle;
+}
+
+// Repeat idle animation forever
+-(SKAction*) idleAnimation{
+    
+    SKAction *idleAnimation = [self loadIdleAnimation];
+    SKAction *repeatAnimation = [SKAction repeatActionForever:idleAnimation];
+    
+    return repeatAnimation;
 }
 
 @end

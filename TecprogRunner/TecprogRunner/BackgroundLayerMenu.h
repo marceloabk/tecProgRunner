@@ -2,17 +2,24 @@
 //  BackgroundLayerMenu.h
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 15/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Principal menu background
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "GlobalHeaders.h"
 
 @interface BackgroundLayerMenu : SKNode
 
--(instancetype) initWithSize: (CGSize) size;
+/**
+ Initialize Menu Backgroun Layer
+ with a size
+*/
+-(instancetype) initWithSize:(CGSize)size;
 
-//background sprite
+/**
+ Sprite used to represent
+ background visually
+*/
 @property (nonatomic) SKSpriteNode* background;
 
 

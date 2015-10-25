@@ -2,17 +2,24 @@
 //  BackgroundLayerStore.h
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 16/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Background for Player store
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "GlobalHeaders.h"
 
 @interface BackgroundLayerStore : SKNode
 
--(instancetype) initWithSize: (CGSize) size;
+/**
+ Init Store Background Layer
+ with a size
+ */
+-(instancetype) initWithSize:(CGSize)size;
 
-//background sprite
+/**
+ Sprite that represent background
+ visually
+ */
 @property (nonatomic) SKSpriteNode* background;
 
 

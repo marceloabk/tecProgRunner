@@ -2,9 +2,9 @@
 //  GameObject.m
 //  TecprogRunner
 //
-//  Created by Lucas Araujo on 9/10/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  General class to create a object in game
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "GameObject.h"
 
@@ -12,9 +12,9 @@
 
 #pragma mark Generating and configuring GameObject
 
-// init the GameObject with a position
 -(instancetype) initWithPosition:(CGPoint)position{
     self = [super init];
+    
     if(self != nil){
         
     }else{
@@ -45,8 +45,6 @@
         
         // Selecting image
         NSString *imageName = [NSString stringWithFormat:@"%@%i", modelImageName, index];
-        
-        NSLog(@"Generating texture with image named: %@", imageName);
         
         // Making texture with the image
         SKTexture *texture = [self generateTextureWithImageNamed:imageName];
@@ -112,4 +110,11 @@
     NSLog(@"Contact ended between %@ and %@", bodyA, bodyB);
 }
 
+-(void) updateWithDeltaTime:(CFTimeInterval)deltaTime{
+    
+    CGFloat newX = self.position.x + self.velocity.dx * deltaTime;
+    CGFloat newY = self.position.y + self.velocity.dy * deltaTime;
+    
+    self.position = CGPointMake(newX, newY);
+}
 @end

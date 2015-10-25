@@ -2,18 +2,25 @@
 //  TrainingCenterBackground.h
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 07/10/15.
-//  Copyright © 2015 Bepid-UnB. All rights reserved.
+//  Contain a background for Training Center
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import <SpriteKit/SpriteKit.h>
 #import "TrainingCenterBackground.h"
 
 @interface TrainingCenterBackground : SKNode
 
--(instancetype) initWithSize: (CGSize) size;
+/**
+ Initialize Training Center Background
+ with a size
+*/
+-(instancetype) initWithSize:(CGSize)size;
 
-//background sprite
+/**
+ Sprite that represent
+ Training Center background on screen
+*/
 @property (nonatomic) SKSpriteNode* background;
 
 @end

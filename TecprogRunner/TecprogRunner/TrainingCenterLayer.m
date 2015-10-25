@@ -2,18 +2,20 @@
 //  TrainingCenterLayer.m
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 07/10/15.
-//  Copyright © 2015 Bepid-UnB. All rights reserved.
+//  Contain Training Center
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "TrainingCenterLayer.h"
 #import "GameData.h"
 
 @implementation TrainingCenterLayer
 
--(instancetype)initWithSize:(CGSize)size{
+-(instancetype) initWithSize:(CGSize)size{
     
-    if(self = [super init]){
+    self = [super init];
+    
+    if(self != NULL){
         
         self.layer = [SKNode node];
         [self addChild:self.layer];
@@ -24,6 +26,8 @@
         [self loadButtons];
         [self loadStars];
         
+    }else{
+        // Exception
     }
     return self;
 }
@@ -140,7 +144,7 @@
     [self.atributesTable setScale:0.5];
 }
 
--(void)activateLayer{
+-(void) activateLayer{
     
     [self.layer addChild:self.trainingCenterBackground];
     [self.layer addChild:self.backButton];
@@ -153,7 +157,7 @@
     
 }
 
--(int) returnLevel : (int) skillType{
+-(int) returnLevel:(int)skillType{
 
     if(skillType ==1){
         return [GameData sharedGameData].levelJump;

@@ -2,9 +2,9 @@
 //  GameData.m
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 15/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Singleton that will save user data, and control layers inside the OverallScene
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "GameData.h"
 
@@ -12,7 +12,7 @@
 
 @implementation GameData
 
-// Keys to save data
+// Creating keys to save data
 static NSString* const SSGameDataKey1 = @"highScore";
 static NSString* const SSGameDataKey2 = @"levelJump";
 static NSString* const SSGameDataKey3 = @"levelLuck";
@@ -21,8 +21,7 @@ static NSString* const SSGameDataKey5 = @"levelShooting";
 static NSString* const SSGameDataKey6 = @"levelSpeed";
 
 
-// dispatch method that creates the singleton
-+ (instancetype)sharedGameData {
++(instancetype) sharedGameData{
     static id sharedInstance = nil;
     
     static dispatch_once_t onceToken;
@@ -33,8 +32,8 @@ static NSString* const SSGameDataKey6 = @"levelSpeed";
     return sharedInstance;
 }
 
-// load data inside the singleton
-+(instancetype)loadInstance{
+// Load data inside the singleton
++(instancetype) loadInstance{
     
     NSData* decodedData = [NSData dataWithContentsOfFile: [GameData filePath]];
     
@@ -47,16 +46,14 @@ static NSString* const SSGameDataKey6 = @"levelSpeed";
 }
 
 
-// saving method
--(void)save{
+-(void) save{
     
     NSData* encodedData = [NSKeyedArchiver archivedDataWithRootObject: self];
     [encodedData writeToFile:[GameData filePath] atomically:YES];
     
 }
 
-// initialize with Apple's NSCoder
-- (instancetype)initWithCoder:(NSCoder *)decoder{
+-(instancetype) initWithCoder:(NSCoder *)decoder{
     
     self = [self init];
     
@@ -74,7 +71,7 @@ static NSString* const SSGameDataKey6 = @"levelSpeed";
     return self;
 }
 
-// method that will be called the first time the user enters the game
+// Will be called the first time the user enters the game
 -(void) start{
 
     self.layerActivated = menu;
@@ -86,8 +83,7 @@ static NSString* const SSGameDataKey6 = @"levelSpeed";
     self.levelPower = STARTING_LEVEL;
 }
 
-// encode data
-- (void)encodeWithCoder:(NSCoder *)encoder{
+-(void) encodeWithCoder:(NSCoder *)encoder{
     
     [encoder encodeInt:self.highScore forKey: SSGameDataKey1];
     [encoder encodeInt:self.levelJump forKey: SSGameDataKey2];
@@ -95,18 +91,20 @@ static NSString* const SSGameDataKey6 = @"levelSpeed";
     [encoder encodeInt:self.levelPower forKey: SSGameDataKey4];
     [encoder encodeInt:self.levelShooting forKey: SSGameDataKey5];
     [encoder encodeInt:self.levelSpeed forKey: SSGameDataKey6];
+    
 }
 
-// file path
-+(NSString*)filePath{
+// Create a file path to save data
++(NSString*) filePath{
     
     static NSString* filePath = nil;
     
-    if (!filePath) {
+    if (filePath == NULL){
         filePath =
         [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
          stringByAppendingPathComponent:@"gamedata"];
     }
+    
     return filePath;
 }
 

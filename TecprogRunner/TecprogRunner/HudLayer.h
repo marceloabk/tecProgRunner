@@ -2,20 +2,39 @@
 //  HudLayer.h
 //  TecprogRunner
 //
-//  Created by Lucas Araujo on 9/10/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Contain aditional information, like score
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "BasicLayer.h"
+#import "Label.h"
 
 @interface HudLayer : SKNode <LayerRequirements>
 
-@property SKLabelNode *scoreLabel;
+
+/**
+ Layer that represent HudLayer on screen
+ */
 @property SKNode *layer;
 
 /**
- Create and add score label to HudLayer
+ Represent score in screen visually
 */
--(void) putScoreLabel:(int) points;
+@property Label *scoreLabel;
+
+/**
+ Represent time passed in screen visually
+ */
+@property Label *timeLabel;
+
+/**
+ Update score label in HudLayer
+*/
+-(void) putScoreLabel:(int)points;
+
+/**
+ Update time label in HudLayer
+ */
+-(void) putTimeLabel:(int)points;
 
 @end

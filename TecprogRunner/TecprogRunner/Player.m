@@ -2,9 +2,9 @@
 //  Player.m
 //  TecprogRunner
 //
-//  Created by Lucas Araujo on 9/10/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Distinguishes Player and his functions
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "Player.h"
 #import "Projectile.h"
@@ -12,7 +12,10 @@
 @interface Player()
 @end
 
-@implementation Player
+@implementation Player{
+    
+    int isOnGroundChecker;
+}
 
 // Initialize Player class with a position
 -(instancetype)initWithPosition:(CGPoint)position{
@@ -26,20 +29,19 @@
     self = [super initWithTexture:playerTexture];
     
     if(self != nil){
-        NSLog(@"Player initialized with texture successfully");
+        DebugLog(@"Player initialized with texture successfully");
+        
+        [self setBasicsAttributes];
         
         // Make player run
         SKAction *running = [self runningAnimation];
-        [self runAction: running];
+        [self runAction:running];
         
-        self.physicsBody = [self generatePhysicsBody];
-        self.playerOnGround = true;
         self.position = position;
         
-        [self setBasicsAttributes];
     }else{
         
-        NSLog(@"Player can't be initialized");
+        DebugLog(@"Player can't be initialized");
         
         // There is no alternative path for this if
     }
@@ -52,6 +54,14 @@
     // Placeholder image is too big then we rescale it to fit our screen
     [self setScale:0.1];
     
+    // Generate a Physics Body for Player
+    self.physicsBody = [self generatePhysicsBody];
+    self.physicsBody.allowsRotation = false;
+    self.physicsBody.affectedByGravity = true;
+    self.physicsBody.restitution = 0.0;
+    
+    self.playerOnGround = true;
+    self.isOnGround = false;
 }
 
 // Generate player physics body
@@ -61,27 +71,17 @@
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     physicsBody.mass = 100;
     physicsBody.affectedByGravity = NO;
-    physicsBody.allowsRotation = NO;
+    physicsBody.allowsRotation = YES;
+    
+    // Defining types for Collision
     physicsBody.categoryBitMask = ColliderTypePlayer;
-    physicsBody.collisionBitMask = ColliderTypeProjectile | ColliderTypeEnemy;
-
+    physicsBody.collisionBitMask = ColliderTypeProjectile | ColliderTypeEnemy | ColliderTypeGround;
+    physicsBody.contactTestBitMask = ColliderTypeCoin;
+    
     return physicsBody;
 }
 
-// Load animations of player running
--(SKAction*) loadRunningAnimation{
-    
-    NSLog(@"Loading Run Animation");
-    
-    // Creating a Mutable Array filled with Run Animations
-    NSMutableArray *runTextures = [super generateAnimationImages:@"playerRunning" andCount:6];
-    
-    // Using textures to make an action
-    SKAction *run = [SKAction animateWithTextures:runTextures timePerFrame:0.1];
-    
-    return run;
-}
-
+// Repeat running animation forever
 -(SKAction *) runningAnimation{
     
     // Load animations
@@ -94,50 +94,64 @@
     
 }
 
--(SKAction*) loadJumpAnimation{
-    NSLog(@"Loading Jump Animation");
+// Load animations of player running
+-(SKAction*) loadRunningAnimation{
+    
+    DebugLog(@"Loading Run Animation");
     
     // Creating a Mutable Array filled with Run Animations
-    NSMutableArray *jumpTextures = [super generateAnimationImages:@"playerJumping" andCount:2];
+    NSMutableArray *runTextures = [super generateAnimationImages:@"playerRunning" andCount:6];
+    
+    // Using textures to make an action
+    SKAction *run = [SKAction animateWithTextures:runTextures timePerFrame:0.1];
+    
+    SKAction *runForever = [SKAction repeatActionForever:run];
+    
+    return runForever;
+}
+
+-(SKAction*) loadJumpAnimation{
+    DebugLog(@"Loading Jump Animation");
+    
+    // Creating a Mutable Array filled with Run Animations
+//    NSMutableArray *jumpTextures = [super generateAnimationImages:@"playerJumping" andCount:2];
+    
+    SKTexture *jumpTexture = [self generateTextureWithImageNamed:@"playerJumping1"];
     
     // Using textures to make an action with certain time
-    SKAction *jump = [SKAction animateWithTextures:jumpTextures timePerFrame:0.3];
+    SKAction *jump = [SKAction animateWithTextures:@[jumpTexture] timePerFrame:0.3];
     
-    return jump;
+    SKAction *repeatJumpForEver = [SKAction repeatActionForever:jump];
+    
+    return repeatJumpForEver;
+}
+
+-(SKAction*) loadFallAnimation{
+    DebugLog(@"Loading Fall Animation");
+    
+    // Creating a Mutable Array filled with Run Animations
+    //    NSMutableArray *jumpTextures = [super generateAnimationImages:@"playerFalling" andCount:2];
+    
+    SKTexture *fallTexture = [self generateTextureWithImageNamed:@"playerFalling1"];
+    
+    // Using textures to make an action with certain time
+    SKAction *fall = [SKAction animateWithTextures:@[fallTexture] timePerFrame:0.3];
+    
+    SKAction *repeatfallForEver = [SKAction repeatActionForever:fall];
+    
+    return repeatfallForEver;
 }
 
 // Make player perform a jump when called
 -(void) jump{
-    self.playerOnGround = false;
     
-    [self runAction:[self loadJumpAnimation]];
-    
-    NSMutableArray *actionsToPlayerFinishJump = [NSMutableArray array];
-    
-    float timeToGetHigherPosition = 0; // Time To perform a small part of jump
-
-    for (int i = 0; i < 9; i++) {
-        timeToGetHigherPosition += 0.006;
-        // Here is used a vector with coordinates (0,16) because the wanted final vector is a (0,144) vector
-        // When move by is used it doesn't make a sum or a scalar multiplication of vectors
-        SKAction *jumpAction = [SKAction moveBy:CGVectorMake(0, 16) duration:timeToGetHigherPosition];
-        [actionsToPlayerFinishJump addObject:jumpAction];
+    if(self.isOnGround){
+        self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.physicsBody.velocity.dy + JUMP_IMPULSE);
+        self.isOnGround = false;
     }
-    
-    float timeToGetLowestrPosition = 0.054;
-    for (int i = 0; i < 9; i++) {
-        timeToGetLowestrPosition -= 0.006;
-        SKAction *fallAction = [SKAction moveBy:CGVectorMake(0, -16) duration:timeToGetLowestrPosition];
-        [actionsToPlayerFinishJump addObject:fallAction];
+    else {
+        // Player can't jump while is in the air, by now
     }
-
-    SKAction *playerBackToGround = [SKAction runBlock:^{
-        self.playerOnGround = true;
-    }];
-    
-    [actionsToPlayerFinishJump addObject:playerBackToGround];
-
-    [self runAction:[SKAction sequence:actionsToPlayerFinishJump]];
 }
 
 // Make player throw a projectile when called
@@ -151,5 +165,68 @@
     
     [self.parent addChild:projectile];
 }
+
+-(void) setIsOnGround:(BOOL)isOnGround{
+    
+    // Changing animation depending player status is on ground
+    if(isOnGround == true){
+        [self changeToAction:PlayerMovimentRun];
+    }
+    else {
+        [self changeToAction:PlayerMovimentJump];
+    }
+    
+    super.isOnGround = isOnGround;
+}
+
+-(void) updateWithDeltaTime:(CFTimeInterval)deltaTime{
+    
+    [super updateWithDeltaTime:deltaTime];
+    
+    if(self.physicsBody.velocity.dy <= 0 && !self.isOnGround){
+        [self changeToAction:PlayerMovimentFall];
+    } else if(self.physicsBody.velocity.dy > 0 && !self.isOnGround){
+        [self changeToAction:PlayerMovimentJump];
+    }
+    
+    // Ansure that player is on ground
+    if(self.isOnGround == false && self.physicsBody.velocity.dy == 0){
+        isOnGroundChecker++;
+        
+        if(isOnGroundChecker > 1){
+            self.isOnGround = true;
+        }
+    }
+    else {
+        isOnGroundChecker = 0;
+    }
+}
+
+-(void) changeToAction:(playerMoviments) moviment{
+    
+    if(self.moviment != moviment){
+        
+        self.moviment = moviment;
+        
+        [self removeAllActions];
+        
+        switch (moviment) {
+            case PlayerMovimentRun:
+                [self runAction:[self loadRunningAnimation]];
+                break;
+            case PlayerMovimentJump:
+                [self runAction:[self loadJumpAnimation]];
+                break;
+                
+            case PlayerMovimentFall:
+                [self runAction:[self loadFallAnimation]];
+                break;
+                
+            default:
+                break;
+        }
+    }
+}
+
 
 @end

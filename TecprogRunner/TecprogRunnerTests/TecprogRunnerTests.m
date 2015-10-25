@@ -2,9 +2,9 @@
 //  TecprogRunnerTests.m
 //  TecprogRunnerTests
 //
-//  Created by Marcelo Cristiano Araujo Silva on 03/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Test the App
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>

@@ -2,17 +2,19 @@
 //  MenuLayer.m
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 15/09/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Principal menu
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "MenuLayer.h"
 
 @implementation MenuLayer
 
--(instancetype) initWithSize: (CGSize) size{
+-(instancetype) initWithSize:(CGSize)size{
     
-    if(self = [super init]){
+    self = [super init];
+    
+    if(self != NULL){
         
         self.layer = [SKNode node];
         [self addChild:self.layer];
@@ -21,11 +23,13 @@
         self.backgroundLayerMenu = [[BackgroundLayerMenu alloc] initWithSize:size];
         [self loadButtons];
         
+    }else{
+        // Exception
     }
+    
     return self;
 }
 
-// method called when entering layer
 -(void) activateLayer{
     
     [self.layer addChild:self.backgroundLayerMenu];

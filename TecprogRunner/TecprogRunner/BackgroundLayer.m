@@ -2,106 +2,64 @@
 //  BackgroundLayer.m
 //  TecprogRunner
 //
-//  Created by Lucas Araujo on 9/10/15.
-//  Copyright (c) 2015 Bepid-UnB. All rights reserved.
+//  Define a background for the game
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "BackgroundLayer.h"
+#import "GameObject.h"
+#import "PhysicsCategories.h"
+#import "PhysicsController.h"
+
+struct line{
+    CGPoint point1;
+    CGPoint point2;
+};
 
 @implementation BackgroundLayer{
+    
     CGSize _size;
     CGPoint _initialPoint;
     float backgroundDefaultVelocity;
-    SKSpriteNode* _firstGround;
-    SKSpriteNode* _secondGround;
+
+    NSMutableArray<GameObject*>* _tiles;
+    NSMutableArray<GameObject*>* _removedTiles;
     
     SKSpriteNode* _firstClouds;
     SKSpriteNode* _secondClouds;
+    
+    GameObject* lastGameObject;
 }
 
--(instancetype) initWithSize:(CGSize)size{
+-(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>) physicsBodyAdder{
     self = [super init];
+    
     if(self != NULL){
         
+        self.physicsBodyAdder = physicsBodyAdder;
+        
+        _tiles = [[NSMutableArray<GameObject*> alloc] init];
+        _removedTiles = [[NSMutableArray<GameObject*> alloc] init];
         _size = size;
         
-        UIColor *magenta = [UIColor magentaColor];
-        UIColor *green = [UIColor greenColor];
-        CGSize backgroundSize = CGSizeMake(size.width, size.height/2);
-        
-        // Setting grounds
-        _firstGround = [[SKSpriteNode alloc] initWithColor:magenta size:backgroundSize];
-        _firstGround.anchorPoint = CGPointZero;
-        
-        _secondGround = [[SKSpriteNode alloc] initWithColor:green size:backgroundSize];
-        _secondGround.anchorPoint = CGPointZero;
-        
-        //Setting initials Points
-        CGPoint cloudsInitialPoint = CGPointMake(_size.width, 0);
-        _initialPoint = CGPointMake(_size.width, -_firstGround.size.height*0.8);
-        
-        // Setting background sprite initial point
-        _firstGround.position = _initialPoint;
-        _secondGround.position = _initialPoint;
-        
-        //Instantiating background clouds
-        _firstClouds = [[SKSpriteNode alloc] initWithImageNamed:@"background_Clouds"];
-        _firstClouds.size = CGSizeMake(2160, _size.height);
-        _firstClouds.position = CGPointZero;
-        _firstClouds.anchorPoint = CGPointZero;
-        _firstClouds.zPosition = -1;
-        
-        _secondClouds = [[SKSpriteNode alloc] initWithImageNamed:@"background_Clouds"];
-        _secondClouds.size = CGSizeMake(2160, _size.height);
-        _secondClouds.position = CGPointMake(0, -_size.height);
-        _secondClouds.anchorPoint = CGPointZero;
-        _secondClouds.zPosition = -1;
-        
-        //Moviment placeholder until tile creation of tile pool do not Delete
-        //Defing moviment time
-        float groundMovimentTime = 8;
-        float cloudMovimentTime = 240;
-        float timeCorrection = 0.02;
-        
-        //Setting Background Moviments
-        [self setBackgroundMoviment:_firstGround
-                        withMoveByX:-_size.width*2
-                   withInitialPoint:_initialPoint andTime:groundMovimentTime];
-        
-        [self setBackgroundMoviment:_firstClouds
-                        withMoveByX:-(_firstClouds.size.width*2)
-                   withInitialPoint:cloudsInitialPoint andTime:cloudMovimentTime];
-        
-        [self runAction:[SKAction waitForDuration:groundMovimentTime*0.5 - timeCorrection] completion:^{
-            [self setBackgroundMoviment:_secondGround
-                            withMoveByX:-_size.width*2
-                       withInitialPoint:_initialPoint andTime:groundMovimentTime];
-        }];
+        CGSize firstGroundSize = CGSizeMake(_size.width*2,_size.height*0.1);
     
-        [self runAction:[SKAction waitForDuration:cloudMovimentTime*0.5 - timeCorrection] completion:^{
-            
-            _secondClouds.position = cloudsInitialPoint;
-            [self setBackgroundMoviment:_secondClouds
-                            withMoveByX:-(_secondClouds.size.width*2)
-                       withInitialPoint:cloudsInitialPoint andTime:cloudMovimentTime];
-        }];
+        [self setClouds];
         
-        SKSpriteNode* ground = [[SKSpriteNode alloc] initWithColor:green size:backgroundSize];
-        ground.anchorPoint = CGPointZero;
-        ground.position = CGPointMake(0, -ground.size.height*0.8);
+        // Initializating initial tiles
+        GameObject *firstGround = [self createTileGroundWithSize:firstGroundSize];
+        firstGround.position = CGPointMake(0.0, 0.0);
         
-        [ground runAction:[SKAction moveByX:-ground.size.width y:0 duration:groundMovimentTime]];
-
+        lastGameObject = firstGround;
+        
+        [self generateTiles];
         
         // Adding clouds to view
         [self addChild:_firstClouds];
         [self addChild:_secondClouds];
         
         // Adding background to view
-        [self addChild:ground];
-        [self addChild:_firstGround];
-        [self addChild:_secondGround];
-
+        [self addChild:firstGround];
         
     }else{
         // Throw exception
@@ -110,23 +68,102 @@
     return self;
 }
 
--(void) setBackgroundMoviment:(SKSpriteNode*)background
-                  withMoveByX:(CGFloat)x
-             withInitialPoint:(CGPoint)initialPoint
-                      andTime:(NSTimeInterval) timeToReload{
+// Instantiating background Clouds
+-(void) setClouds{
     
-    // Setting backgroundMoviment
-    SKAction* backgroundMoviment = [SKAction moveByX:x y:0 duration:timeToReload];
-    SKAction* setBackgroundPosition = [SKAction moveTo:initialPoint duration:0.0];
+    _firstClouds = [[SKSpriteNode alloc] initWithImageNamed:@"background_Clouds"];
+    _firstClouds.size = CGSizeMake(2160, _size.height);
+    _firstClouds.position = CGPointZero;
+    _firstClouds.anchorPoint = CGPointZero;
+    _firstClouds.zPosition = -1;
     
-    // Creating a sequence with the actions
-    SKAction* backgroundMovimentSequence = [SKAction sequence:@[backgroundMoviment, setBackgroundPosition]];
-    
-    // Creating Action to repeat the sequence forever
-    SKAction* repeatMovimentForever = [SKAction repeatActionForever:backgroundMovimentSequence];
-    
-    // Running background moviment sequence
-    [background runAction:repeatMovimentForever];
+    _secondClouds = [[SKSpriteNode alloc] initWithImageNamed:@"background_Clouds"];
+    _secondClouds.size = CGSizeMake(2160, _size.height);
+    _secondClouds.position = CGPointMake(0, -_size.height);
+    _secondClouds.anchorPoint = CGPointZero;
+    _secondClouds.zPosition = -1;
 }
+
+-(GameObject*) createTileGroundWithSize:(CGSize) size{
+    
+    GameObject* tile;
+    if(_removedTiles.count <= 0 || true){
+        tile = [[GameObject alloc] initWithColor:GREEN_COLOR size:size];
+        tile.name = @"ground";
+        tile.position = CGPointMake(0.0, 0.0);
+        tile.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
+        
+        tile.physicsBody.categoryBitMask = ColliderTypeGround;
+        tile.physicsBody.affectedByGravity = false;
+        tile.physicsBody.dynamic = false;
+        tile.physicsBody.allowsRotation = false;
+        tile.physicsBody.collisionBitMask = ColliderTypePlayer;
+        tile.physicsBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeEnemy | ColliderTypeObstacle;
+        tile.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
+    }
+    else{
+        tile = [_removedTiles lastObject];
+        [_removedTiles removeLastObject];
+        tile.size = size;
+        tile.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
+    }
+    
+    [self.physicsBodyAdder addBody:tile];
+        
+    // adding tile to array
+    [_tiles addObject:tile];
+    
+    return tile;
+}
+
+-(void) updateWithDeltaTime:(CFTimeInterval)deltaTime{
+    
+    for (int i = 0; i < _tiles.count; i++) {
+        
+        GameObject* tile = (GameObject*) _tiles[i];
+        
+        if(tile.position.x + tile.size.width < 0.0){
+            [_tiles removeObject:tile];
+            [tile removeFromParent];
+            [_removedTiles addObject:tile];
+
+        }
+    }
+    
+}
+
+-(void) generateTiles{
+    
+    srand(CACurrentMediaTime());
+    
+    CGFloat tileWidth = 45 + rand()%250;
+    
+    GameObject* newTile = [self createTileGroundWithSize:CGSizeMake(tileWidth, 20)];
+    double maxX = lastGameObject.position.x + lastGameObject.size.width/2;
+    
+    float initialX = maxX + 70 + rand()%70;
+    
+    newTile.position = CGPointMake(initialX + newTile.size.width/2, newTile.size.height/2);
+    
+    [self addChild:newTile];
+    
+    lastGameObject = newTile;
+    
+    newTile.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
+    
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(generateTiles) userInfo:nil repeats:NO];
+}
+
+-(CGPoint) calculateInitialPointByLine:(struct line) line andX:(double) x{
+
+    double partX = (line.point1.y - line.point2.y);
+    double partXY = line.point1.x*line.point2.y - line.point2.x*line.point1.y;
+    double partY = (line.point1.x - line.point2.x);
+    
+    double y = ( x * partX +  partXY) / partY;
+    
+    return CGPointMake(x, y);
+}
+
 
 @end
