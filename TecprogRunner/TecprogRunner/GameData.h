@@ -55,6 +55,16 @@ typedef enum {
 @property (nonatomic) unsigned int levelSpeed;
 
 /**
+ Store the amount of coins
+ */
+@property (nonatomic) unsigned int coins;
+
+/**
+ Store the amount of gems
+ */
+@property (nonatomic) unsigned int gems;
+
+/**
  Dispatch method that creates the singleton
 */
 +(instancetype) sharedGameData;

@@ -9,6 +9,7 @@
 #import "GameData.h"
 
 #define STARTING_LEVEL 1
+#define STARTING_COINS_OR_GEMS_AMOUNT 0
 
 @implementation GameData
 
@@ -19,6 +20,8 @@ static NSString* const SSGameDataKey3 = @"levelLuck";
 static NSString* const SSGameDataKey4 = @"levelPower";
 static NSString* const SSGameDataKey5 = @"levelShooting";
 static NSString* const SSGameDataKey6 = @"levelSpeed";
+static NSString* const SSGameDataKey7 = @"coins";
+static NSString* const SSGameDataKey8 = @"gems";
 
 
 +(instancetype) sharedGameData{
@@ -65,6 +68,8 @@ static NSString* const SSGameDataKey6 = @"levelSpeed";
         _levelPower = [decoder decodeIntForKey: SSGameDataKey4];
         _levelShooting = [decoder decodeIntForKey: SSGameDataKey5];
         _levelSpeed = [decoder decodeIntForKey: SSGameDataKey6];
+        _coins = [decoder decodeIntForKey: SSGameDataKey7];
+        _gems = [decoder decodeIntForKey: SSGameDataKey8];
 
     }
     
@@ -81,6 +86,8 @@ static NSString* const SSGameDataKey6 = @"levelSpeed";
     self.levelShooting = STARTING_LEVEL;
     self.levelSpeed = STARTING_LEVEL;
     self.levelPower = STARTING_LEVEL;
+    self.gems = STARTING_COINS_OR_GEMS_AMOUNT;
+    self.coins = STARTING_COINS_OR_GEMS_AMOUNT;
 }
 
 -(void) encodeWithCoder:(NSCoder *)encoder{
@@ -91,6 +98,8 @@ static NSString* const SSGameDataKey6 = @"levelSpeed";
     [encoder encodeInt:self.levelPower forKey: SSGameDataKey4];
     [encoder encodeInt:self.levelShooting forKey: SSGameDataKey5];
     [encoder encodeInt:self.levelSpeed forKey: SSGameDataKey6];
+    [encoder encodeInt:self.coins forKey: SSGameDataKey7];
+    [encoder encodeInt:self.gems forKey: SSGameDataKey8];
     
 }
 
