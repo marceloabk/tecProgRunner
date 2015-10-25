@@ -94,5 +94,11 @@
     return probabilityValue;
 }
 
+// Randomize a number between the
+-(unsigned int)randomizeNumberBetween:(unsigned int)firstNumber and:(unsigned int)secondNumber{
+    unsigned int randomizedNumber = firstNumber + (arc4random() % secondNumber);
+    return randomizedNumber;
+}
+
 
 @end
