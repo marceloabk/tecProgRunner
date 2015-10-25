@@ -10,7 +10,7 @@
 #import "PhysicsController.h"
 #import "GameData.h"
 
-@interface GameLayer : SKNode <LayerRequirements, GameObjectsContact>
+@interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody>
 
 @property (nonatomic) PhysicsController* physicsController;
 

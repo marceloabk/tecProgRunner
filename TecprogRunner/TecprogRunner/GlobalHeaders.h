@@ -12,6 +12,8 @@
 #import <SpriteKit/SpriteKit.h>
 #import <Foundation/Foundation.h>
 
+@class GameObject;
+
 #ifdef DEBUG
 #   define DebugLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
@@ -40,6 +42,12 @@
 #define ZPOSITION_PROJECTILE 5
 
 #define ZPOSITION_HUD 10
+
+@protocol physicsControllerAddBody <NSObject>
+@required
+-(void) addBody:(GameObject*) body;
+
+@end
 
 
 #endif /* GlobalHeaders_h */

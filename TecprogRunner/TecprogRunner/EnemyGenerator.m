@@ -15,10 +15,11 @@
 }
 
 // Initialize EnemyGenerator with a position
--(instancetype) initWithSize:(CGSize)size{
+-(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>) physicsBodyAdder{
     
     self = [super init];
     if(self != nil){
+        self.physicsBodyAdder = physicsBodyAdder;
         _size = size;
         DebugLog(@"Enemy generator initialized successfully");
         

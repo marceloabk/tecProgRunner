@@ -139,8 +139,7 @@
 -(void) activateLayer{
     
     _sceneLayer = [[SKNode alloc] init];
-    _backgroundLayer = [[BackgroundLayer alloc] initWithSize:_size
-                                        andPhysicsController:self.physicsController];
+    _backgroundLayer = [[BackgroundLayer alloc] initWithSize:_size andBodyAdder:self];
     
     _hudLayer = [[HudLayer alloc] initWithSize:_size];
     self.layer = [SKNode node];
@@ -174,7 +173,7 @@
     
     [_physicsController addBody:self.player];
     
-    EnemyGenerator *eg = [[EnemyGenerator alloc]initWithSize:_size];
+    EnemyGenerator *eg = [[EnemyGenerator alloc]initWithSize:_size andBodyAdder:self];
     [self addChild:eg];
     [eg newEnemyWithScore:100];
 }
@@ -225,6 +224,10 @@
     
     [_hudLayer putScoreLabel:self.pointsScored];
     
+}
+
+-(void) addBody:(GameObject *)body{
+    [self.physicsController addBody:body];
 }
 
 @end

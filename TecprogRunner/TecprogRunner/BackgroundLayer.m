@@ -31,14 +31,15 @@ struct line{
     GameObject* lastGameObject;
 }
 
--(instancetype) initWithSize:(CGSize)size andPhysicsController:(PhysicsController*) physicsController{
+-(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>) physicsBodyAdder{
     self = [super init];
     
     if(self != NULL){
         
+        self.physicsBodyAdder = physicsBodyAdder;
+        
         _tiles = [[NSMutableArray<GameObject*> alloc] init];
         _removedTiles = [[NSMutableArray<GameObject*> alloc] init];
-        self.physicsController = physicsController;
         _size = size;
         
         CGSize firstGroundSize = CGSizeMake(_size.width*2,_size.height*0.1);
@@ -107,12 +108,7 @@ struct line{
         tile.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
     }
     
-    if(self.physicsController != nil){
-        [self.physicsController addBody:tile];
-    }
-    else {
-        DebugLog(@"Physics controller is nil");
-    }
+    [self.physicsBodyAdder addBody:tile];
         
     // adding tile to array
     [_tiles addObject:tile];

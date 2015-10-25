@@ -7,10 +7,13 @@
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import <SpriteKit/SpriteKit.h>
+#import "GlobalHeaders.h"
 
 @interface EnemyGenerator : SKNode
 
--(instancetype)initWithSize:(CGSize)size;
+@property (nonatomic) id <physicsControllerAddBody> physicsBodyAdder;
+
+-(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>) physicsBodyAdder;
 -(void)newEnemyWithScore:(unsigned int)score;
 
 @end

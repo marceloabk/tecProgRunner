@@ -8,16 +8,12 @@
 
 #import "BasicLayer.h"
 
-@class PhysicsController;
-
 @interface BackgroundLayer : SKNode <LayerRequirements>
 
-@property (nonatomic) PhysicsController* physicsController;
-
--(void) addBackgroundGameObjectsToPhysicsController:(PhysicsController*) physicsController;
+@property (nonatomic) id<physicsControllerAddBody> physicsBodyAdder;
 
 -(void) updateWithDeltaTime:(CFTimeInterval)deltaTime;
 
--(instancetype) initWithSize:(CGSize)size andPhysicsController:(PhysicsController*) physicsController;
+-(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>) physicsBodyAdder;
 
 @end
