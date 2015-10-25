@@ -95,6 +95,7 @@
         enemy.lives--;
         if (enemy.lives == 0) {
             [enemy removeFromParent];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"enemy die" object:nil];
         }
     }
 }

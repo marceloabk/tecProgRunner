@@ -16,6 +16,7 @@
 @interface GameLayer()
 
 @property (nonatomic) Player *player;
+@property (nonatomic) EnemyGenerator *enemyGenerator;
 
 @end
 
@@ -154,6 +155,8 @@
     // Put player on the layer
     [self initializePlayer];
     
+    [self initializeEnemyGenerator];
+    
     self.pointsScored = 0;
     [self initiateTimer];
     
@@ -162,6 +165,20 @@
     
     // Pause button
     [self loadPause];
+}
+
+
+// Initliaze the enemyGenerator
+-(void) initializeEnemyGenerator{
+    self.enemyGenerator = [[EnemyGenerator alloc]initWithSize:_size andBodyAdder:self];
+    [self addChild:self.enemyGenerator];
+    [self.enemyGenerator newEnemyWithScore:self.pointsScored];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newEnemy) name:@"enemy die" object:nil];
+}
+
+-(void)newEnemy{
+    [self.enemyGenerator newEnemyWithScore:self.pointsScored];
 }
 
 -(void) initializePlayer{
@@ -173,10 +190,6 @@
     [self.layer addChild:self.player];
     
     [_physicsController addBody:self.player];
-    
-    EnemyGenerator *eg = [[EnemyGenerator alloc]initWithSize:_size andBodyAdder:self];
-    [self addChild:eg];
-    [eg newEnemyWithScore:100];
 }
 
 -(void) deactivateTimer{
