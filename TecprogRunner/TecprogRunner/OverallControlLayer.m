@@ -123,5 +123,9 @@
     DebugLog("PAUSE GAME LAYER NOT WORKING YET");
 }
 
+-(void) swipeLeft{
+}
+-(void) swipeRight{
+}
 
 @end

@@ -137,4 +137,29 @@
     
 }
 
+-(void)alterarPage: (UISwipeGestureRecognizer *) sender{
+    
+    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+        [self.overallControlLayer swipeRight];
+    }
+    else if (sender.direction == UISwipeGestureRecognizerDirectionLeft){
+        [self.overallControlLayer swipeLeft];
+        
+    }
+    
+}
+
+-(void)didMoveToView:(SKView *)view{
+
+    
+    self.leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(alterarPage:)];
+    self.rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(alterarPage:)];
+    
+    self.leftSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+    self.rightSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    
+    [self.view addGestureRecognizer:self.rightSwipe];
+    [self.view addGestureRecognizer:self.leftSwipe];
+
+}
 @end
