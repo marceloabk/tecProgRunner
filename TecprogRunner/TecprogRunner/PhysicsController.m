@@ -44,8 +44,6 @@
     SKNode* nodeA = contact.bodyA.node;
     SKNode* nodeB = contact.bodyB.node;
     
-    
-    
     BOOL bodyAisGround = [nodeA.name isEqualToString:@"ground"];
     BOOL bodyBisGround = [nodeB.name isEqualToString:@"ground"];
 
@@ -98,10 +96,6 @@
     BOOL bodyAisGround = [contact.bodyA.node.name isEqualToString:@"ground"];
     BOOL bodyBisGround = [contact.bodyB.node.name isEqualToString:@"ground"];
     
-    if(contact.contactNormal.dy == 1){
-        NSLog(@"normal equal 1");
-    }
-    
     //If a body dont touches the ground... he !isOnGround
     if(bodyAisGround && !bodyBisGround){
         
@@ -116,7 +110,6 @@
                     gameObj.isOnGround = true;
                     break;
                 }
-                
             }
         }
         
@@ -133,10 +126,25 @@
                     gameObj.isOnGround = true;
                     break;
                 }
-                
             }
         }
+    }
+}
 
+-(void) addBody:(GameObject *)body{
+    
+    if(body != nil){
+        
+        if(self.bodies == nil){
+            
+            self.bodies = [[NSMutableArray<GameObject*> alloc] init];
+        }
+
+        DebugLog(@"adding body with name: %@", body.name);
+        [self.bodies addObject:body];
+    }
+    else {
+        DebugLog(@"Body is nil");
     }
 }
 

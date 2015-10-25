@@ -10,32 +10,24 @@
 
 #define INITIAL_PLAYER_IMAGE @"playerRunning1"
 
+typedef enum playerMoviments{
+    PlayerMovimentRun,
+    PlayerMovimentJump,
+    PlayerMovimentFall
+}playerMoviments;
+
 @interface Player : GameObject
 
 /**
  Boolean that indicates whether player is on the ground
 */
 @property (nonatomic) BOOL playerOnGround;
+@property (nonatomic) playerMoviments moviment;
 
 /**
  run jump procedures
 */
 -(void) jump;
-
-/**
- Make the animation of player running
-*/
--(SKAction*) runningAnimation;
-
-/**
- Make the animation of player Jumping
-*/
--(SKAction*) loadJumpAnimation;
-
-/**
- Make the animation of player Falling
-*/
--(SKAction*) loadFallAnimation;
 
 /**
  Throw projectile procedures

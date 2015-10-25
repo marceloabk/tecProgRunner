@@ -33,4 +33,6 @@
 */
 -(void) updateWithDeltaTime:(CFTimeInterval)deltaTime;
 
+-(void) addBody:(GameObject*) body;
+
 @end

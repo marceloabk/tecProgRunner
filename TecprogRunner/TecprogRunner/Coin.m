@@ -82,8 +82,6 @@
 // Load animations of coin spinning
 -(SKAction*) loadSpinningAnimation{
     
-    NSLog(@"Loading Run Animation");
-    
     // Creating a Mutable Array filled with Run Animations
     NSMutableArray *runTextures = [super generateAnimationImages:@"Coin" andCount:6];
     

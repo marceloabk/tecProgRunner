@@ -139,8 +139,9 @@
 -(void) activateLayer{
     
     _sceneLayer = [[SKNode alloc] init];
-    _backgroundLayer = [[BackgroundLayer alloc] initWithSize:_size];
-    [_backgroundLayer addBackgroundGameObjectsToPhysicsController:self.physicsController];
+    _backgroundLayer = [[BackgroundLayer alloc] initWithSize:_size
+                                        andPhysicsController:self.physicsController];
+    
     _hudLayer = [[HudLayer alloc] initWithSize:_size];
     self.layer = [SKNode node];
     
@@ -171,7 +172,7 @@
     // Add player to the layer
     [self.layer addChild:self.player];
     
-    [_physicsController.bodies addObject:self.player];
+    [_physicsController addBody:self.player];
 }
 
 -(void) deactivateTimer{
@@ -188,19 +189,21 @@
 
 -(void) generateCoin{
 
-    Coin *newCoin = [Coin generateCoinInParent:self.layer withPosition:CGPointMake(_size.width/2, _size.height*0.9)];
+    Coin *newCoin = [Coin generateCoinInParent:self.layer withPosition:CGPointMake(_size.width, _size.height*0.45)];
     
     if(newCoin != nil){
         
         // Adding coin to physics controller for updating moviment
-        [self.physicsController.bodies addObject:newCoin];
+        [self.physicsController addBody:newCoin];
         
     } else {
         // Nothing to do
     }
+    srand(CACurrentMediaTime());
+    double timeBetweenCoins = 1 + rand() % 5;
     
     // Setting timer to next coin generation
-    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(generateCoin) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:timeBetweenCoins target:self selector:@selector(generateCoin) userInfo:nil repeats:NO];
 }
 
 -(void) onTick{

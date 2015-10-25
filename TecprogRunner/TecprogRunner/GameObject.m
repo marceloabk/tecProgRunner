@@ -46,8 +46,6 @@
         // Selecting image
         NSString *imageName = [NSString stringWithFormat:@"%@%i", modelImageName, index];
         
-        NSLog(@"Generating texture with image named: %@", imageName);
-        
         // Making texture with the image
         SKTexture *texture = [self generateTextureWithImageNamed:imageName];
         

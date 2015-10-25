@@ -9,18 +9,13 @@
 #import "Player.h"
 #import "Projectile.h"
 
-#define JUMP_IMPULSE 500
-
-typedef enum playerMoviments{
-    PlayerMovimentRun,
-    PlayerMovimentJump,
-    PlayerMovimentFall
-}playerMoviments;
-
 @interface Player()
 @end
 
-@implementation Player
+@implementation Player{
+    
+    int isOnGroundChecker;
+}
 
 // Initialize Player class with a position
 -(instancetype)initWithPosition:(CGPoint)position{
@@ -63,6 +58,7 @@ typedef enum playerMoviments{
     self.physicsBody = [self generatePhysicsBody];
     self.physicsBody.allowsRotation = false;
     self.physicsBody.affectedByGravity = true;
+    self.physicsBody.restitution = 0.0;
     
     self.playerOnGround = true;
     self.isOnGround = false;
@@ -151,13 +147,11 @@ typedef enum playerMoviments{
     
     if(self.isOnGround){
         self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.physicsBody.velocity.dy + JUMP_IMPULSE);
-        
         self.isOnGround = false;
     }
     else {
         // Player can't jump while is in the air, by now
     }
-
 }
 
 // Make player throw a projectile when called
@@ -194,27 +188,45 @@ typedef enum playerMoviments{
     } else if(self.physicsBody.velocity.dy > 0 && !self.isOnGround){
         [self changeToAction:PlayerMovimentJump];
     }
+    
+    // Ansure that player is on ground
+    if(self.isOnGround == false && self.physicsBody.velocity.dy == 0){
+        isOnGroundChecker++;
+        
+        if(isOnGroundChecker > 1){
+            self.isOnGround = true;
+        }
+    }
+    else {
+        isOnGroundChecker = 0;
+    }
 }
 
 -(void) changeToAction:(playerMoviments) moviment{
-
-    [self removeAllActions];
     
-    switch (moviment) {
-        case PlayerMovimentRun:
-            [self runAction:[self loadRunningAnimation]];
-            break;
-        case PlayerMovimentJump:
-            [self runAction:[self loadJumpAnimation]];
-            break;
-            
-        case PlayerMovimentFall:
-            [self runAction:[self loadFallAnimation]];
-            break;
-            
-        default:
-            break;
+    if(self.moviment != moviment){
+        
+        self.moviment = moviment;
+        
+        [self removeAllActions];
+        
+        switch (moviment) {
+            case PlayerMovimentRun:
+                [self runAction:[self loadRunningAnimation]];
+                break;
+            case PlayerMovimentJump:
+                [self runAction:[self loadJumpAnimation]];
+                break;
+                
+            case PlayerMovimentFall:
+                [self runAction:[self loadFallAnimation]];
+                break;
+                
+            default:
+                break;
+        }
     }
 }
+
 
 @end

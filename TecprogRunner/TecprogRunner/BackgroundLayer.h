@@ -12,8 +12,12 @@
 
 @interface BackgroundLayer : SKNode <LayerRequirements>
 
+@property (nonatomic) PhysicsController* physicsController;
+
 -(void) addBackgroundGameObjectsToPhysicsController:(PhysicsController*) physicsController;
 
 -(void) updateWithDeltaTime:(CFTimeInterval)deltaTime;
+
+-(instancetype) initWithSize:(CGSize)size andPhysicsController:(PhysicsController*) physicsController;
 
 @end
