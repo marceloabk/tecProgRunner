@@ -44,15 +44,14 @@
     
     if(self.timeLabel == nil){
         self.timeLabel = [Label label];
+        
+        [self addChild:self.timeLabel];
     }else{
         // The time label already exists
     }
     
     // Setting position on screen
     self.timeLabel.position = fontPosition;
-    
-    // Adding score label to layer
-    [self addChild:self.timeLabel];
     
     self.timeLabel.text = timeLabelString;
 }
@@ -68,15 +67,14 @@
     if(self.scoreLabel == nil){
         // Setting score label
         self.scoreLabel = [Label label];
+        
+        [self addChild:self.scoreLabel];
     }else{
         // The score label already exists
     }
     
     // Setting position on screen
     self.scoreLabel.position = fontPosition;
-    
-    // Adding score label to layer
-    [self addChild:self.scoreLabel];
     
     self.scoreLabel.text = pointsLabelString;
     

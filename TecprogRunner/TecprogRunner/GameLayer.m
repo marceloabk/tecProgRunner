@@ -41,8 +41,7 @@
     if(self){
         _size = size;
         self.name = @"layer";
-        
-
+        [self initializePhysicsController];
     }
     return self;
 }
