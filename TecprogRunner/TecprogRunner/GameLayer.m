@@ -39,8 +39,6 @@
     
     self = [super init];
     if(self){
-        _physicsController = [[PhysicsController alloc] init];
-        _physicsController.gameLayer = self;
         _size = size;
         self.name = @"layer";
 
@@ -95,13 +93,20 @@
     
 }
 
+-(void) initializePhysicsController{
+    
+    _physicsController = [[PhysicsController alloc] init];
+    _physicsController.gameLayer = self;
+    
+}
+
 -(void) pausedClicked{
     
     if(self.paused == true){
         self.scene.view.paused = false;
         self.paused = false;
         
-        NSLog(@"%.3f e %.3f", _lastTime, _pausedTime);
+        DebugLog(@"%.3f e %.3f", _lastTime, _pausedTime);
         _pausedTime = CACurrentMediaTime();
         
         [self initiateTimer];
@@ -120,11 +125,11 @@
     if (_lastTime == 0) {
         _lastTime = currentTime;
     }
+    
     CFTimeInterval delta;
     if(_pausedTime == 0){
         delta = currentTime - _lastTime;
-    }
-    else {
+    } else {
         delta = currentTime - _pausedTime;
         _pausedTime = 0;
     }

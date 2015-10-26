@@ -1,6 +1,10 @@
 //
-//  iRate.m
+//  iRate.h
+//  TecprogRunner
 //
+//  iRate control
+//
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "iRate.h"
 

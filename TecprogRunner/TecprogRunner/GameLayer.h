@@ -12,6 +12,9 @@
 
 @interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody>
 
+/**
+ Physics controller for Game actions
+*/
 @property (nonatomic) PhysicsController* physicsController;
 
 /**
@@ -24,7 +27,14 @@
 */
 @property (nonatomic) NSTimer *timer;
 
+/**
+ Points scored on game
+*/
 @property (nonatomic) int pointsScored;
+
+/**
+ Time passed on game
+*/
 @property (nonatomic) int timePassed;
 
 /**

@@ -9,6 +9,9 @@
 #import <SpriteKit/SpriteKit.h>
 #import "TrainingCenterBackground.h"
 
+#define DEFAULT_STARS_ANCHOR_POINT CGPointMake(0, 1)
+#define DEFAULT_STARTS_Z_POSITION 100
+
 @interface TrainingCenterLayer : SKNode
 
 /**
@@ -42,19 +45,39 @@
 -(void) activateLayer;
 
 /**
-Nodes with levels
+ Represent speed level
  */
 @property (nonatomic) SKSpriteNode *levelSpeedStars;
-@property (nonatomic) SKSpriteNode *levelJumpStars;
-@property (nonatomic) SKSpriteNode *levelLuckStars;
-@property (nonatomic) SKSpriteNode *levelShootingStars;
-@property (nonatomic) SKSpriteNode *levelPowerStars;
 
 /**
-Cons and gems labels
+ Represent jump level
  */
+@property (nonatomic) SKSpriteNode *levelJumpStars;
 
+/**
+ Represent luck level
+ */
+@property (nonatomic) SKSpriteNode *levelLuckStars;
+
+/**
+ Represent shooting level
+ */
+@property (nonatomic) SKSpriteNode *levelShootingStars;
+
+/**
+ Represent power level
+ */
+@property (nonatomic) SKSpriteNode *levelPowerStars;
+
+
+/**
+ Label for coins
+*/
 @property (nonatomic) SKLabelNode *coinsLabel;
+
+/**
+ Label for Gems
+*/
 @property (nonatomic) SKLabelNode *gemsLabel;
 
 

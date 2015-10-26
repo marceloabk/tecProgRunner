@@ -78,9 +78,8 @@
         DebugLog(@"unknown layer type");
     }
     
-//    else if(layerType == pause){
-//        // Pause game layer
-//    }
+    #warning VERIFY WHEN LAYER IS TYPE PAUSE
+    
 }
 
 // Initialize menu layer and activate

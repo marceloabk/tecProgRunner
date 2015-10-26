@@ -15,11 +15,12 @@
 
 -(instancetype) initWithSize:(CGSize)size{
     
+    
     DebugLog(@"Initializing");
     
     self = [super initWithSize:size];
     
-    NSAssert((self!=NULL), @"Overall Scene is NULL");
+    NSAssert(self != NULL, @"Overall Scene is NULL");
     
     if(self != NULL){
         
@@ -61,9 +62,11 @@
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 
+    // Detect touch properly
     UITouch * touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
     
+    // Detect node touched
     SKNode *node = [self nodeAtPoint:touchLocation];
     
     DebugLog(@"Node touched = %@", node.name);
@@ -71,33 +74,36 @@
     if([GameData sharedGameData].layerActivated == menu){
         
         DebugLog(@"%@ node in menu",node.name);
+        
         if([node.name isEqualToString:@"tapToPlay"]){
+            
             [GameData sharedGameData].layerActivated = game;
             [self.overallControlLayer changeLayer];
+            [self setBasicsPhysicsWorld];
             
-            self.physicsWorld.contactDelegate = self.overallControlLayer.gameLayer.physicsController;
-            self.physicsWorld.gravity = CGVectorMake(0.0, -6.0);
-
-        }
-        else if([node.name isEqualToString:@"settingsButton"]){
+        } else if([node.name isEqualToString:@"settingsButton"]){
+            
             [GameData sharedGameData].layerActivated = settings;
             [self.overallControlLayer changeLayer];
-        }
-        else if([node.name isEqualToString:@"storeButton"]){
+            
+        } else if([node.name isEqualToString:@"storeButton"]){
+            
             [GameData sharedGameData].layerActivated = store;
             [self.overallControlLayer changeLayer];
-        }
-        else if([node.name isEqualToString:@"trainingCenterButton"]){
+            
+        } else if([node.name isEqualToString:@"trainingCenterButton"]){
+            
             [GameData sharedGameData].layerActivated = trainingCenter;
             [self.overallControlLayer changeLayer];
-        }
-        else{
+            
+        } else{
             DebugLog(@"node %@ unknown for menu",node.name);
         }
-    }
-    else if([GameData sharedGameData].layerActivated == store){
+        
+    }else if([GameData sharedGameData].layerActivated == store){
         
         DebugLog(@"%@ node in store",node.name);
+        
         if([node.name isEqualToString:@"backButtonStore"]){
             [GameData sharedGameData].layerActivated = menu;
             [self.overallControlLayer changeLayer];
@@ -105,8 +111,8 @@
         else{
             DebugLog(@"node %@ unknown for menu",node.name);
         }
-    }
-    else if([GameData sharedGameData].layerActivated == settings){
+        
+    }else if([GameData sharedGameData].layerActivated == settings){
         
         DebugLog(@"%@ node in settings",node.name);
         if([node.name isEqualToString:@"backButtonSettings"]){
@@ -116,17 +122,23 @@
         else{
             DebugLog(@"node %@ unknown for menu",node.name);
         }
-    }
-    else if([GameData sharedGameData].layerActivated == trainingCenter){
+        
+    }else if([GameData sharedGameData].layerActivated == trainingCenter){
+        
         if([node.name isEqualToString:@"backTrainingCenter"]){
             [GameData sharedGameData].layerActivated = menu;
             [self.overallControlLayer changeLayer];
         }
-    }
-    else {
+        
+    }else{
         DebugLog(@"unknown layer type ");
     }
     
+}
+
+-(void) setBasicsPhysicsWorld{
+    self.physicsWorld.contactDelegate = self.overallControlLayer.gameLayer.physicsController;
+    self.physicsWorld.gravity = CGVectorMake(0.0, -6.0);
 }
 
 -(void) update:(CFTimeInterval)currentTime{

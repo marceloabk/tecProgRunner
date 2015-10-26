@@ -34,7 +34,9 @@
 
 -(void) loadBackground{
     
-    self.trainingCenterBackground = [[TrainingCenterBackground alloc] initWithSize:CGSizeMake(667, 375)];
+    CGSize backgroundSize = CGSizeMake(DEFAULT_LAYER_WIDTH, DEFAULT_LAYER_HEIGHT);
+    
+    self.trainingCenterBackground = [[TrainingCenterBackground alloc] initWithSize:backgroundSize];
     
 }
 
@@ -42,6 +44,7 @@
     
     [self loadBack];
     [self loadAtributesTable];
+    
 }
 
 -(void) loadBack{
@@ -63,6 +66,11 @@
     [self loadShootingStars];
     [self loadSpeedStars];
     
+    [self setStarVisual:self.levelJumpStars];
+    [self setStarVisual:self.levelLuckStars];
+    [self setStarVisual:self.levelPowerStars];
+    [self setStarVisual:self.levelShootingStars];
+    [self setStarVisual:self.levelSpeedStars];
     
     self.levelJumpStars.position = CGPointMake(207, 375-103);
     self.levelLuckStars.position = CGPointMake(207, 375-150);
@@ -70,24 +78,12 @@
     self.levelShootingStars.position = CGPointMake(207, 375-250);
     self.levelSpeedStars.position = CGPointMake(207, 375-300);
     
-    self.levelJumpStars.anchorPoint = CGPointMake(0, 1);
-    self.levelLuckStars.anchorPoint = CGPointMake(0, 1);
-    self.levelPowerStars.anchorPoint = CGPointMake(0, 1);
-    self.levelShootingStars.anchorPoint = CGPointMake(0, 1);
-    self.levelSpeedStars.anchorPoint = CGPointMake(0, 1);
-    
-    self.levelJumpStars.zPosition = 100;
-    self.levelLuckStars.zPosition = 100;
-    self.levelPowerStars.zPosition = 100;
-    self.levelShootingStars.zPosition = 100;
-    self.levelSpeedStars.zPosition = 100;
-    
-    [self.levelJumpStars setScale:0.5];
-    [self.levelLuckStars setScale:0.5];
-    [self.levelPowerStars setScale:0.5];
-    [self.levelShootingStars setScale:0.5];
-    [self.levelSpeedStars setScale:0.5];
-    
+}
+
+-(void) setStarVisual:(SKSpriteNode*)star{
+    star.anchorPoint = DEFAULT_STARS_ANCHOR_POINT;
+    star.zPosition = DEFAULT_STARTS_Z_POSITION;
+    [star setScale:0.5];
 }
 
 -(void) loadJumpStars{
@@ -190,7 +186,6 @@
     coinsImage.anchorPoint = CGPointMake(0, 1);
     coinsImage.position = CGPointMake(380, 375-15);
     coinsImage.zPosition = 10;
-//    [coinsImage setScale:0.];
     
     SKSpriteNode *gemsImage = [SKSpriteNode spriteNodeWithImageNamed:@"Coin2"];
     gemsImage.anchorPoint = CGPointMake(0, 1);

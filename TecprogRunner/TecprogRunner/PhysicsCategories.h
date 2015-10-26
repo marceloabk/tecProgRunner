@@ -13,13 +13,39 @@
  Categorize types of physics body
 */
 typedef NS_ENUM(NSUInteger, ColliderType){
-    // 'Binary Shift Right Operation' for differentiate type of objects in physics
+    /**
+     Identify as a Player
+    */
     ColliderTypePlayer = 1 << 0,
+    
+    /**
+     Identify as a Projectile
+    */
     ColliderTypeProjectile = 1 << 1,
+    
+    /**
+     Identify as a Enemy
+    */
     ColliderTypeEnemy = 1 << 2,
+    
+    /**
+     Identify as a Coin
+    */
     ColliderTypeCoin = 1 << 3,
+    
+    /**
+     Identify as a Obstacle
+    */
     ColliderTypeObstacle = 1 << 4,
+    
+    /**
+     Identify as Ground
+    */
     ColliderTypeGround = 1 << 5,
+    
+    /**
+     Identify as NO_TYPE
+     */
     ColliderTypeNone = 0
     
 };

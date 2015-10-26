@@ -13,7 +13,11 @@
 }
 
 -(instancetype) initWithSize:(CGSize)size{
+    
+    DebugLog(@"Initializing");
+    
     self = [super init];
+    
     if(self != NULL){
         _size = size;
         
@@ -26,43 +30,53 @@
     }else{
         // Exception
     }
+    
     return self;
 }
 
 -(void) putTimeLabel:(int)timePassed{
     
-    if(self.timeLabel == nil){
-        // Settint font position
-        CGPoint fontPosition = CGPointMake(_size.width*0.5, _size.height*0.9);
-        
-        // Setting score label
-        self.timeLabel = [Label label];
-        self.timeLabel.position = fontPosition;
-        
-        // Adding score label to layer
-        [self addChild:self.timeLabel];
-    }
-
+    // Setting font position
+    CGPoint fontPosition = CGPointMake(_size.width*0.5, _size.height*0.9);
+    
+    // Text for timeLabel
     NSString *timeLabelString = [[NSString alloc] initWithFormat:@"%i", timePassed];
+    
+    if(self.timeLabel == nil){
+        self.timeLabel = [Label label];
+    }else{
+        // The time label already exists
+    }
+    
+    // Setting position on screen
+    self.timeLabel.position = fontPosition;
+    
+    // Adding score label to layer
+    [self addChild:self.timeLabel];
     
     self.timeLabel.text = timeLabelString;
 }
 
 -(void) putScoreLabel:(int)points{
     
+    // Setting font position
+    CGPoint fontPosition = CGPointMake(_size.width*0.8, _size.height*0.9);
+    
+    // Text for pointsLabel
+    NSString *pointsLabelString = [[NSString alloc] initWithFormat:@"%i", points];
+    
     if(self.scoreLabel == nil){
-        // Settint font position
-        CGPoint fontPosition = CGPointMake(_size.width*0.8, _size.height*0.9);
-        
         // Setting score label
         self.scoreLabel = [Label label];
-        self.scoreLabel.position = fontPosition;
-        
-        // Adding score label to layer
-        [self addChild:self.scoreLabel];
+    }else{
+        // The score label already exists
     }
     
-    NSString *pointsLabelString = [[NSString alloc] initWithFormat:@"%i", points];
+    // Setting position on screen
+    self.scoreLabel.position = fontPosition;
+    
+    // Adding score label to layer
+    [self addChild:self.scoreLabel];
     
     self.scoreLabel.text = pointsLabelString;
     

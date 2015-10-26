@@ -32,7 +32,11 @@
 
 -(void) loadBackground{
 
-    self.backgroundLayerStore = [[BackgroundLayerStore alloc] initWithSize:CGSizeMake(667, 375)];
+    // Setting background size
+    CGSize backgroundSize = CGSizeMake(DEFAULT_LAYER_WIDTH, DEFAULT_LAYER_HEIGHT);
+    
+    // Initializing background
+    self.backgroundLayerStore = [[BackgroundLayerStore alloc] initWithSize:backgroundSize];
 
 }
 

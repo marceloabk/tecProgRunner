@@ -25,12 +25,15 @@
 
 -(void) addBackgroundSprite{
     
-    self.background = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background"]];
-    self.background.position =CGPointZero;
-    self.background.anchorPoint = CGPointZero;
-    [self.background setScale:0.5];
+    // Loading a texture for background
+    SKTexture* backgroundTexture = [SKTexture textureWithImageNamed:@"background"];
     
+    // Setting backgroun properties
+    self.background = [SKSpriteNode spriteNodeWithTexture:backgroundTexture];
+    self.background.position = CGPointZero;
+    self.background.anchorPoint = CGPointZero;
     self.background.zPosition = -1;
+    [self.background setScale:0.5];
     
     [self addChild:self.background];
     

@@ -15,24 +15,31 @@
 @protocol GameObjectsContact <NSObject>
 
 @required
+
+/**
+ Handle when player contact a Coin
+*/
 -(void) playerContactCoin:(Coin*) coin;
 
 @end
 
 @interface PhysicsController : NSObject <SKPhysicsContactDelegate>
 
-@property (nonatomic) id<GameObjectsContact> gameLayer;
 
 /**
  Array of bodies inside physics world
 */
-
+@property (nonatomic) id<GameObjectsContact> gameLayer;
 
 /**
  Each frame physics controller updates physics world, applying bodies velocities.
 */
 -(void) updateWithDeltaTime:(CFTimeInterval)deltaTime;
 
+
+/**
+ Add a body to Array of bodies inside physics world
+ */
 -(void) addBody:(GameObject*) body;
 
 @end

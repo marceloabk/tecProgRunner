@@ -21,6 +21,8 @@
     
     if (self != NULL) {
         
+        DebugLog("Physics Controller initialized");
+        
         _bodies = [[NSMutableArray <GameObject*> alloc] init];
         
     }else{
@@ -32,7 +34,8 @@
 
 -(void) updateWithDeltaTime:(CFTimeInterval)deltaTime{
     
-    //Update every object position
+    // Update every object position
+    
     for(GameObject* obj in _bodies){
         
         [obj updateWithDeltaTime:deltaTime];
@@ -41,26 +44,33 @@
 
 -(void) didBeginContact:(SKPhysicsContact *)contact{
     
+    NSAssert(contact != NULL, @"Contact is NULL in didBeginContact");
     
+    // Identifying nodes in contact
     SKNode* nodeA = contact.bodyA.node;
     SKNode* nodeB = contact.bodyB.node;
     
+    // Detect if body is on ground
     BOOL bodyAisGround = [nodeA.name isEqualToString:@"ground"];
     BOOL bodyBisGround = [nodeB.name isEqualToString:@"ground"];
     
+    // Detect if body is a Coin
     BOOL bodyAisCoin = [nodeA isKindOfClass:[Coin class]];
     BOOL bodyBisCoin = [nodeB isKindOfClass:[Coin class]];
     
+    // Detect if body is a Player
     BOOL bodyAisPlayer = [nodeA isKindOfClass:[Player class]];
     BOOL bodyBisPlayer = [nodeB isKindOfClass:[Player class]];
     
+    // Detect if body is a Enemy
     BOOL bodyAisEnemy = [nodeA isKindOfClass:[Enemy class]];
     BOOL bodyBisEnemy = [nodeB isKindOfClass:[Enemy class]];
     
+    // Detect if body is a Projectile
     BOOL bodyAisProjectile = [nodeA isKindOfClass:[Projectile class]];
     BOOL bodyBisProjectile = [nodeB isKindOfClass:[Projectile class]];
 
-    //If a body touches the ground... he isOnGround
+    // If a body touches the ground... he isOnGround
     if((bodyAisGround || bodyBisGround) && (bodyAisPlayer || bodyBisPlayer)){
         GameObject* gameObj = ((GameObject*)contact.bodyB.node);
         
@@ -70,9 +80,9 @@
             gameObj.isOnGround = true;
             gameObj.velocity = CGVectorMake(gameObj.velocity.dx, 0.0);
         }
-    }else if((bodyAisCoin || bodyBisCoin) && (bodyAisPlayer || bodyBisPlayer)){
-        // ground contact ground and body contact body do not interfers in gravity mechanics
         
+    }else if((bodyAisCoin || bodyBisCoin) && (bodyAisPlayer || bodyBisPlayer)){
+        // Ground contact ground and body contact body do not interfers in gravity mechanics
         if(bodyAisCoin && bodyBisPlayer){
             Coin* coin = (Coin*)nodeA;
             [self.gameLayer playerContactCoin:coin];
@@ -102,10 +112,13 @@
 
 -(void) didEndContact:(SKPhysicsContact *)contact{
     
+    NSAssert(contact != NULL, @"Contact is NULL in didEndContact");
+    
+    // Detect if body is on ground
     BOOL bodyAisGround = [contact.bodyA.node.name isEqualToString:@"ground"];
     BOOL bodyBisGround = [contact.bodyB.node.name isEqualToString:@"ground"];
     
-    //If a body dont touches the ground... he !isOnGround
+    // If a body dont touches the ground... he !isOnGround
     if(bodyAisGround && !bodyBisGround){
         
         GameObject* gameObj = ((GameObject*)contact.bodyA.node);
@@ -144,21 +157,26 @@
     
     if(body != nil){
         
+        DebugLog("Adding body named %@", body);
+        
         if(_bodies == nil){
             _bodies = [[NSMutableArray<GameObject*> alloc] init];
+        }else{
+            // There's no alternative path
         }
         
         if([_bodies containsObject:body] == false){
             [_bodies addObject:body];
             DebugLog(@"adding body with name: %@", body.name);
-        }
-        else {
+        } else {
             DebugLog(@"Body is already in physiscs array bodies");
         }
-    }
-    else {
+        
+    }else{
         DebugLog(@"Body is nil");
+        // Throw exception
     }
+    
 }
 
 @end

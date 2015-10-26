@@ -11,6 +11,10 @@
 #import "PhysicsCategories.h"
 #import "PhysicsController.h"
 
+/**
+ Imaginary line between
+ two points
+*/
 struct line{
     CGPoint point1;
     CGPoint point2;
@@ -31,7 +35,12 @@ struct line{
     GameObject* lastGameObject;
 }
 
--(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>) physicsBodyAdder{
+-(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>)physicsBodyAdder{
+    
+    NSAssert(physicsBodyAdder != NULL, @"physicsBodyAdder is NULL on BackgroundLayer");
+    
+    DebugLog(@"Initializing BackgroundLayer");
+    
     self = [super init];
     
     if(self != NULL){
@@ -84,7 +93,7 @@ struct line{
     _secondClouds.zPosition = -1;
 }
 
--(GameObject*) createTileGroundWithSize:(CGSize) size{
+-(GameObject*) createTileGroundWithSize:(CGSize)size{
     
     GameObject* tile;
     if(_removedTiles.count <= 0 || true){
@@ -100,8 +109,7 @@ struct line{
         tile.physicsBody.collisionBitMask = ColliderTypePlayer;
         tile.physicsBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeEnemy | ColliderTypeObstacle;
         tile.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
-    }
-    else{
+    }else{
         tile = [_removedTiles lastObject];
         [_removedTiles removeLastObject];
         tile.size = size;
@@ -110,7 +118,7 @@ struct line{
     
     [self.physicsBodyAdder addBody:tile];
         
-    // adding tile to array
+    // Adding tile to array
     [_tiles addObject:tile];
     
     return tile;
@@ -154,7 +162,7 @@ struct line{
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(generateTiles) userInfo:nil repeats:NO];
 }
 
--(CGPoint) calculateInitialPointByLine:(struct line) line andX:(double) x{
+-(CGPoint) calculateInitialPointByLine:(struct line)line andX:(double)x{
 
     double partX = (line.point1.y - line.point2.y);
     double partXY = line.point1.x*line.point2.y - line.point2.x*line.point1.y;

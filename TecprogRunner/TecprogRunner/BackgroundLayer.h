@@ -10,10 +10,20 @@
 
 @interface BackgroundLayer : SKNode <LayerRequirements>
 
+/**
+ Used to add physics bodies to Physics Controller
+*/
 @property (nonatomic) id<physicsControllerAddBody> physicsBodyAdder;
 
+/**
+ Update background using a time
+*/
 -(void) updateWithDeltaTime:(CFTimeInterval)deltaTime;
 
--(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>) physicsBodyAdder;
+/**
+ Init background with a size
+ and a Body Adder
+*/
+-(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>)physicsBodyAdder;
 
 @end

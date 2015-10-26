@@ -40,9 +40,11 @@ static NSString* const SSGameDataKey8 = @"gems";
     
     NSData* decodedData = [NSData dataWithContentsOfFile: [GameData filePath]];
     
-    if (decodedData) {
+    if(decodedData != NULL){
         GameData* gameData = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
         return gameData;
+    }else{
+        // There is no alternative path
     }
     
     return [[GameData alloc] init];
@@ -51,16 +53,21 @@ static NSString* const SSGameDataKey8 = @"gems";
 
 -(void) save{
     
+    // Get archived data
     NSData* encodedData = [NSKeyedArchiver archivedDataWithRootObject: self];
+    
+    // Write data to encoded data
     [encodedData writeToFile:[GameData filePath] atomically:YES];
     
 }
 
 -(instancetype) initWithCoder:(NSCoder *)decoder{
     
+    NSAssert(decoder != NULL, @"There's no decoder on GameData");
+    
     self = [self init];
     
-    if (self){
+    if(self != NULL){
      
         _highScore = [decoder decodeIntForKey: SSGameDataKey1];
         _levelJump = [decoder decodeIntForKey: SSGameDataKey2];
@@ -79,8 +86,10 @@ static NSString* const SSGameDataKey8 = @"gems";
 // Will be called the first time the user enters the game
 -(void) start{
 
+    // Define menu as the first layer activated
     self.layerActivated = menu;
     
+    // Initialize the level of attributes
     self.levelJump = STARTING_LEVEL;
     self.levelLuck = STARTING_LEVEL;
     self.levelShooting = STARTING_LEVEL;
@@ -92,6 +101,9 @@ static NSString* const SSGameDataKey8 = @"gems";
 
 -(void) encodeWithCoder:(NSCoder *)encoder{
     
+    NSAssert(encoder != NULL, @"There's no encoder on GameData");
+    
+    // Encode data
     [encoder encodeInt:self.highScore forKey: SSGameDataKey1];
     [encoder encodeInt:self.levelJump forKey: SSGameDataKey2];
     [encoder encodeInt:self.levelLuck forKey: SSGameDataKey3];
@@ -108,10 +120,10 @@ static NSString* const SSGameDataKey8 = @"gems";
     
     static NSString* filePath = nil;
     
-    if (filePath == NULL){
-        filePath =
-        [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
-         stringByAppendingPathComponent:@"gamedata"];
+    if(filePath == NULL){
+        filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"gamedata"];
+    }else{
+        // There is no alternative path
     }
     
     return filePath;

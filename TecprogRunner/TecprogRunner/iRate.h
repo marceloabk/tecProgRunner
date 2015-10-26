@@ -1,6 +1,10 @@
 //
 //  iRate.h
+//  TecprogRunner
 //
+//  iRate control
+//
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-missing-property-synthesis"
@@ -28,7 +32,7 @@
 IRATE_EXTERN NSUInteger const iRateAppStoreGameGenreID;
 IRATE_EXTERN NSString *const iRateErrorDomain;
 
-//localisation string keys
+// Localisation string keys
 IRATE_EXTERN NSString *const iRateMessageTitleKey; //iRateMessageTitle
 IRATE_EXTERN NSString *const iRateAppMessageKey; //iRateAppMessage
 IRATE_EXTERN NSString *const iRateGameMessageKey; //iRateGameMessage
@@ -37,7 +41,7 @@ IRATE_EXTERN NSString *const iRateCancelButtonKey; //iRateCancelButton
 IRATE_EXTERN NSString *const iRateRemindButtonKey; //iRateRemindButton
 IRATE_EXTERN NSString *const iRateRateButtonKey; //iRateRateButton
 
-//notification keys
+// Notification keys
 IRATE_EXTERN NSString *const iRateCouldNotConnectToAppStore;
 IRATE_EXTERN NSString *const iRateDidDetectAppUpdate;
 IRATE_EXTERN NSString *const iRateDidPromptForRating;
@@ -47,8 +51,7 @@ IRATE_EXTERN NSString *const iRateUserDidRequestReminderToRateApp;
 IRATE_EXTERN NSString *const iRateDidOpenAppStore;
 
 
-typedef NS_ENUM(NSUInteger, iRateErrorCode)
-{
+typedef NS_ENUM(NSUInteger, iRateErrorCode){
     iRateErrorBundleIdDoesNotMatchAppStore = 1,
     iRateErrorApplicationNotFoundOnAppStore,
     iRateErrorApplicationIsNotLatestVersion,
@@ -76,25 +79,25 @@ typedef NS_ENUM(NSUInteger, iRateErrorCode)
 
 + (instancetype)sharedInstance;
 
-//app store ID - this is only needed if your
-//bundle ID is not unique between iOS and Mac app stores
+// App store ID - this is only needed if your
+// bundle ID is not unique between iOS and Mac app stores
 @property (nonatomic, assign) NSUInteger appStoreID;
 
-//application details - these are set automatically
+// Application details - these are set automatically
 @property (nonatomic, assign) NSUInteger appStoreGenreID;
 @property (nonatomic, copy) NSString *appStoreCountry;
 @property (nonatomic, copy) NSString *applicationName;
 @property (nonatomic, copy) NSString *applicationVersion;
 @property (nonatomic, copy) NSString *applicationBundleID;
 
-//usage settings - these have sensible defaults
+// Usage settings - these have sensible defaults
 @property (nonatomic, assign) NSUInteger usesUntilPrompt;
 @property (nonatomic, assign) NSUInteger eventsUntilPrompt;
 @property (nonatomic, assign) float daysUntilPrompt;
 @property (nonatomic, assign) float usesPerWeekForPrompt;
 @property (nonatomic, assign) float remindPeriod;
 
-//message text, you may wish to customise these
+// Message text, you may wish to customise these
 @property (nonatomic, copy) NSString *messageTitle;
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, copy) NSString *updateMessage;
@@ -102,7 +105,7 @@ typedef NS_ENUM(NSUInteger, iRateErrorCode)
 @property (nonatomic, copy) NSString *remindButtonLabel;
 @property (nonatomic, copy) NSString *rateButtonLabel;
 
-//debugging and prompt overrides
+// Debugging and prompt overrides
 @property (nonatomic, assign) BOOL useUIAlertControllerIfAvailable;
 @property (nonatomic, assign) BOOL useAllAvailableLanguages;
 @property (nonatomic, assign) BOOL promptForNewVersionIfUserRated;
@@ -112,7 +115,7 @@ typedef NS_ENUM(NSUInteger, iRateErrorCode)
 @property (nonatomic, assign) BOOL verboseLogging;
 @property (nonatomic, assign) BOOL previewMode;
 
-//advanced properties for implementing custom behaviour
+// Advanced properties for implementing custom behaviour
 @property (nonatomic, strong) NSURL *ratingsURL;
 @property (nonatomic, strong) NSDate *firstUsed;
 @property (nonatomic, strong) NSDate *lastReminded;
@@ -125,7 +128,7 @@ typedef NS_ENUM(NSUInteger, iRateErrorCode)
 @property (nonatomic, readonly) BOOL ratedAnyVersion;
 @property (nonatomic, weak_delegate) id<iRateDelegate> delegate;
 
-//manually control behaviour
+// Manually control behaviour
 - (BOOL)shouldPromptForRating;
 - (void)promptForRating;
 - (void)promptIfNetworkAvailable;
