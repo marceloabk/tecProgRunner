@@ -65,6 +65,17 @@ typedef enum {
 @property (nonatomic) unsigned int gems;
 
 /**
+Music
+ */
+@property (nonatomic) BOOL musicAvailibility;
+
+
+/**
+Sound effects
+ */
+@property (nonatomic) BOOL soundEffectsAvailibility;
+
+/**
  Dispatch method that creates the singleton
 */
 +(instancetype) sharedGameData;

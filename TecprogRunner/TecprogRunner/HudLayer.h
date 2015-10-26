@@ -11,7 +11,6 @@
 
 @interface HudLayer : SKNode <LayerRequirements>
 
-
 /**
  Layer that represent HudLayer on screen
  */

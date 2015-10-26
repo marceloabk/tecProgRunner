@@ -9,6 +9,7 @@
 #import "BasicLayer.h"
 #import "PhysicsController.h"
 #import "GameData.h"
+#import "PauseLayer.h"
 
 @interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody>
 
@@ -36,6 +37,8 @@
  Time passed on game
 */
 @property (nonatomic) int timePassed;
+
+@property (nonatomic) PauseLayer *pauseLayer;
 
 /**
  Update from GameLayer

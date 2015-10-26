@@ -22,6 +22,8 @@ static NSString* const SSGameDataKey5 = @"levelShooting";
 static NSString* const SSGameDataKey6 = @"levelSpeed";
 static NSString* const SSGameDataKey7 = @"coins";
 static NSString* const SSGameDataKey8 = @"gems";
+static NSString* const SSGameDataKey9 = @"musicAvailibility";
+static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
 
 
 +(instancetype) sharedGameData{
@@ -77,6 +79,8 @@ static NSString* const SSGameDataKey8 = @"gems";
         _levelSpeed = [decoder decodeIntForKey: SSGameDataKey6];
         _coins = [decoder decodeIntForKey: SSGameDataKey7];
         _gems = [decoder decodeIntForKey: SSGameDataKey8];
+        _musicAvailibility = [decoder decodeBoolForKey: SSGameDataKey9];
+        _soundEffectsAvailibility = [decoder decodeIntForKey: SSGameDataKey10];
 
     }
     
@@ -97,6 +101,9 @@ static NSString* const SSGameDataKey8 = @"gems";
     self.levelPower = STARTING_LEVEL;
     self.gems = STARTING_COINS_OR_GEMS_AMOUNT;
     self.coins = STARTING_COINS_OR_GEMS_AMOUNT;
+    
+    self.musicAvailibility = true;
+    self.soundEffectsAvailibility = true;
 }
 
 -(void) encodeWithCoder:(NSCoder *)encoder{

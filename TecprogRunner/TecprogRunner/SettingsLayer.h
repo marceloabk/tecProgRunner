@@ -33,6 +33,12 @@
 @property (nonatomic) SKSpriteNode *backButton;
 
 /**
+ Music and sound effects
+ */
+@property (nonatomic) SKSpriteNode *musicButton;
+@property (nonatomic) SKSpriteNode *soundEffectsButton;
+
+/**
  Method used to activate Settings Layer
 */
 -(void) activateLayer;

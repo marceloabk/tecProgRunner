@@ -24,7 +24,7 @@
         self.layer = [SKNode node];
         
         [self addChild:self.layer];
-        
+                
         // Adding a label to count score during the game
         [self putTimeLabel:0];
     }else{
@@ -80,6 +80,10 @@
     
     self.scoreLabel.text = pointsLabelString;
     
+}
+
+-(void) activateLayer{
+
 }
 
 @end

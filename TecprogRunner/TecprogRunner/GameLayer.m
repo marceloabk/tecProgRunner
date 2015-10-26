@@ -41,6 +41,7 @@
     if(self){
         _size = size;
         self.name = @"layer";
+        
 
     }
     return self;
@@ -54,7 +55,7 @@
     #warning CGPoint not catalogated, it is magic point
     _pauseButton.position = CGPointMake(15, 365);
     #warning posX and posY not catalogated, it is magic numbers
-    _pauseButton.zPosition = 10000000;
+    _pauseButton.zPosition = 1000;
     #warning zPosition not catalogated, it is magic number
     _pauseButton.name = @"pauseGame";
     
@@ -110,12 +111,16 @@
         _pausedTime = CACurrentMediaTime();
         
         [self initiateTimer];
+        
+        [self.pauseLayer removeFromParent];
     }
     else {
         self.scene.view.paused = true;
         self.paused = true;
 
         [self deactivateTimer];
+        
+        [self putPauseLayer];
     }
 }
 
@@ -149,6 +154,7 @@
     _backgroundLayer = [[BackgroundLayer alloc] initWithSize:_size andBodyAdder:self];
     
     _hudLayer = [[HudLayer alloc] initWithSize:_size];
+
     self.layer = [SKNode node];
     
     // Adding layers to game layer
@@ -157,6 +163,10 @@
     [_sceneLayer addChild:_backgroundLayer];
     [_sceneLayer addChild:_hudLayer];
     
+//    self.pauseLayer = [[PauseLayer alloc] initWithSize:_size];
+//    [_sceneLayer addChild:self.pauseLayer];
+//    [self.pauseLayer activatePauseLayer];
+
     // Put player on the layer
     [self initializePlayer];
     
@@ -247,6 +257,15 @@
 
 -(void) addBody:(GameObject *)body{
     [self.physicsController addBody:body];
+}
+
+
+-(void) putPauseLayer{
+    
+    self.pauseLayer = [[PauseLayer alloc] initWithSize:_size];
+    [_sceneLayer addChild:self.pauseLayer];
+    [self.pauseLayer activatePauseLayer];
+
 }
 
 @end
