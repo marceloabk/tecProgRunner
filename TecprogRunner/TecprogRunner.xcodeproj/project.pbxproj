@@ -63,6 +63,9 @@
 		6B49F94A1BDDA40300E7164D /* pauseContinueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B49F9471BDDA40300E7164D /* pauseContinueButton.png */; };
 		6B49F94B1BDDA40300E7164D /* pauseHomeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B49F9481BDDA40300E7164D /* pauseHomeButton.png */; };
 		6B49F94C1BDDA40300E7164D /* pauseRestarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B49F9491BDDA40300E7164D /* pauseRestarButton.png */; };
+		6B49F9501BDDB61700E7164D /* volumeOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B49F94D1BDDB61700E7164D /* volumeOff.png */; };
+		6B49F9521BDDB61700E7164D /* backgroundSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B49F94F1BDDB61700E7164D /* backgroundSettings.png */; };
+		6B49F9561BDDB9E300E7164D /* volumeOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B49F9551BDDB9E300E7164D /* volumeOn.png */; };
 		6BB8A4171BD00413004DD4C8 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A40E1BD00413004DD4C8 /* background.png */; };
 		6BB8A4181BD00413004DD4C8 /* levelStars5.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A40F1BD00413004DD4C8 /* levelStars5.png */; };
 		6BB8A4191BD00413004DD4C8 /* levelStars4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A4101BD00413004DD4C8 /* levelStars4.png */; };
@@ -181,6 +184,9 @@
 		6B49F9471BDDA40300E7164D /* pauseContinueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseContinueButton.png; sourceTree = "<group>"; };
 		6B49F9481BDDA40300E7164D /* pauseHomeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseHomeButton.png; sourceTree = "<group>"; };
 		6B49F9491BDDA40300E7164D /* pauseRestarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseRestarButton.png; sourceTree = "<group>"; };
+		6B49F94D1BDDB61700E7164D /* volumeOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumeOff.png; sourceTree = "<group>"; };
+		6B49F94F1BDDB61700E7164D /* backgroundSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundSettings.png; sourceTree = "<group>"; };
+		6B49F9551BDDB9E300E7164D /* volumeOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumeOn.png; sourceTree = "<group>"; };
 		6BB8A40E1BD00413004DD4C8 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../TecprogRunner/background.png; sourceTree = "<group>"; };
 		6BB8A40F1BD00413004DD4C8 /* levelStars5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = levelStars5.png; path = ../TecprogRunner/levelStars5.png; sourceTree = "<group>"; };
 		6BB8A4101BD00413004DD4C8 /* levelStars4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = levelStars4.png; path = ../TecprogRunner/levelStars4.png; sourceTree = "<group>"; };
@@ -589,6 +595,9 @@
 		E928572E1BA2556D00DF4959 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6B49F9551BDDB9E300E7164D /* volumeOn.png */,
+				6B49F94D1BDDB61700E7164D /* volumeOff.png */,
+				6B49F94F1BDDB61700E7164D /* backgroundSettings.png */,
 				6B49F9471BDDA40300E7164D /* pauseContinueButton.png */,
 				6B49F9481BDDA40300E7164D /* pauseHomeButton.png */,
 				6B49F9491BDDA40300E7164D /* pauseRestarButton.png */,
@@ -752,12 +761,14 @@
 				09E25CFD1BCDD90800A20E8C /* enemyIdle1.png in Resources */,
 				6B49F9411BDD982600E7164D /* freeCoinsCard.png in Resources */,
 				09E25D031BCDD90800A20E8C /* playerRunning3.png in Resources */,
+				6B49F9561BDDB9E300E7164D /* volumeOn.png in Resources */,
 				09E25D111BCDD90800A20E8C /* pauseButton.png in Resources */,
 				09E25D0A1BCDD90800A20E8C /* Coin2.png in Resources */,
 				67FFA6DF1B99301C00354487 /* Images.xcassets in Resources */,
 				6B49F9401BDD982600E7164D /* coinsCard.png in Resources */,
 				09E25D161BCDD90800A20E8C /* storeButton.png in Resources */,
 				09E25CFB1BCDD90800A20E8C /* backButton.png in Resources */,
+				6B49F9501BDDB61700E7164D /* volumeOff.png in Resources */,
 				6B49F9381BDD662800E7164D /* atributesTable.png in Resources */,
 				6B49F94A1BDDA40300E7164D /* pauseContinueButton.png in Resources */,
 				09E25D141BCDD90800A20E8C /* settingsButton.png in Resources */,
@@ -782,6 +793,7 @@
 				6BB8A41E1BD00413004DD4C8 /* trainingCenterButton.png in Resources */,
 				6BB8A4171BD00413004DD4C8 /* background.png in Resources */,
 				6BB8A41C1BD00413004DD4C8 /* levelStars2.png in Resources */,
+				6B49F9521BDDB61700E7164D /* backgroundSettings.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
