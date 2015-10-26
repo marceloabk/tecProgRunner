@@ -9,7 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "BasicLayer.h"
 
-@interface PauseLayer : SKNode <LayerRequirements>
+@interface PauseLayer : SKNode
 
 /**
  Layer that represent PauseLayer on screen
@@ -21,5 +21,10 @@
 @property SKSpriteNode *continueButton;
 @property SKSpriteNode *homeButton;
 @property SKSpriteNode *restartButton;
+
+-(void) activatePauseLayer;
+
+
+-(instancetype) initWithSize:(CGSize)size;
 
 @end
