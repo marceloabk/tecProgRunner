@@ -59,6 +59,10 @@
 		6B49F9401BDD982600E7164D /* coinsCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B49F93D1BDD982600E7164D /* coinsCard.png */; };
 		6B49F9411BDD982600E7164D /* freeCoinsCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B49F93E1BDD982600E7164D /* freeCoinsCard.png */; };
 		6B49F9421BDD982600E7164D /* gemsCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B49F93F1BDD982600E7164D /* gemsCard.png */; };
+		6B49F9461BDD9D5A00E7164D /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B49F9451BDD9D5A00E7164D /* PauseLayer.m */; };
+		6B49F94A1BDDA40300E7164D /* pauseContinueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B49F9471BDDA40300E7164D /* pauseContinueButton.png */; };
+		6B49F94B1BDDA40300E7164D /* pauseHomeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B49F9481BDDA40300E7164D /* pauseHomeButton.png */; };
+		6B49F94C1BDDA40300E7164D /* pauseRestarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B49F9491BDDA40300E7164D /* pauseRestarButton.png */; };
 		6BB8A4171BD00413004DD4C8 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A40E1BD00413004DD4C8 /* background.png */; };
 		6BB8A4181BD00413004DD4C8 /* levelStars5.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A40F1BD00413004DD4C8 /* levelStars5.png */; };
 		6BB8A4191BD00413004DD4C8 /* levelStars4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB8A4101BD00413004DD4C8 /* levelStars4.png */; };
@@ -172,6 +176,11 @@
 		6B49F93D1BDD982600E7164D /* coinsCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coinsCard.png; path = ../TecprogRunner/coinsCard.png; sourceTree = "<group>"; };
 		6B49F93E1BDD982600E7164D /* freeCoinsCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = freeCoinsCard.png; path = ../TecprogRunner/freeCoinsCard.png; sourceTree = "<group>"; };
 		6B49F93F1BDD982600E7164D /* gemsCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gemsCard.png; path = ../TecprogRunner/gemsCard.png; sourceTree = "<group>"; };
+		6B49F9441BDD9D5A00E7164D /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
+		6B49F9451BDD9D5A00E7164D /* PauseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseLayer.m; sourceTree = "<group>"; };
+		6B49F9471BDDA40300E7164D /* pauseContinueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseContinueButton.png; sourceTree = "<group>"; };
+		6B49F9481BDDA40300E7164D /* pauseHomeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseHomeButton.png; sourceTree = "<group>"; };
+		6B49F9491BDDA40300E7164D /* pauseRestarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseRestarButton.png; sourceTree = "<group>"; };
 		6BB8A40E1BD00413004DD4C8 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../TecprogRunner/background.png; sourceTree = "<group>"; };
 		6BB8A40F1BD00413004DD4C8 /* levelStars5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = levelStars5.png; path = ../TecprogRunner/levelStars5.png; sourceTree = "<group>"; };
 		6BB8A4101BD00413004DD4C8 /* levelStars4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = levelStars4.png; path = ../TecprogRunner/levelStars4.png; sourceTree = "<group>"; };
@@ -504,6 +513,15 @@
 			name = iRate;
 			sourceTree = "<group>";
 		};
+		6B49F9431BDD9D4800E7164D /* PausLayer */ = {
+			isa = PBXGroup;
+			children = (
+				6B49F9441BDD9D5A00E7164D /* PauseLayer.h */,
+				6B49F9451BDD9D5A00E7164D /* PauseLayer.m */,
+			);
+			name = PausLayer;
+			sourceTree = "<group>";
+		};
 		6BF9FB771BC57BEC004878CC /* Training Center */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,6 +589,9 @@
 		E928572E1BA2556D00DF4959 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6B49F9471BDDA40300E7164D /* pauseContinueButton.png */,
+				6B49F9481BDDA40300E7164D /* pauseHomeButton.png */,
+				6B49F9491BDDA40300E7164D /* pauseRestarButton.png */,
 				E92857301BA2558200DF4959 /* Fonts */,
 				E928572F1BA2557900DF4959 /* Button */,
 				09E25CD81BCDD90800A20E8C /* Images */,
@@ -597,6 +618,7 @@
 		E92857401BA25CB100DF4959 /* GameSceneLayers */ = {
 			isa = PBXGroup;
 			children = (
+				6B49F9431BDD9D4800E7164D /* PausLayer */,
 				E928574C1BA25D2400DF4959 /* BackgroundLayer */,
 				E928574B1BA25D1D00DF4959 /* HudLayer */,
 				E928574A1BA25D1500DF4959 /* GameLayer */,
@@ -737,7 +759,9 @@
 				09E25D161BCDD90800A20E8C /* storeButton.png in Resources */,
 				09E25CFB1BCDD90800A20E8C /* backButton.png in Resources */,
 				6B49F9381BDD662800E7164D /* atributesTable.png in Resources */,
+				6B49F94A1BDDA40300E7164D /* pauseContinueButton.png in Resources */,
 				09E25D141BCDD90800A20E8C /* settingsButton.png in Resources */,
+				6B49F94C1BDDA40300E7164D /* pauseRestarButton.png in Resources */,
 				09E25D081BCDD90800A20E8C /* weakEnemyIdle2.png in Resources */,
 				09E25D011BCDD90800A20E8C /* playerRunning1.png in Resources */,
 				09E25D061BCDD90800A20E8C /* playerRunning6.png in Resources */,
@@ -747,6 +771,7 @@
 				67FFA6D71B99301C00354487 /* GameScene.sks in Resources */,
 				6BB8A4201BD0127A004DD4C8 /* atributesTable.png in Resources */,
 				6BB8A4191BD00413004DD4C8 /* levelStars4.png in Resources */,
+				6B49F94B1BDDA40300E7164D /* pauseHomeButton.png in Resources */,
 				67FFA6DD1B99301C00354487 /* Main.storyboard in Resources */,
 				09E25D151BCDD90800A20E8C /* storeBackground.png in Resources */,
 				09E25D0C1BCDD90800A20E8C /* Coin4.png in Resources */,
@@ -802,6 +827,7 @@
 				67FFA6CF1B99301C00354487 /* main.m in Sources */,
 				67A4F5C31BABA3E0004DCA3C /* Projectile.m in Sources */,
 				E92857461BA25D0300DF4959 /* HudLayer.m in Sources */,
+				6B49F9461BDD9D5A00E7164D /* PauseLayer.m in Sources */,
 				6B0FD4191BA91AE400C22BD6 /* BackgroundLayerStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
