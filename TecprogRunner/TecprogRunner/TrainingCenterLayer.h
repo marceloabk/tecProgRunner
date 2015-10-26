@@ -9,7 +9,8 @@
 #import <SpriteKit/SpriteKit.h>
 #import "TrainingCenterBackground.h"
 
-#define DEFAULT_STARS_ANCHOR_POINT CGPointMake(0, 1)
+#define DEFAULT_STARS_X_POSITION 215
+#define DEFAULT_SPRITE_ANCHOR_POINT CGPointMake(0, 1)
 #define DEFAULT_STARTS_Z_POSITION 100
 
 @interface TrainingCenterLayer : SKNode

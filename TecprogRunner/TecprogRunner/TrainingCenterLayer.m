@@ -50,7 +50,7 @@
 -(void) loadBack{
     
     self.backButton = [SKSpriteNode spriteNodeWithImageNamed:@"backButton"];
-    self.backButton.position = CGPointMake(30, 363);
+    self.backButton.position = CGPointMake(10, 363);
     self.backButton.anchorPoint = CGPointMake(0, 1);
     self.backButton.name = @"backTrainingCenter";
     self.backButton.zPosition = 2;
@@ -60,82 +60,53 @@
 
 -(void) loadStars{
     
-    [self loadJumpStars];
-    [self loadLuckStars];
-    [self loadPowerStars];
-    [self loadShootingStars];
-    [self loadSpeedStars];
+    // Load stars sprites
+    self.levelJumpStars = [self loadStarSprite:self.levelJumpStars];
+    self.levelLuckStars = [self loadStarSprite:self.levelLuckStars];
+    self.levelPowerStars = [self loadStarSprite:self.levelPowerStars];
+    self.levelShootingStars = [self loadStarSprite:self.levelShootingStars];
+    self.levelSpeedStars = [self loadStarSprite:self.levelSpeedStars];
     
-    [self setStarVisual:self.levelJumpStars];
-    [self setStarVisual:self.levelLuckStars];
-    [self setStarVisual:self.levelPowerStars];
-    [self setStarVisual:self.levelShootingStars];
-    [self setStarVisual:self.levelSpeedStars];
+    [self setStarCommonAttributes:self.levelJumpStars];
+    [self setStarCommonAttributes:self.levelLuckStars];
+    [self setStarCommonAttributes:self.levelPowerStars];
+    [self setStarCommonAttributes:self.levelShootingStars];
+    [self setStarCommonAttributes:self.levelSpeedStars];
     
-    self.levelJumpStars.position = CGPointMake(207, 375-103);
-    self.levelLuckStars.position = CGPointMake(207, 375-150);
-    self.levelPowerStars.position = CGPointMake(207, 375-197);
-    self.levelShootingStars.position = CGPointMake(207, 375-250);
-    self.levelSpeedStars.position = CGPointMake(207, 375-300);
+    // Set stars positions on screen
+    self.levelJumpStars.position = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-85);
+    self.levelLuckStars.position = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-132);
+    self.levelPowerStars.position = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-179);
+    self.levelShootingStars.position = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-232);
+    self.levelSpeedStars.position = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-282);
     
 }
 
--(void) setStarVisual:(SKSpriteNode*)star{
-    star.anchorPoint = DEFAULT_STARS_ANCHOR_POINT;
+-(void) setStarCommonAttributes:(SKSpriteNode*)star{
+    star.anchorPoint = DEFAULT_SPRITE_ANCHOR_POINT;
     star.zPosition = DEFAULT_STARTS_Z_POSITION;
     [star setScale:0.5];
 }
 
--(void) loadJumpStars{
-
-    int level = [self returnLevel:1];
+-(SKSpriteNode*) loadStarSprite:(SKSpriteNode*)attribute{
+    
+    // Get attribute level
+    int level = [self returnLevel:attribute];
+    
+    // Set string according to the level
     NSString *spriteName = [[NSString alloc] initWithFormat:@"levelStars%i", level];
     
-    self.levelJumpStars = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
-
-}
-
--(void) loadLuckStars{
+    // Generating the sprite
+    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
     
-    int level = [self returnLevel:2];
-    NSString *spriteName = [[NSString alloc] initWithFormat:@"levelStars%i", level];
-    
-    self.levelLuckStars = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
-    
-}
-
--(void) loadPowerStars{
-    
-    int level = [self returnLevel:3];
-    NSString *spriteName = [[NSString alloc] initWithFormat:@"levelStars%i", level];
-    
-    self.levelPowerStars = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
-    
-}
-
--(void) loadShootingStars{
-    
-    int level = [self returnLevel:4];
-    NSString *spriteName = [[NSString alloc] initWithFormat:@"levelStars%i", level];
-    
-    self.levelShootingStars = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
-    
-}
-
--(void) loadSpeedStars{
-    
-    int level = [self returnLevel:5];
-    NSString *spriteName = [[NSString alloc] initWithFormat:@"levelStars%i", level];
-    
-    self.levelSpeedStars = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
-    
+    return sprite;
 }
 
 -(void) loadAtributesTable{
 
     self.atributesTable = [SKSpriteNode spriteNodeWithImageNamed:@"atributesTable"];
-    self.atributesTable.position = CGPointMake(50, 375-34);
-    self.atributesTable.anchorPoint = CGPointMake(0, 1);
+    self.atributesTable.position = CGPointMake(50, DEFAULT_LAYER_HEIGHT-34);
+    self.atributesTable.anchorPoint = DEFAULT_SPRITE_ANCHOR_POINT;
     self.atributesTable.zPosition = 2;
     [self.atributesTable setScale:0.5];
 }
@@ -156,27 +127,26 @@
     
 }
 
--(int) returnLevel:(int)skillType{
-
-    if(skillType ==1){
-        return [GameData sharedGameData].levelJump;
-    }
-    else if(skillType ==2){
-        return [GameData sharedGameData].levelLuck;
-    }
-    else if(skillType ==3){
-        return [GameData sharedGameData].levelPower;
-    }
-    else if(skillType ==4){
-        return [GameData sharedGameData].levelShooting;
-    }
-    else if(skillType ==5){
-        return [GameData sharedGameData].levelSpeed;
-    }
-    else{
-        return 0;
+-(int) returnLevel:(SKSpriteNode*)attribute{
+    unsigned int level = 0;
+    
+    // Comparing attribute with existings attributes
+    // and requesting to Game Data the actual level
+    if(attribute == self.levelJumpStars){
+        level = [GameData sharedGameData].levelJump;
+    }else if(attribute == self.levelLuckStars){
+        level = [GameData sharedGameData].levelLuck;
+    }else if(attribute == self.levelPowerStars){
+        level = [GameData sharedGameData].levelPower;
+    }else if(attribute == self.levelShootingStars){
+        level = [GameData sharedGameData].levelShooting;
+    }else if(attribute == self.levelSpeedStars){
+        level = [GameData sharedGameData].levelSpeed;
+    }else{
+        level = 0;
     }
     
+    return level;
 }
 
 
@@ -213,5 +183,6 @@
     [self.layer addChild:gemsImage];
 
 }
+
 
 @end
