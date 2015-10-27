@@ -11,6 +11,8 @@
 #import "PhysicsCategories.h"
 #import "PhysicsController.h"
 
+#define CLOUDS_WIDTH 2160
+
 /**
  Imaginary line between
  two points
@@ -28,10 +30,8 @@ struct line{
 
     NSMutableArray<GameObject*>* _tiles;
     NSMutableArray<GameObject*>* _removedTiles;
-    
-    SKSpriteNode* _firstClouds;
-    SKSpriteNode* _secondClouds;
-    
+    NSMutableArray<GameObject*>* _clouds;
+
     GameObject* lastGameObject;
 }
 
@@ -49,6 +49,7 @@ struct line{
         
         _tiles = [[NSMutableArray<GameObject*> alloc] init];
         _removedTiles = [[NSMutableArray<GameObject*> alloc] init];
+        _clouds = [[NSMutableArray<GameObject*> alloc] init];
         _size = size;
         
         CGSize firstGroundSize = CGSizeMake(_size.width*2,_size.height*0.1);
@@ -63,10 +64,6 @@ struct line{
         
         [self generateTiles];
         
-        // Adding clouds to view
-        [self addChild:_firstClouds];
-        [self addChild:_secondClouds];
-        
         // Adding background to view
         [self addChild:firstGround];
         
@@ -80,17 +77,27 @@ struct line{
 // Instantiating background Clouds
 -(void) setClouds{
     
-    _firstClouds = [[SKSpriteNode alloc] initWithImageNamed:@"background_Clouds"];
-    _firstClouds.size = CGSizeMake(2160, _size.height);
-    _firstClouds.position = CGPointZero;
-    _firstClouds.anchorPoint = CGPointZero;
-    _firstClouds.zPosition = -1;
+    GameObject* firstClouds = [[GameObject alloc] initWithImageNamed:@"background_Clouds"];
+    firstClouds.size = CGSizeMake(CLOUDS_WIDTH, _size.height);
+    firstClouds.position = CGPointZero;
+    firstClouds.anchorPoint = CGPointZero;
+    firstClouds.zPosition = -1;
+    firstClouds.velocity = CGVectorMake(BACKGROUND_VELOCITY_X/20, 0.0);
     
-    _secondClouds = [[SKSpriteNode alloc] initWithImageNamed:@"background_Clouds"];
-    _secondClouds.size = CGSizeMake(2160, _size.height);
-    _secondClouds.position = CGPointMake(0, -_size.height);
-    _secondClouds.anchorPoint = CGPointZero;
-    _secondClouds.zPosition = -1;
+    [self.physicsBodyAdder addBody:firstClouds];
+    [_clouds addObject:firstClouds];
+    [self addChild:firstClouds];
+    
+    GameObject* secondClouds = [[GameObject alloc] initWithImageNamed:@"background_Clouds"];
+    secondClouds.size = CGSizeMake(CLOUDS_WIDTH, _size.height);
+    secondClouds.position = CGPointMake(CLOUDS_WIDTH, 0.0);
+    secondClouds.anchorPoint = CGPointZero;
+    secondClouds.zPosition = -1;
+    secondClouds.velocity = CGVectorMake(BACKGROUND_VELOCITY_X/20, 0.0);
+    
+    [self.physicsBodyAdder addBody:secondClouds];
+    [_clouds addObject:secondClouds];
+    [self addChild:secondClouds];
 }
 
 -(GameObject*) createTileGroundWithSize:(CGSize)size{
@@ -135,6 +142,12 @@ struct line{
             [tile removeFromParent];
             [_removedTiles addObject:tile];
 
+        }
+    }
+    
+    for(GameObject* clouds in _clouds){
+        if(clouds.position.x + clouds.size.width < 0.0){
+            clouds.position = CGPointMake(CLOUDS_WIDTH*0.99, 0.0);
         }
     }
     
