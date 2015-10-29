@@ -13,8 +13,10 @@
 @end
 
 @implementation Player{
-    
     int isOnGroundChecker;
+    SKAction *_runningAnimation;
+    SKAction *_jumpAnimation;
+    SKAction *_fallAnimation;
 }
 
 // Initialize Player class with a position
@@ -56,12 +58,11 @@
     
     // Generate a Physics Body for Player
     self.physicsBody = [self generatePhysicsBody];
-    self.physicsBody.allowsRotation = false;
-    self.physicsBody.affectedByGravity = true;
-    self.physicsBody.restitution = 0.0;
     
     self.playerOnGround = true;
     self.isOnGround = false;
+    
+    [self defineAnimations];
 }
 
 // Generate player physics body
@@ -70,8 +71,9 @@
     // Using a rectangle as PhysicsBody
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     physicsBody.mass = 100;
-    physicsBody.affectedByGravity = NO;
-    physicsBody.allowsRotation = YES;
+    physicsBody.affectedByGravity = YES;
+    physicsBody.allowsRotation = NO;
+    physicsBody.restitution = 0.0;
     
     // Defining types for Collision
     physicsBody.categoryBitMask = ColliderTypePlayer;
@@ -79,6 +81,12 @@
     physicsBody.contactTestBitMask = ColliderTypeCoin;
     
     return physicsBody;
+}
+
+-(void) defineAnimations{
+    _runningAnimation = [self loadRunningAnimation];
+    _jumpAnimation = [self loadJumpAnimation];
+    _fallAnimation = [self loadFallAnimation];
 }
 
 // Repeat running animation forever
@@ -205,7 +213,7 @@
     }
 }
 
--(void) changeToAction:(playerMoviments) moviment{
+-(void) changeToAction:(playerMoviments)moviment{
     
     if(self.moviment != moviment){
         
@@ -215,14 +223,14 @@
         
         switch (moviment) {
             case PlayerMovimentRun:
-                [self runAction:[self loadRunningAnimation]];
+                [self runAction:_runningAnimation];
                 break;
             case PlayerMovimentJump:
-                [self runAction:[self loadJumpAnimation]];
+                [self runAction:_jumpAnimation];
                 break;
                 
             case PlayerMovimentFall:
-                [self runAction:[self loadFallAnimation]];
+                [self runAction:_fallAnimation];
                 break;
                 
             default:

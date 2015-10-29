@@ -11,6 +11,9 @@
 
 #define INITIAL_PLAYER_IMAGE @"playerRunning1"
 
+/**
+ Enumerate the player moviments
+*/
 typedef enum playerMoviments{
     PlayerMovimentRun,
     PlayerMovimentJump,
@@ -25,6 +28,8 @@ typedef enum playerMoviments{
  Boolean that indicates whether player is on the ground
 */
 @property (nonatomic) BOOL playerOnGround;
+
+
 @property (nonatomic) playerMoviments moviment;
 
 /**

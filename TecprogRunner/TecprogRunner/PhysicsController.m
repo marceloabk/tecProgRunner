@@ -102,8 +102,8 @@
             enemy = (Enemy*)contact.bodyB.node;
         }
         
-        enemy.lives--;
-        if (enemy.lives == 0) {
+        enemy.health--;
+        if (enemy.health == 0) {
             [enemy removeFromParent];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"enemy die" object:nil];
         }
