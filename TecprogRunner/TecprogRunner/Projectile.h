@@ -10,7 +10,7 @@
 
 #define DEFAULT_PROJECTILE_IMAGE @"projectile"
 #define PLAYER_NAME @"Player"
-#define ENEMY_NAME @"Enemy"
+#define ENEMY_NAME @"StrongEnemy"
 
 @interface Projectile : GameObject
 

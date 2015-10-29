@@ -7,6 +7,7 @@
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "StrongEnemy.h"
+#import "Projectile.h"
 
 @implementation StrongEnemy
 
@@ -32,7 +33,7 @@
         
     }else{
         
-        DebugLog(@"Weak Enemy can't be initialized");
+        DebugLog(@"Strong Enemy can't be initialized");
         
         // There is no alternative path for this if
     }
@@ -45,27 +46,12 @@
     // Placeholder image is too big then we rescale it to fit our screen
     [self setScale:0.1];
     
-    self.physicsBody = [self generatePhysicsBody];
+    self.physicsBody = [super generatePhysicsBody];
     
-    self.lives = 4;
+    self.health = 4;
 
 }
 
-// Generate Strong Enemy physics body
--(SKPhysicsBody *) generatePhysicsBody{
-    
-    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
-    physicsBody.mass = 100;
-    physicsBody.affectedByGravity = YES;
-    physicsBody.allowsRotation = NO;
-    
-    // Defining types for Collision
-    physicsBody.collisionBitMask = ColliderTypePlayer | ColliderTypeProjectile | ColliderTypeGround;
-    physicsBody.contactTestBitMask = ColliderTypeProjectile;
-    physicsBody.categoryBitMask = ColliderTypeEnemy;
-    
-    return physicsBody;
-}
 
 // Load animations of Strong enemy in idle state
 -(SKAction*) loadIdleAnimation{
@@ -85,6 +71,18 @@
     SKAction *repeatAnimation = [SKAction repeatActionForever:idleAnimation];
     
     return repeatAnimation;
+}
+
+-(void) throwProjectile{
+    // Initial projectile position is the current player position plus half player width
+    // This way the projectile is created in player border and it doesn't collide with player
+    CGPoint initialProjectilePosition = CGPointMake(self.position.x + self.size.width/2, self.position.y);
+    
+    NSString *className = [NSString stringWithFormat:@"%@", self.class];
+    
+    Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition andOwner:className];
+    
+    [self.parent addChild:projectile];
 }
 
 @end

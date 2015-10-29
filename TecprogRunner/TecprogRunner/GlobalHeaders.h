@@ -27,8 +27,7 @@
 #define MAGENTA_COLOR [UIColor magentaColor]
 #define BACKGROUND_VELOCITY_X (-100)
 
-#define JUMP_IMPULSE 500
-
+#define JUMP_IMPULSE 600
 
 #pragma mark Defining z position objects
 

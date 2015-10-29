@@ -12,4 +12,10 @@
 
 @interface StrongEnemy : Enemy
 
+/**
+ Throw projectile procedures
+ */
+-(void) throwProjectile;
+
+
 @end
