@@ -15,7 +15,7 @@
 }
 
 // Initialize EnemyGenerator with a position
--(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>) physicsBodyAdder{
+-(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>)physicsBodyAdder{
     
     self = [super init];
     if(self != nil){
@@ -33,9 +33,7 @@
 // Create a new enemy based on the score
 -(void) newEnemyWithScore:(unsigned int)score{
     
-    CGFloat margin = 80; // Pixels
-    CGFloat floorHeight = 50; // Pixels
-    CGPoint enemyPosition = CGPointMake(_size.width - margin, floorHeight + margin);
+    CGPoint enemyPosition = CGPointMake(_size.width - MARGIN, FLOOR_HEIGHT + MARGIN);
     
     int probability = [self probabilityToCreateAnEnemyBasedOnTheScore:score];
     
@@ -44,35 +42,14 @@
     // Case 3 waits 3 second to recall this method
     switch (probability) {
         case 1:
-        {
-            WeakEnemy *weakEnemey = [[WeakEnemy alloc]initWithPosition:enemyPosition];
-            weakEnemey.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
-            weakEnemey.name = @"enemy";
-            
-            [self.physicsBodyAdder addBody:weakEnemey];
-            [self.parent addChild:weakEnemey];
-            DebugLog(@"Weak enemy created");
+            [self createWeakEnemyWithPosition:enemyPosition];
             break;
-        }
         case 2:
-        {
-            StrongEnemy *strongEnemy = [[StrongEnemy alloc]initWithPosition:enemyPosition];
-            strongEnemy.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
-            strongEnemy.name = @"enemy";
-
-            [self.physicsBodyAdder addBody:strongEnemy];
-            [self.parent addChild:strongEnemy];
-            DebugLog(@"Strong enemy created");
+            [self createStrongEnemyWithPosition:enemyPosition];
             break;
-        }
         case 3:
-        {
-            // Here we convert an int to NSNumber because performSelector needs an object
-            NSNumber *scoreObject = [NSNumber numberWithInt:score];
-            [self performSelector:@selector(newEnemyWithScore:) withObject:scoreObject afterDelay:3];
-            DebugLog(@"Wait to creat an enemy");
+            [self recallMethodWithScore:score];
             break;
-        }
         default:
             break;
     }
@@ -119,5 +96,32 @@
     return randomizedNumber;
 }
 
+-(void) createWeakEnemyWithPosition:(CGPoint)position{
+    WeakEnemy *weakEnemy = [[WeakEnemy alloc]initWithPosition:position];
+    weakEnemy.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
+    weakEnemy.name = @"enemy";
+    
+    [self.physicsBodyAdder addBody:weakEnemy];
+    [self.parent addChild:weakEnemy];
+    DebugLog(@"Weak enemy created");
+}
+
+-(void) createStrongEnemyWithPosition:(CGPoint)position{
+    StrongEnemy *strongEnemy = [[StrongEnemy alloc]initWithPosition:position];
+    strongEnemy.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
+    strongEnemy.name = @"enemy";
+    
+    [self.physicsBodyAdder addBody:strongEnemy];
+    [self.parent addChild:strongEnemy];
+    DebugLog(@"Strong enemy created");
+}
+
+-(void) recallMethodWithScore:(unsigned int)score{
+    // Here we convert an int to NSNumber because performSelector needs an object
+    NSNumber *scoreNumber = [NSNumber numberWithInt:score];
+    
+    [self performSelector:@selector(newEnemyWithScore:) withObject:scoreNumber afterDelay:3];
+    DebugLog(@"Wait to create an enemy");
+}
 
 @end

@@ -9,11 +9,24 @@
 #import <SpriteKit/SpriteKit.h>
 #import "GlobalHeaders.h"
 
+#define MARGIN 80.0
+#define FLOOR_HEIGHT 50.0
+
 @interface EnemyGenerator : SKNode
 
+/**
+ Used to add physics bodies into game
+*/
 @property (nonatomic) id <physicsControllerAddBody> physicsBodyAdder;
 
--(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>) physicsBodyAdder;
+/**
+ Initialize the Enemy Generator with a Size and a Body Adder
+*/
+-(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>)physicsBodyAdder;
+
+/**
+ Create a new Enemy with a score
+*/
 -(void)newEnemyWithScore:(unsigned int)score;
 
 @end

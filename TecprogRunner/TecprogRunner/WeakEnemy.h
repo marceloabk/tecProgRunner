@@ -9,6 +9,7 @@
 #import "Enemy.h"
 
 #define INITIAL_WEAK_ENEMY_IMAGE @"weakEnemyIdle1"
+#define WEAK_ENEMY_IDLE @"weakEnemyIdle"
 
 @interface WeakEnemy : Enemy
 

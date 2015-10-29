@@ -8,7 +8,9 @@
 
 #import "WeakEnemy.h"
 
-@implementation WeakEnemy
+@implementation WeakEnemy{
+    SKAction *_idle;
+}
 
 
 -(instancetype) initWithPosition:(CGPoint)position{
@@ -25,10 +27,6 @@
         
         self.position = position;
         
-        // Make Weak Enemy perform idle animation
-        SKAction *idle = [self idleAnimation];
-        [self runAction:idle];
-        
         [self setBasicsAttributes];
         
     }else{
@@ -43,29 +41,18 @@
 
 
 -(void) setBasicsAttributes{
+    
     // Placeholder image is too big then we rescale it to fit our screen
     [self setScale:0.2];
     
     // Generate and set physics body
-    self.physicsBody = [self generatePhysicsBody];
+    self.physicsBody = [super generatePhysicsBody];
     
-    self.lives = 2;
-}
-
-
--(SKPhysicsBody *) generatePhysicsBody{
+    // Make Weak Enemy perform idle animation
+    _idle = [self idleAnimation];
+    [self runAction:_idle];
     
-    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
-    physicsBody.mass = 100;
-    physicsBody.affectedByGravity = YES;
-    physicsBody.allowsRotation = NO;
-    
-    // Defining types for Collision
-    physicsBody.collisionBitMask = ColliderTypePlayer | ColliderTypeProjectile | ColliderTypeGround;
-    physicsBody.contactTestBitMask = ColliderTypeProjectile;
-    physicsBody.categoryBitMask = ColliderTypeEnemy;
-    
-    return physicsBody;
+    self.health = 2;
 }
 
 
@@ -86,7 +73,7 @@
     DebugLog(@"Loading idle Animation");
     
     // Creating a Mutable Array filled with Idle Animations
-    NSMutableArray *idleTextures = [super generateAnimationImages:@"weakEnemyIdle" andCount:2];
+    NSMutableArray *idleTextures = [super generateAnimationImages:WEAK_ENEMY_IDLE andCount:2];
     
     // Using textures to make an action
     SKAction *idle = [SKAction animateWithTextures:idleTextures timePerFrame:0.3];

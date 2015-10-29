@@ -7,7 +7,6 @@
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "Enemy.h"
-#import "Projectile.h"
 
 @implementation Enemy
 
@@ -25,10 +24,6 @@
         self.position = position;
         
         [self setBasicsAttributes];
-        
-        // Make Enemy perform idle animation
-        SKAction *idle = [self idleAnimation];
-        [self runAction:idle];
         
     }else{
         
@@ -49,55 +44,19 @@
 
 }
 
-// Generate Enemy physics body
 -(SKPhysicsBody *) generatePhysicsBody{
     
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     physicsBody.mass = 100;
-    physicsBody.affectedByGravity = NO;
+    physicsBody.affectedByGravity = YES;
     physicsBody.allowsRotation = NO;
     
     // Defining types for Collision
-    physicsBody.collisionBitMask = ColliderTypePlayer | ColliderTypeProjectile;
+    physicsBody.collisionBitMask = ColliderTypePlayer | ColliderTypeProjectile | ColliderTypeGround;
     physicsBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeProjectile;
     physicsBody.categoryBitMask = ColliderTypeEnemy;
     
     return physicsBody;
-}
-
--(void) throwProjectile{
-    // Initial projectile position is the current player position plus half player width
-    // This way the projectile is created in player border and it doesn't collide with player
-    CGPoint initialProjectilePosition = CGPointMake(self.position.x + self.size.width/2, self.position.y);
-    
-    NSString *className = [NSString stringWithFormat:@"%@", self.class];
-    Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition andOwner:className];
-    
-    [self.parent addChild:projectile];
-}
-
--(SKAction*) idleAnimation{
-    
-    // Load animation
-    SKAction *idleAnimation = [self loadIdleAnimation];
-    
-    // Make animation repeat forever
-    SKAction *repeatAnimation = [SKAction repeatActionForever:idleAnimation];
-    
-    return repeatAnimation;
-}
-
--(SKAction*) loadIdleAnimation{
-    
-    DebugLog(@"Loading idle Animation");
-    
-    // Creating a Mutable Array filled with Idle Animations
-    NSMutableArray *idleTextures = [super generateAnimationImages:@"enemyIdle" andCount:2];
-    
-    // Using textures to make an action
-    SKAction *idle = [SKAction animateWithTextures:idleTextures timePerFrame:0.2];
-    
-    return idle;
 }
 
 @end

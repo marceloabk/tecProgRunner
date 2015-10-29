@@ -13,16 +13,15 @@
 
 @interface Enemy : GameObject
 
-@property (nonatomic) int lives;
+/**
+ Represent the health of the enemy
+*/
+@property (nonatomic) int health;
+
 
 /**
- Throw projectile procedures
- */
--(void) throwProjectile;
-
-/**
- Make the animation of weak enemy in idle state
- */
--(SKAction*) idleAnimation;
+ Used to generate a physics body to enemies
+*/
+-(SKPhysicsBody *) generatePhysicsBody;
 
 @end
