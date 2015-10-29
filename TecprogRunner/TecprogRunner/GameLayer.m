@@ -241,7 +241,7 @@
     
     self.timePassed += 1;
 
-    [_hudLayer putTimeLabel:self.timePassed];
+    [_hudLayer updateTimeLabel:self.timePassed];
     
 }
 
@@ -250,7 +250,7 @@
     [coin runScoredMoviment];
     self.pointsScored += coin.value;
     
-    [_hudLayer putScoreLabel:self.pointsScored];
+    [_hudLayer updateScoreLabel:self.pointsScored];
     
 }
 

@@ -25,8 +25,9 @@
         
         [self addChild:self.layer];
                 
-        // Adding a label to count score during the game
-        [self putTimeLabel:0];
+        [self putScoreLabel];
+        [self putTimeLabel];
+        
     }else{
         // Exception
     }
@@ -34,49 +35,52 @@
     return self;
 }
 
--(void) putTimeLabel:(int)timePassed{
-    
-    // Setting font position
-    CGPoint fontPosition = CGPointMake(_size.width*0.5, _size.height*0.9);
+-(void) updateTimeLabel:(int)timePassed{
     
     // Text for timeLabel
     NSString *timeLabelString = [[NSString alloc] initWithFormat:@"%i", timePassed];
     
-    if(self.timeLabel == nil){
-        self.timeLabel = [Label label];
-        
-        [self addChild:self.timeLabel];
-    }else{
-        // The time label already exists
-    }
-    
-    // Setting position on screen
-    self.timeLabel.position = fontPosition;
-    
     self.timeLabel.text = timeLabelString;
 }
 
--(void) putScoreLabel:(int)points{
-    
-    // Setting font position
-    CGPoint fontPosition = CGPointMake(_size.width*0.8, _size.height*0.9);
+-(void) updateScoreLabel:(int)points{
     
     // Text for pointsLabel
     NSString *pointsLabelString = [[NSString alloc] initWithFormat:@"%i", points];
     
+    self.scoreLabel.text = pointsLabelString;
+    
+}
+
+-(void) putScoreLabel{
+    
+    // Setting font position
+    CGPoint fontPosition = CGPointMake(_size.width*0.9, _size.height*0.9);
+    
     if(self.scoreLabel == nil){
         // Setting score label
-        self.scoreLabel = [Label label];
+        self.scoreLabel = [Label labelWithText:@"0" andPosition:fontPosition andSize:38 andZPosition:100];
         
         [self addChild:self.scoreLabel];
     }else{
         // The score label already exists
     }
     
-    // Setting position on screen
-    self.scoreLabel.position = fontPosition;
+}
+
+-(void) putTimeLabel{
     
-    self.scoreLabel.text = pointsLabelString;
+    // Setting font position
+    CGPoint fontPosition = CGPointMake(_size.width*0.5, _size.height*0.9);
+    
+    if(self.timeLabel == nil){
+        
+        self.timeLabel = [Label labelWithText:@"0" andPosition:fontPosition andSize:38 andZPosition:100];
+        [self addChild:self.timeLabel];
+        
+    }else{
+        // The time label already exists
+    }
     
 }
 

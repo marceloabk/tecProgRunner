@@ -29,11 +29,11 @@
 /**
  Update score label in HudLayer
 */
--(void) putScoreLabel:(int)points;
+-(void) updateScoreLabel:(int)points;
 
 /**
  Update time label in HudLayer
  */
--(void) putTimeLabel:(int)points;
+-(void) updateTimeLabel:(int)points;
 
 @end

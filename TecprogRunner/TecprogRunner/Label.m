@@ -13,15 +13,30 @@
 
 +(Label*) label{
     
-    Label* label = [Label labelNodeWithFontNamed:@"Chalkduster"];
+    Label *label = [Label labelNodeWithFontNamed:@"Chalkduster"];
     
-    if(label != nil){
+    if(label != NULL){
         
-        SKColor *fontColor = [UIColor blackColor];
+        SKColor *fontColor = [UIColor whiteColor];
         label.fontColor = fontColor;
         label.fontSize = 38;
     }
 
+    return label;
+}
+
++(Label*) labelWithText:(NSString*)text andPosition:(CGPoint)position andSize:(CGFloat)fontSize andZPosition:(int)zPosition{
+    
+    Label *label = [Label labelNodeWithFontNamed:@"Thirteen-Pixel-Fonts"];
+    
+    if(label != nil){
+        label.text = text;
+        label.position = position;
+        label.fontSize = fontSize;
+        label.zPosition = zPosition;
+        label.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+    }
+    
     return label;
 }
 
