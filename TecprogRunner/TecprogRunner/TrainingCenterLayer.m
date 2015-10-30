@@ -122,7 +122,8 @@
     [self.layer addChild:self.levelShootingStars];
     [self.layer addChild:self.levelSpeedStars];
     
-    [self loadCoinsAndGems];
+    [self putCoins];
+    [self putGems];
 
     
 }
@@ -150,38 +151,40 @@
 }
 
 
--(void) loadCoinsAndGems{
-
+-(void) putCoins{
+    
     SKSpriteNode *coinsImage = [SKSpriteNode spriteNodeWithImageNamed:@"Coin1"];
     coinsImage.anchorPoint = CGPointMake(0, 1);
     coinsImage.position = CGPointMake(380, 375-15);
     coinsImage.zPosition = 10;
     
-    SKSpriteNode *gemsImage = [SKSpriteNode spriteNodeWithImageNamed:@"Coin2"];
+    // Creating coins label
+    NSString *coinString = [[NSString alloc] initWithFormat:@"%i", [GameData sharedGameData].coins];
+    CGPoint coinPosition = CGPointMake(624, 333);
+    self.coinsLabel = [Label labelWithText:coinString andPosition:coinPosition andSize:33 andZPosition:10];
+    
+    [self addChild:coinsImage];
+    [self.layer addChild:self.coinsLabel];
+    
+}
+
+-(void) putGems{
+    // Creating gems images
+    SKSpriteNode *gemsImage = [SKSpriteNode spriteNodeWithImageNamed:@"diamond"];
+    [gemsImage setScale:0.5];
     gemsImage.anchorPoint = CGPointMake(0, 1);
-    gemsImage.position = CGPointMake(582, 375-15);
+    gemsImage.position = CGPointMake(580, 375-15);
     gemsImage.zPosition = 10;
     
-    self.coinsLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
-    self.coinsLabel.position = CGPointMake(624, 333);
-    self.coinsLabel.text = [[NSString alloc] initWithFormat:@"%i", [GameData sharedGameData].coins];
-    self.coinsLabel.fontColor = [UIColor whiteColor];
-    self.coinsLabel.fontSize = 33;
-    self.coinsLabel.zPosition = 10;
-    
-    [self.gemsLabel addChild:self.coinsLabel];
-    self.gemsLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
-    self.gemsLabel.position = CGPointMake(424, 333);
-    self.gemsLabel.text = [[NSString alloc] initWithFormat:@"%i", [GameData sharedGameData].gems];
-    self.gemsLabel.fontColor = [UIColor whiteColor];
-    self.gemsLabel.fontSize = 33;
-    self.gemsLabel.zPosition = 10;
-    
-    [self.layer addChild:self.coinsLabel];
-    [self.layer addChild:self.gemsLabel];
-    [self.layer addChild:coinsImage];
-    [self.layer addChild:gemsImage];
+    // Creating gems label
+    NSString *gemsString = [[NSString alloc] initWithFormat:@"%i", [GameData sharedGameData].gems];
+    CGPoint gemPosition = CGPointMake(424, 333);
+    self.gemsLabel = [Label labelWithText:gemsString andPosition:gemPosition andSize:33 andZPosition:10];
 
+    
+    [self addChild:gemsImage];
+    [self addChild:self.gemsLabel];
+    
 }
 
 

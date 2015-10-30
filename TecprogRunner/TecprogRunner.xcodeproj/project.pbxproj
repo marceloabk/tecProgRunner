@@ -56,6 +56,7 @@
 		098090241BDE736000045C9F /* selectAtributeMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = 09808FF51BDE736000045C9F /* selectAtributeMessage.png */; };
 		098090251BDE736000045C9F /* trainingCenterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 09808FF61BDE736000045C9F /* trainingCenterButton.png */; };
 		09A6DB7E1BE1B6A5007A77EC /* thirteen_pixel_fonts.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09A6DB7D1BE1B69C007A77EC /* thirteen_pixel_fonts.ttf */; };
+		09A6DC861BE2EB24007A77EC /* diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A6DC851BE2EB24007A77EC /* diamond.png */; };
 		09CB5AB11BA8C53C006E3A64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB01BA8C53C006E3A64 /* Foundation.framework */; };
 		09CB5AB41BA8C5A5006E3A64 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */; };
 		09CB5AB61BA8C5AE006E3A64 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */; };
@@ -157,6 +158,7 @@
 		09808FF51BDE736000045C9F /* selectAtributeMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectAtributeMessage.png; sourceTree = "<group>"; };
 		09808FF61BDE736000045C9F /* trainingCenterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trainingCenterButton.png; sourceTree = "<group>"; };
 		09A6DB7D1BE1B69C007A77EC /* thirteen_pixel_fonts.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = thirteen_pixel_fonts.ttf; sourceTree = "<group>"; };
+		09A6DC851BE2EB24007A77EC /* diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamond.png; sourceTree = "<group>"; };
 		09CB5AB01BA8C53C006E3A64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09CB5AB21BA8C5A5006E3A64 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 		09808FEE1BDE736000045C9F /* Training center */ = {
 			isa = PBXGroup;
 			children = (
+				09A6DC851BE2EB24007A77EC /* diamond.png */,
 				09808FEF1BDE736000045C9F /* atributesTable.png */,
 				09808FF01BDE736000045C9F /* levelStars1.png */,
 				09808FF11BDE736000045C9F /* levelStars2.png */,
@@ -865,6 +868,7 @@
 				098090081BDE736000045C9F /* Coin6.png in Resources */,
 				09808FFD1BDE736000045C9F /* playerRunning3.png in Resources */,
 				09808FF81BDE736000045C9F /* enemyIdle2.png in Resources */,
+				09A6DC861BE2EB24007A77EC /* diamond.png in Resources */,
 				09808FFC1BDE736000045C9F /* playerRunning2.png in Resources */,
 				098090211BDE736000045C9F /* levelStars3.png in Resources */,
 				0980900E1BDE736000045C9F /* tapToPlay.png in Resources */,

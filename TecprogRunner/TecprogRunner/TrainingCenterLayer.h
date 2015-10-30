@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "TrainingCenterBackground.h"
+#import "Label.h"
 
 #define DEFAULT_STARS_X_POSITION 215
 #define DEFAULT_SPRITE_ANCHOR_POINT CGPointMake(0, 1)
@@ -74,12 +75,12 @@
 /**
  Label for coins
 */
-@property (nonatomic) SKLabelNode *coinsLabel;
+@property (nonatomic) Label *coinsLabel;
 
 /**
  Label for Gems
 */
-@property (nonatomic) SKLabelNode *gemsLabel;
+@property (nonatomic) Label *gemsLabel;
 
 
 
