@@ -14,7 +14,7 @@
     self = [super init];
     if(self != NULL){
         
-        self.zPosition = 10000;
+        self.zPosition = PAUSE_LAYER_Z_POSITION;
         
         self.layer = [SKNode node];
         [self addChild:self.layer];
@@ -36,37 +36,29 @@
 
 -(void) loadBackground{
 
-    self.background = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background"]];
-    self.background.position =CGPointZero;
-    self.background.anchorPoint = CGPointZero;
-    [self.background setScale:0.5];
+    self.background = [SpriteNode spriteNodeWithImageNamed:@"background" andPosition:CGPointZero
+                                               anchorPoint:CGPointZero andScale:0.5 andZPosition:self.zPosition];
     
 }
 
 -(void) loadButtons{
     
-    self.restartButton = [SKSpriteNode spriteNodeWithImageNamed:@"pauseRestarButton"];
-    self.restartButton.position = CGPointMake(562, 375-248);
-    self.restartButton.anchorPoint = CGPointMake(0, 1);
-    self.restartButton.name = @"pauseRestarButton";
-    self.restartButton.zPosition = 1000001;
-    [self.restartButton setScale:0.5];
+    CGFloat buttonZPosition = PAUSE_LAYER_Z_POSITION + 10;
     
-    
-    self.homeButton = [SKSpriteNode spriteNodeWithImageNamed:@"pauseHomeButton"];
-    self.homeButton.position = CGPointMake(40, 375-251);
-    self.homeButton.anchorPoint = CGPointMake(0, 1);
-    self.homeButton.name = @"pauseHomeButton";
-    self.homeButton.zPosition = 1000001;
+    // Create restart button
+    CGPoint restartButtonPosition = CGPointMake(562, DEFAULT_LAYER_HEIGHT - 248);
+    self.restartButton = [SpriteNode spriteNodeWithImageNamed:@"pauseRestarButton" andPosition:restartButtonPosition
+                                                  anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:buttonZPosition];
 
-    [self.homeButton setScale:0.5];
+    // Create home button
+    CGPoint homeButtonPosition = CGPointMake(40, DEFAULT_LAYER_HEIGHT - 251);
+    self.homeButton = [SpriteNode spriteNodeWithImageNamed:@"pauseHomeButton" andPosition:homeButtonPosition
+                                               anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:buttonZPosition];
     
-    self.continueButton = [SKSpriteNode spriteNodeWithImageNamed:@"pauseContinueButton"];
-    self.continueButton.position = CGPointMake(286, 375-128);
-    self.continueButton.anchorPoint = CGPointMake(0, 1);
-    self.continueButton.name = @"pauseContinueButton";
-    self.continueButton.zPosition = 1000001;
-     [self.continueButton setScale:0.5];
+    // Create continue button
+    CGPoint continueButtonPosition = CGPointMake(286, DEFAULT_LAYER_HEIGHT - 128);
+    self.continueButton = [SpriteNode spriteNodeWithImageNamed:@"pauseContinueButton" andPosition:continueButtonPosition
+                                                   anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:buttonZPosition];
 
 }
 

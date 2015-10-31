@@ -34,7 +34,7 @@
         label.position = position;
         label.fontSize = fontSize;
         label.zPosition = zPosition;
-        label.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+        label.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     }
     
     return label;

@@ -8,6 +8,9 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "BasicLayer.h"
+#import "SpriteNode.h"
+
+#define PAUSE_LAYER_Z_POSITION 10000
 
 @interface PauseLayer : SKNode
 
@@ -16,11 +19,11 @@
  */
 @property SKNode *layer;
 
-@property SKSpriteNode *background;
+@property SpriteNode *background;
 
-@property SKSpriteNode *continueButton;
-@property SKSpriteNode *homeButton;
-@property SKSpriteNode *restartButton;
+@property SpriteNode *continueButton;
+@property SpriteNode *homeButton;
+@property SpriteNode *restartButton;
 
 -(void) activatePauseLayer;
 

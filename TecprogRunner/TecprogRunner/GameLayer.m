@@ -12,6 +12,7 @@
 #import "BackgroundLayer.h"
 #import "Coin.h"
 #import "EnemyGenerator.h"
+#import "SpriteNode.h"
 
 @interface GameLayer()
 
@@ -25,10 +26,10 @@
     CGSize _size;
     
     BackgroundLayer *_backgroundLayer;
-    HudLayer* _hudLayer;
-    SKNode* _sceneLayer;
+    HudLayer *_hudLayer;
+    SKNode *_sceneLayer;
     
-    SKSpriteNode* _pauseButton;
+    SpriteNode *_pauseButton;
     
     CFTimeInterval _lastTime;
     CFTimeInterval _pausedTime;
@@ -47,16 +48,14 @@
 }
 
 -(void) loadPause{
-
-    _pauseButton = [SKSpriteNode spriteNodeWithImageNamed:@"pauseButton"];
-    [_pauseButton setScale:0.5];
-    _pauseButton.anchorPoint = CGPointMake(0, 1);
-    #warning CGPoint not catalogated, it is magic point
-    _pauseButton.position = CGPointMake(15, 365);
-    #warning posX and posY not catalogated, it is magic numbers
-    _pauseButton.zPosition = 1000;
-    #warning zPosition not catalogated, it is magic number
-    _pauseButton.name = @"pauseGame";
+    
+    // Creating points
+    CGPoint position = CGPointMake(15, 365);
+    CGPoint anchorPoint = CGPointMake(0, 1);
+    
+    // Instantiating _pauseButton
+    _pauseButton = [SpriteNode spriteNodeWithImageNamed:@"pauseButton" andPosition:position
+                                            anchorPoint:anchorPoint andScale:0.5 andZPosition:100];
     
     [self addChild:_pauseButton];
 }
@@ -74,8 +73,7 @@
         [self pausedClicked];
         
         
-    }
-    else {
+    }else{
         if(self.paused == false){
             
             if((touchLocation.x < _size.width/2) && self.player.playerOnGround == true){
@@ -112,8 +110,7 @@
         [self initiateTimer];
         
         [self.pauseLayer removeFromParent];
-    }
-    else {
+    }else{
         self.scene.view.paused = true;
         self.paused = true;
 
@@ -133,7 +130,7 @@
     CFTimeInterval delta;
     if(_pausedTime == 0){
         delta = currentTime - _lastTime;
-    } else {
+    }else{
         delta = currentTime - _pausedTime;
         _pausedTime = 0;
     }
@@ -227,7 +224,7 @@
         // Adding coin to physics controller for updating moviment
         [self.physicsController addBody:newCoin];
         
-    } else {
+    }else{
         // Nothing to do
     }
     srand(CACurrentMediaTime());

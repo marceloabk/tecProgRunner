@@ -81,22 +81,22 @@
             [self.overallControlLayer changeLayer];
             [self setBasicsPhysicsWorld];
             
-        } else if([node.name isEqualToString:@"settingsButton"]){
+        }else if([node.name isEqualToString:@"settingsButton"]){
             
             [GameData sharedGameData].layerActivated = settings;
             [self.overallControlLayer changeLayer];
             
-        } else if([node.name isEqualToString:@"storeButton"]){
+        }else if([node.name isEqualToString:@"storeButton"]){
             
             [GameData sharedGameData].layerActivated = store;
             [self.overallControlLayer changeLayer];
             
-        } else if([node.name isEqualToString:@"trainingCenterButton"]){
+        }else if([node.name isEqualToString:@"trainingCenterButton"]){
             
             [GameData sharedGameData].layerActivated = trainingCenter;
             [self.overallControlLayer changeLayer];
             
-        } else{
+        }else{
             DebugLog(@"node %@ unknown for menu",node.name);
         }
         
@@ -104,37 +104,32 @@
         
         DebugLog(@"%@ node in store",node.name);
         
-        if([node.name isEqualToString:@"backButtonStore"]){
+        if([node.name isEqualToString:@"backButton"]){
             [GameData sharedGameData].layerActivated = menu;
             [self.overallControlLayer changeLayer];
-        }
-        else if([node.name isEqualToString:@"freeCoinsCard"]){
+        }else if([node.name isEqualToString:@"freeCoinsCard"]){
             
-        }
-        else if([node.name isEqualToString:@"coinsCard"]){
+        }else if([node.name isEqualToString:@"coinsCard"]){
             
-        }
-        else if([node.name isEqualToString:@"gemsCard"]){
+        }else if([node.name isEqualToString:@"gemsCard"]){
             
-        }
-        else{
+        }else{
             DebugLog(@"node %@ unknown for menu",node.name);
         }
         
     }else if([GameData sharedGameData].layerActivated == settings){
         
         DebugLog(@"%@ node in settings",node.name);
-        if([node.name isEqualToString:@"backButtonSettings"]){
+        if([node.name isEqualToString:@"backButton"]){
             [GameData sharedGameData].layerActivated = menu;
             [self.overallControlLayer changeLayer];
-        }
-        else{
+        }else{
             DebugLog(@"node %@ unknown for menu",node.name);
         }
         
     }else if([GameData sharedGameData].layerActivated == trainingCenter){
         
-        if([node.name isEqualToString:@"backTrainingCenter"]){
+        if([node.name isEqualToString:@"backButton"]){
             [GameData sharedGameData].layerActivated = menu;
             [self.overallControlLayer changeLayer];
         }
@@ -158,12 +153,11 @@
     
 }
 
--(void)alterarPage: (UISwipeGestureRecognizer *) sender{
+-(void)alterarPage:(UISwipeGestureRecognizer *)sender{
     
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         [self.overallControlLayer swipeRight];
-    }
-    else if (sender.direction == UISwipeGestureRecognizerDirectionLeft){
+    }else if (sender.direction == UISwipeGestureRecognizerDirectionLeft){
         [self.overallControlLayer swipeLeft];
         
     }

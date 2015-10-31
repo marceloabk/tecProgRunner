@@ -82,23 +82,24 @@
         }
         
     }else if((bodyAisCoin || bodyBisCoin) && (bodyAisPlayer || bodyBisPlayer)){
+        
         // Ground contact ground and body contact body do not interfers in gravity mechanics
         if(bodyAisCoin && bodyBisPlayer){
             Coin* coin = (Coin*)nodeA;
             [self.gameLayer playerContactCoin:coin];
             
-        }
-        else if(bodyBisCoin && bodyAisPlayer){
+        }else if(bodyBisCoin && bodyAisPlayer){
             Coin* coin = (Coin*)nodeB;
             [self.gameLayer playerContactCoin:coin];
             
         }
+        
     }else if((bodyAisEnemy || bodyBisEnemy) && (bodyAisProjectile || bodyBisProjectile)){
        
         Enemy* enemy;
         if(bodyAisEnemy){
             enemy = (Enemy*)contact.bodyA.node;
-        }else if (bodyBisEnemy){
+        }else if(bodyBisEnemy){
             enemy = (Enemy*)contact.bodyB.node;
         }
         
@@ -135,7 +136,7 @@
             }
         }
         
-    } else if(bodyBisGround && !bodyAisGround){
+    }else if(bodyBisGround && !bodyAisGround){
         
         GameObject* gameObj = ((GameObject*)contact.bodyB.node);
         gameObj.isOnGround = false;
@@ -168,7 +169,7 @@
         if([_bodies containsObject:body] == false){
             [_bodies addObject:body];
             DebugLog(@"adding body with name: %@", body.name);
-        } else {
+        }else{
             DebugLog(@"Body is already in physiscs array bodies");
         }
         

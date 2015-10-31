@@ -60,6 +60,7 @@
 		09CB5AB11BA8C53C006E3A64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB01BA8C53C006E3A64 /* Foundation.framework */; };
 		09CB5AB41BA8C5A5006E3A64 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */; };
 		09CB5AB61BA8C5AE006E3A64 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */; };
+		09EE628A1BE4FDAC00A9B2D3 /* SpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EE62891BE4FDAC00A9B2D3 /* SpriteNode.m */; };
 		6792F7391BCF220E006030DE /* StrongEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6792F7381BCF220E006030DE /* StrongEnemy.m */; };
 		67A4F5C31BABA3E0004DCA3C /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A4F5C21BABA3E0004DCA3C /* Projectile.m */; };
 		67C0F7791BB95DC6003A02B1 /* WeakEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C0F7781BB95DC6003A02B1 /* WeakEnemy.m */; };
@@ -163,6 +164,8 @@
 		09CB5AB21BA8C5A5006E3A64 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
 		09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		09EE62881BE4FDAC00A9B2D3 /* SpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteNode.h; sourceTree = "<group>"; };
+		09EE62891BE4FDAC00A9B2D3 /* SpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteNode.m; sourceTree = "<group>"; };
 		6792F7371BCF220E006030DE /* StrongEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrongEnemy.h; sourceTree = "<group>"; };
 		6792F7381BCF220E006030DE /* StrongEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrongEnemy.m; sourceTree = "<group>"; };
 		67A4F5C11BABA3E0004DCA3C /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
@@ -686,6 +689,8 @@
 		E928572F1BA2557900DF4959 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				09EE62881BE4FDAC00A9B2D3 /* SpriteNode.h */,
+				09EE62891BE4FDAC00A9B2D3 /* SpriteNode.m */,
 			);
 			name = Button;
 			sourceTree = "<group>";
@@ -925,6 +930,7 @@
 				67FFA6CF1B99301C00354487 /* main.m in Sources */,
 				67A4F5C31BABA3E0004DCA3C /* Projectile.m in Sources */,
 				E92857461BA25D0300DF4959 /* HudLayer.m in Sources */,
+				09EE628A1BE4FDAC00A9B2D3 /* SpriteNode.m in Sources */,
 				6B49F9461BDD9D5A00E7164D /* PauseLayer.m in Sources */,
 				6B0FD4191BA91AE400C22BD6 /* BackgroundLayerStore.m in Sources */,
 			);
