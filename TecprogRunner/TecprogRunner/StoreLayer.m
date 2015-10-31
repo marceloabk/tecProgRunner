@@ -7,6 +7,7 @@
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "StoreLayer.h"
+#define CARD_Y_POSITION 302
 
 @implementation StoreLayer
 
@@ -43,18 +44,15 @@
 
 -(void) loadButtons{
 
-    [self loadBack];
+    [self loadBackButton];
 
 }
 
--(void) loadBack{
+-(void) loadBackButton{
 
-    self.backButton = [SKSpriteNode spriteNodeWithImageNamed:@"backButton"];
-    self.backButton.position = CGPointMake(30, 363);
-    self.backButton.anchorPoint = CGPointMake(0, 1);
-    self.backButton.name = @"backButtonStore";
-    self.backButton.zPosition = 2;
-    [self.backButton setScale:0.5];
+    CGPoint position = CGPointMake(30, 363);
+    self.backButton = [SpriteNode spriteNodeWithImageNamed:@"backButton" andPosition:position
+                                               anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
 
 }
 
@@ -70,26 +68,22 @@
 
 -(void) loadCards{
 
-    self.coinsCard = [SKSpriteNode spriteNodeWithImageNamed:@"coinsCard"];
-    self.coinsCard.position = CGPointMake(21, 375-73);
-    self.coinsCard.anchorPoint = CGPointMake(0, 1);
-    self.coinsCard.name = @"coinsCard";
-    self.coinsCard.zPosition = 2;
-    [self.coinsCard setScale:0.5];
+    // Instantiate...
     
-    self.freeCoinsCard = [SKSpriteNode spriteNodeWithImageNamed:@"freeCoinsCard"];
-    self.freeCoinsCard.position = CGPointMake(456, 375-73);
-    self.freeCoinsCard.anchorPoint = CGPointMake(0, 1);
-    self.freeCoinsCard.name = @"freeCoinsCard";
-    self.freeCoinsCard.zPosition = 2;
-    [self.freeCoinsCard setScale:0.5];
+    // ... Coins Card
+    CGPoint coinsPosition = CGPointMake(21, CARD_Y_POSITION);
+    self.coinsCard = [SpriteNode spriteNodeWithImageNamed:@"coinsCard" andPosition:coinsPosition
+                                              anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
     
-    self.gemsCard = [SKSpriteNode spriteNodeWithImageNamed:@"gemsCard"];
-    self.gemsCard.position = CGPointMake(239, 375-73);
-    self.gemsCard.anchorPoint = CGPointMake(0, 1);
-    self.gemsCard.name = @"gemsCard";
-    self.gemsCard.zPosition = 2;
-    [self.gemsCard setScale:0.5];
+    // ... Free Coins Card
+    CGPoint freeCoinsPosition = CGPointMake(456, CARD_Y_POSITION);
+    self.freeCoinsCard = [SpriteNode spriteNodeWithImageNamed:@"freeCoinsCard" andPosition:freeCoinsPosition
+                                                  anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+    
+    // ... Gems Card
+    CGPoint gemsPosition = CGPointMake(239, CARD_Y_POSITION);
+    self.gemsCard = [SpriteNode spriteNodeWithImageNamed:@"gemsCard" andPosition:gemsPosition
+                                             anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
 
 
 }

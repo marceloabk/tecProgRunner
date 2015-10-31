@@ -7,6 +7,7 @@
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "GlobalHeaders.h"
+#import "SpriteNode.h"
 
 @interface BackgroundLayerSettings : SKNode
 
@@ -20,7 +21,7 @@
  Sprite that represent background
  visually
 */
-@property (nonatomic) SKSpriteNode* background;
+@property (nonatomic) SpriteNode* background;
 
 
 @end

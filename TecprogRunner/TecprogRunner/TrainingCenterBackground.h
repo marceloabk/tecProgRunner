@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "TrainingCenterBackground.h"
+#import "SpriteNode.h"
 
 @interface TrainingCenterBackground : SKNode
 
@@ -21,6 +22,6 @@
  Sprite that represent
  Training Center background on screen
 */
-@property (nonatomic) SKSpriteNode* background;
+@property (nonatomic) SpriteNode* background;
 
 @end

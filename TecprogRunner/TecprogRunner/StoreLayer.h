@@ -30,14 +30,14 @@
 /**
  Button to return
  */
-@property (nonatomic) SKSpriteNode *backButton;
+@property (nonatomic) SpriteNode *backButton;
 
 /**
 Store cards
  */
-@property (nonatomic) SKSpriteNode *coinsCard;
-@property (nonatomic) SKSpriteNode *gemsCard;
-@property (nonatomic) SKSpriteNode *freeCoinsCard;
+@property (nonatomic) SpriteNode *coinsCard;
+@property (nonatomic) SpriteNode *gemsCard;
+@property (nonatomic) SpriteNode *freeCoinsCard;
 
 /**
  Method used to activate Settings Layer

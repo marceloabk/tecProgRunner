@@ -30,26 +30,26 @@
 /**
  Button to play game
 */
-@property (nonatomic) SKSpriteNode *tapToPlayButton;
+@property (nonatomic) SpriteNode *tapToPlayButton;
 
 /**
  Button to redirect to Store
 */
-@property (nonatomic) SKSpriteNode *storeButton;
+@property (nonatomic) SpriteNode *storeButton;
 
 /**
  Button to redirect to Settings
 */
-@property (nonatomic) SKSpriteNode *settingsButton;
+@property (nonatomic) SpriteNode *settingsButton;
 
 /**
  Button to view Game Center
 */
-@property (nonatomic) SKSpriteNode *gameCenterButton;
+@property (nonatomic) SpriteNode *gameCenterButton;
 
 /**
  Button to redirect to Training Center
 */
-@property (nonatomic) SKSpriteNode *trainingCenterButton;
+@property (nonatomic) SpriteNode *trainingCenterButton;
 
 @end

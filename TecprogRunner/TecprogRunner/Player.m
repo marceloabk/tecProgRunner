@@ -154,10 +154,11 @@
 -(void) jump{
     
     if(self.isOnGround){
+        
         self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.physicsBody.velocity.dy + JUMP_IMPULSE);
         self.isOnGround = false;
-    }
-    else {
+        
+    }else{
         // Player can't jump while is in the air, by now
     }
 }
@@ -182,8 +183,7 @@
     // Changing animation depending player status is on ground
     if(isOnGround == true){
         [self changeToAction:PlayerMovimentRun];
-    }
-    else {
+    }else{
         [self changeToAction:PlayerMovimentJump];
     }
     
@@ -196,7 +196,7 @@
     
     if(self.physicsBody.velocity.dy <= 0 && !self.isOnGround){
         [self changeToAction:PlayerMovimentFall];
-    } else if(self.physicsBody.velocity.dy > 0 && !self.isOnGround){
+    }else if(self.physicsBody.velocity.dy > 0 && !self.isOnGround){
         [self changeToAction:PlayerMovimentJump];
     }
     
@@ -207,8 +207,7 @@
         if(isOnGroundChecker > 1){
             self.isOnGround = true;
         }
-    }
-    else {
+    }else{
         isOnGroundChecker = 0;
     }
 }

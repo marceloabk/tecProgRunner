@@ -52,55 +52,47 @@
 
 
 -(void) loadSettingsButton{
+    CGPoint position = CGPointMake(20, 360);
     
-    self.settingsButton = [SKSpriteNode spriteNodeWithImageNamed:@"settingsButton"];
-    self.settingsButton.position = CGPointMake(20, 360);
-    self.settingsButton.anchorPoint = CGPointMake(0, 1);
-    self.settingsButton.name = @"settingsButton";
-    self.settingsButton.zPosition = 2;
-    [self.settingsButton setScale:0.5];
+    self.settingsButton = [SpriteNode spriteNodeWithImageNamed:@"settingsButton" andPosition:position
+                                                   anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+    
 }
 
 -(void) loadGameCenterButton{
+    CGPoint position = CGPointMake(475, DEFAULT_LAYER_HEIGHT-316);
     
-    self.gameCenterButton = [SKSpriteNode spriteNodeWithImageNamed:@"gameCenterButton"];
-    self.gameCenterButton.position = CGPointMake(475, 375-316);
-    self.gameCenterButton.anchorPoint = CGPointMake(0, 1);
-    self.gameCenterButton.name = @"gameCenterButton";
-    self.gameCenterButton.zPosition = 2;
-    [self.gameCenterButton setScale:0.5];
+    self.gameCenterButton = [SpriteNode spriteNodeWithImageNamed:@"gameCenterButton" andPosition:position
+                                                     anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+    
 }
 
 -(void) loadStoreButton{
 
-    self.storeButton = [SKSpriteNode spriteNodeWithImageNamed:@"storeButton"];
-    self.storeButton.position = CGPointMake(575, 375-316);
-    self.storeButton.anchorPoint = CGPointMake(0, 1);
-    self.storeButton.name = @"storeButton";
-    self.storeButton.zPosition = 2;
-    [self.storeButton setScale:0.5];
+    CGPoint position = CGPointMake(575, DEFAULT_LAYER_HEIGHT - 316);
+    
+    self.storeButton = [SpriteNode spriteNodeWithImageNamed:@"storeButton" andPosition:position
+                                                anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
     
 }
 
 -(void) loadTrainingCenterButton{
     
-    self.trainingCenterButton = [SKSpriteNode spriteNodeWithImageNamed:@"trainingCenterButton"];
-    self.trainingCenterButton.position = CGPointMake(45, 375-322);
-    self.trainingCenterButton.anchorPoint = CGPointMake(0, 1);
-    self.trainingCenterButton.name = @"trainingCenterButton";
-    self.trainingCenterButton.zPosition = 2;
-    [self.trainingCenterButton setScale:0.5];
+    
+    CGPoint position = CGPointMake(45, DEFAULT_LAYER_HEIGHT - 322);
+    
+    self.trainingCenterButton = [SpriteNode spriteNodeWithImageNamed:@"trainingCenterButton" andPosition:position
+                                                         anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
     
 }
 
 -(void) loadTapToPlay{
     
-    self.tapToPlayButton = [SKSpriteNode spriteNodeWithImageNamed:@"tapToPlay"];
-    [self.tapToPlayButton setScale:0.5];
-    self.tapToPlayButton.anchorPoint = CGPointMake(0, 1);
-    self.tapToPlayButton.position = CGPointMake(251, 375-234);
-    self.tapToPlayButton.zPosition = 2;
-    self.tapToPlayButton.name = @"tapToPlay";
+    CGPoint position = CGPointMake(DEFAULT_LAYER_WIDTH/2, DEFAULT_LAYER_HEIGHT/2);
+    CGPoint anchorPoint = CGPointMake(0.5, 0.5);
+    
+    self.tapToPlayButton = [SpriteNode spriteNodeWithImageNamed:@"tapToPlay" andPosition:position
+                                                    anchorPoint:anchorPoint andScale:1.0 andZPosition:2];
     
     // actions to fade in and out
     SKAction *action1 = [SKAction fadeAlphaTo:0.1 duration:1];

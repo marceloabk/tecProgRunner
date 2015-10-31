@@ -56,17 +56,14 @@
     
     if([GameData sharedGameData].soundEffectsAvailibility){
         soundEffects = @"volumeOn";
-    }
-    else{
+    }else{
         soundEffects = @"volumeOff";
     }
 
-    self.musicButton = [SKSpriteNode spriteNodeWithImageNamed:soundEffects];
-    self.musicButton.position = CGPointMake(142, 375-150);
-    self.musicButton.anchorPoint = CGPointMake(0, 1);
-    self.musicButton.name = @"musicButton";
-    self.musicButton.zPosition = 2;
-    [self.musicButton setScale:0.5];
+    CGPoint position = CGPointMake(142, DEFAULT_LAYER_HEIGHT - 150);
+    self.musicButton = [SpriteNode spriteNodeWithImageNamed:soundEffects andPosition:position
+                                                anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+
 }
 
 -(void) loadMusic{
@@ -75,27 +72,21 @@
 
     if([GameData sharedGameData].musicAvailibility){
         music = @"volumeOn";
-    }
-    else{
+    }else{
         music = @"volumeOff";
     }
-    self.soundEffectsButton = [SKSpriteNode spriteNodeWithImageNamed:music];
-    self.soundEffectsButton.position = CGPointMake(432, 375-150);
-    self.soundEffectsButton.anchorPoint = CGPointMake(0, 1);
-    self.soundEffectsButton.name = @"soundEffectsButton";
-    self.soundEffectsButton.zPosition = 2;
-    [self.soundEffectsButton setScale:0.5];
+    
+    CGPoint position = CGPointMake(432, DEFAULT_LAYER_HEIGHT - 150);
+    self.soundEffectsButton = [SpriteNode spriteNodeWithImageNamed:music andPosition:position
+                                                       anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
 
 }
 
 -(void) loadBack{
     
-    self.backButton = [SKSpriteNode spriteNodeWithImageNamed:@"backButton"];
-    self.backButton.position = CGPointMake(30, 363);
-    self.backButton.anchorPoint = CGPointMake(0, 1);
-    self.backButton.name = @"backButtonSettings";
-    self.backButton.zPosition = 2;
-    [self.backButton setScale:0.5];
+    CGPoint position = CGPointMake(30, 363);
+    self.backButton = [SpriteNode spriteNodeWithImageNamed:@"backButton" andPosition:position
+                                               anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
     
 }
 

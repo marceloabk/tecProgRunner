@@ -42,6 +42,8 @@
 
 #define ZPOSITION_HUD 10
 
+#define SKETCH_ANCHOR_POINT CGPointMake(0,1)
+
 @protocol physicsControllerAddBody <NSObject>
 @required
 -(void) addBody:(GameObject*) body;

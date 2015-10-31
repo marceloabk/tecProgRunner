@@ -9,9 +9,9 @@
 #import <SpriteKit/SpriteKit.h>
 #import "TrainingCenterBackground.h"
 #import "Label.h"
+#import "SpriteNode.h"
 
 #define DEFAULT_STARS_X_POSITION 215
-#define DEFAULT_SPRITE_ANCHOR_POINT CGPointMake(0, 1)
 #define DEFAULT_STARTS_Z_POSITION 100
 
 @interface TrainingCenterLayer : SKNode
@@ -34,12 +34,12 @@
 /**
  Button to return
 */
-@property (nonatomic) SKSpriteNode *backButton;
+@property (nonatomic) SpriteNode *backButton;
 
 /**
  Table with player attributes
 */
-@property (nonatomic) SKSpriteNode *atributesTable;
+@property (nonatomic) SpriteNode *atributesTable;
 
 /**
  Method used to activate Training Center layer
@@ -49,27 +49,27 @@
 /**
  Represent speed level
  */
-@property (nonatomic) SKSpriteNode *levelSpeedStars;
+@property (nonatomic) SpriteNode *levelSpeedStars;
 
 /**
  Represent jump level
  */
-@property (nonatomic) SKSpriteNode *levelJumpStars;
+@property (nonatomic) SpriteNode *levelJumpStars;
 
 /**
  Represent luck level
  */
-@property (nonatomic) SKSpriteNode *levelLuckStars;
+@property (nonatomic) SpriteNode *levelLuckStars;
 
 /**
  Represent shooting level
  */
-@property (nonatomic) SKSpriteNode *levelShootingStars;
+@property (nonatomic) SpriteNode *levelShootingStars;
 
 /**
  Represent power level
  */
-@property (nonatomic) SKSpriteNode *levelPowerStars;
+@property (nonatomic) SpriteNode *levelPowerStars;
 
 
 /**

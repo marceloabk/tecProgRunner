@@ -49,12 +49,8 @@
 
 -(void) loadBack{
     
-    self.backButton = [SKSpriteNode spriteNodeWithImageNamed:@"backButton"];
-    self.backButton.position = CGPointMake(10, 363);
-    self.backButton.anchorPoint = CGPointMake(0, 1);
-    self.backButton.name = @"backTrainingCenter";
-    self.backButton.zPosition = 2;
-    [self.backButton setScale:0.5];
+    CGPoint position = CGPointMake(10, 363);
+    self.backButton = [SpriteNode spriteNodeWithImageNamed:@"backButton" andPosition:position anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
     
 }
 
@@ -67,12 +63,6 @@
     self.levelShootingStars = [self loadStarSprite:self.levelShootingStars];
     self.levelSpeedStars = [self loadStarSprite:self.levelSpeedStars];
     
-    [self setStarCommonAttributes:self.levelJumpStars];
-    [self setStarCommonAttributes:self.levelLuckStars];
-    [self setStarCommonAttributes:self.levelPowerStars];
-    [self setStarCommonAttributes:self.levelShootingStars];
-    [self setStarCommonAttributes:self.levelSpeedStars];
-    
     // Set stars positions on screen
     self.levelJumpStars.position = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-85);
     self.levelLuckStars.position = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-132);
@@ -82,13 +72,7 @@
     
 }
 
--(void) setStarCommonAttributes:(SKSpriteNode*)star{
-    star.anchorPoint = DEFAULT_SPRITE_ANCHOR_POINT;
-    star.zPosition = DEFAULT_STARTS_Z_POSITION;
-    [star setScale:0.5];
-}
-
--(SKSpriteNode*) loadStarSprite:(SKSpriteNode*)attribute{
+-(SpriteNode*) loadStarSprite:(SpriteNode*)attribute{
     
     // Get attribute level
     int level = [self returnLevel:attribute];
@@ -97,18 +81,17 @@
     NSString *spriteName = [[NSString alloc] initWithFormat:@"levelStars%i", level];
     
     // Generating the sprite
-    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
+    SpriteNode *sprite = [SpriteNode spriteNodeWithImageNamed:spriteName andPosition:CGPointZero anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:DEFAULT_STARTS_Z_POSITION];
+    
     
     return sprite;
 }
 
 -(void) loadAtributesTable{
 
-    self.atributesTable = [SKSpriteNode spriteNodeWithImageNamed:@"atributesTable"];
-    self.atributesTable.position = CGPointMake(50, DEFAULT_LAYER_HEIGHT-34);
-    self.atributesTable.anchorPoint = DEFAULT_SPRITE_ANCHOR_POINT;
-    self.atributesTable.zPosition = 2;
-    [self.atributesTable setScale:0.5];
+    CGPoint position = CGPointMake(50, DEFAULT_LAYER_HEIGHT - 34);
+    self.atributesTable = [SpriteNode spriteNodeWithImageNamed:@"atributesTable" andPosition:position anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+    
 }
 
 -(void) activateLayer{
@@ -128,7 +111,7 @@
     
 }
 
--(int) returnLevel:(SKSpriteNode*)attribute{
+-(int) returnLevel:(SpriteNode*)attribute{
     unsigned int level = 0;
     
     // Comparing attribute with existings attributes
@@ -153,15 +136,16 @@
 
 -(void) putCoins{
     
-    SKSpriteNode *coinsImage = [SKSpriteNode spriteNodeWithImageNamed:@"Coin1"];
-    coinsImage.anchorPoint = CGPointMake(0, 1);
-    coinsImage.position = CGPointMake(380, 375-15);
-    coinsImage.zPosition = 10;
+    // Creating coin sprite
+    CGPoint position = CGPointMake(380, DEFAULT_LAYER_HEIGHT - 15);
+    SpriteNode *coinsImage = [SpriteNode spriteNodeWithImageNamed:@"Coin1" andPosition:position
+                                                      anchorPoint:SKETCH_ANCHOR_POINT andScale:1.0 andZPosition:10];
     
     // Creating coins label
     NSString *coinString = [[NSString alloc] initWithFormat:@"%i", [GameData sharedGameData].coins];
-    CGPoint coinPosition = CGPointMake(624, 333);
-    self.coinsLabel = [Label labelWithText:coinString andPosition:coinPosition andSize:33 andZPosition:10];
+    CGPoint coinPosition = CGPointMake(424, 333);
+    self.coinsLabel = [Label labelWithText:coinString andPosition:coinPosition
+                                   andSize:33 andZPosition:10];
     
     [self addChild:coinsImage];
     [self.layer addChild:self.coinsLabel];
@@ -169,16 +153,15 @@
 }
 
 -(void) putGems{
-    // Creating gems images
-    SKSpriteNode *gemsImage = [SKSpriteNode spriteNodeWithImageNamed:@"diamond"];
-    [gemsImage setScale:0.5];
-    gemsImage.anchorPoint = CGPointMake(0, 1);
-    gemsImage.position = CGPointMake(580, 375-15);
-    gemsImage.zPosition = 10;
+    
+    // Creating gems sprites
+    CGPoint position = CGPointMake(540, DEFAULT_LAYER_HEIGHT - 15);
+    SpriteNode *gemsImage = [SpriteNode spriteNodeWithImageNamed:@"diamond" andPosition:position
+                                                     anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:10];
     
     // Creating gems label
     NSString *gemsString = [[NSString alloc] initWithFormat:@"%i", [GameData sharedGameData].gems];
-    CGPoint gemPosition = CGPointMake(424, 333);
+    CGPoint gemPosition = CGPointMake(584, 333);
     self.gemsLabel = [Label labelWithText:gemsString andPosition:gemPosition andSize:33 andZPosition:10];
 
     

@@ -31,8 +31,7 @@
         [self setBasicsAttributes];
         
         DebugLog(@"Coin instantiated");
-    }
-    else {
+    }else{
         
         DebugLog(@"Could not instantiate coin");
     }
@@ -115,7 +114,7 @@
         
         return newCoin;
         
-    } else {
+    }else{
         
         DebugLog(@"Not able to instantiate coin - parent is nil");
         return nil;

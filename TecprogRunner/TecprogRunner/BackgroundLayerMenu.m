@@ -26,13 +26,9 @@
 
 
 -(void) addBackgroundSprite{
-
-    self.background = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"menuBg"]];
-    self.background.position =CGPointZero;
-    self.background.anchorPoint = CGPointZero;
-    [self.background setScale:0.5];
     
-    self.background.zPosition = -1;
+    self.background = [SpriteNode spriteNodeWithImageNamed:@"menuBg" andPosition:CGPointZero
+                                               anchorPoint:CGPointZero andScale:0.5 andZPosition:-1];
     
     [self addChild:self.background];
 
