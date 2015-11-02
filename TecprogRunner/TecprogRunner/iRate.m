@@ -849,7 +849,7 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
             self.visibleAlert = alert;
             
             //get current view controller and present alert
-            [topController presentViewController:alert animated:YES completion:NULL];
+            [topController presentViewController:alert animated:YES completion:nil];
         }
         else
         {

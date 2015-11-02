@@ -15,7 +15,7 @@
     
     self = [super init];
     
-    if(self != NULL){
+    if(self != nil){
         
         self.layer = [SKNode node];
         [self addChild:self.layer];

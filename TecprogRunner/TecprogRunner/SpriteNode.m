@@ -22,6 +22,8 @@
         object.zPosition = zPosition;
         object.name = imageName;
         [object setScale:scale];
+    }else{
+        // Throw exception
     }
     
     return object;

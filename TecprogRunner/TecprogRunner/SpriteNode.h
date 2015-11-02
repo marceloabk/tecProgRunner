@@ -10,8 +10,6 @@
 
 @interface SpriteNode : SKSpriteNode
 
--(instancetype)initWithPosition:(CGPoint)position;
-
 +(SpriteNode*) spriteNodeWithImageNamed:(NSString*)imageName
                             andPosition:(CGPoint)position anchorPoint:(CGPoint)anchorPoint
                                andScale:(CGFloat)scale andZPosition:(CGFloat) zPosition;

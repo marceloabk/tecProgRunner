@@ -71,7 +71,7 @@
 
 -(void) invertSpriteX:(BOOL)option{
     
-    if (option == YES) {
+    if(option == YES){
         // Invert the xScale using the absolut value
         self.xScale = -fabs(self.xScale);
     }else{

@@ -18,7 +18,7 @@
     
     self = [super init];
     
-    if(self != NULL){
+    if(self != nil){
         _size = size;
         
         self.layer = [SKNode node];

@@ -22,7 +22,7 @@ NSString *const PresentAuthenticationViewController = @"present_authentication_v
     // Calling the default init for classes in Objective C
     self = [super init];
     
-    if (self != nil) {
+    if(self != nil){
         // Define the initial configuration for GameKitHelper
         _GameCenterEnabled = YES;
     }else{
@@ -57,7 +57,7 @@ NSString *const PresentAuthenticationViewController = @"present_authentication_v
         // Format the error presentation
         [self setLastError:error];
         
-        if (viewController != nil) {
+        if(viewController != nil){
             // Set the view controller as authentication view controller
             [self setAuthenticationViewController:viewController];
         }else if([[GKLocalPlayer localPlayer] isAuthenticated] == YES){
@@ -70,7 +70,7 @@ NSString *const PresentAuthenticationViewController = @"present_authentication_v
 }
 
 -(void) setAuthenticationViewController:(UIViewController *)authenticationViewController{
-    if (authenticationViewController != nil) {
+    if(authenticationViewController != nil){
         // Set the authenticationViewController as a property of the class
         self.authenticationViewController = authenticationViewController;
         
@@ -86,7 +86,7 @@ NSString *const PresentAuthenticationViewController = @"present_authentication_v
     self.lastError = [error copy];
     
     
-    if (self.lastError != nil) {
+    if(self.lastError != nil){
         // Get the description of the error
         NSString *errorDescription = [[self.lastError userInfo] description];
         
@@ -101,7 +101,8 @@ NSString *const PresentAuthenticationViewController = @"present_authentication_v
 #pragma mark Report conquests
 
 -(void) reportScore:(int64_t)score forLeaderboardID:(NSString *)leaderboardID{
-    if (_GameCenterEnabled == YES) {
+    
+    if (_GameCenterEnabled == YES){
         // Allocating and initializing and setting up GKScore with 'leaderboardID' that the score will be sent
         GKScore *scoreReporter = [[GKScore alloc] initWithLeaderboardIdentifier:leaderboardID];
         scoreReporter.value = score;
@@ -121,7 +122,8 @@ NSString *const PresentAuthenticationViewController = @"present_authentication_v
 }
 
 -(void) reportAchievements:(NSArray *)achievements{
-    if (_GameCenterEnabled == YES) {
+    
+    if(_GameCenterEnabled == YES){
         // Report achievements to Game Center
         [GKAchievement reportAchievements:achievements withCompletionHandler:^(NSError *error){
             [self setLastError:error];

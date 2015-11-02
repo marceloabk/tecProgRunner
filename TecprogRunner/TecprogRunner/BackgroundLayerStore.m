@@ -14,11 +14,14 @@
     
     self = [super init];
     
-    if(self != NULL){
+    if(self != nil){
         
         [self addBackgroundSprite];
         
+    }else{
+        // Exception
     }
+    
     return self;
 }
 

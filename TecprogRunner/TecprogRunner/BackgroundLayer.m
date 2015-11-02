@@ -37,13 +37,13 @@ struct line{
 
 -(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>)physicsBodyAdder{
     
-    NSAssert(physicsBodyAdder != NULL, @"physicsBodyAdder is NULL on BackgroundLayer");
+    NSAssert(physicsBodyAdder != nil, @"physicsBodyAdder is nil on BackgroundLayer");
     
     DebugLog(@"Initializing BackgroundLayer");
     
     self = [super init];
     
-    if(self != NULL){
+    if(self != nil){
         
         self.physicsBodyAdder = physicsBodyAdder;
         
@@ -142,12 +142,16 @@ struct line{
             [tile removeFromParent];
             [_removedTiles addObject:tile];
 
+        }else{
+            // There's no alternative path
         }
     }
     
     for(GameObject* clouds in _clouds){
         if(clouds.position.x + clouds.size.width < 0.0){
             clouds.position = CGPointMake(CLOUDS_WIDTH*0.99, 0.0);
+        }else{
+            // There's no alternative path
         }
     }
     

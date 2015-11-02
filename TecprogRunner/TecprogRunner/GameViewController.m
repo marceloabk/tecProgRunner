@@ -19,7 +19,7 @@
     // Configure the view
     SKView * skView = (SKView *)self.view;
     
-    NSAssert((skView != NULL), @"SKview is NULL");
+    NSAssert((skView != nil), @"SKview is nil");
     
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
@@ -38,7 +38,7 @@
     // OverallScene will control all of the architecture of the game
     OverallScene *scene = [[OverallScene alloc] initWithSize:screenSize];
     
-    NSAssert((scene != NULL), @"OverrallScene is NULL");
+    NSAssert((scene != nil), @"OverrallScene is nil");
     
     // ...Adjust contents according to the screen size
     scene.scaleMode = SKSceneScaleModeFill;
@@ -54,11 +54,15 @@
 
 -(UIInterfaceOrientationMask) supportedInterfaceOrientations{
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
+    UIInterfaceOrientationMask supported = UIInterfaceOrientationMaskAll;
+    
+    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone){
+        supported = UIInterfaceOrientationMaskAllButUpsideDown;
     }else{
-        return UIInterfaceOrientationMaskAll;
+        // Do nothing
     }
+    
+    return supported;
     
 }
 

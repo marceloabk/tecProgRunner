@@ -12,7 +12,8 @@
 
 -(instancetype) initWithSize:(CGSize)size{
     self = [super init];
-    if(self != NULL){
+    
+    if(self != nil){
         
         self.zPosition = PAUSE_LAYER_Z_POSITION;
         
@@ -22,7 +23,10 @@
         [self loadBackground];
         [self loadButtons];
 
+    }else{
+        // Exception
     }
+    
     return self;
 }
 

@@ -14,7 +14,10 @@
     
     if(self = [super init]){
         [self addBackgroundSprite];
+    }else{
+        // Throw exception
     }
+    
     return self;
 }
 

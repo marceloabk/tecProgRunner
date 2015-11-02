@@ -25,7 +25,7 @@
     // Creating a texture for the  player
     SKTexture *playerTexture = [super generateTextureWithImageNamed:INITIAL_PLAYER_IMAGE];
     
-    NSAssert((playerTexture != NULL), @"Texture generated for player is NULL");
+    NSAssert((playerTexture != nil), @"Texture generated for player is nil");
     
     // Init the Sprite with the texture created
     self = [super initWithTexture:playerTexture];
@@ -198,6 +198,8 @@
         [self changeToAction:PlayerMovimentFall];
     }else if(self.physicsBody.velocity.dy > 0 && !self.isOnGround){
         [self changeToAction:PlayerMovimentJump];
+    }else{
+        // Nothing to do
     }
     
     // Ansure that player is on ground
@@ -206,7 +208,10 @@
         
         if(isOnGroundChecker > 1){
             self.isOnGround = true;
+        }else{
+            // Nothing to do
         }
+        
     }else{
         isOnGroundChecker = 0;
     }
@@ -235,7 +240,11 @@
             default:
                 break;
         }
+        
+    }else{
+        // Keep the moviment
     }
+    
 }
 
 

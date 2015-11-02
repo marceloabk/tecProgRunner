@@ -42,7 +42,7 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
     
     NSData* decodedData = [NSData dataWithContentsOfFile: [GameData filePath]];
     
-    if(decodedData != NULL){
+    if(decodedData != nil){
         GameData* gameData = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
         return gameData;
     }else{
@@ -65,11 +65,11 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
 
 -(instancetype) initWithCoder:(NSCoder *)decoder{
     
-    NSAssert(decoder != NULL, @"There's no decoder on GameData");
+    NSAssert(decoder != nil, @"There's no decoder on GameData");
     
     self = [self init];
     
-    if(self != NULL){
+    if(self != nil){
      
         _highScore = [decoder decodeIntForKey: SSGameDataKey1];
         _levelJump = [decoder decodeIntForKey: SSGameDataKey2];
@@ -82,6 +82,8 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
         _musicAvailibility = [decoder decodeBoolForKey: SSGameDataKey9];
         _soundEffectsAvailibility = [decoder decodeIntForKey: SSGameDataKey10];
 
+    }else{
+        // There's no alternative path
     }
     
     return self;
@@ -108,7 +110,7 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
 
 -(void) encodeWithCoder:(NSCoder *)encoder{
     
-    NSAssert(encoder != NULL, @"There's no encoder on GameData");
+    NSAssert(encoder != nil, @"There's no encoder on GameData");
     
     // Encode data
     [encoder encodeInt:self.highScore forKey: SSGameDataKey1];
@@ -127,7 +129,7 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
     
     static NSString* filePath = nil;
     
-    if(filePath == NULL){
+    if(filePath == nil){
         filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"gamedata"];
     }else{
         // There is no alternative path

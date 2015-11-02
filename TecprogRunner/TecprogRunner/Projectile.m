@@ -22,7 +22,7 @@
     // Creating a texture for the Projectile
     SKTexture *projectileTexture = [super generateTextureWithImageNamed:DEFAULT_PROJECTILE_IMAGE];
     
-    NSAssert((projectileTexture != NULL), @"Texture generated for projectile is NULL");
+    NSAssert((projectileTexture != nil), @"Texture generated for projectile is nil");
     
     // Init the Sprite with the texture created
     self = [super initWithTexture:projectileTexture];
@@ -38,6 +38,7 @@
         
         
         [self moveProjectile];
+        
     }else{
         
         DebugLog(@"Projectile can't be initialized");

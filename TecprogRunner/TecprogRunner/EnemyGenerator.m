@@ -68,16 +68,19 @@
     // We have 33% of chance to wait and 66% to create an enemy
     unsigned const int chanceToCreateEnemyOrWait = [self randomizeNumberBetween:0 and:2];
     
-    if (chanceToCreateEnemyOrWait == 0){
+    if(chanceToCreateEnemyOrWait == 0){
         probabilityValue = 3;
     }else if(score < 40){
         probabilityValue = 1;
     }else if(score < 400){
-        if([self randomizeNumberBetween:0 and:100] < 45){
+        unsigned int random = [self randomizeNumberBetween:0 and:100];
+        
+        if(random < 45){
             probabilityValue = 2;
         }else{
             probabilityValue = 1;
         }
+        
     }else{
         probabilityValue = 2;
     }

@@ -12,51 +12,52 @@
 
 @implementation Coin
 
-- (instancetype)init
-{
+-(instancetype) init{
+    
     // Creating a texture for the Coin
     SKTexture *coinTexture = [super generateTextureWithImageNamed:INITIAL_COIN_IMAGE];
     
     // Init the Sprite with the texture created
     self = [super initWithTexture:coinTexture];
-    if (self) {
-        
-        // Make coin spin
-        SKAction *spinning = [self spinningAnimation];
-        [self runAction: spinning];
-        
-        // Generating physics Body
-        self.physicsBody = [self generatePhysicsBody];
+    
+    if(self != nil){
         
         [self setBasicsAttributes];
         
         DebugLog(@"Coin instantiated");
-    }else{
         
+    }else{
         DebugLog(@"Could not instantiate coin");
     }
+    
     return self;
 }
 
-// Initialize Coin class with a position
--(instancetype)initWithPosition:(CGPoint)position{
+-(instancetype) initWithPosition:(CGPoint)position{
     
     self = [self init];
     
     if(self != nil){
-        // setting position
+        // Setting position
         self.position = position;
     
     }else{
-        // nothing to do
+        // Nothing to do
     }
     
     return self;
 }
 
--(void) setBasicsAttributes {
+-(void) setBasicsAttributes{
     
     [super setBasicsAttributes];
+    
+    // Make coin spin
+    SKAction *spinning = [self spinningAnimation];
+    [self runAction: spinning];
+    
+    // Generating physics Body
+    self.physicsBody = [self generatePhysicsBody];
     
     // setting basic coin value
     self.value = COIN_DEFAULT_VALUE;
@@ -104,24 +105,28 @@
 }
 
 
-+(Coin*) generateCoinInParent:(SKNode*) parent withPosition:(CGPoint) position{
++(Coin*) generateCoinInParent:(SKNode*)parent withPosition:(CGPoint)position{
+    Coin *newCoin;
     
     if(parent != nil){
         
-        Coin *newCoin = [[Coin alloc] initWithPosition:position];
+        // Initialize and add Coin to parent
+        newCoin = [[Coin alloc] initWithPosition:position];
         [parent addChild:newCoin];
-        newCoin.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
         
-        return newCoin;
+        newCoin.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
         
     }else{
         
         DebugLog(@"Not able to instantiate coin - parent is nil");
-        return nil;
+        
+        newCoin = nil;
     }
+    
+    return newCoin;
 }
 
--(void) runScoredMoviment {
+-(void) runScoredMoviment{
 
     SKAction *large = [SKAction scaleBy:1.5 duration:0.1];
     
@@ -134,4 +139,5 @@
     }];
     
 }
+
 @end

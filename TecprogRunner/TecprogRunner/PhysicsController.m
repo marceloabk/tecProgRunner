@@ -19,7 +19,7 @@
     
     self = [super init];
     
-    if (self != NULL) {
+    if(self != nil){
         
         DebugLog("Physics Controller initialized");
         
@@ -29,6 +29,7 @@
         
         // There is no alternative path
     }
+    
     return self;
 }
 
@@ -44,7 +45,7 @@
 
 -(void) didBeginContact:(SKPhysicsContact *)contact{
     
-    NSAssert(contact != NULL, @"Contact is NULL in didBeginContact");
+    NSAssert(contact != nil, @"Contact is nil in didBeginContact");
     
     // Identifying nodes in contact
     SKNode* nodeA = contact.bodyA.node;
@@ -79,6 +80,8 @@
         if(bodyAboveGround){
             gameObj.isOnGround = true;
             gameObj.velocity = CGVectorMake(gameObj.velocity.dx, 0.0);
+        }else{
+            // There's no alternative path
         }
         
     }else if((bodyAisCoin || bodyBisCoin) && (bodyAisPlayer || bodyBisPlayer)){
@@ -92,28 +95,35 @@
             Coin* coin = (Coin*)nodeB;
             [self.gameLayer playerContactCoin:coin];
             
+        }else{
+            // Nothing to do
         }
         
     }else if((bodyAisEnemy || bodyBisEnemy) && (bodyAisProjectile || bodyBisProjectile)){
        
         Enemy* enemy;
+        
         if(bodyAisEnemy){
             enemy = (Enemy*)contact.bodyA.node;
         }else if(bodyBisEnemy){
             enemy = (Enemy*)contact.bodyB.node;
+        }else{
+            // Nothing to do
         }
         
         enemy.health--;
         if (enemy.health == 0) {
             [enemy removeFromParent];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"enemy die" object:nil];
+        }else{
+            // Nothing to do
         }
     }
 }
 
 -(void) didEndContact:(SKPhysicsContact *)contact{
     
-    NSAssert(contact != NULL, @"Contact is NULL in didEndContact");
+    NSAssert(contact != nil, @"Contact is nil in didEndContact");
     
     // Detect if body is on ground
     BOOL bodyAisGround = [contact.bodyA.node.name isEqualToString:@"ground"];
@@ -132,7 +142,12 @@
                 if(contact.contactNormal.dy == 0){
                     gameObj.isOnGround = true;
                     break;
+                }else{
+                    // Nothing to do
                 }
+                
+            }else{
+                // Nothing to do
             }
         }
         
@@ -151,6 +166,8 @@
                 }
             }
         }
+    }else{
+        // Nothing to do
     }
 }
 

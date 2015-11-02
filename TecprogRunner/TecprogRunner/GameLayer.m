@@ -39,11 +39,15 @@
 -(instancetype) initWithSize:(CGSize)size{
     
     self = [super init];
-    if(self){
+    
+    if(self != nil){
         _size = size;
         self.name = @"layer";
         [self initializePhysicsController];
+    }else{
+        // Exception
     }
+    
     return self;
 }
 
@@ -122,9 +126,11 @@
 
 -(void) update:(CFTimeInterval)currentTime{
     
-    //Update delta
-    if (_lastTime == 0) {
+    // Update delta
+    if (_lastTime == 0){
         _lastTime = currentTime;
+    }else{
+        // There's no alternative path
     }
     
     CFTimeInterval delta;
@@ -140,6 +146,8 @@
     if(self.paused == false){
         [_physicsController updateWithDeltaTime:delta];
         [_backgroundLayer updateWithDeltaTime:delta];
+    }else{
+        // Continue
     }
     
 }
@@ -227,6 +235,7 @@
     }else{
         // Nothing to do
     }
+    
     srand(CACurrentMediaTime());
     double timeBetweenCoins = 1 + rand() % 5;
     
