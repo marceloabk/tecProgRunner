@@ -29,7 +29,7 @@ struct line{
     float backgroundDefaultVelocity;
 
     NSMutableArray<GameObject*>* _tiles;
-    NSMutableArray<GameObject*>* _removedTiles;
+    NSMutableArray<GameObject*>* _recycleTiles;
     NSMutableArray<GameObject*>* _clouds;
 
     GameObject* lastGameObject;
@@ -48,7 +48,7 @@ struct line{
         self.physicsBodyAdder = physicsBodyAdder;
         
         _tiles = [[NSMutableArray<GameObject*> alloc] init];
-        _removedTiles = [[NSMutableArray<GameObject*> alloc] init];
+        _recycleTiles = [[NSMutableArray<GameObject*> alloc] init];
         _clouds = [[NSMutableArray<GameObject*> alloc] init];
         _size = size;
         
@@ -103,25 +103,18 @@ struct line{
 -(GameObject*) createTileGroundWithSize:(CGSize)size{
     
     GameObject* tile;
-    if(_removedTiles.count <= 0 || true){
+    if(_recycleTiles.count <= 0){
         tile = [[GameObject alloc] initWithColor:GREEN_COLOR size:size];
         tile.name = @"ground";
         tile.position = CGPointMake(0.0, 0.0);
-        tile.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
-        
-        tile.physicsBody.categoryBitMask = ColliderTypeGround;
-        tile.physicsBody.affectedByGravity = false;
-        tile.physicsBody.dynamic = false;
-        tile.physicsBody.allowsRotation = false;
-        tile.physicsBody.collisionBitMask = ColliderTypePlayer;
-        tile.physicsBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeEnemy | ColliderTypeObstacle;
         tile.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
     }else{
-        tile = [_removedTiles lastObject];
-        [_removedTiles removeLastObject];
+        tile = [_recycleTiles lastObject];
+        [_recycleTiles removeLastObject];
         tile.size = size;
-        tile.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
     }
+    
+    tile.physicsBody = [self generateTilePhysicsBodyWithSize:size];
     
     [self.physicsBodyAdder addBody:tile];
         
@@ -129,6 +122,19 @@ struct line{
     [_tiles addObject:tile];
     
     return tile;
+}
+
+-(SKPhysicsBody*) generateTilePhysicsBodyWithSize:(CGSize)size{
+    
+    SKPhysicsBody* physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
+    physicsBody.categoryBitMask = ColliderTypeGround;
+    physicsBody.affectedByGravity = false;
+    physicsBody.dynamic = false;
+    physicsBody.allowsRotation = false;
+    physicsBody.collisionBitMask = ColliderTypePlayer;
+    physicsBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeEnemy | ColliderTypeObstacle;
+    
+    return physicsBody;
 }
 
 -(void) updateWithDeltaTime:(CFTimeInterval)deltaTime{
@@ -140,7 +146,7 @@ struct line{
         if(tile.position.x + tile.size.width < 0.0){
             [_tiles removeObject:tile];
             [tile removeFromParent];
-            [_removedTiles addObject:tile];
+            [_recycleTiles addObject:tile];
 
         }else{
             // There's no alternative path
