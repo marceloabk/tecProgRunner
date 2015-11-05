@@ -9,6 +9,9 @@
 #import "GlobalHeaders.h"
 #import "GameObject.h"
 #import "Coin.h"
+#import "Enemy.h"
+#import "Player.h"
+#import "Projectile.h"
 
 #define GRAVITY 25
 
@@ -20,6 +23,11 @@
  Handle when player contact a Coin
 */
 -(void) playerContactCoin:(Coin*) coin;
+
+/**
+ Handle when enemy contact a bullet
+*/
+-(void) Bullet:(Projectile*)bullet hittedEnemy:(Enemy*) enemy;
 
 @end
 

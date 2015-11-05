@@ -260,6 +260,19 @@
     
 }
 
+-(void) Bullet:(Projectile *)bullet hittedEnemy:(Enemy *)enemy{
+    
+    enemy.health--;
+    if (enemy.health == 0) {
+        [enemy removeFromParent];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"enemy die" object:nil];
+    }else{
+        // Nothing to do
+    }
+    
+    [bullet removeFromParent];
+}
+
 -(void) addBody:(GameObject *)body{
     [self.physicsController addBody:body];
 }

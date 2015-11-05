@@ -7,9 +7,7 @@
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "PhysicsController.h"
-#import "Player.h"
-#import "Enemy.h"
-#import "Projectile.h"
+
 
 @implementation PhysicsController{
     NSMutableArray<GameObject*> *_bodies;
@@ -102,22 +100,19 @@
     }else if((bodyAisEnemy || bodyBisEnemy) && (bodyAisProjectile || bodyBisProjectile)){
        
         Enemy* enemy;
+        Projectile* bullet;
         
         if(bodyAisEnemy){
             enemy = (Enemy*)contact.bodyA.node;
+            bullet = (Projectile*)contact.bodyB.node;
         }else if(bodyBisEnemy){
             enemy = (Enemy*)contact.bodyB.node;
+            bullet = (Projectile*)contact.bodyA.node;
         }else{
             // Nothing to do
         }
         
-        enemy.health--;
-        if (enemy.health == 0) {
-            [enemy removeFromParent];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"enemy die" object:nil];
-        }else{
-            // Nothing to do
-        }
+        [self.gameLayer Bullet:bullet hittedEnemy:enemy];
     }
 }
 
