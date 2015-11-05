@@ -63,7 +63,25 @@
     CGPoint continueButtonPosition = CGPointMake(286, DEFAULT_LAYER_HEIGHT - 128);
     self.continueButton = [SpriteNode spriteNodeWithImageNamed:@"pauseContinueButton" andPosition:continueButtonPosition
                                                    anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:buttonZPosition];
+}
 
+-(void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint touchLocation = [touch locationInNode:self];
+    
+    SKNode *node = [self nodeAtPoint:touchLocation];
+    
+    if([node isEqualToNode:self.restartButton]){
+        [self.pauseDelegate restartButtonPressed];
+    }
+    else if([node isEqualToNode:self.homeButton]){
+        [self.pauseDelegate homeButtonPressed];
+    }
+    else if([node isEqualToNode:self.continueButton]){
+        [self.pauseDelegate continueButtonPressed];
+    }
+    
 }
 
 @end

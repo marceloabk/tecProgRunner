@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "GlobalHeaders.h"
 
 @interface SpriteNode : SKSpriteNode
 

@@ -14,6 +14,10 @@
     
     SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
     
+    if(texture == nil){
+        DebugLog(@"texture is nil");
+    }
+    
     SpriteNode *object = [SpriteNode spriteNodeWithTexture:texture];
     
     if(object != nil){
@@ -23,6 +27,7 @@
         object.name = imageName;
         [object setScale:scale];
     }else{
+        DebugLog(@"object is nil");
         // Throw exception
     }
     

@@ -11,7 +11,7 @@
 #import "GameData.h"
 #import "PauseLayer.h"
 
-@interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody>
+@interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody, pauseDelegate>
 
 /**
  Physics controller for Game actions

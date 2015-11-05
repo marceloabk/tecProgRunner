@@ -12,6 +12,15 @@
 
 #define PAUSE_LAYER_Z_POSITION 10000
 
+@protocol pauseDelegate <NSObject>
+
+@required
+-(void) continueButtonPressed;
+-(void) homeButtonPressed;
+-(void) restartButtonPressed;
+
+@end
+
 @interface PauseLayer : SKNode
 
 /**
@@ -24,6 +33,8 @@
 @property SpriteNode *continueButton;
 @property SpriteNode *homeButton;
 @property SpriteNode *restartButton;
+
+@property (nonatomic) id pauseDelegate;
 
 -(void) activatePauseLayer;
 

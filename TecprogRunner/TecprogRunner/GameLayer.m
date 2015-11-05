@@ -71,14 +71,13 @@
     
     SKNode *node = [self nodeAtPoint:touchLocation];
     
-    if([node.name isEqualToString:@"pauseGame"]){
+    if([node.name isEqualToString:@"pauseButton"]){
         
         // Pause or unpause game;
         [self pausedClicked];
         
-        
     }else{
-        if(self.paused == false){
+        if(self.scene.view.paused == false){
             
             if((touchLocation.x < _size.width/2) && self.player.playerOnGround == true){
                 DebugLog(@"User clicked on left side of game layer and is on ground");
@@ -90,6 +89,10 @@
                 // Do nothing
             }
         }
+        else {
+            
+            [self.pauseLayer touchesBegan:touches withEvent:event];
+        }
 
     }
     
@@ -99,28 +102,29 @@
     
     _physicsController = [[PhysicsController alloc] init];
     _physicsController.gameLayer = self;
-    
 }
 
 -(void) pausedClicked{
     
-    if(self.paused == true){
+    if(self.scene.view.paused == true){
         self.scene.view.paused = false;
-        self.paused = false;
         
-        DebugLog(@"%.3f e %.3f", _lastTime, _pausedTime);
         _pausedTime = CACurrentMediaTime();
+        DebugLog(@"Pause time: %.2f",  _pausedTime - _lastTime);
         
         [self initiateTimer];
         
         [self.pauseLayer removeFromParent];
     }else{
-        self.scene.view.paused = true;
-        self.paused = true;
 
-        [self deactivateTimer];
+        [_sceneLayer addChild:self.pauseLayer];
         
-        [self putPauseLayer];
+        //Applying delay to render paused layer on screen
+        [self runAction:[SKAction waitForDuration:0.1] completion:^{
+            self.scene.view.paused = true;
+            [self deactivateTimer];
+        }];
+        
     }
 }
 
@@ -143,7 +147,7 @@
     
     _lastTime = currentTime;
     
-    if(self.paused == false){
+    if(self.scene.view.paused == false){
         [_physicsController updateWithDeltaTime:delta];
         [_backgroundLayer updateWithDeltaTime:delta];
     }else{
@@ -167,9 +171,9 @@
     [_sceneLayer addChild:_backgroundLayer];
     [_sceneLayer addChild:_hudLayer];
     
-//    self.pauseLayer = [[PauseLayer alloc] initWithSize:_size];
-//    [_sceneLayer addChild:self.pauseLayer];
-//    [self.pauseLayer activatePauseLayer];
+    self.pauseLayer = [[PauseLayer alloc] initWithSize:_size];
+    self.pauseLayer.pauseDelegate = self;
+    [self.pauseLayer activatePauseLayer];
 
     // Put player on the layer
     [self initializePlayer];
@@ -277,13 +281,16 @@
     [self.physicsController addBody:body];
 }
 
-
--(void) putPauseLayer{
+-(void) homeButtonPressed{
     
-    self.pauseLayer = [[PauseLayer alloc] initWithSize:_size];
-    [_sceneLayer addChild:self.pauseLayer];
-    [self.pauseLayer activatePauseLayer];
+}
 
+-(void) restartButtonPressed{
+    
+}
+
+-(void) continueButtonPressed{
+    
 }
 
 @end
