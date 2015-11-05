@@ -35,7 +35,6 @@
             // There's no alternative path
         }
         
-        
         // Adding layer that is on the screen
         self.overallControlLayer = [[OverallControlLayer alloc] initWithSize:size];
         
@@ -142,6 +141,7 @@
     if([node.name isEqualToString:@"tapToPlay"]){
         
         [GameData sharedGameData].layerActivated = game;
+        
         [self.overallControlLayer changeLayer];
         [self setBasicsPhysicsWorld];
         
@@ -200,5 +200,4 @@
         DebugLog(@"node %@ unknown for training center", node.name);
     }
 }
-
 @end

@@ -99,6 +99,7 @@
 // Initialize Game layer and activate
 -(void) presentGameLayer:(CGSize)layerSize{
     self.gameLayer = [[GameLayer alloc] initWithSize:layerSize];
+    self.gameLayer.layerChangeDelegate = self;
     [self addChild:self.gameLayer];
     [self.gameLayer activateLayer];
 }
@@ -125,6 +126,12 @@
 -(void) swipeLeft{
 }
 -(void) swipeRight{
+}
+
+-(void) changeToLayer:(GameDataLayerType)layerType{
+    
+    [GameData sharedGameData].layerActivated = layerType;
+    [self changeLayer];
 }
 
 @end

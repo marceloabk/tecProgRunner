@@ -8,14 +8,6 @@
 
 #import "GlobalHeaders.h"
 
-typedef enum {
-    menu,
-    store,
-    game,
-    settings,
-    trainingCenter,
-} GameDataLayerType;
-
 @interface GameData : NSObject <NSCoding>
 
 /**

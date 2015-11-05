@@ -51,4 +51,19 @@
 @end
 
 
+typedef enum {
+    menu,
+    store,
+    game,
+    settings,
+    trainingCenter,
+} GameDataLayerType;
+
+@protocol changeLayer <NSObject>
+@required
+-(void) changeToLayer:(GameDataLayerType) layerType;
+
+@end
+
+
 #endif /* GlobalHeaders_h */

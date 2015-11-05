@@ -111,7 +111,7 @@
         [_sceneLayer addChild:self.pauseLayer];
         
         //Applying delay to render paused layer on screen
-        [self runAction:[SKAction waitForDuration:0.1] completion:^{
+        [self runAction:[SKAction waitForDuration:0.03] completion:^{
             self.scene.view.paused = true;
             [self deactivateTimer];
         }];
@@ -272,6 +272,13 @@
 }
 
 -(void) homeButtonPressed{
+    
+    if(self.scene.view.paused == true){
+        
+        self.scene.view.paused = false;
+        [self.pauseLayer removeFromParent];
+        [self.layerChangeDelegate changeToLayer:menu];
+    }
     
 }
 

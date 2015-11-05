@@ -34,7 +34,7 @@
 @property SpriteNode *homeButton;
 @property SpriteNode *restartButton;
 
-@property (nonatomic) id pauseDelegate;
+@property (nonatomic) id<pauseDelegate> pauseDelegate;
 
 -(void) activatePauseLayer;
 

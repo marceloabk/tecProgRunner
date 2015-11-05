@@ -40,6 +40,8 @@
 
 @property (nonatomic) PauseLayer *pauseLayer;
 
+@property (nonatomic) id<changeLayer> layerChangeDelegate;
+
 /**
  Update from GameLayer
  */
