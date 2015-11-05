@@ -106,17 +106,8 @@
 
 -(void) pausedClicked{
     
-    if(self.scene.view.paused == true){
-        self.scene.view.paused = false;
-        
-        _pausedTime = CACurrentMediaTime();
-        DebugLog(@"Pause time: %.2f",  _pausedTime - _lastTime);
-        
-        [self initiateTimer];
-        
-        [self.pauseLayer removeFromParent];
-    }else{
-
+    if(self.scene.view.paused == false){
+    
         [_sceneLayer addChild:self.pauseLayer];
         
         //Applying delay to render paused layer on screen
@@ -124,7 +115,6 @@
             self.scene.view.paused = true;
             [self deactivateTimer];
         }];
-        
     }
 }
 
@@ -291,6 +281,16 @@
 
 -(void) continueButtonPressed{
     
+    if(self.scene.view.paused == true){
+        self.scene.view.paused = false;
+        
+        _pausedTime = CACurrentMediaTime();
+        DebugLog(@"Pause time: %.2f",  _pausedTime - _lastTime);
+        
+        [self initiateTimer];
+        
+        [self.pauseLayer removeFromParent];
+    }
 }
 
 @end
