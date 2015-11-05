@@ -14,7 +14,7 @@
 #import "TrainingCenterLayer.h"
 
 
-@interface OverallControlLayer : SKNode <changeLayer>
+@interface OverallControlLayer : SKNode <changeLayer, restartDelegate>
 
 /**
  Initialize OverallControlLayer using a size

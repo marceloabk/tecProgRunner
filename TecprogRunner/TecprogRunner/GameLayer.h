@@ -11,6 +11,12 @@
 #import "GameData.h"
 #import "PauseLayer.h"
 
+@protocol restartDelegate <NSObject>
+@required
+-(void) restartGame;
+
+@end
+
 @interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody, pauseDelegate>
 
 /**
@@ -41,6 +47,8 @@
 @property (nonatomic) PauseLayer *pauseLayer;
 
 @property (nonatomic) id<changeLayer> layerChangeDelegate;
+
+@property (nonatomic) id<restartDelegate> gameRestartDelegate;
 
 /**
  Update from GameLayer

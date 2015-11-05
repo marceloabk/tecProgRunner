@@ -10,13 +10,18 @@
 #import "OverallControlLayer.h"
 #import "GameData.h"
 
-@implementation OverallControlLayer
+@implementation OverallControlLayer{
+    CGSize layerSize;
+}
 
 -(instancetype) initWithSize:(CGSize)size{
     
     DebugLog(@"Initializing");
     if(self = [super init]){
-
+        
+        // Set layer size
+        layerSize = CGSizeMake(DEFAULT_LAYER_WIDTH, DEFAULT_LAYER_HEIGHT);
+        
         [self loadLayers];
         
     }else{
@@ -52,27 +57,24 @@
 
 -(void) putLayer:(GameDataLayerType)layerType{
     
-    // Set layer size
-    CGSize layerSize = CGSizeMake(DEFAULT_LAYER_WIDTH, DEFAULT_LAYER_HEIGHT);
-    
     if(layerType == menu){
         DebugLog(@"putting menu layer...");
-        [self presentMenuLayer:layerSize];
+        [self presentMenuLayer];
         
     }else if(layerType == store){
-        [self presentStoreLayer:layerSize];
+        [self presentStoreLayer];
         
     }else if(layerType == game){
         DebugLog(@"putting game layer...");
-        [self presentGameLayer:layerSize];
+        [self presentGameLayer];
         
     }else if(layerType == settings){
         DebugLog(@"putting settings layer...");
-        [self presentSettingsLayer:layerSize];
+        [self presentSettingsLayer];
         
     }else if(layerType == trainingCenter){
         DebugLog(@"putting training center layer");
-        [self presentTrainingCenterLayer:layerSize];
+        [self presentTrainingCenterLayer];
         
     }else{
         DebugLog(@"unknown layer type");
@@ -83,42 +85,43 @@
 }
 
 // Initialize menu layer and activate
--(void) presentMenuLayer:(CGSize)layerSize{
+-(void) presentMenuLayer{
     self.menuLayer = [[MenuLayer alloc] initWithSize:layerSize];
     [self addChild:self.menuLayer];
     [self.menuLayer activateLayer];
 }
 
 // Initialize store layer and activate
--(void) presentStoreLayer:(CGSize)layerSize{
+-(void) presentStoreLayer{
     self.storeLayer = [[StoreLayer alloc] initWithSize:layerSize];
     [self addChild:self.storeLayer];
     [self.storeLayer activateLayer];
 }
 
 // Initialize Game layer and activate
--(void) presentGameLayer:(CGSize)layerSize{
+-(void) presentGameLayer{
     self.gameLayer = [[GameLayer alloc] initWithSize:layerSize];
     self.gameLayer.layerChangeDelegate = self;
+    self.gameLayer.gameRestartDelegate = self;
     [self addChild:self.gameLayer];
     [self.gameLayer activateLayer];
 }
 
 // Initialize settings layer and activate
--(void) presentSettingsLayer:(CGSize)layerSize{
+-(void) presentSettingsLayer{
     self.settingsLayer = [[SettingsLayer alloc] initWithSize:layerSize];
     [self addChild:self.settingsLayer];
     [self.settingsLayer activateLayer];
 }
 
 // Initialize settings layer and activate
--(void) presentTrainingCenterLayer:(CGSize)layerSize{
+-(void) presentTrainingCenterLayer{
     self.trainingCenterLayer = [[TrainingCenterLayer alloc] initWithSize:layerSize];
     [self addChild:self.trainingCenterLayer];
     [self.trainingCenterLayer activateLayer];
 }
 
--(void) presentPauseLayer:(CGSize)layerSize{
+-(void) presentPauseLayer{
     // Pause Game Layer
     DebugLog("PAUSE GAME LAYER NOT WORKING YET");
 }
@@ -132,6 +135,19 @@
     
     [GameData sharedGameData].layerActivated = layerType;
     [self changeLayer];
+}
+
+-(void) restartGame{
+    
+    [self.gameLayer removeAllActions];
+    [self.gameLayer removeAllChildren];
+    self.gameLayer = nil;
+    
+    self.gameLayer = [[GameLayer alloc] initWithSize:layerSize];
+    self.gameLayer.layerChangeDelegate = self;
+    self.gameLayer.gameRestartDelegate = self;
+    [self addChild:self.gameLayer];
+    [self.gameLayer activateLayer];
 }
 
 @end

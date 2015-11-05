@@ -279,11 +279,17 @@
         [self.pauseLayer removeFromParent];
         [self.layerChangeDelegate changeToLayer:menu];
     }
-    
 }
 
 -(void) restartButtonPressed{
     
+    if(self.scene.view.paused == true){
+        
+        self.scene.view.paused = false;
+        [self.pauseLayer removeFromParent];
+        
+        [self.gameRestartDelegate restartGame];
+    }
 }
 
 -(void) continueButtonPressed{
