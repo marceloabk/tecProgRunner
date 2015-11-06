@@ -13,7 +13,7 @@
 
 -(Tile*) createTileGroundWithSize:(CGSize)size;
 
--(void) recycleTile:(Tile*) tile;
+-(BOOL) recycleTile:(Tile*) tile;
 
 -(NSUInteger) countRecycledTiles;
 

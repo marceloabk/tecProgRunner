@@ -40,6 +40,10 @@
     [self.tileGenerator recycleTile:newTile];
     
     XCTAssert([self.tileGenerator countRecycledTiles] == 1);
+    
+    newTile = [self.tileGenerator createTileGroundWithSize:tileSize];
+    
+    XCTAssert([self.tileGenerator countRecycledTiles] == 0);
 }
 
 - (void)testMultiplesRecycle {
@@ -69,6 +73,25 @@
     }
     
     XCTAssert([self.tileGenerator countRecycledTiles] == arrayTiles.count);
+}
+
+- (void)testRecyclingATileThatAlreadyIsRecycled {
+    CGSize tileSize = CGSizeMake(100, 20);
+    Tile* newTile = [self.tileGenerator createTileGroundWithSize:tileSize];
+    
+    BOOL tileRecycled = [self.tileGenerator recycleTile:newTile];
+    XCTAssert([self.tileGenerator countRecycledTiles] == 1 && tileRecycled == true);
+    
+    tileRecycled = [self.tileGenerator recycleTile:newTile];
+    
+    XCTAssert([self.tileGenerator countRecycledTiles] == 1 && tileRecycled == false);
+}
+
+- (void)testRecyclingNilTile{
+    
+    BOOL tileRecycled = [self.tileGenerator recycleTile:nil];
+    
+    XCTAssert(tileRecycled == false && self.tileGenerator.countRecycledTiles == 0);
 }
 
 @end

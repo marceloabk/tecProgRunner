@@ -39,8 +39,15 @@
     return tile;
 }
 
--(void) recycleTile:(Tile *)tile{
-    [_recycleTiles addObject:tile];
+-(BOOL) recycleTile:(Tile *)tile{
+    
+    if([_recycleTiles containsObject:tile] == false && tile != nil){
+        [_recycleTiles addObject:tile];
+        return true;
+    }else {
+        return false;
+    }
+    
 }
 
 -(NSUInteger) countRecycledTiles{
