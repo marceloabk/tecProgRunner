@@ -15,4 +15,6 @@
 
 -(void) recycleTile:(Tile*) tile;
 
+-(NSUInteger) countRecycledTiles;
+
 @end

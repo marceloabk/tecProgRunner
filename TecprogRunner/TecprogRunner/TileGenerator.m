@@ -43,4 +43,8 @@
     [_recycleTiles addObject:tile];
 }
 
+-(NSUInteger) countRecycledTiles{
+    return _recycleTiles.count;
+}
+
 @end
