@@ -7,7 +7,9 @@
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "BasicLayer.h"
+#import "TileGenerator.h"
 
+#warning not used protocol
 @interface BackgroundLayer : SKNode <LayerRequirements>
 
 /**

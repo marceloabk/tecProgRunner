@@ -121,13 +121,17 @@
     [self.trainingCenterLayer activateLayer];
 }
 
+#warning not used method
 -(void) presentPauseLayer{
     // Pause Game Layer
     DebugLog("PAUSE GAME LAYER NOT WORKING YET");
 }
 
+#warning not used method
 -(void) swipeLeft{
 }
+
+#warning not used method
 -(void) swipeRight{
 }
 

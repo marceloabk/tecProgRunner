@@ -155,6 +155,8 @@
 
     self.layer = [SKNode node];
     
+#warning why have layer and _sceneLayer?
+    
     // Adding layers to game layer
     [self addChild:self.layer];
     [self.layer addChild:_sceneLayer];
@@ -180,7 +182,6 @@
     [self loadPause];
 }
 
-
 // Initliaze the enemyGenerator
 -(void) initializeEnemyGenerator{
     self.enemyGenerator = [[EnemyGenerator alloc]initWithSize:_size andBodyAdder:self];
@@ -190,7 +191,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newEnemy) name:@"enemy die" object:nil];
 }
 
--(void)newEnemy{
+-(void) newEnemy{
     [self.enemyGenerator newEnemyWithScore:self.pointsScored];
 }
 

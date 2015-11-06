@@ -95,6 +95,10 @@
 		E92857491BA25D1100DF4959 /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E92857481BA25D1100DF4959 /* BackgroundLayer.m */; };
 		E93489161BC7FDBA0038CCF1 /* PhysicsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93489151BC7FDBA0038CCF1 /* PhysicsController.m */; };
 		E93489171BC7FDBA0038CCF1 /* PhysicsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93489151BC7FDBA0038CCF1 /* PhysicsController.m */; };
+		E9A1D9A11BECCDE2008508BB /* TileGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A1D9A01BECCDE2008508BB /* TileGenerator.m */; };
+		E9A1D9A21BECCDE2008508BB /* TileGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A1D9A01BECCDE2008508BB /* TileGenerator.m */; };
+		E9A1D9A61BECCE32008508BB /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A1D9A51BECCE32008508BB /* Tile.m */; };
+		E9A1D9A71BECCE32008508BB /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A1D9A51BECCE32008508BB /* Tile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +236,10 @@
 		E93489141BC7FDBA0038CCF1 /* PhysicsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsController.h; sourceTree = "<group>"; };
 		E93489151BC7FDBA0038CCF1 /* PhysicsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsController.m; sourceTree = "<group>"; };
 		E93489181BC801690038CCF1 /* GlobalHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHeaders.h; sourceTree = "<group>"; };
+		E9A1D99F1BECCDE2008508BB /* TileGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileGenerator.h; sourceTree = "<group>"; };
+		E9A1D9A01BECCDE2008508BB /* TileGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileGenerator.m; sourceTree = "<group>"; };
+		E9A1D9A41BECCE32008508BB /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
+		E9A1D9A51BECCE32008508BB /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -626,6 +634,7 @@
 		E92857281BA254E200DF4959 /* GameEntities */ = {
 			isa = PBXGroup;
 			children = (
+				E9A1D9A31BECCE15008508BB /* Tile */,
 				E92857291BA254F600DF4959 /* GameObject */,
 				E928572B1BA2550700DF4959 /* Player */,
 				67A4F5C01BABA3B8004DCA3C /* Projectile */,
@@ -739,6 +748,8 @@
 			children = (
 				E92857471BA25D1100DF4959 /* BackgroundLayer.h */,
 				E92857481BA25D1100DF4959 /* BackgroundLayer.m */,
+				E9A1D99F1BECCDE2008508BB /* TileGenerator.h */,
+				E9A1D9A01BECCDE2008508BB /* TileGenerator.m */,
 			);
 			name = BackgroundLayer;
 			sourceTree = "<group>";
@@ -750,6 +761,15 @@
 				E93489151BC7FDBA0038CCF1 /* PhysicsController.m */,
 			);
 			name = PhysicsController;
+			sourceTree = "<group>";
+		};
+		E9A1D9A31BECCE15008508BB /* Tile */ = {
+			isa = PBXGroup;
+			children = (
+				E9A1D9A41BECCE32008508BB /* Tile.h */,
+				E9A1D9A51BECCE32008508BB /* Tile.m */,
+			);
+			name = Tile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -930,9 +950,11 @@
 				67FFA6CF1B99301C00354487 /* main.m in Sources */,
 				67A4F5C31BABA3E0004DCA3C /* Projectile.m in Sources */,
 				E92857461BA25D0300DF4959 /* HudLayer.m in Sources */,
+				E9A1D9A61BECCE32008508BB /* Tile.m in Sources */,
 				09EE628A1BE4FDAC00A9B2D3 /* SpriteNode.m in Sources */,
 				6B49F9461BDD9D5A00E7164D /* PauseLayer.m in Sources */,
 				6B0FD4191BA91AE400C22BD6 /* BackgroundLayerStore.m in Sources */,
+				E9A1D9A11BECCDE2008508BB /* TileGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -941,7 +963,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				67FFA6EE1B99301C00354487 /* TecprogRunnerTests.m in Sources */,
+				E9A1D9A21BECCDE2008508BB /* TileGenerator.m in Sources */,
 				E93489171BC7FDBA0038CCF1 /* PhysicsController.m in Sources */,
+				E9A1D9A71BECCE32008508BB /* Tile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,8 @@
 #import "GameData.h"
 #import "PauseLayer.h"
 
+#warning Must add pause layer to hud layer
+
 @protocol restartDelegate <NSObject>
 @required
 -(void) restartGame;

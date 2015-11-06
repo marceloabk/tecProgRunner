@@ -27,10 +27,11 @@ struct line{
     CGSize _size;
     CGPoint _initialPoint;
     float backgroundDefaultVelocity;
-
-    NSMutableArray<GameObject*>* _tiles;
-    NSMutableArray<GameObject*>* _recycleTiles;
+    
+    NSMutableArray<Tile*>* _tiles;
     NSMutableArray<GameObject*>* _clouds;
+    
+    TileGenerator* _tileGenerator;
 
     GameObject* lastGameObject;
 }
@@ -47,31 +48,47 @@ struct line{
         
         self.physicsBodyAdder = physicsBodyAdder;
         
-        _tiles = [[NSMutableArray<GameObject*> alloc] init];
-        _recycleTiles = [[NSMutableArray<GameObject*> alloc] init];
         _clouds = [[NSMutableArray<GameObject*> alloc] init];
+        _tiles = [[NSMutableArray<Tile*> alloc] init];
+        _tileGenerator = [[TileGenerator alloc] init];
         _size = size;
         
         CGSize firstGroundSize = CGSizeMake(_size.width*2,_size.height*0.1);
+        CGPoint positionTile = CGPointMake(0, 0);
     
         [self setClouds];
         
-        // Initializating initial tiles
-        GameObject *firstGround = [self createTileGroundWithSize:firstGroundSize];
-        firstGround.position = CGPointMake(0.0, 0.0);
-        
-        lastGameObject = firstGround;
+        // Initializating initial tile
+        [self createTileWithSize:firstGroundSize andPosition:positionTile];
         
         [self generateTiles];
-        
-        // Adding background to view
-        [self addChild:firstGround];
         
     }else{
         // Throw exception
     }
     
     return self;
+}
+
+-(void) createTileWithSize:(CGSize) size andPosition:(CGPoint) position{
+    
+    DebugLog(@"creating new tile");
+    Tile *tile = [_tileGenerator createTileGroundWithSize:size];
+    tile.position = position;
+    lastGameObject = tile;
+    tile.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
+    
+    [self.physicsBodyAdder addBody:tile];
+    // Adding background to view
+    [self addChild:tile];
+    [_tiles addObject:tile];
+}
+
+-(void) removeTile:(Tile*) tile{
+    [_tiles removeObject:tile];
+    [tile removeFromParent];
+    
+    [_tileGenerator recycleTile:tile];
 }
 
 // Instantiating background Clouds
@@ -100,54 +117,14 @@ struct line{
     [self addChild:secondClouds];
 }
 
--(GameObject*) createTileGroundWithSize:(CGSize)size{
-    
-    GameObject* tile;
-    if(_recycleTiles.count <= 0){
-        tile = [[GameObject alloc] initWithColor:GREEN_COLOR size:size];
-        tile.name = @"ground";
-        tile.position = CGPointMake(0.0, 0.0);
-        tile.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
-    }else{
-        tile = [_recycleTiles lastObject];
-        [_recycleTiles removeLastObject];
-        tile.size = size;
-    }
-    
-    tile.physicsBody = [self generateTilePhysicsBodyWithSize:size];
-    
-    [self.physicsBodyAdder addBody:tile];
-        
-    // Adding tile to array
-    [_tiles addObject:tile];
-    
-    return tile;
-}
-
--(SKPhysicsBody*) generateTilePhysicsBodyWithSize:(CGSize)size{
-    
-    SKPhysicsBody* physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
-    physicsBody.categoryBitMask = ColliderTypeGround;
-    physicsBody.affectedByGravity = false;
-    physicsBody.dynamic = false;
-    physicsBody.allowsRotation = false;
-    physicsBody.collisionBitMask = ColliderTypePlayer;
-    physicsBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeEnemy | ColliderTypeObstacle;
-    
-    return physicsBody;
-}
-
 -(void) updateWithDeltaTime:(CFTimeInterval)deltaTime{
     
     for (int i = 0; i < _tiles.count; i++) {
         
-        GameObject* tile = (GameObject*) _tiles[i];
+        Tile* tile = (Tile*) _tiles[i];
         
         if(tile.position.x + tile.size.width < 0.0){
-            [_tiles removeObject:tile];
-            [tile removeFromParent];
-            [_recycleTiles addObject:tile];
-
+            [self removeTile:tile];
         }else{
             // There's no alternative path
         }
@@ -168,19 +145,15 @@ struct line{
     srand(CACurrentMediaTime());
     
     CGFloat tileWidth = 45 + rand()%250;
-    
-    GameObject* newTile = [self createTileGroundWithSize:CGSizeMake(tileWidth, 20)];
+    CGSize tileSize = CGSizeMake(tileWidth, 50);
+
     double maxX = lastGameObject.position.x + lastGameObject.size.width/2;
     
     float initialX = maxX + 70 + rand()%70;
     
-    newTile.position = CGPointMake(initialX + newTile.size.width/2, newTile.size.height/2);
-    
-    [self addChild:newTile];
-    
-    lastGameObject = newTile;
-    
-    newTile.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
+    CGPoint tilePosition = CGPointMake(initialX + tileSize.width/2, tileSize.height/2);
+
+    [self createTileWithSize:tileSize andPosition:tilePosition];
     
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(generateTiles) userInfo:nil repeats:NO];
 }

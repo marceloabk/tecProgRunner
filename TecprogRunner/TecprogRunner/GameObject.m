@@ -16,7 +16,7 @@
     self = [super init];
     
     if(self != nil){
-        
+#warning empty method
     }else{
         // There is no alternative path for this if
     }
