@@ -84,10 +84,12 @@
 // Generate projectile physics body
 -(SKPhysicsBody *) generatePhysicsBody{
     
+    // The bullet physics body should be a circle
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
+    
+    // Defining physics body properties
     physicsBody.mass = 1;
     physicsBody.affectedByGravity = NO;
-    physicsBody.allowsRotation = NO;
     
     // Defining types for Collision
     physicsBody.collisionBitMask = ColliderTypeEnemy | ColliderTypePlayer;

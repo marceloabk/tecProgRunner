@@ -2,9 +2,9 @@
 //  TileGeneratorTests.m
 //  TecprogRunner
 //
-//  Created by Lucas Araujo on 11/6/15.
-//  Copyright © 2015 Bepid-UnB. All rights reserved.
+//  Test Tile Generator
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import <XCTest/XCTest.h>
 #import "TileGenerator.h"

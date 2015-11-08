@@ -69,11 +69,9 @@
 -(SKPhysicsBody *) generatePhysicsBody{
     
     // Using a rectangle as PhysicsBody
-    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
+    SKPhysicsBody *physicsBody = [super generatePhysicsBodyWithRectangleOfSize:self.size];
     physicsBody.mass = 100;
     physicsBody.affectedByGravity = YES;
-    physicsBody.allowsRotation = NO;
-    physicsBody.restitution = 0.0;
     
     // Defining types for Collision
     physicsBody.categoryBitMask = ColliderTypePlayer;

@@ -80,8 +80,14 @@
     
 }
 
--(SKPhysicsBody *) generatePhysicsBody{
-    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(100, 100)];
+-(SKPhysicsBody *) generatePhysicsBodyWithRectangleOfSize:(CGSize)size{
+    
+    // Initializing a physics body using a rectangle
+    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
+    
+    // Setting common properties for objects
+    physicsBody.restitution = 0.0;
+    physicsBody.allowsRotation = NO;
     
     return physicsBody;
 }

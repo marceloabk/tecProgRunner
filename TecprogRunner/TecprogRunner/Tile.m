@@ -2,9 +2,9 @@
 //  Tile.m
 //  TecprogRunner
 //
-//  Created by Lucas Araujo on 11/6/15.
-//  Copyright © 2015 Bepid-UnB. All rights reserved.
+//  Class for Tile
 //
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "Tile.h"
 
@@ -12,11 +12,16 @@
 
 -(void) generateTilePhysicsBodyWithSize:(CGSize)size{
     
-    SKPhysicsBody* physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
+    // Initializing physics body according to superclass
+    SKPhysicsBody *physicsBody = [super generatePhysicsBodyWithRectangleOfSize:size];
+    
+    // Setting specific properties
+    physicsBody.affectedByGravity = NO;
+    physicsBody.dynamic = NO;
+    
+    
+    // Setting collision types
     physicsBody.categoryBitMask = ColliderTypeGround;
-    physicsBody.affectedByGravity = false;
-    physicsBody.dynamic = false;
-    physicsBody.allowsRotation = false;
     physicsBody.collisionBitMask = ColliderTypePlayer;
     physicsBody.contactTestBitMask = ColliderTypePlayer | ColliderTypeEnemy | ColliderTypeObstacle;
     

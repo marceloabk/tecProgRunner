@@ -45,9 +45,10 @@
 
 
 /**
- Generate physics body for the GameObject
+ Generate physics body for the GameObject using
+ a rectangle with size
 */
--(SKPhysicsBody *) generatePhysicsBody;
+-(SKPhysicsBody *) generatePhysicsBodyWithRectangleOfSize:(CGSize)size;
 
 /**
  Set Basic game object attributes

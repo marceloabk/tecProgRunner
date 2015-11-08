@@ -46,10 +46,12 @@
 
 -(SKPhysicsBody *) generatePhysicsBody{
     
-    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
+    // Initializing physics body according to superclass
+    SKPhysicsBody *physicsBody = [super generatePhysicsBodyWithRectangleOfSize:self.size];
+    
+    // Setting physics body properties
     physicsBody.mass = 100;
     physicsBody.affectedByGravity = YES;
-    physicsBody.allowsRotation = NO;
     
     // Defining types for Collision
     physicsBody.collisionBitMask = ColliderTypePlayer | ColliderTypeProjectile | ColliderTypeGround;
