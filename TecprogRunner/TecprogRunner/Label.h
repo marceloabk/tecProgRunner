@@ -10,8 +10,6 @@
 
 @interface Label : SKLabelNode
 
--(instancetype)initWithPosition:(CGPoint)position;
-
 +(Label*) label;
 +(Label*) labelWithText:(NSString*)text andPosition:(CGPoint)position andSize:(CGFloat)fontSize andZPosition:(int)zPosition;
 

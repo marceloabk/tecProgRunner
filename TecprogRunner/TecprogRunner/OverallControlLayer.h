@@ -52,9 +52,13 @@
 -(void) changeLayer;
 
 /**
-Swipe methods
+ Swipe right method
  */
 -(void) swipeRight;
+
+/**
+ Swipe left method
+*/
 -(void) swipeLeft;
 
     

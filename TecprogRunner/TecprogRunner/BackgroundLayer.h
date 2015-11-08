@@ -9,8 +9,7 @@
 #import "BasicLayer.h"
 #import "TileGenerator.h"
 
-#warning not used protocol
-@interface BackgroundLayer : SKNode <LayerRequirements>
+@interface BackgroundLayer : SKNode
 
 /**
  Used to add physics bodies to Physics Controller

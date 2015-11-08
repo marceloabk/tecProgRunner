@@ -13,10 +13,15 @@
 #pragma mark Generating and configuring GameObject
 
 -(instancetype) initWithPosition:(CGPoint)position{
-    self = [super init];
+    
+    // A generic Game Object will be generated as a red sprite
+    UIColor *color = [UIColor redColor];
+    self = [super initWithColor:color size:self.size];
     
     if(self != nil){
-#warning empty method
+        
+        self.position = position;
+        
     }else{
         // There is no alternative path for this if
     }

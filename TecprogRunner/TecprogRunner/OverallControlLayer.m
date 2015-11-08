@@ -127,12 +127,12 @@
     DebugLog("PAUSE GAME LAYER NOT WORKING YET");
 }
 
-#warning not used method
 -(void) swipeLeft{
+    DebugLog("User swiped left");
 }
 
-#warning not used method
 -(void) swipeRight{
+    DebugLog("User swiped rigth");
 }
 
 -(void) changeToLayer:(GameDataLayerType)layerType{
