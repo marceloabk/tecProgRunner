@@ -42,7 +42,13 @@
 - (void)testSizeParameter{
     BOOL isSizeZero = CGSizeEqualToSize(CGSizeZero, self.screenSize);
     
-    XCTAssertFalse(isSizeZero,"Enemy generator size parameter can not be zero");
+    XCTAssertFalse(isSizeZero,"Enemy generator size parameter can't be zero");
 }
+
+// Test if BodyAdder is not nil
+- (void)testBodyAdderParameter{
+    XCTAssertNotNil(self.gameLayer, @"Enemy generator BodyAdder parameter can't be nil");
+}
+
 
 @end
