@@ -50,6 +50,4 @@
     XCTAssertNotNil(self.gameLayer, @"Enemy generator BodyAdder parameter can't be nil");
 }
 
-
-
 @end

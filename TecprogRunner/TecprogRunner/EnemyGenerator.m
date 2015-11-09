@@ -10,6 +10,12 @@
 #import "StrongEnemy.h"
 #import "WeakEnemy.h"
 
+typedef enum : NSUInteger {
+    WEAK_ENEMY = 1,
+    STRONG_ENEMY,
+    WAIT,
+} Probability;
+
 @implementation EnemyGenerator{
     CGSize _size;
 }
@@ -41,13 +47,13 @@
     // Case 2 creates a strong enemy
     // Case 3 waits 3 second to recall this method
     switch (probability) {
-        case 1:
+        case WEAK_ENEMY:
             [self createWeakEnemyWithPosition:enemyPosition];
             break;
-        case 2:
+        case STRONG_ENEMY:
             [self createStrongEnemyWithPosition:enemyPosition];
             break;
-        case 3:
+        case WAIT:
             [self recallMethodWithScore:score];
             break;
         default:
@@ -69,20 +75,21 @@
     unsigned const int chanceToCreateEnemyOrWait = [self randomizeNumberBetween:0 and:2];
     
     if(chanceToCreateEnemyOrWait == 0){
-        probabilityValue = 3;
+        // If probability is equal to 0 we just wait
+        probabilityValue = WAIT;
     }else if(score < 40){
-        probabilityValue = 1;
+        probabilityValue = WEAK_ENEMY;
     }else if(score < 400){
         unsigned int random = [self randomizeNumberBetween:0 and:100];
         
         if(random < 45){
-            probabilityValue = 2;
+            probabilityValue = STRONG_ENEMY;
         }else{
-            probabilityValue = 1;
+            probabilityValue = WEAK_ENEMY;
         }
         
     }else{
-        probabilityValue = 2;
+        probabilityValue = STRONG_ENEMY;
     }
 
     return probabilityValue;
