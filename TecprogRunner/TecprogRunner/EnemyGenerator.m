@@ -99,6 +99,7 @@
     return randomizedNumber;
 }
 
+// Create an weak enemy with the given position
 -(void) createWeakEnemyWithPosition:(CGPoint)position{
     WeakEnemy *weakEnemy = [[WeakEnemy alloc]initWithPosition:position];
     weakEnemy.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
@@ -109,6 +110,7 @@
     DebugLog(@"Weak enemy created");
 }
 
+// Create a strong enemy with the given position
 -(void) createStrongEnemyWithPosition:(CGPoint)position{
     StrongEnemy *strongEnemy = [[StrongEnemy alloc]initWithPosition:position];
     strongEnemy.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
@@ -119,6 +121,7 @@
     DebugLog(@"Strong enemy created");
 }
 
+// Recall newEnemyWithScore after 3 seconds
 -(void) recallMethodWithScore:(unsigned int)score{
     // Here we convert an int to NSNumber because performSelector needs an object
     NSNumber *scoreNumber = [NSNumber numberWithInt:score];
