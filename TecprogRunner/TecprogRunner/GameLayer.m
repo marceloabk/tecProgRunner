@@ -188,7 +188,7 @@
     [self addChild:self.enemyGenerator];
     [self.enemyGenerator newEnemyWithScore:self.pointsScored];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newEnemy) name:@"enemy die" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newEnemy) name:@"EnemyDied" object:nil];
 }
 
 -(void) newEnemy{
@@ -260,7 +260,7 @@
     enemy.health--;
     if (enemy.health == 0) {
         [enemy removeFromParent];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"enemy die" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"EnemyDied" object:nil];
     }else{
         // Nothing to do
     }
