@@ -14,7 +14,7 @@
 
 @property (nonatomic) EnemyGenerator *enemyGenerator;
 @property (nonatomic) GameLayer *gameLayer;
-
+@property (nonatomic) CGSize screenSize;
 
 @end
 
@@ -23,9 +23,9 @@
 - (void)setUp{
     [super setUp];
     
-    CGSize screenSize = CGSizeMake(DEFAULT_LAYER_WIDTH, DEFAULT_LAYER_HEIGHT);
-    self.gameLayer = [[GameLayer alloc] initWithSize:screenSize];
-    self.enemyGenerator = [[EnemyGenerator alloc]initWithSize:screenSize andBodyAdder:self.gameLayer];
+    self.screenSize = CGSizeMake(DEFAULT_LAYER_WIDTH, DEFAULT_LAYER_HEIGHT);
+    self.gameLayer = [[GameLayer alloc] initWithSize:self.screenSize];
+    self.enemyGenerator = [[EnemyGenerator alloc]initWithSize:self.screenSize andBodyAdder:self.gameLayer];
 }
 
 - (void)tearDown{
@@ -33,9 +33,16 @@
     [super tearDown];
 }
 
+// Test if enemy was initialized successfully
 - (void)testInitialization{
     XCTAssertNotNil(self.enemyGenerator, @"Enemy generator is nil");
 }
 
+// Test if size parameter is not zero
+- (void)testSizeParameter{
+    BOOL isSizeZero = CGSizeEqualToSize(CGSizeZero, self.screenSize);
+    
+    XCTAssertFalse(isSizeZero,"Enemy generator size parameter can not be zero");
+}
 
 @end
