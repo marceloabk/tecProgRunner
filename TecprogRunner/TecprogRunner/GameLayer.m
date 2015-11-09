@@ -191,6 +191,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newEnemy) name:@"EnemyDied" object:nil];
 }
 
+// Create a new enemy based on the score
 -(void) newEnemy{
     [self.enemyGenerator newEnemyWithScore:self.pointsScored];
 }
