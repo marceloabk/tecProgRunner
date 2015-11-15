@@ -23,7 +23,9 @@
         self.position = position;
         
     }else{
-        // There is no alternative path for this if
+        // Throw exception
+        NSException *exception = [NSException exceptionWithName:@"Init Exception" reason:@"Game object couldn't be initialized" userInfo:nil];
+        [exception raise];
     }
     
     return self;
@@ -31,15 +33,30 @@
 
 -(SKTexture *) generateTextureWithImageNamed:(NSString *)image{
     
+    NSAssert(image != nil, @"generateTextureWithImageNamed: NSString 'image' is nil");
+    
     // Generate a texture with the image
     SKTexture *imageTexture = [SKTexture textureWithImageNamed:image];
+    
+    // Setting properties for texture
     imageTexture.filteringMode = SKTextureFilteringNearest;
+    
+    if(imageTexture == nil){
+        NSException *exception = [NSException exceptionWithName:@"nil texture" reason:@"Texture generated is nil" userInfo:nil];
+        [exception raise];
+    }else{
+        // Nothing to do
+    }
     
     return imageTexture;
 }
 
 -(NSMutableArray*) generateAnimationImages:(NSString*)modelImageName andCount:(int)count{
     
+    NSAssert(modelImageName != nil, @"generateAnimationImages: NSString 'modelImageName' is nil");
+    NSAssert(count > 0, @"generateAnimationImages: Couldn't generate animation with %i images", count);
+    
+    // The index will always initialize with 1
     const unsigned int initialIndex = 1;
     
     // Array used to storage textures
@@ -51,11 +68,17 @@
         // Selecting image
         NSString *imageName = [NSString stringWithFormat:@"%@%i", modelImageName, index];
         
-        // Making texture with the image
-        SKTexture *texture = [self generateTextureWithImageNamed:imageName];
-        
-        // Add the new texture to the Array
-        [texturesArray addObject:texture];
+        @try {
+            
+            // Making texture with the image
+            SKTexture *texture = [self generateTextureWithImageNamed:imageName];
+            
+            // Add the new texture to the Array
+            [texturesArray addObject:texture];
+            
+        }@catch (NSException *exception){
+            DebugLog(@"Texture with image named %@ couldn't be generated", imageName);
+        }
         
     }
     
@@ -63,6 +86,8 @@
 }
 
 -(SKPhysicsBody *) generatePhysicsBodyWithImageNamed:(NSString *)image{
+    
+    NSAssert(image != nil, @"generatePhysicsBodyWithImageNamed: NSString 'image' is nil");
     
     // Generate a physics body with the image
     SKTexture *imageTexture = [self generateTextureWithImageNamed:image];
@@ -85,6 +110,11 @@
     
 }
 
+-(void)setBasicsAttributes{
+    // Method used to set basics attributes for Game Object
+    
+}
+
 -(SKPhysicsBody *) generatePhysicsBodyWithRectangleOfSize:(CGSize)size{
     
     // Initializing a physics body using a rectangle
@@ -94,11 +124,12 @@
     physicsBody.restitution = 0.0;
     physicsBody.allowsRotation = NO;
     
-    return physicsBody;
-}
-
--(void) setBasicsAttributes{
+    if (physicsBody == nil) {
+        NSException *exception = [NSException exceptionWithName:@"Physics body exception" reason:@"Failed to generate physics body with rectangle" userInfo:nil];
+        [exception raise];
+    }
     
+    return physicsBody;
 }
 
 #pragma mark Defining Contact methods
@@ -121,11 +152,17 @@
     NSLog(@"Contact ended between %@ and %@", bodyA, bodyB);
 }
 
+#pragma mark Updating
+
 -(void) updateWithDeltaTime:(CFTimeInterval)deltaTime{
     
+    NSAssert(deltaTime >= 0, @"updateWithDeltaTime: deltaTime is negative");
+    
+    // Set new coordinates according to velocity and delta time
     CGFloat newX = self.position.x + self.velocity.dx * deltaTime;
     CGFloat newY = self.position.y + self.velocity.dy * deltaTime;
     
     self.position = CGPointMake(newX, newY);
 }
+
 @end

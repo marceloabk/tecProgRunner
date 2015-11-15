@@ -12,11 +12,17 @@
 
 -(instancetype)initWithPosition:(CGPoint)position{
 
-    // Loading a texture for the enemy
-    SKTexture *enemyTexture = [super generateTextureWithImageNamed:INITIAL_ENEMY_IMAGE];
-    
-    // Init the Sprite with the texture created
-    self = [super initWithTexture:enemyTexture];
+    @try {
+        // Loading a texture for the enemy
+        SKTexture *enemyTexture = [super generateTextureWithImageNamed:INITIAL_ENEMY_IMAGE];
+        
+        // Init the Sprite with the texture created
+        self = [super initWithTexture:enemyTexture];
+        
+    }
+    @catch (NSException *exception) {
+        self = nil;
+    }
     
     if(self != nil){
         DebugLog(@"Enemy initialized with texture successfully");
@@ -26,10 +32,9 @@
         [self setBasicsAttributes];
         
     }else{
-        
-        DebugLog(@"Enemy can't be initialized");
-        
-        // There is no alternative path for this if
+        // Throw exception
+        NSException *exception = [NSException exceptionWithName:@"Init Exception" reason:@"Enemy can't be initialized" userInfo:nil];
+        [exception raise];
     }
     
     return self;
@@ -40,7 +45,13 @@
     // Placeholder image is too big then we rescale it to fit our screen
     [self setScale:0.1];
     
-    self.physicsBody = [self generatePhysicsBody];
+    // Set a physics body for Enemy
+    @try {
+        self.physicsBody = [self generatePhysicsBody];
+    }
+    @catch (NSException *exception) {
+        [self removeFromParent];
+    }
 
 }
 
@@ -48,6 +59,13 @@
     
     // Initializing physics body according to superclass
     SKPhysicsBody *physicsBody = [super generatePhysicsBodyWithRectangleOfSize:self.size];
+    
+    if(physicsBody == nil){
+        NSException *exception = [NSException exceptionWithName:@"Physics body" reason:@"Can't generate a physics body for enemy" userInfo:nil];
+        [exception raise];
+    }else{
+        // Continue
+    }
     
     // Setting physics body properties
     physicsBody.mass = 100;

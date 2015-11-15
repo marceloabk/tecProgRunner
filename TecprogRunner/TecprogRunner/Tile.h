@@ -10,6 +10,10 @@
 
 @interface Tile : GameObject
 
+/**
+ Generates a tile
+ containing a physics body
+*/
 -(void) generateTilePhysicsBodyWithSize:(CGSize)size;
 
 @end

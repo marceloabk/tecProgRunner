@@ -28,7 +28,7 @@
 
 /**
  Generate a Mutable Array with SKTexture
- Used for animations
+ to make animations
  */
 -(NSMutableArray*) generateAnimationImages:(NSString*)modelImageName andCount:(int)count;
 

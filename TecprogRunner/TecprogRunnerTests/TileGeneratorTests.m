@@ -29,6 +29,7 @@
     Tile* newTile = [self.tileGenerator createTileGroundWithSize:tileSize];
 
     XCTAssert(CGSizeEqualToSize(newTile.size, tileSize), "Tile size is correct");
+
 }
 
 - (void)testRecycleCount {

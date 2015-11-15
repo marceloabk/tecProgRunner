@@ -13,8 +13,8 @@
 
 @property (nonatomic) unsigned int value;
 
-+(Coin*) generateCoinInParent:(SKNode*) parent withPosition:(CGPoint) position;
++(Coin*) generateCoinInParent:(SKNode*)parent withPosition:(CGPoint)position;
 
-- (void) runScoredMoviment;
+-(void) runScoredMoviment;
 
 @end

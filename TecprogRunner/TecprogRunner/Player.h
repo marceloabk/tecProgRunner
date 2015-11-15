@@ -22,13 +22,15 @@ typedef enum playerMoviments{
 
 @interface Player : GameObject
 
+/**
+ Used to add physics bodies
+*/
 @property (nonatomic) id <physicsControllerAddBody> physicsBodyAdder;
 
 /**
  Boolean that indicates whether player is on the ground
 */
 @property (nonatomic) BOOL playerOnGround;
-
 
 @property (nonatomic) playerMoviments moviment;
 

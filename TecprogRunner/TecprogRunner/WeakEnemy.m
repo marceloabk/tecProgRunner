@@ -15,11 +15,16 @@
 
 -(instancetype) initWithPosition:(CGPoint)position{
     
-    // Loading a texture for the weak enemy
-    SKTexture *weakEnemyTexture = [super generateTextureWithImageNamed:INITIAL_WEAK_ENEMY_IMAGE];
-
-    // Init the Sprite with the texture created
-    self = [super initWithTexture:weakEnemyTexture];
+    @try {
+        // Loading a texture for the weak enemy
+        SKTexture *weakEnemyTexture = [super generateTextureWithImageNamed:INITIAL_WEAK_ENEMY_IMAGE];
+        
+        // Init the Sprite with the texture created
+        self = [super initWithTexture:weakEnemyTexture];
+    }
+    @catch (NSException *exception) {
+        self = nil;
+    }
 
     if(self != nil){
         
@@ -30,10 +35,8 @@
         [self setBasicsAttributes];
         
     }else{
-        
-        DebugLog(@"Weak Enemy can't be initialized");
-        
-        // There is no alternative path for this if
+        NSException *exception = [NSException exceptionWithName:@"Init Exception" reason:@"Weak Enemy can't be initialized" userInfo:nil];
+        [exception raise];
     }
     
     return self;
@@ -46,7 +49,12 @@
     [self setScale:0.2];
     
     // Generate and set physics body
-    self.physicsBody = [super generatePhysicsBody];
+    @try {
+        self.physicsBody = [super generatePhysicsBody];
+    }
+    @catch (NSException *exception) {
+        [self removeFromParent];
+    }
     
     // Make Weak Enemy perform idle animation
     _idle = [self idleAnimation];

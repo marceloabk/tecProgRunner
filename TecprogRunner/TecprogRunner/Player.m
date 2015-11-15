@@ -25,8 +25,6 @@
     // Creating a texture for the  player
     SKTexture *playerTexture = [super generateTextureWithImageNamed:INITIAL_PLAYER_IMAGE];
     
-    NSAssert((playerTexture != nil), @"Texture generated for player is nil");
-    
     // Init the Sprite with the texture created
     self = [super initWithTexture:playerTexture];
     
@@ -43,9 +41,10 @@
         
     }else{
         
-        DebugLog(@"Player can't be initialized");
+        // Throw Exception
+        NSException *exception = [NSException exceptionWithName:@"Init Exception" reason:@"Player can't be initialized" userInfo:nil];
+        [exception raise];
         
-        // There is no alternative path for this if
     }
     
     return self;
@@ -53,6 +52,7 @@
 
 // Set some basics attributes that player will have
 -(void) setBasicsAttributes{
+    
     // Placeholder image is too big then we rescale it to fit our screen
     [self setScale:0.1];
     
@@ -103,7 +103,7 @@
 // Load animations of player running
 -(SKAction*) loadRunningAnimation{
     
-    DebugLog(@"Loading Run Animation");
+    DebugLog(@"Loading Running Animation");
     
     // Creating a Mutable Array filled with Run Animations
     NSMutableArray *runTextures = [super generateAnimationImages:@"playerRunning" andCount:6];
@@ -111,6 +111,7 @@
     // Using textures to make an action
     SKAction *run = [SKAction animateWithTextures:runTextures timePerFrame:0.1];
     
+    // Make the action repeat forever
     SKAction *runForever = [SKAction repeatActionForever:run];
     
     return runForever;
@@ -118,9 +119,6 @@
 
 -(SKAction*) loadJumpAnimation{
     DebugLog(@"Loading Jump Animation");
-    
-    // Creating a Mutable Array filled with Run Animations
-//    NSMutableArray *jumpTextures = [super generateAnimationImages:@"playerJumping" andCount:2];
     
     SKTexture *jumpTexture = [self generateTextureWithImageNamed:@"playerJumping1"];
     
@@ -134,9 +132,6 @@
 
 -(SKAction*) loadFallAnimation{
     DebugLog(@"Loading Fall Animation");
-    
-    // Creating a Mutable Array filled with Run Animations
-    //    NSMutableArray *jumpTextures = [super generateAnimationImages:@"playerFalling" andCount:2];
     
     SKTexture *fallTexture = [self generateTextureWithImageNamed:@"playerFalling1"];
     
@@ -159,21 +154,28 @@
     }else{
         // Player can't jump while is in the air, by now
     }
+    
 }
 
 // Make player throw a projectile when called
 -(void) throwProjectile{
+    
     // Initial projectile position is the current player position plus half player width
     // This way the projectile is created in player border and it doesn't collide with player
     CGPoint initialProjectilePosition = CGPointMake(self.position.x + self.size.width/2, self.position.y);
     
     NSString *className = [NSString stringWithFormat:@"%@", self.class];
-    Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition andOwner:className];
     
-    projectile.name = @"projectile";
-    [self.physicsBodyAdder addBody:projectile];
-
-    [self.parent addChild:projectile];
+    @try {
+        Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition andOwner:className];
+        
+        [self.physicsBodyAdder addBody:projectile];
+        
+        [self.parent addChild:projectile];
+    }
+    @catch (NSException *exception) {
+        DebugLog(@"CATCHED EXCEPTION WHILE THROWING PROJECTILE");
+    }
 }
 
 -(void) setIsOnGround:(BOOL)isOnGround{
@@ -189,7 +191,7 @@
 }
 
 -(void) updateWithDeltaTime:(CFTimeInterval)deltaTime{
-    
+
     [super updateWithDeltaTime:deltaTime];
     
     if(self.physicsBody.velocity.dy <= 0 && !self.isOnGround){
@@ -223,20 +225,25 @@
         
         [self removeAllActions];
         
-        switch (moviment) {
-            case PlayerMovimentRun:
-                [self runAction:_runningAnimation];
-                break;
-            case PlayerMovimentJump:
-                [self runAction:_jumpAnimation];
-                break;
-                
-            case PlayerMovimentFall:
-                [self runAction:_fallAnimation];
-                break;
-                
-            default:
-                break;
+        @try {
+            switch (moviment) {
+                case PlayerMovimentRun:
+                    [self runAction:_runningAnimation];
+                    break;
+                case PlayerMovimentJump:
+                    [self runAction:_jumpAnimation];
+                    break;
+                    
+                case PlayerMovimentFall:
+                    [self runAction:_fallAnimation];
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+        @catch (NSException *exception) {
+            DebugLog(@"Catched exception: player moviment couldn't be changed");
         }
         
     }else{

@@ -14,10 +14,15 @@
 // Initialize StrongEnemy with a position
 -(instancetype) initWithPosition:(CGPoint)position{
     
-    // Loading a texture for the strong enemy
-    SKTexture *strongEnemyTexture = [super generateTextureWithImageNamed:INITIAL_STRONG_ENEMY_IMAGE];
-    
-    self = [super initWithTexture:strongEnemyTexture];
+    @try {
+        // Loading a texture for the strong enemy
+        SKTexture *strongEnemyTexture = [super generateTextureWithImageNamed:INITIAL_STRONG_ENEMY_IMAGE];
+        
+        self = [super initWithTexture:strongEnemyTexture];
+    }
+    @catch (NSException *exception) {
+        self = nil;
+    }
     
     if(self != nil){
         
@@ -32,10 +37,8 @@
         [self setBasicsAttributes];
         
     }else{
-        
-        DebugLog(@"Strong Enemy can't be initialized");
-        
-        // There is no alternative path for this if
+        NSException *exception = [NSException exceptionWithName:@"Init exception" reason:@"Strong Enemy can't be initialized" userInfo:nil];
+        [exception raise];
     }
     
     return self;
@@ -77,12 +80,17 @@
     // Initial projectile position is the current player position plus half player width
     // This way the projectile is created in player border and it doesn't collide with player
     CGPoint initialProjectilePosition = CGPointMake(self.position.x + self.size.width/2, self.position.y);
-    
     NSString *className = [NSString stringWithFormat:@"%@", self.class];
     
-    Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition andOwner:className];
+    @try {
+        Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition andOwner:className];
+        
+        [self.parent addChild:projectile];
+    }
+    @catch (NSException *exception) {
+        DebugLog(@"CATCHED EXCEPTION WHILE THROWING PROJECTILE");
+    }
     
-    [self.parent addChild:projectile];
 }
 
 @end

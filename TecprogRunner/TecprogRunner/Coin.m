@@ -14,11 +14,16 @@
 
 -(instancetype) init{
     
-    // Creating a texture for the Coin
-    SKTexture *coinTexture = [super generateTextureWithImageNamed:INITIAL_COIN_IMAGE];
-    
-    // Init the Sprite with the texture created
-    self = [super initWithTexture:coinTexture];
+    @try {
+        // Creating a texture for the Coin
+        SKTexture *coinTexture = [super generateTextureWithImageNamed:INITIAL_COIN_IMAGE];
+        
+        // Init the Sprite with the texture created
+        self = [super initWithTexture:coinTexture];
+    }
+    @catch (NSException *exception) {
+        self = nil;
+    }
     
     if(self != nil){
         
@@ -27,7 +32,8 @@
         DebugLog(@"Coin instantiated");
         
     }else{
-        DebugLog(@"Could not instantiate coin");
+        NSException *exception = [NSException exceptionWithName:@"Init exception" reason:@"Coin could not be initialized" userInfo:nil];
+        [exception raise];
     }
     
     return self;
@@ -35,14 +41,20 @@
 
 -(instancetype) initWithPosition:(CGPoint)position{
     
-    self = [self init];
+    @try {
+        self = [self init];
+    }
+    @catch (NSException *exception) {
+        self = nil;
+    }
     
     if(self != nil){
         // Setting position
         self.position = position;
     
     }else{
-        // Nothing to do
+        NSException *exception = [NSException exceptionWithName:@"Init exception" reason:@"Coin could not be initialized" userInfo:nil];
+        [exception raise];
     }
     
     return self;
@@ -57,7 +69,12 @@
     [self runAction: spinning];
     
     // Generating physics Body
-    self.physicsBody = [self generatePhysicsBody];
+    @try {
+        self.physicsBody = [self generatePhysicsBody];
+    }
+    @catch (NSException *exception) {
+        [self removeFromParent];
+    }
     
     // setting basic coin value
     self.value = COIN_DEFAULT_VALUE;
@@ -67,6 +84,14 @@
 -(SKPhysicsBody *) generatePhysicsBody{
     
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
+    
+    if(physicsBody == nil){
+        NSException *exception = [NSException exceptionWithName:@"Physics Body" reason:@"Couldn't generate physics body for Coin" userInfo:nil];
+        [exception raise];
+    }else{
+        // Continue
+    }
+    
     physicsBody.mass = 1;
     physicsBody.affectedByGravity = NO;
     physicsBody.allowsRotation = NO;
