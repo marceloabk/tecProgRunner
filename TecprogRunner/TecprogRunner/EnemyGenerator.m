@@ -10,6 +10,12 @@
 #import "StrongEnemy.h"
 #import "WeakEnemy.h"
 
+typedef enum : NSUInteger {
+    WEAK_ENEMY = 1,
+    STRONG_ENEMY,
+    WAIT,
+} Probability;
+
 @implementation EnemyGenerator{
     CGSize _size;
 }
@@ -43,13 +49,13 @@
     // Case 2 creates a strong enemy
     // Case 3 waits 3 second to recall this method
     switch (probability) {
-        case 1:
+        case WEAK_ENEMY:
             [self createWeakEnemyWithPosition:enemyPosition];
             break;
-        case 2:
+        case STRONG_ENEMY:
             [self createStrongEnemyWithPosition:enemyPosition];
             break;
-        case 3:
+        case WAIT:
             [self recallMethodWithScore:score];
             break;
         default:
@@ -83,13 +89,13 @@
         unsigned int random = [self randomizeNumberBetween:0 and:100];
         
         if(random < 45){
-            probabilityValue = 2;
+            probabilityValue = STRONG_ENEMY;
         }else{
-            probabilityValue = 1;
+            probabilityValue = WEAK_ENEMY;
         }
         
     }else{
-        probabilityValue = 2;
+        probabilityValue = STRONG_ENEMY;
     }
 
     return probabilityValue;
@@ -106,6 +112,7 @@
     return randomizedNumber;
 }
 
+// Create an weak enemy with the given position
 -(void) createWeakEnemyWithPosition:(CGPoint)position{
     
     @try {
@@ -122,6 +129,7 @@
     }
 }
 
+// Create a strong enemy with the given position
 -(void) createStrongEnemyWithPosition:(CGPoint)position{
     @try {
         StrongEnemy *strongEnemy = [[StrongEnemy alloc]initWithPosition:position];
@@ -137,6 +145,7 @@
     }
 }
 
+// Recall newEnemyWithScore after 3 seconds
 -(void) recallMethodWithScore:(unsigned int)score{
     // Here we convert an int to NSNumber because performSelector needs an object
     NSNumber *scoreNumber = [NSNumber numberWithInt:score];
