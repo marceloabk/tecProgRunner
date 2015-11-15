@@ -13,19 +13,25 @@
 @end
 
 @implementation Projectile{
-    CGPoint _finalProjectilePosition;
     BOOL _isEnemy;
+    CGVector _movimentVector;
 }
 
 -(instancetype) initWithPosition:(CGPoint)position andOwner:(NSString*)ownerName{
     
-    // Creating a texture for the Projectile
-    SKTexture *projectileTexture = [super generateTextureWithImageNamed:DEFAULT_PROJECTILE_IMAGE];
+    @try {
+        // Creating a texture for the Projectile
+        SKTexture *projectileTexture = [super generateTextureWithImageNamed:DEFAULT_PROJECTILE_IMAGE];
+        
+        
+        // Init the Sprite with the texture created
+        self = [super initWithTexture:projectileTexture];
+    }
+    @catch (NSException *exception) {
+        DebugLog(@"Catched exception while initializing projectile");
+        self = nil;
+    }
     
-    NSAssert((projectileTexture != nil), @"Texture generated for projectile is nil");
-    
-    // Init the Sprite with the texture created
-    self = [super initWithTexture:projectileTexture];
     
     if(self != nil){
         
@@ -34,16 +40,14 @@
         self.position = position;
         
         self.ownerName = ownerName;
+        
         [self setBasicsAttributes];
-        
-        
         [self moveProjectile];
         
     }else{
-        
-        DebugLog(@"Projectile can't be initialized");
-        
-        // There is no alternative path for this if
+        // Throw exception
+        NSException *exception = [NSException exceptionWithName:@"Init Exception" reason:@"Projectile can't be initialized" userInfo:nil];
+        [exception raise];
     }
     
     return self;
@@ -52,29 +56,34 @@
 // Set basics Projectile attributes
 -(void) setBasicsAttributes{
     
-    // Set the root of the projectile
-    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    _finalProjectilePosition = CGPointMake(self.position.x + screenWidth, self.position.y);
+    // Verify if the Owner is a Enemy
+    _isEnemy = [self.ownerName isEqualToString:ENEMY_NAME];
     
-    [self conformToOwner];
+    [self setRoot];
     
-    // Generate a Physics Body for Proojectile
-    self.physicsBody = [self generatePhysicsBody];
+    // Generate a Physics Body for Projectile
+    @try {
+        self.physicsBody = [self generatePhysicsBody];
+    }
+    @catch (NSException *exception) {
+        [self removeFromParent];
+    }
     
 }
 
 // Set presentation and final position according to Owner
--(void) conformToOwner{
+-(void) setRoot{
     
-    // Verify if the Owner is a Enemy
-    _isEnemy = [self.ownerName isEqualToString:ENEMY_NAME];
+    // The value of the x in future will depend by character habilities
+    CGFloat dx = 700;
+    _movimentVector = CGVectorMake(dx, 0);
     
     if(_isEnemy == YES){
         // Invert Sprite Horizontally
         [super invertSpriteX:YES];
         
         // Invert the final X Position
-        _finalProjectilePosition.x = -_finalProjectilePosition.x;
+        _movimentVector.dx = -1*_movimentVector.dx;
     }else{
         // Do nothing
     }
@@ -86,6 +95,13 @@
     
     // The bullet physics body should be a circle
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
+    
+    if(physicsBody == nil){
+        NSException *exception = [NSException exceptionWithName:@"Physics body exception" reason:@"Can't create projectile physics body" userInfo:nil];
+        [exception raise];
+    }else{
+        // Continue
+    }
     
     // Defining physics body properties
     physicsBody.mass = 1;
@@ -103,7 +119,7 @@
 -(void) moveProjectile{
     
     // Set the move action
-    SKAction *moveProjectile = [SKAction moveTo:_finalProjectilePosition duration:1.2];
+    SKAction *moveProjectile = [SKAction moveBy:_movimentVector duration:1.2];
     
     // Run the action and remove projectile
     [self runAction:moveProjectile completion:^{
@@ -111,13 +127,6 @@
     }];
 }
 
--(void) invertFinalProjectileXPosition{
-    if (_isEnemy == YES) {
-        _finalProjectilePosition.x = -_finalProjectilePosition.x;
-    }else{
-        // Do nothing
-    }
-}
 
 
 @end
