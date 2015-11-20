@@ -82,9 +82,9 @@ typedef enum : NSUInteger {
     
     if(chanceToCreateEnemyOrWait == createEnemy){
         probabilityValue = 3;
-    }else if(score < 20){
+    }else if(score < SHORT_PROBABILITY_VALUE){
         probabilityValue = 1;
-    }else if(score > 20 && score < 200){
+    }else if(score > SHORT_PROBABILITY_VALUE && score < MEDIUM_PROBABILITY_VALUE){
         
         unsigned int random = [self randomizeNumberBetween:0 and:100];
         
@@ -107,8 +107,10 @@ typedef enum : NSUInteger {
     // if I want a number between 2 and 4
     // realSecondNumber = 4 - 2 + 1 = 3
     // randomizedNumber = 2 + (0 or 1 or 2)
+    
     unsigned int realSecondNumber = secondNumber - firstNumber + 1;
     unsigned int randomizedNumber = firstNumber + (arc4random() % realSecondNumber);
+    DebugLog("First = %i Second = %i. Random = %i", firstNumber, secondNumber, randomizedNumber);
     return randomizedNumber;
 }
 
