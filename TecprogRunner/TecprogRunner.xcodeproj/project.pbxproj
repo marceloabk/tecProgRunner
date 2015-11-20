@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09235A181BFBE0BD0005EB53 /* GameObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09235A171BFBE0BD0005EB53 /* GameObjectTests.m */; };
 		093A62D81BB46C4F00BF2074 /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = 093A62D71BB46C4F00BF2074 /* Coin.m */; };
 		09808FF71BDE736000045C9F /* enemyIdle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 09808FBD1BDE736000045C9F /* enemyIdle1.png */; };
 		09808FF81BDE736000045C9F /* enemyIdle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 09808FBE1BDE736000045C9F /* enemyIdle2.png */; };
@@ -114,6 +115,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09235A171BFBE0BD0005EB53 /* GameObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectTests.m; sourceTree = "<group>"; };
 		093A62D41BB46A6200BF2074 /* PhysicsCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsCategories.h; sourceTree = "<group>"; };
 		093A62D61BB46C4F00BF2074 /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coin.h; sourceTree = "<group>"; };
 		093A62D71BB46C4F00BF2074 /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coin.m; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 			children = (
 				E9A1D9A81BECD5E3008508BB /* TileGeneratorTests.m */,
 				674FC4911BF02C6F00B40914 /* EnemyGeneratorTests.m */,
+				09235A171BFBE0BD0005EB53 /* GameObjectTests.m */,
 				67FFA6ED1B99301C00354487 /* TecprogRunnerTests.m */,
 				67FFA6EB1B99301C00354487 /* Supporting Files */,
 			);
@@ -970,6 +973,7 @@
 			files = (
 				67FFA6EE1B99301C00354487 /* TecprogRunnerTests.m in Sources */,
 				E9A1D9A21BECCDE2008508BB /* TileGenerator.m in Sources */,
+				09235A181BFBE0BD0005EB53 /* GameObjectTests.m in Sources */,
 				674FC4921BF02C6F00B40914 /* EnemyGeneratorTests.m in Sources */,
 				E93489171BC7FDBA0038CCF1 /* PhysicsController.m in Sources */,
 				E9A1D9A71BECCE32008508BB /* Tile.m in Sources */,

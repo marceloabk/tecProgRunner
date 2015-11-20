@@ -124,32 +124,14 @@
     physicsBody.restitution = 0.0;
     physicsBody.allowsRotation = NO;
     
-    if (physicsBody == nil) {
+    if(physicsBody == nil){
         NSException *exception = [NSException exceptionWithName:@"Physics body exception" reason:@"Failed to generate physics body with rectangle" userInfo:nil];
         [exception raise];
+    }else{
+        // Continue
     }
     
     return physicsBody;
-}
-
-#pragma mark Defining Contact methods
-
--(void) beginContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact{
-    
-    // Getting body names
-    NSString *bodyA = contact.bodyA.node.name;
-    NSString *bodyB = contact.bodyB.node.name;
-    
-    NSLog(@"Contact started between %@ and %@", bodyA, bodyB);
-}
-
--(void) endContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact{
-    
-    // Getting body names
-    NSString *bodyA = contact.bodyA.node.name;
-    NSString *bodyB = contact.bodyB.node.name;
-    
-    NSLog(@"Contact ended between %@ and %@", bodyA, bodyB);
 }
 
 #pragma mark Updating
