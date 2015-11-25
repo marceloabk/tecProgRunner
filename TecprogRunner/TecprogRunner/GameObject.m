@@ -95,6 +95,7 @@
     // Initializing and setting physicsBody
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithTexture:imageTexture size:self.size];
     physicsBody.allowsRotation = NO;
+    physicsBody.restitution = 0;
     
     return physicsBody;
 }

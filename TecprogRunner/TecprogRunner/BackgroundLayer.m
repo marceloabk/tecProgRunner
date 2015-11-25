@@ -53,21 +53,23 @@ struct line{
         _tileGenerator = [[TileGenerator alloc] init];
         _size = size;
         
-        CGSize firstGroundSize = CGSizeMake(_size.width*2,_size.height*0.1);
-        CGPoint positionTile = CGPointMake(0, 0);
-    
-        [self setClouds];
-        
-        // Initializating initial tile
-        [self createTileWithSize:firstGroundSize andPosition:positionTile];
-        
-        [self generateTiles];
-        
     }else{
         // Throw exception
     }
     
     return self;
+}
+
+-(void) activateLayer{
+    CGSize firstGroundSize = CGSizeMake(_size.width*2,_size.height*0.1);
+    CGPoint positionTile = CGPointMake(0, 0);
+    
+    [self setClouds];
+    
+    // Initializating initial tile
+    [self createTileWithSize:firstGroundSize andPosition:positionTile];
+    
+    [self generateTiles];
 }
 
 -(void) createTileWithSize:(CGSize) size andPosition:(CGPoint) position{
@@ -137,7 +139,6 @@ struct line{
             // There's no alternative path
         }
     }
-    
 }
 
 -(void) generateTiles{

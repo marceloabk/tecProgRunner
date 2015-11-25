@@ -149,7 +149,9 @@
 -(void) activateLayer{
     
     _sceneLayer = [[SKNode alloc] init];
+    
     _backgroundLayer = [[BackgroundLayer alloc] initWithSize:_size andBodyAdder:self];
+    [_backgroundLayer activateLayer];
     
     _hudLayer = [[HudLayer alloc] initWithSize:_size];
 

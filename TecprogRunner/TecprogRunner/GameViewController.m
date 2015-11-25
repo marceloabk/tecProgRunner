@@ -26,7 +26,7 @@
     
     // Sprite Kit applies additional optimizations to improve rendering performance
     skView.ignoresSiblingOrder = YES;
-    skView.showsPhysics = YES;
+    skView.showsPhysics = NO;
     
     [GameData sharedGameData].layerActivated = menu;
     
