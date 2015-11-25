@@ -102,6 +102,7 @@
 		E9A1D9A61BECCE32008508BB /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A1D9A51BECCE32008508BB /* Tile.m */; };
 		E9A1D9A71BECCE32008508BB /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A1D9A51BECCE32008508BB /* Tile.m */; };
 		E9A1D9A91BECD5E3008508BB /* TileGeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A1D9A81BECD5E3008508BB /* TileGeneratorTests.m */; };
+		E9BEBB141C05DF33001307C0 /* GameEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BEBB131C05DF33001307C0 /* GameEntity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -246,6 +247,8 @@
 		E9A1D9A41BECCE32008508BB /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
 		E9A1D9A51BECCE32008508BB /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
 		E9A1D9A81BECD5E3008508BB /* TileGeneratorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileGeneratorTests.m; sourceTree = "<group>"; };
+		E9BEBB121C05DF33001307C0 /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEntity.h; sourceTree = "<group>"; };
+		E9BEBB131C05DF33001307C0 /* GameEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEntity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -494,7 +497,7 @@
 				09CB5AAF1BA8C505006E3A64 /* GameKitHelper */,
 				E928572E1BA2556D00DF4959 /* UI */,
 				E928572D1BA2556600DF4959 /* particles */,
-				E92857281BA254E200DF4959 /* GameEntities */,
+				E92857281BA254E200DF4959 /* Objects */,
 				E93489181BC801690038CCF1 /* GlobalHeaders.h */,
 				67FFA6D01B99301C00354487 /* AppDelegate.h */,
 				67FFA6D11B99301C00354487 /* AppDelegate.m */,
@@ -640,9 +643,11 @@
 			name = "Training Center";
 			sourceTree = "<group>";
 		};
-		E92857281BA254E200DF4959 /* GameEntities */ = {
+		E92857281BA254E200DF4959 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				E9BEBB121C05DF33001307C0 /* GameEntity.h */,
+				E9BEBB131C05DF33001307C0 /* GameEntity.m */,
 				E9A1D9A31BECCE15008508BB /* Tile */,
 				E92857291BA254F600DF4959 /* GameObject */,
 				E928572B1BA2550700DF4959 /* Player */,
@@ -650,7 +655,7 @@
 				E928572A1BA2550000DF4959 /* Enemies */,
 				093A62D91BB46C5D00BF2074 /* Coin */,
 			);
-			name = GameEntities;
+			name = Objects;
 			sourceTree = "<group>";
 		};
 		E92857291BA254F600DF4959 /* GameObject */ = {
@@ -957,6 +962,7 @@
 				6B0FD3FD1BA90B4A00C22BD6 /* BackgroundLayerMenu.m in Sources */,
 				E92857431BA25CF500DF4959 /* GameLayer.m in Sources */,
 				67FFA6CF1B99301C00354487 /* main.m in Sources */,
+				E9BEBB141C05DF33001307C0 /* GameEntity.m in Sources */,
 				67A4F5C31BABA3E0004DCA3C /* Projectile.m in Sources */,
 				E92857461BA25D0300DF4959 /* HudLayer.m in Sources */,
 				E9A1D9A61BECCE32008508BB /* Tile.m in Sources */,

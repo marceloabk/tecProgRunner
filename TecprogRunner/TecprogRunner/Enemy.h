@@ -6,12 +6,12 @@
 //
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
-#import "GameObject.h"
+#import "GameEntity.h"
 
 #define INITIAL_ENEMY_IMAGE @"enemyIdle1"
 #define ENEMY_VELOCITY -100
 
-@interface Enemy : GameObject
+@interface Enemy : GameEntity
 
 /**
  Represent the health of the enemy

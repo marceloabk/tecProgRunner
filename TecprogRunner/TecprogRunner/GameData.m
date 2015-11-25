@@ -71,7 +71,7 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
     
     if(self != nil){
      
-        _highScore = [decoder decodeIntForKey: SSGameDataKey1];
+        _score = [decoder decodeIntForKey: SSGameDataKey1];
         _levelJump = [decoder decodeIntForKey: SSGameDataKey2];
         _levelLuck = [decoder decodeIntForKey: SSGameDataKey3];
         _levelPower = [decoder decodeIntForKey: SSGameDataKey4];
@@ -113,7 +113,7 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
     NSAssert(encoder != nil, @"There's no encoder on GameData");
     
     // Encode data
-    [encoder encodeInt:self.highScore forKey: SSGameDataKey1];
+    [encoder encodeInt:self.score forKey: SSGameDataKey1];
     [encoder encodeInt:self.levelJump forKey: SSGameDataKey2];
     [encoder encodeInt:self.levelLuck forKey: SSGameDataKey3];
     [encoder encodeInt:self.levelPower forKey: SSGameDataKey4];

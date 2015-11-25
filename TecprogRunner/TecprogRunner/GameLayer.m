@@ -17,7 +17,6 @@
 @interface GameLayer()
 
 @property (nonatomic) Player *player;
-@property (nonatomic) EnemyGenerator *enemyGenerator;
 
 @end
 
@@ -42,6 +41,7 @@
     
     if(self != nil){
         _size = size;
+        self.enemyGenerator = [[EnemyGenerator alloc] init];
         self.name = @"layer";
         [self initializePhysicsController];
     }else{
@@ -187,21 +187,23 @@
 // Initliaze the enemyGenerator
 -(void) initializeEnemyGenerator{
     self.enemyGenerator = [[EnemyGenerator alloc]initWithSize:_size andBodyAdder:self];
-    [self addChild:self.enemyGenerator];
-    [self.enemyGenerator newEnemyWithScore:self.pointsScored];
+    
+    //[self.enemyGenerator newEnemyWithScore:self.pointsScored];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newEnemy) name:@"EnemyDied" object:nil];
 }
 
 // Create a new enemy based on the score
 -(void) newEnemy{
-    [self.enemyGenerator newEnemyWithScore:self.pointsScored];
+    Enemy* newEnemy = [self.enemyGenerator generateNewEnemy];
+    newEnemy.delegate = self;
 }
 
 -(void) initializePlayer{
     // Instantiating and adding to game layer
     CGPoint playerPosition = CGPointMake(50, 200);
     self.player = [[Player alloc]initWithPosition:playerPosition];
+    self.player.delegate = self;
     
     // Add player to the layer
     [self.layer addChild:self.player];
@@ -256,14 +258,15 @@
     
     [_hudLayer updateScoreLabel:self.pointsScored];
     
+    [GameData sharedGameData].score = self.pointsScored;
+    
 }
 
 -(void) Bullet:(Projectile *)bullet hittedEnemy:(Enemy *)enemy{
     
     enemy.health--;
     if (enemy.health == 0) {
-        [enemy removeFromParent];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"EnemyDied" object:nil];
+        [enemy die];
     }else{
         // Nothing to do
     }
@@ -308,6 +311,10 @@
         
         [self.pauseLayer removeFromParent];
     }
+}
+
+-(void) entityDied:(GameEntity *)entity{
+    
 }
 
 @end

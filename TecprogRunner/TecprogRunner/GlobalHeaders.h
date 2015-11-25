@@ -13,6 +13,8 @@
 #import <Foundation/Foundation.h>
 
 @class GameObject;
+@class Enemy;
+
 
 #ifdef DEBUG
 #   define DebugLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
@@ -44,6 +46,8 @@
 
 #define SKETCH_ANCHOR_POINT CGPointMake(0,1)
 
+#define MINIMUN_HEIGHT (-300)
+
 @protocol physicsControllerAddBody <NSObject>
 @required
 -(void) addBody:(GameObject*) body;
@@ -65,5 +69,11 @@ typedef enum {
 
 @end
 
+@protocol EnemyGeneratorDelegate <NSObject>
+
+@required
+-(Enemy*) generateNewEnemy;
+
+@end
 
 #endif /* GlobalHeaders_h */

@@ -9,12 +9,13 @@
 #import <SpriteKit/SpriteKit.h>
 #import "GlobalHeaders.h"
 
+
 #define MARGIN 80.0
 #define FLOOR_HEIGHT 50.0
 #define SHORT_PROBABILITY_VALUE 40.0
 #define MEDIUM_PROBABILITY_VALUE 400.0
 
-@interface EnemyGenerator : SKNode
+@interface EnemyGenerator : NSObject <EnemyGeneratorDelegate>
 
 /**
  Used to add physics bodies into game
