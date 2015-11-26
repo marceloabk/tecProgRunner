@@ -19,7 +19,7 @@
 
 @end
 
-@interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody, pauseDelegate>
+@interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody, pauseDelegate, GameEntityDelegate>
 
 /**
  Physics controller for Game actions
@@ -51,6 +51,8 @@
 @property (nonatomic) id<changeLayer> layerChangeDelegate;
 
 @property (nonatomic) id<restartDelegate> gameRestartDelegate;
+
+@property (nonatomic) id<EnemyGeneratorDelegate> enemyGenerator;
 
 /**
  Update from GameLayer

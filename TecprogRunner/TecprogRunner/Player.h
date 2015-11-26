@@ -6,7 +6,7 @@
 //
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
-#import "GameObject.h"
+#import "GameEntity.h"
 #import "GlobalHeaders.h"
 
 #define INITIAL_PLAYER_IMAGE @"playerRunning1"
@@ -20,7 +20,7 @@ typedef enum playerMoviments{
     PlayerMovimentFall
 }playerMoviments;
 
-@interface Player : GameObject
+@interface Player : GameEntity
 
 /**
  Used to add physics bodies

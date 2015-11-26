@@ -9,7 +9,7 @@
 #import "BasicLayer.h"
 #import "TileGenerator.h"
 
-@interface BackgroundLayer : SKNode
+@interface BackgroundLayer : SKNode <LayerRequirements>
 
 /**
  Used to add physics bodies to Physics Controller

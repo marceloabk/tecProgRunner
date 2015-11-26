@@ -17,9 +17,9 @@
 
 /**
  Store game high score
- Should not restart at every game start
+ Should restart at every game start
 */
-@property (nonatomic) unsigned int highScore;
+@property (nonatomic) unsigned int score;
 
 /**
  Store the player jump level
