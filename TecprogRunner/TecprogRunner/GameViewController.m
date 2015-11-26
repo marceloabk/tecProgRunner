@@ -8,6 +8,7 @@
 
 #import "GameViewController.h"
 #import "OverallScene.h"
+#import "AppDelegate.h"
 
 @implementation GameViewController
 
@@ -48,6 +49,10 @@
     
 }
 
+-(void) viewDidAppear:(BOOL)animated{
+    [self playBackgroundMusic];
+}
+
 -(BOOL) shouldAutorotate{
     return YES;
 }
@@ -73,6 +78,11 @@
 
 -(BOOL) prefersStatusBarHidden{
     return YES;
+}
+
+-(void) playBackgroundMusic{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.backgroundMusicPlayer play];
 }
 
 @end

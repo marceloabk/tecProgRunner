@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@import AVFoundation;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+/**
+ Audio player used to
+ play background music
+*/
+@property (nonatomic) AVAudioPlayer *backgroundMusicPlayer;
 
 @end
 

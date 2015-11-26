@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self initializeBackgroundMusicPlayer];
     return YES;
 }
 
@@ -40,6 +41,20 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void) initializeBackgroundMusicPlayer{
+    // Setting necessary contents
+    NSString *musicName = [NSString stringWithFormat:@"Rhinoceros"];
+    NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:musicName withExtension:@"mp3"];
+    NSError *error;
+    
+    // Initializing music player with infinity number of loops
+    self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+    self.backgroundMusicPlayer.numberOfLoops = INFINITY;
+    
+    // Prepare the player to play
+    [self.backgroundMusicPlayer prepareToPlay];
 }
 
 @end
