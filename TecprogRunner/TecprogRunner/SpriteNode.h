@@ -11,6 +11,9 @@
 
 @interface SpriteNode : SKSpriteNode
 
+/**
+ Create Sprite Node using parameters
+*/
 +(SpriteNode*) spriteNodeWithImageNamed:(NSString*)imageName
                             andPosition:(CGPoint)position anchorPoint:(CGPoint)anchorPoint
                                andScale:(CGFloat)scale andZPosition:(CGFloat) zPosition;

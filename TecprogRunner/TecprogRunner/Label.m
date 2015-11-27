@@ -21,7 +21,8 @@
         label.fontColor = fontColor;
         label.fontSize = 38;
     }else{
-        // Exception
+        NSException *exception =[NSException exceptionWithName:@"Label init" reason:@"Can't init Label" userInfo:nil];
+        [exception raise];
     }
 
     return label;
@@ -40,7 +41,8 @@
         label.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
         
     }else{
-        // Exception
+        NSException *exception =[NSException exceptionWithName:@"Label init" reason:@"Can't init Label" userInfo:nil];
+        [exception raise];
     }
     
     return label;

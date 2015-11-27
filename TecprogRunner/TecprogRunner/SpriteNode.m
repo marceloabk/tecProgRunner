@@ -16,21 +16,23 @@
     
     if(texture == nil){
         DebugLog(@"texture is nil");
-    }
-    
-    SpriteNode *object = [SpriteNode spriteNodeWithTexture:texture];
-    
-    if(object != nil){
-        object.position = position;
-        object.anchorPoint = anchorPoint;
-        object.zPosition = zPosition;
-        object.name = imageName;
-        [object setScale:scale];
     }else{
-        DebugLog(@"object is nil");
-        // Throw exception
+        DebugLog(@"texture created");
     }
     
-    return object;
+    SpriteNode *sprite = [SpriteNode spriteNodeWithTexture:texture];
+    
+    if(sprite != nil){
+        sprite.position = position;
+        sprite.anchorPoint = anchorPoint;
+        sprite.zPosition = zPosition;
+        sprite.name = imageName;
+        [sprite setScale:scale];
+    }else{
+        NSException *exception =[NSException exceptionWithName:@"Sprite Node init" reason:@"Can't init Sprite Node" userInfo:nil];
+        [exception raise];
+    }
+    
+    return sprite;
 }
 @end
