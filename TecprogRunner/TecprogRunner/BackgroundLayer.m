@@ -54,7 +54,8 @@ struct line{
         _size = size;
         
     }else{
-        // Throw exception
+        NSException *exception = [NSException exceptionWithName:@"Background layer init" reason:@"Can't init background layer" userInfo:nil];
+        [exception raise];
     }
     
     return self;

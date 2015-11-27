@@ -25,7 +25,8 @@
         [self loadLayers];
         
     }else{
-        // Exception
+        NSException *exception = [NSException exceptionWithName:@"OverallControl layer init" reason:@"Can't init OverallControl layer" userInfo:nil];
+        [exception raise];
     }
     
     return self;
@@ -86,6 +87,7 @@
 
 // Initialize menu layer and activate
 -(void) presentMenuLayer{
+    
     self.menuLayer = [[MenuLayer alloc] initWithSize:layerSize];
     [self addChild:self.menuLayer];
     [self.menuLayer activateLayer];
@@ -93,9 +95,15 @@
 
 // Initialize store layer and activate
 -(void) presentStoreLayer{
-    self.storeLayer = [[StoreLayer alloc] initWithSize:layerSize];
-    [self addChild:self.storeLayer];
-    [self.storeLayer activateLayer];
+    
+    @try {
+        self.storeLayer = [[StoreLayer alloc] initWithSize:layerSize];
+        [self addChild:self.storeLayer];
+        [self.storeLayer activateLayer];
+    }
+    @catch (NSException *exception) {
+        DebugLog(@"EXCEPTION WHILE INITIALIZING STORE LAYER");
+    }
 }
 
 // Initialize Game layer and activate
@@ -132,7 +140,7 @@
 }
 
 -(void) swipeRight{
-    DebugLog("User swiped rigth");
+    DebugLog("User swiped right");
 }
 
 -(void) changeToLayer:(GameDataLayerType)layerType{

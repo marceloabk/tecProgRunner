@@ -11,8 +11,14 @@
 
 @interface TileGenerator : NSObject
 
+/**
+ Create a tile using a size
+*/
 -(Tile*) createTileGroundWithSize:(CGSize)size;
 
+/**
+ Recycle a tile
+*/
 -(BOOL) recycleTile:(Tile*) tile;
 
 -(NSUInteger) countRecycledTiles;

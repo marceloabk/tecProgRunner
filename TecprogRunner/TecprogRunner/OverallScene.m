@@ -11,7 +11,10 @@
 #import "GameLayer.h"
 
 
-@implementation OverallScene
+@implementation OverallScene{
+    UISwipeGestureRecognizer *_leftSwipe;
+    UISwipeGestureRecognizer *_rightSwipe;
+}
 
 -(instancetype) initWithSize:(CGSize)size{
     
@@ -32,7 +35,7 @@
             [[GameData sharedGameData] start];
             [[GameData sharedGameData] save];
         }else{
-            // There's no alternative path
+            // Continue
         }
         
         // Adding layer that is on the screen
@@ -42,29 +45,27 @@
         [self addChild:self.overallControlLayer];
         
     }else{
-        // There's no alternative path
+        NSException *exception = [NSException exceptionWithName:@"Overall Scene init" reason:@"Can't init scene!" userInfo:nil];
+        [exception raise];
     }
     
     return self;
 }
 
-
--(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+-(void) update:(CFTimeInterval)currentTime{
     
+    // If layer activated is game layer...
     if([GameData sharedGameData].layerActivated == game){
-        [self.overallControlLayer.gameLayer touchesBegan:touches withEvent:event];
+        // ... update game layer
+        [self.overallControlLayer.gameLayer update:currentTime];
     }else{
         // There's no alternative path
     }
     
 }
 
--(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-
-}
-
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-
+    
     // Detect touch properly
     UITouch * touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
@@ -101,16 +102,6 @@
     self.physicsWorld.gravity = CGVectorMake(0.0, -6.0);
 }
 
--(void) update:(CFTimeInterval)currentTime{
-    
-    if([GameData sharedGameData].layerActivated == game){
-        [self.overallControlLayer.gameLayer update:currentTime];
-    }else{
-        // There's no alternative path
-    }
-    
-}
-
 -(void) changePage:(UISwipeGestureRecognizer*)sender{
     if(sender.direction == UISwipeGestureRecognizerDirectionLeft){
         [self.overallControlLayer swipeLeft];
@@ -121,18 +112,31 @@
     }
 }
 
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    if([GameData sharedGameData].layerActivated == game){
+        [self.overallControlLayer.gameLayer touchesBegan:touches withEvent:event];
+    }else{
+        // There's no alternative path
+    }
+    
+}
+
 -(void) didMoveToView:(SKView *)view{
+    
+    [self addSwipeRecognizers];
 
-    
-    self.leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(changePage:)];
-    self.rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(changePage:)];
-    
-    self.leftSwipe.direction = UISwipeGestureRecognizerDirectionRight;
-    self.rightSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
-    
-    [self.view addGestureRecognizer:self.rightSwipe];
-    [self.view addGestureRecognizer:self.leftSwipe];
+}
 
+-(void) addSwipeRecognizers{
+    _leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(changePage:)];
+    _rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(changePage:)];
+    
+    _leftSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+    _rightSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    
+    [self.view addGestureRecognizer:_rightSwipe];
+    [self.view addGestureRecognizer:_leftSwipe];
 }
 
 -(void) touchesInMenu:(SKNode*)node{

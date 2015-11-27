@@ -24,21 +24,38 @@
 @interface PauseLayer : SKNode
 
 /**
- Layer that represent PauseLayer on screen
+ Node that represent PauseLayer on screen
  */
 @property SKNode *layer;
 
+/**
+ Sprite Node containing the background
+*/
 @property SpriteNode *background;
 
+/**
+ Sprite Node containing the continue button
+*/
 @property SpriteNode *continueButton;
+
+/**
+ Sprite Node containing the home button
+*/
 @property SpriteNode *homeButton;
+
+/**
+ Sprite Node containing the restart button
+*/
 @property SpriteNode *restartButton;
+
 
 @property (nonatomic) id<pauseDelegate> pauseDelegate;
 
 -(void) activatePauseLayer;
 
-
+/**
+ Initialize Pause Layer with a size
+*/
 -(instancetype) initWithSize:(CGSize)size;
 
 @end

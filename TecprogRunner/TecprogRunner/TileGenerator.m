@@ -12,12 +12,17 @@
     NSMutableArray<Tile*>* _recycleTiles;
 }
 
-- (instancetype)init
-{
+- (instancetype)init{
+    
     self = [super init];
-    if (self) {
+    
+    if(self != nil){
         _recycleTiles = [[NSMutableArray<Tile*> alloc] init];
+    }else{
+        NSException *exception = [NSException exceptionWithName:@"TileGenerator init" reason:@"Can't init TileGenerator!" userInfo:nil];
+        [exception raise];
     }
+    
     return self;
 }
 
@@ -41,13 +46,17 @@
 
 -(BOOL) recycleTile:(Tile *)tile{
     
-    if([_recycleTiles containsObject:tile] == false && tile != nil){
+    BOOL success = false;
+    BOOL containsTile = [_recycleTiles containsObject:tile];
+    
+    if(containsTile == false && tile != nil){
         [_recycleTiles addObject:tile];
-        return true;
-    }else {
-        return false;
+        success = true;
+    }else{
+        // Result continue as false
     }
     
+    return success;
 }
 
 -(NSUInteger) countRecycledTiles{

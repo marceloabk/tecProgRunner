@@ -24,7 +24,8 @@
         [self loadButtons];
 
     }else{
-        // Exception
+        NSException *exception = [NSException exceptionWithName:@"Pause layer init" reason:@"Can't initialize pause layer" userInfo:nil];
+        [exception raise];
     }
     
     return self;

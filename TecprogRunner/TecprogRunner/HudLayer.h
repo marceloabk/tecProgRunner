@@ -17,16 +17,6 @@
 @property SKNode *layer;
 
 /**
- Represent score in screen visually
-*/
-@property Label *scoreLabel;
-
-/**
- Represent time passed in screen visually
- */
-@property Label *timeLabel;
-
-/**
  Update score label in HudLayer
 */
 -(void) updateScoreLabel:(int)points;

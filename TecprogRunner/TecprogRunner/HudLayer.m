@@ -10,6 +10,8 @@
 
 @implementation HudLayer{
     CGSize _size;
+    Label *_scoreLabel;
+    Label *_timeLabel;
 }
 
 -(instancetype) initWithSize:(CGSize)size{
@@ -29,7 +31,8 @@
         [self putTimeLabel];
         
     }else{
-        // Exception
+        NSException *exception = [NSException exceptionWithName:@"Hud layer init" reason:@"Can't init hud layer" userInfo:nil];
+        [exception raise];
     }
     
     return self;
@@ -40,7 +43,7 @@
     // Text for timeLabel
     NSString *timeLabelString = [[NSString alloc] initWithFormat:@"%i", timePassed];
     
-    self.timeLabel.text = timeLabelString;
+    _timeLabel.text = timeLabelString;
 }
 
 -(void) updateScoreLabel:(int)points{
@@ -48,7 +51,7 @@
     // Text for pointsLabel
     NSString *pointsLabelString = [[NSString alloc] initWithFormat:@"%i", points];
     
-    self.scoreLabel.text = pointsLabelString;
+    _scoreLabel.text = pointsLabelString;
     
 }
 
@@ -57,11 +60,12 @@
     // Setting font position
     CGPoint fontPosition = CGPointMake(_size.width*0.85, _size.height*0.9);
     
-    if(self.scoreLabel == nil){
-        // Setting score label
-        self.scoreLabel = [Label labelWithText:@"0" andPosition:fontPosition andSize:38 andZPosition:100];
+    // If score label isn't initialized yet...
+    if(_scoreLabel == nil){
         
-        [self addChild:self.scoreLabel];
+        // ... init and add score label on screen
+        _scoreLabel = [Label labelWithText:@"0" andPosition:fontPosition andSize:38 andZPosition:100];
+        [self addChild:_scoreLabel];
     }else{
         // The score label already exists
     }
@@ -73,10 +77,12 @@
     // Setting font position
     CGPoint fontPosition = CGPointMake(_size.width*0.5, _size.height*0.9);
     
-    if(self.timeLabel == nil){
+    // If time label isn't initialized yet...
+    if(_timeLabel == nil){
         
-        self.timeLabel = [Label labelWithText:@"0" andPosition:fontPosition andSize:38 andZPosition:100];
-        [self addChild:self.timeLabel];
+        // ...init and add time label on screen
+        _timeLabel = [Label labelWithText:@"0" andPosition:fontPosition andSize:38 andZPosition:100];
+        [self addChild:_timeLabel];
         
     }else{
         // The time label already exists

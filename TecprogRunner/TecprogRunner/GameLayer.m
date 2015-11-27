@@ -44,7 +44,8 @@
         self.name = @"layer";
         [self initializePhysicsController];
     }else{
-        // Exception
+        NSException *exception = [NSException exceptionWithName:@"Game layer init" reason:@"Can't init game layer" userInfo:nil];
+        [exception raise];
     }
     
     return self;
