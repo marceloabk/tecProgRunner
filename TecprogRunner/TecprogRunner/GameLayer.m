@@ -41,7 +41,6 @@
     
     if(self != nil){
         _size = size;
-        self.enemyGenerator = [[EnemyGenerator alloc] init];
         self.name = @"layer";
         [self initializePhysicsController];
     }else{
@@ -140,6 +139,7 @@
     if(self.scene.view.paused == false){
         [_physicsController updateWithDeltaTime:delta];
         [_backgroundLayer updateWithDeltaTime:delta];
+        
     }else{
         // Continue
     }
@@ -188,15 +188,15 @@
 -(void) initializeEnemyGenerator{
     self.enemyGenerator = [[EnemyGenerator alloc]initWithSize:_size andBodyAdder:self];
     
-    //[self.enemyGenerator newEnemyWithScore:self.pointsScored];
+    [self addChild:self.enemyGenerator];
+    [self.enemyGenerator newEnemyWithScore:self.timePassed];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newEnemy) name:@"EnemyDied" object:nil];
 }
 
 // Create a new enemy based on the score
 -(void) newEnemy{
-    Enemy* newEnemy = [self.enemyGenerator generateNewEnemy];
-    newEnemy.delegate = self;
+    [self.enemyGenerator newEnemyWithScore:self.timePassed];
 }
 
 -(void) initializePlayer{
@@ -246,7 +246,11 @@
 -(void) onTick{
     
     self.timePassed += 1;
-
+    
+    if(self.timePassed%5 == 0){
+        [self newEnemy];
+    }
+    
     [_hudLayer updateTimeLabel:self.timePassed];
     
 }

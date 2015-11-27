@@ -55,7 +55,7 @@
 -(void) putScoreLabel{
     
     // Setting font position
-    CGPoint fontPosition = CGPointMake(_size.width*0.9, _size.height*0.9);
+    CGPoint fontPosition = CGPointMake(_size.width*0.85, _size.height*0.9);
     
     if(self.scoreLabel == nil){
         // Setting score label

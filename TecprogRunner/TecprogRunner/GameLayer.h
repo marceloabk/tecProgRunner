@@ -10,6 +10,7 @@
 #import "PhysicsController.h"
 #import "GameData.h"
 #import "PauseLayer.h"
+#import "EnemyGenerator.h"
 
 #warning Must add pause layer to hud layer
 
@@ -52,7 +53,7 @@
 
 @property (nonatomic) id<restartDelegate> gameRestartDelegate;
 
-@property (nonatomic) id<EnemyGeneratorDelegate> enemyGenerator;
+@property (nonatomic) EnemyGenerator *enemyGenerator;
 
 /**
  Update from GameLayer

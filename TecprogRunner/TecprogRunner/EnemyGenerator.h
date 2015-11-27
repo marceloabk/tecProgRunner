@@ -15,7 +15,7 @@
 #define SHORT_PROBABILITY_VALUE 40.0
 #define MEDIUM_PROBABILITY_VALUE 400.0
 
-@interface EnemyGenerator : NSObject <EnemyGeneratorDelegate>
+@interface EnemyGenerator : SKNode <EnemyGeneratorDelegate>
 
 /**
  Used to add physics bodies into game

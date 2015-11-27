@@ -66,7 +66,7 @@ typedef enum : NSUInteger {
 // Generate a probability to create an enemy based on the score
 -(int) probabilityToCreateAnEnemy:(unsigned int)score{
     
-    DebugLog("%i", score);
+    DebugLog("Probability to create an enemy with score = %i", score);
     
     const unsigned int createEnemy = 0;
     
@@ -81,9 +81,9 @@ typedef enum : NSUInteger {
     unsigned const int chanceToCreateEnemyOrWait = [self randomizeNumberBetween:0 and:2];
     
     if(chanceToCreateEnemyOrWait == createEnemy){
-        probabilityValue = 3;
+        probabilityValue = WAIT;
     }else if(score < SHORT_PROBABILITY_VALUE){
-        probabilityValue = 1;
+        probabilityValue = WEAK_ENEMY;
     }else if(score > SHORT_PROBABILITY_VALUE && score < MEDIUM_PROBABILITY_VALUE){
         
         unsigned int random = [self randomizeNumberBetween:0 and:100];
