@@ -46,9 +46,27 @@
 
 // Add restart button to GameOver node
 -(void) addRestartButton{
+    // Create a 50x50 button just for tests
     CGSize restartButtonSize = CGSizeMake(50, 50);
     SKSpriteNode *restart = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:restartButtonSize];
+    restart.name = @"restartButton";
     [self.gameOver addChild:restart];
+}
+
+// Called whenever the player touches the screen
+-(void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [touches anyObject];
+    CGPoint touchLocation = [touch locationInNode:self];
+    
+    NSArray *nodes = [self nodesAtPoint:touchLocation];
+    
+    for (SKNode *node in nodes) {
+        if ([node.name isEqualToString:@"restartButton"]) {
+            NSLog(@"Touching restart button");
+        } else {
+            // Exception
+        }
+    }
 }
 
 

@@ -18,6 +18,9 @@
 @interface GameLayer()
 
 @property (nonatomic) Player *player;
+@property (nonatomic) BOOL isPlayerDead;
+@property (nonatomic) GameOver *gameOver;
+
 
 @end
 
@@ -42,6 +45,7 @@
     
     if(self != nil){
         _size = size;
+        self.isPlayerDead = false;
         self.name = @"layer";
         [self initializePhysicsController];
     }else{
@@ -94,6 +98,10 @@
             [self.pauseLayer touchesBegan:touches withEvent:event];
         }
 
+    }
+    
+    if (self.isPlayerDead == true) {
+        [self.gameOver touchesBegan:touches withEvent:event];
     }
     
 }
@@ -320,8 +328,9 @@
 
 // Called when player die
 -(void) playerDied{
-    GameOver *gameOver = [[GameOver alloc]initWithSize:_size];
-    [self addChild:gameOver];
+    self.isPlayerDead = true;
+    self.gameOver = [[GameOver alloc]initWithSize:_size];
+    [self addChild:self.gameOver];
     self.scene.view.paused = true;
 }
 
