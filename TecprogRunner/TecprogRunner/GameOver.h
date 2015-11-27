@@ -10,4 +10,6 @@
 
 @interface GameOver : SKNode
 
+-(instancetype) initWithSize:(CGSize)size;
+
 @end

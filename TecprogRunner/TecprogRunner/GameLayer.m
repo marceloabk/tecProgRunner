@@ -13,6 +13,7 @@
 #import "Coin.h"
 #import "EnemyGenerator.h"
 #import "SpriteNode.h"
+#import "GameOver.h"
 
 @interface GameLayer()
 
