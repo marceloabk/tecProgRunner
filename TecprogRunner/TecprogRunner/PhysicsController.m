@@ -113,6 +113,8 @@
         }
         
         [self.gameLayer Bullet:bullet hittedEnemy:enemy];
+    } else if((bodyAisEnemy || bodyBisEnemy) && (bodyAisPlayer || bodyBisPlayer)) {
+        [self.gameLayer playerDied];
     }
 }
 

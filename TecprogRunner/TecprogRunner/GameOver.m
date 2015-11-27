@@ -31,6 +31,7 @@
         CGSize gameOverSize = CGSizeMake(gameOverWidth, gameOverHeight);
         
         SKSpriteNode *gameOver = [[SKSpriteNode alloc]initWithColor:[UIColor brownColor] size:gameOverSize];
+        gameOver.position = CGPointMake(size.width/2, size.height/2);
         
         [self addChild:gameOver];
     }else{

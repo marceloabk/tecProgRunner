@@ -318,6 +318,13 @@
     }
 }
 
+// Called when player die
+-(void) playerDied{
+    GameOver *gameOver = [[GameOver alloc]initWithSize:_size];
+    [self addChild:gameOver];
+}
+
+
 -(void) entityDied:(GameEntity *)entity{
     
 }

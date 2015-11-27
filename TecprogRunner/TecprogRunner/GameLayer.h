@@ -65,4 +65,7 @@
  */
 -(void) activateLayer;
 
+// Called when player die
+-(void) playerDied;
+
 @end
