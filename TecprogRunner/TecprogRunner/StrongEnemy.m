@@ -77,9 +77,9 @@
 }
 
 -(void) throwProjectile{
-    // Initial projectile position is the current player position plus half player width
+    // Initial projectile position is the current player position minus half player width
     // This way the projectile is created in player border and it doesn't collide with player
-    CGPoint initialProjectilePosition = CGPointMake(self.position.x + self.size.width/2, self.position.y);
+    CGPoint initialProjectilePosition = CGPointMake(self.position.x - self.size.width/2, self.position.y);
     NSString *className = [NSString stringWithFormat:@"%@", self.class];
     
     @try {
@@ -91,6 +91,16 @@
         DebugLog(@"CATCHED EXCEPTION WHILE THROWING PROJECTILE");
     }
     
+    
+}
+
+-(void)updateWithDeltaTime:(CFTimeInterval)deltaTime{
+    [super updateWithDeltaTime:deltaTime];
+    
+    int decision = arc4random() % 20 + 1;
+    if(decision == 1){
+        [self throwProjectile];
+    }
 }
 
 @end
