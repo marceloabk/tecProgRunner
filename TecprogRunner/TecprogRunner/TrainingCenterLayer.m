@@ -8,8 +8,22 @@
 
 #import "TrainingCenterLayer.h"
 #import "GameData.h"
+#import "TrainingCenterBackground.h"
+#import "Label.h"
+#import "SpriteNode.h"
 
-@implementation TrainingCenterLayer
+@implementation TrainingCenterLayer{
+    TrainingCenterBackground *_trainingCenterBackground;
+    SpriteNode *_backButton;
+    SpriteNode *_levelSpeedStars;
+    SpriteNode *_levelJumpStars;
+    SpriteNode *_levelLuckStars;
+    SpriteNode *_levelShootingStars;
+    SpriteNode *_levelPowerStars;
+    SpriteNode *_attributesTable;
+    Label *_coinsLabel;
+    Label *_gemsLabel;
+}
 
 -(instancetype) initWithSize:(CGSize)size{
     
@@ -27,7 +41,8 @@
         [self loadStars];
         
     }else{
-        // Exception
+        NSException *exception = [NSException exceptionWithName:@"Training Center layer" reason:@"Can't initialize training center layer" userInfo:nil];
+        [exception raise];
     }
     return self;
 }
@@ -36,43 +51,46 @@
     
     CGSize backgroundSize = CGSizeMake(DEFAULT_LAYER_WIDTH, DEFAULT_LAYER_HEIGHT);
     
-    self.trainingCenterBackground = [[TrainingCenterBackground alloc] initWithSize:backgroundSize];
+    _trainingCenterBackground = [[TrainingCenterBackground alloc] initWithSize:backgroundSize];
     
 }
 
 -(void) loadButtons{
     
     [self loadBack];
-    [self loadAtributesTable];
+    [self loadAttributesTable];
     
 }
 
 -(void) loadBack{
     
     CGPoint position = CGPointMake(10, 363);
-    self.backButton = [SpriteNode spriteNodeWithImageNamed:@"backButton" andPosition:position anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+    _backButton = [SpriteNode spriteNodeWithImageNamed:@"backButton" andPosition:position anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
     
 }
 
 -(void) loadStars{
     
     // Load stars sprites
-    self.levelJumpStars = [self loadStarSprite:self.levelJumpStars];
-    self.levelLuckStars = [self loadStarSprite:self.levelLuckStars];
-    self.levelPowerStars = [self loadStarSprite:self.levelPowerStars];
-    self.levelShootingStars = [self loadStarSprite:self.levelShootingStars];
-    self.levelSpeedStars = [self loadStarSprite:self.levelSpeedStars];
+    CGPoint jumpStarsPosition = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-85);
+    _levelJumpStars = [self loadStarSprite:_levelJumpStars withPosition:jumpStarsPosition];
     
-    // Set stars positions on screen
-    self.levelJumpStars.position = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-85);
-    self.levelLuckStars.position = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-132);
-    self.levelPowerStars.position = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-179);
-    self.levelShootingStars.position = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-232);
-    self.levelSpeedStars.position = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-282);
+    CGPoint luckStarsPosition = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-132);
+    _levelLuckStars = [self loadStarSprite:_levelLuckStars withPosition:luckStarsPosition];
+    
+    CGPoint powerStarsPosition = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-179);
+    _levelPowerStars = [self loadStarSprite:_levelPowerStars withPosition:powerStarsPosition];
+    
+    CGPoint shootingStarsPosition = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-232);
+    _levelShootingStars = [self loadStarSprite:_levelShootingStars withPosition:shootingStarsPosition];
+    
+    CGPoint speedStarsPosition = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-282);
+    _levelSpeedStars = [self loadStarSprite:_levelSpeedStars withPosition:speedStarsPosition];
+
     
 }
 
--(SpriteNode*) loadStarSprite:(SpriteNode*)attribute{
+-(SpriteNode*) loadStarSprite:(SpriteNode*)attribute withPosition:(CGPoint)position{
     
     // Get attribute level
     int level = [self returnLevel:attribute];
@@ -81,29 +99,28 @@
     NSString *spriteName = [[NSString alloc] initWithFormat:@"levelStars%i", level];
     
     // Generating the sprite
-    SpriteNode *sprite = [SpriteNode spriteNodeWithImageNamed:spriteName andPosition:CGPointZero anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:DEFAULT_STARTS_Z_POSITION];
-    
+    SpriteNode *sprite = [SpriteNode spriteNodeWithImageNamed:spriteName andPosition:position anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:DEFAULT_STARTS_Z_POSITION];
     
     return sprite;
 }
 
--(void) loadAtributesTable{
+-(void) loadAttributesTable{
 
     CGPoint position = CGPointMake(50, DEFAULT_LAYER_HEIGHT - 34);
-    self.atributesTable = [SpriteNode spriteNodeWithImageNamed:@"atributesTable" andPosition:position anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+    _attributesTable = [SpriteNode spriteNodeWithImageNamed:@"atributesTable" andPosition:position anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
     
 }
 
 -(void) activateLayer{
     
-    [self.layer addChild:self.trainingCenterBackground];
-    [self.layer addChild:self.backButton];
-    [self.layer addChild:self.atributesTable];
-    [self.layer addChild:self.levelJumpStars];
-    [self.layer addChild:self.levelLuckStars];
-    [self.layer addChild:self.levelPowerStars];
-    [self.layer addChild:self.levelShootingStars];
-    [self.layer addChild:self.levelSpeedStars];
+    [self.layer addChild:_trainingCenterBackground];
+    [self.layer addChild:_backButton];
+    [self.layer addChild:_attributesTable];
+    [self.layer addChild:_levelJumpStars];
+    [self.layer addChild:_levelLuckStars];
+    [self.layer addChild:_levelPowerStars];
+    [self.layer addChild:_levelShootingStars];
+    [self.layer addChild:_levelSpeedStars];
     
     [self putCoins];
     [self putGems];
@@ -116,15 +133,15 @@
     
     // Comparing attribute with existings attributes
     // and requesting to Game Data the actual level
-    if(attribute == self.levelJumpStars){
+    if(attribute == _levelJumpStars){
         level = [GameData sharedGameData].levelJump;
-    }else if(attribute == self.levelLuckStars){
+    }else if(attribute == _levelLuckStars){
         level = [GameData sharedGameData].levelLuck;
-    }else if(attribute == self.levelPowerStars){
+    }else if(attribute == _levelPowerStars){
         level = [GameData sharedGameData].levelPower;
-    }else if(attribute == self.levelShootingStars){
+    }else if(attribute == _levelShootingStars){
         level = [GameData sharedGameData].levelShooting;
-    }else if(attribute == self.levelSpeedStars){
+    }else if(attribute == _levelSpeedStars){
         level = [GameData sharedGameData].levelSpeed;
     }else{
         level = 0;
@@ -144,11 +161,11 @@
     // Creating coins label
     NSString *coinString = [[NSString alloc] initWithFormat:@"%i", [GameData sharedGameData].coins];
     CGPoint coinPosition = CGPointMake(424, 333);
-    self.coinsLabel = [Label labelWithText:coinString andPosition:coinPosition
+    _coinsLabel = [Label labelWithText:coinString andPosition:coinPosition
                                    andSize:33 andZPosition:10];
     
     [self addChild:coinsImage];
-    [self.layer addChild:self.coinsLabel];
+    [self.layer addChild:_coinsLabel];
     
 }
 
@@ -162,11 +179,11 @@
     // Creating gems label
     NSString *gemsString = [[NSString alloc] initWithFormat:@"%i", [GameData sharedGameData].gems];
     CGPoint gemPosition = CGPointMake(584, 333);
-    self.gemsLabel = [Label labelWithText:gemsString andPosition:gemPosition andSize:33 andZPosition:10];
+    _gemsLabel = [Label labelWithText:gemsString andPosition:gemPosition andSize:33 andZPosition:10];
 
     
     [self addChild:gemsImage];
-    [self addChild:self.gemsLabel];
+    [self addChild:_gemsLabel];
     
 }
 

@@ -7,6 +7,7 @@
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "BackgroundLayerStore.h"
+#import "SpriteNode.h"
 
 @implementation BackgroundLayerStore
 
@@ -19,7 +20,8 @@
         [self addBackgroundSprite];
         
     }else{
-        // Exception
+        NSException *exception = [NSException exceptionWithName:@"Background Layer Store" reason:@"Can't initialize Background Layer Store" userInfo:nil];
+        [exception raise];
     }
     
     return self;
@@ -29,11 +31,11 @@
 -(void) addBackgroundSprite{
     
     // Setting background properties
-    self.background = [SpriteNode spriteNodeWithImageNamed:@"background" andPosition:CGPointZero
+    SpriteNode *background = [SpriteNode spriteNodeWithImageNamed:@"background" andPosition:CGPointZero
                                                anchorPoint:CGPointZero andScale:0.5 andZPosition:-1];
 
     
-    [self addChild:self.background];
+    [self addChild:background];
     
 }
 

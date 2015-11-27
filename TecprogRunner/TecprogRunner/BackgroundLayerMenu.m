@@ -19,18 +19,20 @@
         [self addBackgroundSprite];
         
     }else{
-        // Exception
+        NSException *exception = [NSException exceptionWithName:@"Background layer menu" reason:@"Can't initialize Background Layer Menu" userInfo:nil];
+        [exception raise];
     }
+    
     return self;
 }
 
 
 -(void) addBackgroundSprite{
     
-    self.background = [SpriteNode spriteNodeWithImageNamed:@"menuBg" andPosition:CGPointZero
+    SpriteNode *background = [SpriteNode spriteNodeWithImageNamed:@"menuBg" andPosition:CGPointZero
                                                anchorPoint:CGPointZero andScale:0.5 andZPosition:-1];
     
-    [self addChild:self.background];
+    [self addChild:background];
 
 }
 

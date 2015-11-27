@@ -8,8 +8,15 @@
 
 #import "SettingsLayer.h"
 #import "GameData.h"
+#import "BackgroundLayerSettings.h"
+#import "SpriteNode.h"
 
-@implementation SettingsLayer
+@implementation SettingsLayer{
+    BackgroundLayerSettings *_backgroundLayerSettings;
+    SpriteNode *_backButton;
+    SpriteNode *_musicButton;
+    SpriteNode *_soundEffectsButton;
+}
 
 -(instancetype) initWithSize:(CGSize)size{
     
@@ -27,7 +34,8 @@
         
     
     }else{
-        // Exception
+        NSException *exception = [NSException exceptionWithName:@"Settings layer" reason:@"Can't initialize Settings Layer" userInfo:nil];
+        [exception raise];
     }
     
     return self;
@@ -40,7 +48,7 @@
     CGSize backgroundSize = CGSizeMake(DEFAULT_LAYER_WIDTH, DEFAULT_LAYER_HEIGHT);
     
     // Initializing background
-    self.backgroundLayerSettings = [[BackgroundLayerSettings alloc] initWithSize:backgroundSize];
+    _backgroundLayerSettings = [[BackgroundLayerSettings alloc] initWithSize:backgroundSize];
 
 }
 
@@ -62,7 +70,7 @@
     }
 
     CGPoint position = CGPointMake(142, DEFAULT_LAYER_HEIGHT - 150);
-    self.musicButton = [SpriteNode spriteNodeWithImageNamed:soundEffects andPosition:position
+    _musicButton = [SpriteNode spriteNodeWithImageNamed:soundEffects andPosition:position
                                                 anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
 
 }
@@ -78,7 +86,7 @@
     }
     
     CGPoint position = CGPointMake(432, DEFAULT_LAYER_HEIGHT - 150);
-    self.soundEffectsButton = [SpriteNode spriteNodeWithImageNamed:music andPosition:position
+    _soundEffectsButton = [SpriteNode spriteNodeWithImageNamed:music andPosition:position
                                                        anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
 
 }
@@ -86,17 +94,17 @@
 -(void) loadBack{
     
     CGPoint position = CGPointMake(30, 363);
-    self.backButton = [SpriteNode spriteNodeWithImageNamed:@"backButton" andPosition:position
+    _backButton = [SpriteNode spriteNodeWithImageNamed:@"backButton" andPosition:position
                                                anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
     
 }
 
 -(void) activateLayer{
 
-    [self.layer addChild:self.backgroundLayerSettings];
-    [self.layer addChild:self.backButton];
-    [self.layer addChild:self.musicButton];
-    [self.layer addChild:self.soundEffectsButton];
+    [self.layer addChild:_backgroundLayerSettings];
+    [self.layer addChild:_backButton];
+    [self.layer addChild:_musicButton];
+    [self.layer addChild:_soundEffectsButton];
 
 }
 

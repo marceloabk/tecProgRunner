@@ -17,11 +17,6 @@
 */
 -(instancetype) initWithSize:(CGSize)size;
 
-/**
- Sprite used to represent
- background visually
-*/
-@property (nonatomic) SpriteNode* background;
 
 
 @end

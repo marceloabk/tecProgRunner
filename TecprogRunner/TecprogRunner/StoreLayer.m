@@ -7,9 +7,18 @@
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "StoreLayer.h"
+#import "BackgroundLayerStore.h"
+#import "SpriteNode.h"
+
 #define CARD_Y_POSITION 302
 
-@implementation StoreLayer
+@implementation StoreLayer{
+    BackgroundLayerStore *_backgroundLayerStore;
+    SpriteNode *_backButton;
+    SpriteNode *_coinsCard;
+    SpriteNode *_gemsCard;
+    SpriteNode *_freeCoinsCard;
+}
 
 -(instancetype) initWithSize:(CGSize)size{
     
@@ -25,7 +34,8 @@
         [self loadButtons];
         [self loadCards];
     }else{
-        // Exception
+        NSException *exception = [NSException exceptionWithName:@"Store layer" reason:@"Can't initialize Store Layer" userInfo:nil];
+        [exception raise];
     }
     
     return self;
@@ -38,7 +48,7 @@
     CGSize backgroundSize = CGSizeMake(DEFAULT_LAYER_WIDTH, DEFAULT_LAYER_HEIGHT);
     
     // Initializing background
-    self.backgroundLayerStore = [[BackgroundLayerStore alloc] initWithSize:backgroundSize];
+    _backgroundLayerStore = [[BackgroundLayerStore alloc] initWithSize:backgroundSize];
 
 }
 
@@ -51,18 +61,18 @@
 -(void) loadBackButton{
 
     CGPoint position = CGPointMake(30, 363);
-    self.backButton = [SpriteNode spriteNodeWithImageNamed:@"backButton" andPosition:position
+    _backButton = [SpriteNode spriteNodeWithImageNamed:@"backButton" andPosition:position
                                                anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
 
 }
 
 -(void) activateLayer{
 
-    [self.layer addChild:self.backgroundLayerStore];
-    [self.layer addChild:self.backButton];
-    [self.layer addChild:self.coinsCard];
-    [self.layer addChild:self.freeCoinsCard];
-    [self.layer addChild:self.gemsCard];
+    [self.layer addChild:_backgroundLayerStore];
+    [self.layer addChild:_backButton];
+    [self.layer addChild:_coinsCard];
+    [self.layer addChild:_freeCoinsCard];
+    [self.layer addChild:_gemsCard];
 
 }
 
@@ -72,17 +82,17 @@
     
     // ... Coins Card
     CGPoint coinsPosition = CGPointMake(21, CARD_Y_POSITION);
-    self.coinsCard = [SpriteNode spriteNodeWithImageNamed:@"coinsCard" andPosition:coinsPosition
+    _coinsCard = [SpriteNode spriteNodeWithImageNamed:@"coinsCard" andPosition:coinsPosition
                                               anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
     
     // ... Free Coins Card
     CGPoint freeCoinsPosition = CGPointMake(456, CARD_Y_POSITION);
-    self.freeCoinsCard = [SpriteNode spriteNodeWithImageNamed:@"freeCoinsCard" andPosition:freeCoinsPosition
+    _freeCoinsCard = [SpriteNode spriteNodeWithImageNamed:@"freeCoinsCard" andPosition:freeCoinsPosition
                                                   anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
     
     // ... Gems Card
     CGPoint gemsPosition = CGPointMake(239, CARD_Y_POSITION);
-    self.gemsCard = [SpriteNode spriteNodeWithImageNamed:@"gemsCard" andPosition:gemsPosition
+    _gemsCard = [SpriteNode spriteNodeWithImageNamed:@"gemsCard" andPosition:gemsPosition
                                              anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
 
 
