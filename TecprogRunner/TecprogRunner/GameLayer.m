@@ -322,6 +322,7 @@
 -(void) playerDied{
     GameOver *gameOver = [[GameOver alloc]initWithSize:_size];
     [self addChild:gameOver];
+    self.scene.view.paused = true;
 }
 
 
