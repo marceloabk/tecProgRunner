@@ -75,11 +75,11 @@
     
     SKNode *node = [self nodeAtPoint:touchLocation];
     
-    if([node.name isEqualToString:@"pauseButton"]){
-        
+    if(self.isPlayerDead == true){
+        [self.gameOver touchesBegan:touches withEvent:event];
+    }else if ([node.name isEqualToString:@"pauseButton"] ){
         // Pause or unpause game;
         [self pausedClicked];
-        
     }else{
         if(self.scene.view.paused == false){
             
@@ -97,11 +97,6 @@
             
             [self.pauseLayer touchesBegan:touches withEvent:event];
         }
-
-    }
-    
-    if (self.isPlayerDead == true) {
-        [self.gameOver touchesBegan:touches withEvent:event];
     }
     
 }

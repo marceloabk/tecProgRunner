@@ -58,6 +58,7 @@
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInNode:self];
     
+    // Adding all nodes at the clicked point in the array
     NSArray *nodes = [self nodesAtPoint:touchLocation];
     
     for (SKNode *node in nodes) {
