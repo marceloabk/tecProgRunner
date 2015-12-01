@@ -10,10 +10,13 @@
 
 
 @implementation PhysicsController{
+    /**
+     Array that storage bodies controlled by Physics Controller
+    */
     NSMutableArray<GameObject*> *_bodies;
 }
 
-- (instancetype)init{
+-(instancetype) init{
     
     self = [super init];
     
@@ -25,7 +28,9 @@
         
     }else{
         
-        // There is no alternative path
+        NSException *exception = [NSException exceptionWithName:@"Physics Controller init" reason:@"Physics Controller can't be initialized" userInfo:nil];
+        [exception raise];
+        
     }
     
     return self;

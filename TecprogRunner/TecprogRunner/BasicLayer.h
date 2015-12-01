@@ -16,9 +16,11 @@
 @required
 
 /**
- Initialize the layer with a size
+ Initialize layer
+ @param size The size of the screen
+ @return A instance of a layer
 */
-- (instancetype) initWithSize:(CGSize)size;
+-(instancetype) initWithSize:(CGSize)size;
 
 /**
  Add all children for the layer

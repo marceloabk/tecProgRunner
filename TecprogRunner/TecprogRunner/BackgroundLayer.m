@@ -24,6 +24,7 @@ struct line{
 
 @implementation BackgroundLayer{
     
+    
     CGSize _size;
     CGPoint _initialPoint;
     float backgroundDefaultVelocity;

@@ -17,13 +17,15 @@
 @property (nonatomic) id<physicsControllerAddBody> physicsBodyAdder;
 
 /**
- Update background using a time
+ Update background
+ @param deltaTime elapsed time
 */
 -(void) updateWithDeltaTime:(CFTimeInterval)deltaTime;
 
 /**
- Init background with a size
- and a Body Adder
+ Initialize background layer
+ @param size Size of the screen
+ @param physicsBodyAdder Controller used to add bodies
 */
 -(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>)physicsBodyAdder;
 

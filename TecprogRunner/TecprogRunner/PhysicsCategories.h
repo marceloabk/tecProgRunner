@@ -10,7 +10,8 @@
 #define PhysicsCategories_h
 
 /**
- Categorize types of physics body
+ Collider Types
+ @brief A list of Collider Categories used for contacts and collisions
 */
 typedef NS_ENUM(NSUInteger, ColliderType){
     /**

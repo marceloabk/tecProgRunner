@@ -12,7 +12,14 @@
 
 
 @implementation OverallScene{
+    /**
+     Recognizes left swipe
+    */
     UISwipeGestureRecognizer *_leftSwipe;
+    
+    /**
+     Recognizes right swipe
+     */
     UISwipeGestureRecognizer *_rightSwipe;
 }
 
@@ -27,7 +34,7 @@
     
     if(self != nil){
         
-        // Check for the users first time entered
+        // Check if the user entered by first time
         
         if([[NSUserDefaults standardUserDefaults] objectForKey:@"primeiraVez"] == nil){
             [[NSUserDefaults standardUserDefaults] setObject:@"comecouJogoPelaPrimeiraVez" forKey:@"primeiraVez"];
@@ -54,12 +61,14 @@
 
 -(void) update:(CFTimeInterval)currentTime{
     
-    // If layer activated is game layer...
+    
+    // Verify if layer activated is game layer...
     if([GameData sharedGameData].layerActivated == game){
         // ... update game layer
         [self.overallControlLayer.gameLayer update:currentTime];
+        
     }else{
-        // There's no alternative path
+        // Continue
     }
     
 }
@@ -68,6 +77,8 @@
     
     // Detect touch properly
     UITouch * touch = [touches anyObject];
+    
+    // Detect touch location
     CGPoint touchLocation = [touch locationInNode:self];
     
     // Detect node touched
@@ -97,26 +108,49 @@
     
 }
 
+
+/**
+ Set basics physics world
+ @brief Define physics world contact delegate and set a gravity
+*/
 -(void) setBasicsPhysicsWorld{
+    
+    // Defining Physics Controller as contact delegate
     self.physicsWorld.contactDelegate = self.overallControlLayer.gameLayer.physicsController;
+    
+    // Setting a gravity for physics world
     self.physicsWorld.gravity = CGVectorMake(0.0, -6.0);
+    
 }
 
+/**
+ @brief Changes page
+ @param sender A swipe to right or left
+*/
 -(void) changePage:(UISwipeGestureRecognizer*)sender{
+    
+    DebugLog(@"Change page");
+    
+    // Verify the direction of the swipe
     if(sender.direction == UISwipeGestureRecognizerDirectionLeft){
         [self.overallControlLayer swipeLeft];
     }else if(sender.direction == UISwipeGestureRecognizerDirectionRight){
         [self.overallControlLayer swipeRight];
     }else{
         // There's no alternative path
+        DebugLog(@"Direction not recognized");
     }
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
+    // Verify if the touches began in game...
     if([GameData sharedGameData].layerActivated == game){
+        
+        // Call the responsible layer method
         [self.overallControlLayer.gameLayer touchesBegan:touches withEvent:event];
     }else{
+        DebugLog("Touches began outside game layer");
         // There's no alternative path
     }
     
@@ -128,6 +162,9 @@
 
 }
 
+/**
+ @brief Add left and right swipe recognizers using the change page selector
+*/
 -(void) addSwipeRecognizers{
     _leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(changePage:)];
     _rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(changePage:)];
@@ -139,28 +176,38 @@
     [self.view addGestureRecognizer:_leftSwipe];
 }
 
+/**
+ Handle when user touches in Menu
+ @param node Node touched
+*/
 -(void) touchesInMenu:(SKNode*)node{
     DebugLog(@"%@ node in menu",node.name);
     
+    // Verify wich node was touched
     if([node.name isEqualToString:@"tapToPlay"]){
         
+        // Activate game layer
         [GameData sharedGameData].layerActivated = game;
-        
         [self.overallControlLayer changeLayer];
+        
+        // Initialize Game
         [self setBasicsPhysicsWorld];
         
     }else if([node.name isEqualToString:@"settingsButton"]){
         
+        // Activate settings layer
         [GameData sharedGameData].layerActivated = settings;
         [self.overallControlLayer changeLayer];
         
     }else if([node.name isEqualToString:@"storeButton"]){
         
+        // Activate store layer
         [GameData sharedGameData].layerActivated = store;
         [self.overallControlLayer changeLayer];
         
     }else if([node.name isEqualToString:@"trainingCenterButton"]){
         
+        // Activate training center layer
         [GameData sharedGameData].layerActivated = trainingCenter;
         [self.overallControlLayer changeLayer];
         
@@ -169,12 +216,20 @@
     }
 }
 
+/**
+ Handle when user touches in Store
+ @param node Node touched
+ */
 -(void) touchesInStore:(SKNode*)node{
     DebugLog(@"%@ node in store",node.name);
     
+    // Check wich node was touched
     if([node.name isEqualToString:@"backButton"]){
+        
+        // Activate Menu layer
         [GameData sharedGameData].layerActivated = menu;
         [self.overallControlLayer changeLayer];
+        
     }else if([node.name isEqualToString:@"freeCoinsCard"]){
         
     }else if([node.name isEqualToString:@"coinsCard"]){
@@ -184,11 +239,21 @@
     }else{
         DebugLog(@"node %@ unknown for store",node.name);
     }
+    
 }
 
+/**
+ Handle when user touches in Settings
+ @param node Node touched
+ */
 -(void) touchesInSettings:(SKNode*)node{
+    
     DebugLog(@"%@ node in settings",node.name);
+    
+    // Check wich node was touched
     if([node.name isEqualToString:@"backButton"]){
+        
+        // Activate Menu layer
         [GameData sharedGameData].layerActivated = menu;
         [self.overallControlLayer changeLayer];
     }else{
@@ -196,12 +261,22 @@
     }
 }
 
+/**
+ Handle when user touches in Training Center
+ @param node Node touched
+ */
 -(void) touchesInTrainingCenter:(SKNode*)node{
+    
+    // Check wich node was touched
     if([node.name isEqualToString:@"backButton"]){
+        
+        // Activate Menu layer
         [GameData sharedGameData].layerActivated = menu;
         [self.overallControlLayer changeLayer];
+        
     }else{
         DebugLog(@"node %@ unknown for training center", node.name);
     }
+    
 }
 @end
