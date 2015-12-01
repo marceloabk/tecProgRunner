@@ -29,28 +29,13 @@
 @property SKNode *layer;
 
 /**
- Sprite Node containing the background
+ Pause should have a delegate
 */
-@property SpriteNode *background;
-
-/**
- Sprite Node containing the continue button
-*/
-@property SpriteNode *continueButton;
-
-/**
- Sprite Node containing the home button
-*/
-@property SpriteNode *homeButton;
-
-/**
- Sprite Node containing the restart button
-*/
-@property SpriteNode *restartButton;
-
-
 @property (nonatomic) id<pauseDelegate> pauseDelegate;
 
+/**
+ Show pause layer
+*/
 -(void) activatePauseLayer;
 
 /**
