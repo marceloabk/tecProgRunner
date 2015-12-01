@@ -13,7 +13,7 @@
 
 @implementation GameData
 
-// Creating keys to save data
+// Keys to save data
 static NSString* const SSGameDataKey1 = @"highScore";
 static NSString* const SSGameDataKey2 = @"levelJump";
 static NSString* const SSGameDataKey3 = @"levelLuck";
@@ -37,40 +37,63 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
     return sharedInstance;
 }
 
-// Load data inside the singleton
+/**
+ Load data inside the singleton
+*/
 +(instancetype) loadInstance{
     
-    NSData* decodedData = [NSData dataWithContentsOfFile: [GameData filePath]];
+    DebugLog(@"Loading Game Data Instance");
+    
+    // Initialize game data
+    GameData* gameData = [[GameData alloc] init];
+    
+    // Catch game data file path
+    NSString *filePath = [GameData filePath];
+    
+    // Decode data
+    NSData* decodedData = [NSData dataWithContentsOfFile: filePath];
     
     if(decodedData != nil){
-        GameData* gameData = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
-        return gameData;
+        
+        DebugLog(@"Setting game data using decoded data");
+        gameData = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
+        
     }else{
-        // There is no alternative path
+        // Create and throw a exception
+        NSException *exception = [NSException exceptionWithName:@"Game Data init" reason:@"Can't initialize Game Data" userInfo:nil];
+        [exception raise];
     }
     
-    return [[GameData alloc] init];
+    return gameData;
 }
 
 
--(void) save{
+-(BOOL) save{
+    
+    BOOL success = false;
     
     // Get archived data
     NSData* encodedData = [NSKeyedArchiver archivedDataWithRootObject: self];
     
     // Write data to encoded data
-    [encodedData writeToFile:[GameData filePath] atomically:YES];
+    NSString *filePath = [GameData filePath];
+    success = [encodedData writeToFile:filePath atomically:YES];
     
+    return success;
 }
 
--(instancetype) initWithCoder:(NSCoder *)decoder{
+-(instancetype) initWithCoder:(NSCoder*)decoder{
     
     NSAssert(decoder != nil, @"There's no decoder on GameData");
     
-    self = [self init];
+    // Initializing using superclass
+    self = [super init];
     
     if(self != nil){
      
+        NSLog(@"Decoding data on Game Data");
+        
+        // Decode all informations
         _score = [decoder decodeIntForKey: SSGameDataKey1];
         _levelJump = [decoder decodeIntForKey: SSGameDataKey2];
         _levelLuck = [decoder decodeIntForKey: SSGameDataKey3];
@@ -83,13 +106,14 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
         _soundEffectsAvailibility = [decoder decodeIntForKey: SSGameDataKey10];
 
     }else{
-        // There's no alternative path
+        // Create and throw a exception
+        NSException *exception = [NSException exceptionWithName:@"Game Data init with coder" reason:@"Can't initialize Game Data With Coder" userInfo:nil];
+        [exception raise];
     }
     
     return self;
 }
 
-// Will be called the first time the user enters the game
 -(void) start{
 
     // Define menu as the first layer activated
@@ -104,15 +128,15 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
     self.gems = STARTING_COINS_OR_GEMS_AMOUNT;
     self.coins = STARTING_COINS_OR_GEMS_AMOUNT;
     
-    self.musicAvailibility = true;
-    self.soundEffectsAvailibility = true;
+    self.musicAvailibility = false;
+    self.soundEffectsAvailibility = false;
 }
 
 -(void) encodeWithCoder:(NSCoder *)encoder{
     
     NSAssert(encoder != nil, @"There's no encoder on GameData");
     
-    // Encode data
+    // Encode all data
     [encoder encodeInt:self.score forKey: SSGameDataKey1];
     [encoder encodeInt:self.levelJump forKey: SSGameDataKey2];
     [encoder encodeInt:self.levelLuck forKey: SSGameDataKey3];
@@ -124,16 +148,18 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
     
 }
 
-// Create a file path to save data
+/**
+ File path used to save data
+ @brief If a file path already exists, it is returned.
+ @return The file path.
+*/
 +(NSString*) filePath{
     
     static NSString* filePath = nil;
     
-    if(filePath == nil){
-        filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"gamedata"];
-    }else{
-        // There is no alternative path
-    }
+    // Find file path in directories
+    filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"gamedata"];
+    
     
     return filePath;
 }
