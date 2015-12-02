@@ -181,6 +181,7 @@
 		671923771C07F1D200B5D4D7 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
 		671923781C07F1D200B5D4D7 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 		674FC4911BF02C6F00B40914 /* EnemyGeneratorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyGeneratorTests.m; sourceTree = "<group>"; };
+		677C2B3F1C0E86DE007683AB /* RestartGameProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestartGameProtocol.h; sourceTree = "<group>"; };
 		6792F7371BCF220E006030DE /* StrongEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrongEnemy.h; sourceTree = "<group>"; };
 		6792F7381BCF220E006030DE /* StrongEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrongEnemy.m; sourceTree = "<group>"; };
 		67A4F5C11BABA3E0004DCA3C /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
@@ -756,6 +757,7 @@
 		E928574A1BA25D1500DF4959 /* GameLayer */ = {
 			isa = PBXGroup;
 			children = (
+				677C2B3F1C0E86DE007683AB /* RestartGameProtocol.h */,
 				E92857411BA25CF500DF4959 /* GameLayer.h */,
 				E92857421BA25CF500DF4959 /* GameLayer.m */,
 			);

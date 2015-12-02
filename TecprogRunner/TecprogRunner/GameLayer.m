@@ -21,7 +21,6 @@
 @property (nonatomic) BOOL isPlayerDead;
 @property (nonatomic) GameOver *gameOver;
 
-
 @end
 
 @implementation GameLayer{

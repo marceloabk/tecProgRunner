@@ -10,15 +10,10 @@
 #import "PhysicsController.h"
 #import "GameData.h"
 #import "PauseLayer.h"
+#import "RestartGameProtocol.h"
 #import "EnemyGenerator.h"
 
 #warning Must add pause layer to hud layer
-
-@protocol restartDelegate <NSObject>
-@required
--(void) restartGame;
-
-@end
 
 @interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody, pauseDelegate, GameEntityDelegate>
 
