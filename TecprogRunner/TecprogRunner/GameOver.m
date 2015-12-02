@@ -16,7 +16,7 @@
 
 @end
 
-@implementation GameOver
+@implementation GameOver 
 
 // Initialize GameOver class
 -(instancetype) initWithSize:(CGSize)size{
@@ -63,11 +63,17 @@
     
     for (SKNode *node in nodes) {
         if ([node.name isEqualToString:@"restartButton"]) {
+            [self restartGame];
             NSLog(@"Touching restart button");
+            [self removeFromParent];
         } else {
             // Exception
         }
     }
+}
+
+-(void)restartGame {
+    [self.gameRestartDelegate restartGame];
 }
 
 

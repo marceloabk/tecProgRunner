@@ -13,13 +13,11 @@
 #import "Coin.h"
 #import "EnemyGenerator.h"
 #import "SpriteNode.h"
-#import "GameOver.h"
 
 @interface GameLayer()
 
 @property (nonatomic) Player *player;
 @property (nonatomic) BOOL isPlayerDead;
-@property (nonatomic) GameOver *gameOver;
 
 @end
 
@@ -324,6 +322,7 @@
 -(void) playerDied{
     self.isPlayerDead = true;
     self.gameOver = [[GameOver alloc]initWithSize:_size];
+    self.gameOver.gameRestartDelegate = self.gameRestartDelegate;
     [self addChild:self.gameOver];
     self.scene.view.paused = true;
 }

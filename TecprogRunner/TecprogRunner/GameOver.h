@@ -7,9 +7,12 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "RestartGameProtocol.h"
 
-@interface GameOver : SKNode
+
+@interface GameOver : SKNode <restartDelegate>
 
 -(instancetype) initWithSize:(CGSize)size;
+@property (nonatomic) id<restartDelegate> gameRestartDelegate;
 
 @end

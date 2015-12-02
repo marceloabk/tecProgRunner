@@ -12,6 +12,7 @@
 #import "PauseLayer.h"
 #import "RestartGameProtocol.h"
 #import "EnemyGenerator.h"
+#import "GameOver.h"
 
 #warning Must add pause layer to hud layer
 
@@ -21,6 +22,11 @@
  Physics controller for Game actions
 */
 @property (nonatomic) PhysicsController* physicsController;
+
+/**
+ Layer that represent GameOver on screen
+ */
+@property (nonatomic) GameOver *gameOver;
 
 /**
  Layer that represent GameLayer on screen
