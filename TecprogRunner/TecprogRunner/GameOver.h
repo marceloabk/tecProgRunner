@@ -7,12 +7,17 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "RestartGameProtocol.h"
 
+// This protocol says when to remove the gameOver
+@protocol gameOverDelegate <NSObject>
+@required
+-(void) removeGameOver;
 
-@interface GameOver : SKNode <restartDelegate>
+@end
+
+@interface GameOver : SKNode
 
 -(instancetype) initWithSize:(CGSize)size;
-@property (nonatomic) id<restartDelegate> gameRestartDelegate;
+@property (nonatomic) id<gameOverDelegate> gameOverDelegate;
 
 @end

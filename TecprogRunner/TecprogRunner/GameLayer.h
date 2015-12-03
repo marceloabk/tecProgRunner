@@ -16,7 +16,7 @@
 
 #warning Must add pause layer to hud layer
 
-@interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody, pauseDelegate, GameEntityDelegate>
+@interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody, pauseDelegate, GameEntityDelegate, gameOverDelegate>
 
 /**
  Physics controller for Game actions

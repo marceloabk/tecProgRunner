@@ -63,18 +63,12 @@
     
     for (SKNode *node in nodes) {
         if ([node.name isEqualToString:@"restartButton"]) {
-            [self restartGame];
+            [self.gameOverDelegate removeGameOver];
             NSLog(@"Touching restart button");
-            [self removeFromParent];
         } else {
             // Exception
         }
     }
 }
-
--(void)restartGame {
-    [self.gameRestartDelegate restartGame];
-}
-
 
 @end

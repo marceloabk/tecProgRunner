@@ -175,6 +175,10 @@
     
     [self initializeEnemyGenerator];
     
+    // Initialize GameOver
+    self.gameOver = [[GameOver alloc]initWithSize:_size];
+    self.gameOver.gameOverDelegate = self;
+    
     self.pointsScored = 0;
     [self initiateTimer];
     
@@ -321,10 +325,16 @@
 // Called when player die
 -(void) playerDied{
     self.isPlayerDead = true;
-    self.gameOver = [[GameOver alloc]initWithSize:_size];
-    self.gameOver.gameRestartDelegate = self.gameRestartDelegate;
     [self addChild:self.gameOver];
     self.scene.view.paused = true;
+}
+
+
+// Remove gameOver from the game and restart the game
+-(void) removeGameOver {
+    self.scene.view.paused = false;
+    [self.gameOver removeFromParent];
+    [self.gameRestartDelegate restartGame];
 }
 
 
