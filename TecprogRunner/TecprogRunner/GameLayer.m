@@ -325,8 +325,6 @@
 // Called when player die
 -(void) playerDied{
     self.isPlayerDead = true;
-    [self addChild:self.gameOver];
-    self.scene.view.paused = true;
 }
 
 
