@@ -29,6 +29,12 @@
 */
 -(void) Bullet:(Projectile*)bullet hittedEnemy:(Enemy*) enemy;
 
+
+/**
+ Handle when player contact a enemy
+ */
+-(void) playerDied;
+
 @end
 
 @interface PhysicsController : NSObject <SKPhysicsContactDelegate>

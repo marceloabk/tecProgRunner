@@ -10,22 +10,23 @@
 #import "PhysicsController.h"
 #import "GameData.h"
 #import "PauseLayer.h"
+#import "RestartGameProtocol.h"
 #import "EnemyGenerator.h"
+#import "GameOver.h"
 
 #warning Must add pause layer to hud layer
 
-@protocol restartDelegate <NSObject>
-@required
--(void) restartGame;
-
-@end
-
-@interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody, pauseDelegate, GameEntityDelegate>
+@interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody, pauseDelegate, GameEntityDelegate, gameOverDelegate>
 
 /**
  Physics controller for Game actions
 */
 @property (nonatomic) PhysicsController* physicsController;
+
+/**
+ Layer that represent GameOver on screen
+ */
+@property (nonatomic) GameOver *gameOver;
 
 /**
  Layer that represent GameLayer on screen
@@ -64,5 +65,8 @@
  Add game layer childs
  */
 -(void) activateLayer;
+
+// Called when player die
+-(void) playerDied;
 
 @end

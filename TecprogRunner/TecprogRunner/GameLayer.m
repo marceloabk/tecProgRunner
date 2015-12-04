@@ -17,6 +17,7 @@
 @interface GameLayer()
 
 @property (nonatomic) Player *player;
+@property (nonatomic) BOOL isPlayerDead;
 
 @end
 
@@ -41,6 +42,7 @@
     
     if(self != nil){
         _size = size;
+        self.isPlayerDead = false;
         self.name = @"layer";
         [self initializePhysicsController];
     }else{
@@ -71,11 +73,11 @@
     
     SKNode *node = [self nodeAtPoint:touchLocation];
     
-    if([node.name isEqualToString:@"pauseButton"]){
-        
+    if(self.isPlayerDead == true){
+        [self.gameOver touchesBegan:touches withEvent:event];
+    }else if ([node.name isEqualToString:@"pauseButton"] ){
         // Pause or unpause game;
         [self pausedClicked];
-        
     }else{
         if(self.scene.view.paused == false){
             
@@ -93,7 +95,6 @@
             
             [self.pauseLayer touchesBegan:touches withEvent:event];
         }
-
     }
     
 }
@@ -174,6 +175,10 @@
     [self initializePlayer];
     
     [self initializeEnemyGenerator];
+    
+    // Initialize GameOver
+    self.gameOver = [[GameOver alloc]initWithSize:_size];
+    self.gameOver.gameOverDelegate = self;
     
     self.pointsScored = 0;
     [self initiateTimer];
@@ -317,6 +322,20 @@
         [self.pauseLayer removeFromParent];
     }
 }
+
+// Called when player die
+-(void) playerDied{
+    self.isPlayerDead = true;
+}
+
+
+// Remove gameOver from the game and restart the game
+-(void) removeGameOver {
+    self.scene.view.paused = false;
+    [self.gameOver removeFromParent];
+    [self.gameRestartDelegate restartGame];
+}
+
 
 -(void) entityDied:(GameEntity *)entity{
     
