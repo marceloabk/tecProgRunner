@@ -32,10 +32,13 @@ typedef enum playerMoviments{
 */
 @property (nonatomic) BOOL playerOnGround;
 
+/**
+ Player moviments
+*/
 @property (nonatomic) playerMoviments moviment;
 
 /**
- run jump procedures
+ Run jump procedures
 */
 -(void) jump;
 

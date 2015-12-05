@@ -19,7 +19,6 @@
     SKAction *_fallAnimation;
 }
 
-// Initialize Player class with a position
 -(instancetype)initWithPosition:(CGPoint)position{
     
     // Creating a texture for the  player
@@ -50,7 +49,6 @@
     return self;
 }
 
-// Set some basics attributes that player will have
 -(void) setBasicsAttributes{
     
     // Placeholder image is too big then we rescale it to fit our screen
@@ -65,36 +63,53 @@
     [self defineAnimations];
 }
 
-// Generate player physics body
+/**
+ Generate player physics body
+*/
 -(SKPhysicsBody *) generatePhysicsBody{
     
-    // Using a rectangle as PhysicsBody
-    SKPhysicsBody *physicsBody = [super generatePhysicsBodyWithRectangleOfSize:self.size];
-    physicsBody.mass = 100;
-    physicsBody.affectedByGravity = YES;
+    SKPhysicsBody *physicsBody = nil;
     
-    // Defining types for Collision
-    physicsBody.categoryBitMask = ColliderTypePlayer;
-    physicsBody.collisionBitMask = ColliderTypeProjectile | ColliderTypeEnemy | ColliderTypeGround;
-    physicsBody.contactTestBitMask = ColliderTypeCoin;
+    @try {
+        // Using a rectangle as PhysicsBody
+        physicsBody = [super generatePhysicsBodyWithRectangleOfSize:self.size];
+        physicsBody.mass = 100;
+        physicsBody.affectedByGravity = YES;
+        
+        // Defining types for Collision
+        physicsBody.categoryBitMask = ColliderTypePlayer;
+        physicsBody.collisionBitMask = ColliderTypeProjectile | ColliderTypeEnemy | ColliderTypeGround;
+        physicsBody.contactTestBitMask = ColliderTypeCoin;
+    }@catch (NSException *exception) {
+        // Throw exception
+        [exception raise];
+    }
     
     return physicsBody;
 }
 
+/**
+ Initialize all player animations
+*/
 -(void) defineAnimations{
     _runningAnimation = [self loadRunningAnimation];
     _jumpAnimation = [self loadJumpAnimation];
     _fallAnimation = [self loadFallAnimation];
 }
 
-// Repeat running animation forever
+/**
+ Repeat running animation forever
+*/
 -(SKAction *) runningAnimation{
+    
+    // Initializing animation as nil
+    SKAction *repeatAnimation = nil;
     
     // Load animations
     SKAction *runAnimation = [self loadRunningAnimation];
     
     // Make animations repeat forever
-    SKAction *repeatAnimation = [SKAction repeatActionForever:runAnimation];
+    repeatAnimation = [SKAction repeatActionForever:runAnimation];
     
     return repeatAnimation;
     
@@ -105,14 +120,21 @@
     
     DebugLog(@"Loading Running Animation");
     
-    // Creating a Mutable Array filled with Run Animations
-    NSMutableArray *runTextures = [super generateAnimationImages:@"playerRunning" andCount:6];
+    // Start the animation as nil
+    SKAction *runForever = nil;
     
-    // Using textures to make an action
-    SKAction *run = [SKAction animateWithTextures:runTextures timePerFrame:0.1];
-    
-    // Make the action repeat forever
-    SKAction *runForever = [SKAction repeatActionForever:run];
+    @try {
+        // Creating a Mutable Array filled with Run Animations
+        NSMutableArray *runTextures = [super generateAnimationImages:@"playerRunning" andCount:6];
+        
+        // Using textures to make an action
+        SKAction *run = [SKAction animateWithTextures:runTextures timePerFrame:0.1];
+        
+        // Make the action repeat forever
+        runForever = [SKAction repeatActionForever:run];
+    }@catch (NSException *exception) {
+        // Continue
+    }
     
     return runForever;
 }
@@ -120,27 +142,44 @@
 -(SKAction*) loadJumpAnimation{
     DebugLog(@"Loading Jump Animation");
     
-    SKTexture *jumpTexture = [self generateTextureWithImageNamed:@"playerJumping1"];
+    // Initializing the action as nil
+    SKAction *repeatJumpForever = nil;
     
-    // Using textures to make an action with certain time
-    SKAction *jump = [SKAction animateWithTextures:@[jumpTexture] timePerFrame:0.3];
+    @try {
+        SKTexture *jumpTexture = [self generateTextureWithImageNamed:@"playerJumping1"];
+        
+        // Using textures to make an action with certain time
+        SKAction *jump = [SKAction animateWithTextures:@[jumpTexture] timePerFrame:0.3];
+        
+        repeatJumpForever = [SKAction repeatActionForever:jump];
+        
+    }@catch (NSException *exception) {
+        // Continue
+    }
     
-    SKAction *repeatJumpForEver = [SKAction repeatActionForever:jump];
     
-    return repeatJumpForEver;
+    return repeatJumpForever;
 }
 
 -(SKAction*) loadFallAnimation{
     DebugLog(@"Loading Fall Animation");
     
-    SKTexture *fallTexture = [self generateTextureWithImageNamed:@"playerFalling1"];
+    // Initializing the action as nil
+    SKAction* repeatFallForever = nil;
     
-    // Using textures to make an action with certain time
-    SKAction *fall = [SKAction animateWithTextures:@[fallTexture] timePerFrame:0.3];
+    @try {
+        SKTexture *fallTexture = [self generateTextureWithImageNamed:@"playerFalling1"];
+        
+        // Using textures to make an action with certain time
+        SKAction *fall = [SKAction animateWithTextures:@[fallTexture] timePerFrame:0.2];
+        
+        repeatFallForever = [SKAction repeatActionForever:fall];
+        
+    }@catch (NSException *exception) {
+        
+    }
     
-    SKAction *repeatfallForEver = [SKAction repeatActionForever:fall];
-    
-    return repeatfallForEver;
+    return repeatFallForever;
 }
 
 // Make player perform a jump when called
@@ -172,8 +211,8 @@
         [self.physicsBodyAdder addBody:projectile];
         
         [self.parent addChild:projectile];
-    }
-    @catch (NSException *exception) {
+        
+    }@catch (NSException *exception) {
         DebugLog(@"CATCHED EXCEPTION WHILE THROWING PROJECTILE");
     }
 }
@@ -226,6 +265,9 @@
         [self removeAllActions];
         
         @try {
+            
+            // Change running animation depending of
+            // the actual moviment of the player
             switch (moviment) {
                 case PlayerMovimentRun:
                     [self runAction:_runningAnimation];
@@ -241,8 +283,8 @@
                 default:
                     break;
             }
-        }
-        @catch (NSException *exception) {
+            
+        }@catch (NSException *exception) {
             DebugLog(@"Catched exception: player moviment couldn't be changed");
         }
         
