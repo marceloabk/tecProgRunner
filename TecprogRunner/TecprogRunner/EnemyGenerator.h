@@ -23,14 +23,17 @@
 @property (nonatomic) id <physicsControllerAddBody> physicsBodyAdder;
 
 /**
- Initialize the Enemy Generator with a Size and a Body Adder
+ Initialize the Enemy Generator
+ @param size CGSize
+ @param physicsBodyAdder id<physicsControllerAddBody> Controller used to add bodies
 */
 -(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>)physicsBodyAdder;
 
 /**
- Create a new Enemy with a score
+ Create a new enemy according to score
+ The dificulty is proporcional to score
+ @param score unsigned int Actual score in game
 */
 -(void)newEnemyWithScore:(unsigned int)score;
-
 
 @end

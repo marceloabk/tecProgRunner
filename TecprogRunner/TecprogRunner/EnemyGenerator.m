@@ -20,12 +20,12 @@ typedef enum : NSUInteger {
     CGSize _size;
 }
 
-// Initialize EnemyGenerator with a position
 -(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>)physicsBodyAdder{
     
     self = [super init];
     
     if(self != nil){
+
         self.physicsBodyAdder = physicsBodyAdder;
         _size = size;
         DebugLog(@"Enemy generator initialized successfully");
@@ -38,12 +38,12 @@ typedef enum : NSUInteger {
     return self;
 }
 
-// Create a new enemy based on the score
 -(void) newEnemyWithScore:(unsigned int)score{
     
+    // Define the new enemy position
     CGPoint enemyPosition = CGPointMake(_size.width - MARGIN, FLOOR_HEIGHT + MARGIN);
     
-    int probability = [self probabilityToCreateAnEnemy:score];
+    const unsigned int probability = [self probabilityToCreateAnEnemy:score];
     
     // Case 1 creates an weak enemy
     // Case 2 creates a strong enemy
@@ -61,10 +61,16 @@ typedef enum : NSUInteger {
         default:
             break;
     }
+    
 }
 
-// Generate a probability to create an enemy based on the score
--(int) probabilityToCreateAnEnemy:(unsigned int)score{
+/**
+ Generate a probability to create an enemy 
+ based on the score
+ @param score unsigned int Score obtained in game
+ @return unsigned int The probability to WAIT, create a STRONG_ENEMY or create a WEAK_ENEMY
+*/
+-(unsigned int) probabilityToCreateAnEnemy:(unsigned int)score{
     
     DebugLog("Probability to create an enemy with score = %i", score);
     
@@ -101,12 +107,26 @@ typedef enum : NSUInteger {
     return probabilityValue;
 }
 
-// Randomize a number between the firstNumber and the secondNumber
+/**
+ Randomize a number between two limits
+ @param firstNumber int The smallest limit
+ @param secondNumber int The greatest limit
+ @return unsigned int Randomized number between the passed numbers
+*/
 -(unsigned int) randomizeNumberBetween:(unsigned int)firstNumber and:(unsigned int)secondNumber{
     // Example:
     // if I want a number between 2 and 4
     // realSecondNumber = 4 - 2 + 1 = 3
     // randomizedNumber = 2 + (0 or 1 or 2)
+    
+    if(firstNumber < secondNumber){
+        // Continue
+    }else{
+        DebugLog(@"Passed a first number greater than a second number. Swap numbers.");
+        
+        [self swap:&firstNumber andSecondNumber:&secondNumber];
+        
+    }
     
     unsigned int realSecondNumber = secondNumber - firstNumber + 1;
     unsigned int randomizedNumber = firstNumber + (arc4random() % realSecondNumber);
@@ -114,7 +134,25 @@ typedef enum : NSUInteger {
     return randomizedNumber;
 }
 
-// Create an weak enemy with the given position
+/**
+ Swap two numbers
+ @param firstNumber unsigned int
+ @param secondNumber unsigned int
+*/
+-(void) swap:(unsigned int*)firstNumber andSecondNumber:(unsigned int*)secondNumber{
+    
+    // Storage the first number value
+    unsigned int aux = *firstNumber;
+    
+    // Swap the two values
+    *firstNumber = *secondNumber;
+    *secondNumber = aux;
+}
+
+/**
+ Create an weak enemy with the given position
+ @param position CGPoint Position that the Weak Enemy will be created
+*/
 -(void) createWeakEnemyWithPosition:(CGPoint)position{
     
     @try {
@@ -125,13 +163,15 @@ typedef enum : NSUInteger {
         [self.physicsBodyAdder addBody:weakEnemy];
         [self.parent addChild:weakEnemy];
         DebugLog(@"Weak enemy created");
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         DebugLog(@"Exception catched: Can't create Weak Enemy");
     }
 }
 
-// Create a strong enemy with the given position
+/**
+ Create a strong enemy with the given position
+ @param position CGPoint Position that the Strong Enemy will be created
+*/
 -(void) createStrongEnemyWithPosition:(CGPoint)position{
     @try {
         StrongEnemy *strongEnemy = [[StrongEnemy alloc]initWithPosition:position];
@@ -141,13 +181,15 @@ typedef enum : NSUInteger {
         [self.physicsBodyAdder addBody:strongEnemy];
         [self.parent addChild:strongEnemy];
         DebugLog(@"Strong enemy created");
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         DebugLog(@"Exception catched: Can't create Strong Enemy");
     }
 }
 
-// Recall newEnemyWithScore after 3 seconds
+/**
+ Recall newEnemyWithScore after 3 seconds
+ @param score unsigned int The actual game score
+*/
 -(void) recallMethodWithScore:(unsigned int)score{
     // Here we convert an int to NSNumber because performSelector needs an object
     NSNumber *scoreNumber = [NSNumber numberWithInt:score];
