@@ -17,55 +17,54 @@
 #pragma mark Generating and configuring GameObject
 
 /**
- Initialize Game object with right position
+ Initialize Game Object
+ @param position CGPoint The initial position
+ @return (instancetype) The instance of the GameObject
 */
 -(instancetype) initWithPosition:(CGPoint)position;
 
 /**
  Generate Texture with image named
+ @param image NSString with the name of a image contained in bundle
+ @return (SKTexture*) The texture generated
 */
--(SKTexture *) generateTextureWithImageNamed:(NSString *)image;
+-(SKTexture*) generateTextureWithImageNamed:(NSString*)image;
 
 /**
- Generate a Mutable Array with SKTexture
- to make animations
+ Generate a Mutable Array to make animations
+ @param modelImageName NSString The suffix contained in the sequence of images. For example: 'enemyIdle'.
+ @param count int The count of the sequence of images.
+ @return (NSMutableArray*) An array filled with SKTexture's
  */
 -(NSMutableArray*) generateAnimationImages:(NSString*)modelImageName andCount:(int)count;
 
 /**
- Generate physics body with image named
+ Generate physics body
+ @param image NSString with the name of a image contained in bundle
+ @return (SKPhysicsBody*) The physics body instance
 */
--(SKPhysicsBody *) generatePhysicsBodyWithImageNamed:(NSString *)image;
+-(SKPhysicsBody*) generatePhysicsBodyWithImageNamed:(NSString *)image;
 
 
 /**
  Invert Sprite horizontally
+ @param option BOOL If is YES, invert the sprite horizontally, otherwise, don't invert.
 */
 -(void) invertSpriteX:(BOOL)option;
 
 
 /**
- Generate physics body for the GameObject using
- a rectangle with size
+ Generate physics body using a rectangle
+ @param size CGSize Contain the size of the rectangle that will be created
+ @return (SKPhysicsBody*) The physics body instance
 */
 -(SKPhysicsBody *) generatePhysicsBodyWithRectangleOfSize:(CGSize)size;
 
 /**
- Set Basic game object attributes
+ Set Basic Game Object attributes
 */
 -(void) setBasicsAttributes;
 
-#pragma mark Defining Contact methods
-
-/**
- Handle when a Contact begin
-*/
--(void) beginContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact;
-
-/**
- Handle when a Contact end
-*/
--(void) endContactWithNode:(SKNode *)node withBitmask:(uint32_t)bitmask andContact:(SKPhysicsContact *)contact;
 
 /**
  Update Object position in reference to his velocity

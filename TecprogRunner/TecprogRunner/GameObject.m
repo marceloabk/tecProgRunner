@@ -41,11 +41,11 @@
     // Setting properties for texture
     imageTexture.filteringMode = SKTextureFilteringNearest;
     
-    if(imageTexture == nil){
+    if(imageTexture != nil){
+        // Nothing to do
+    }else{
         NSException *exception = [NSException exceptionWithName:@"nil texture" reason:@"Texture generated is nil" userInfo:nil];
         [exception raise];
-    }else{
-        // Nothing to do
     }
     
     return imageTexture;
@@ -54,48 +54,62 @@
 -(NSMutableArray*) generateAnimationImages:(NSString*)modelImageName andCount:(int)count{
     
     NSAssert(modelImageName != nil, @"generateAnimationImages: NSString 'modelImageName' is nil");
-    NSAssert(count > 0, @"generateAnimationImages: Couldn't generate animation with %i images", count);
     
-    // The index will always initialize with 1
-    const unsigned int initialIndex = 1;
     
     // Array used to storage textures
     NSMutableArray *texturesArray = [NSMutableArray array];
     
-    // Fill the array with player running textures
-    for (int index = initialIndex; index <= count; index++) {
+    
+    if(count > 0){
+        // The index will always initialize with 1
+        const unsigned int initialIndex = 1;
         
-        // Selecting image
-        NSString *imageName = [NSString stringWithFormat:@"%@%i", modelImageName, index];
-        
-        @try {
+        // Fill the array with player running textures
+        for (int index = initialIndex; index <= count; index++) {
             
-            // Making texture with the image
-            SKTexture *texture = [self generateTextureWithImageNamed:imageName];
+            // Selecting image
+            NSString *imageName = [NSString stringWithFormat:@"%@%i", modelImageName, index];
             
-            // Add the new texture to the Array
-            [texturesArray addObject:texture];
+            @try {
+                
+                // Making texture with the image
+                SKTexture *texture = [self generateTextureWithImageNamed:imageName];
+                
+                // Add the new texture to the Array
+                [texturesArray addObject:texture];
+                
+            }@catch (NSException *exception){
+                DebugLog(@"Texture with image named %@ couldn't be generated", imageName);
+            }
             
-        }@catch (NSException *exception){
-            DebugLog(@"Texture with image named %@ couldn't be generated", imageName);
         }
-        
+    }else{
+        NSException *exception = [NSException exceptionWithName:@"Count negative" reason:@"Can't generate animations for a negative count number of images" userInfo:nil];
+        [exception raise];
     }
+    
     
     return texturesArray;
 }
 
 -(SKPhysicsBody *) generatePhysicsBodyWithImageNamed:(NSString *)image{
     
-    NSAssert(image != nil, @"generatePhysicsBodyWithImageNamed: NSString 'image' is nil");
+    // Initialize physics body that will be used
+    SKPhysicsBody *physicsBody = nil;
     
-    // Generate a physics body with the image
-    SKTexture *imageTexture = [self generateTextureWithImageNamed:image];
-    
-    // Initializing and setting physicsBody
-    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithTexture:imageTexture size:self.size];
-    physicsBody.allowsRotation = NO;
-    physicsBody.restitution = 0;
+    if(image != nil){
+        // Generate a physics body with the image
+        SKTexture *imageTexture = [self generateTextureWithImageNamed:image];
+        
+        // Initializing and setting physicsBody
+        SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithTexture:imageTexture size:self.size];
+        physicsBody.allowsRotation = NO;
+        physicsBody.restitution = 0;
+        
+    }else{
+        NSException *exception = [NSException exceptionWithName:@"nil image" reason:@"Can't generate a physics body using a nil image" userInfo:nil];
+        [exception raise];
+    }
     
     return physicsBody;
 }
@@ -112,7 +126,8 @@
 }
 
 -(void)setBasicsAttributes{
-    // Method used to set basics attributes for Game Object
+    
+    // Abstract method until now
     
 }
 
@@ -125,11 +140,11 @@
     physicsBody.restitution = 0.0;
     physicsBody.allowsRotation = NO;
     
-    if(physicsBody == nil){
+    if(physicsBody != nil){
+        // Continue
+    }else{
         NSException *exception = [NSException exceptionWithName:@"Physics body exception" reason:@"Failed to generate physics body with rectangle" userInfo:nil];
         [exception raise];
-    }else{
-        // Continue
     }
     
     return physicsBody;
@@ -145,7 +160,10 @@
     CGFloat newX = self.position.x + self.velocity.dx * deltaTime;
     CGFloat newY = self.position.y + self.velocity.dy * deltaTime;
     
-    self.position = CGPointMake(newX, newY);
+    CGPoint newPosition = CGPointMake(newX, newY);
+    
+    // Updating position
+    self.position = newPosition;
 }
 
 @end
