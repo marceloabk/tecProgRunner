@@ -48,6 +48,8 @@
 
 #define MINIMUN_HEIGHT (-300)
 
+#define MINIMUN_WIDTH (0)
+
 @protocol physicsControllerAddBody <NSObject>
 @required
 -(void) addBody:(GameObject*) body;
