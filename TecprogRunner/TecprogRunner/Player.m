@@ -264,6 +264,9 @@
     }else{
         isOnGroundChecker = 0;
     }
+    
+    self.velocity = CGVectorMake(4, self.velocity.dy);
+    
 }
 
 -(void) changeToAction:(playerMoviments)moviment{

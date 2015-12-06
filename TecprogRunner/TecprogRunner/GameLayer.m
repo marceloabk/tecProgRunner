@@ -279,7 +279,7 @@
 }
 
 - (void)Bullet:(Projectile *)bullet hittedPlayer:(Player *)player{
-    [player die];
+    [player runAction:[SKAction moveBy:CGVectorMake(-10, 0) duration:0.2]];
 }
 
 -(void) addBody:(GameObject *)body{
