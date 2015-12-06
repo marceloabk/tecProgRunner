@@ -33,16 +33,15 @@
 
 -(SKTexture *) generateTextureWithImageNamed:(NSString *)image{
     
-    NSAssert(image != nil, @"generateTextureWithImageNamed: NSString 'image' is nil");
+    SKTexture *imageTexture = nil;
     
-    // Generate a texture with the image
-    SKTexture *imageTexture = [SKTexture textureWithImageNamed:image];
-    
-    // Setting properties for texture
-    imageTexture.filteringMode = SKTextureFilteringNearest;
-    
-    if(imageTexture != nil){
-        // Nothing to do
+    if(image != nil){
+        // Generate a texture with the image
+        imageTexture = [SKTexture textureWithImageNamed:image];
+        
+        // Setting properties for texture
+        imageTexture.filteringMode = SKTextureFilteringNearest;
+        
     }else{
         NSException *exception = [NSException exceptionWithName:@"nil texture" reason:@"Texture generated is nil" userInfo:nil];
         [exception raise];
@@ -58,7 +57,6 @@
     
     // Array used to storage textures
     NSMutableArray *texturesArray = [NSMutableArray array];
-    
     
     if(count > 0){
         // The index will always initialize with 1
@@ -84,6 +82,7 @@
             
         }
     }else{
+        // Throw exception
         NSException *exception = [NSException exceptionWithName:@"Count negative" reason:@"Can't generate animations for a negative count number of images" userInfo:nil];
         [exception raise];
     }
@@ -102,7 +101,7 @@
         SKTexture *imageTexture = [self generateTextureWithImageNamed:image];
         
         // Initializing and setting physicsBody
-        SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithTexture:imageTexture size:self.size];
+        physicsBody = [SKPhysicsBody bodyWithTexture:imageTexture size:self.size];
         physicsBody.allowsRotation = NO;
         physicsBody.restitution = 0;
         

@@ -48,7 +48,7 @@
 /** 
  Test Generate Texture With Image Name
 */
--(void) testGenerateTextureWithImageName{
+-(void) testGenerateTextureWithImageNamed{
     
     // Create a texture using a image name
     NSString *imageNamed = @"testImage";
@@ -56,6 +56,16 @@
     
     // The text will be generated even if the image does not exists
     XCTAssert(texture != nil, @"Texture is nil");
+}
+
+/**
+ Test Generate Texture With Nil Image Name
+ Should throw exception
+*/
+-(void) testGenerateTextureWithImageNamedException{
+    
+    XCTAssertThrows([self.gameObject generateTextureWithImageNamed:nil]);
+    
 }
 
 /**
@@ -86,12 +96,22 @@
 }
 
 /** 
- Test Physics Body generation using image
+ Test Physics Body generation using image name
  */
--(void) testGeneratePhysicsBodyWithImage{
+-(void) testGeneratePhysicsBodyWithImaged{
     SKPhysicsBody *physicsBody = [self.gameObject generatePhysicsBodyWithImageNamed:@"someImage"];
     
     XCTAssert(physicsBody != nil, "Physics Body generated with image is nil");
+}
+
+/**
+ Test Physics Body generation using nil image name
+ Should throw an exception
+*/
+-(void) testGeneratePhysicsBodyWithNilImageName{
+    
+    XCTAssertThrows([self.gameObject generatePhysicsBodyWithImageNamed:nil]);
+    
 }
 
 /**
