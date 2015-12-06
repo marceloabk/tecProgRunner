@@ -174,10 +174,6 @@
     
     [self initializeEnemyGenerator];
     
-    // Initialize GameOver
-    self.gameOver = [[GameOver alloc]initWithSize:_size];
-    self.gameOver.gameOverDelegate = self;
-    
     self.pointsScored = 0;
     [self initiateTimer];
     
@@ -282,6 +278,10 @@
     [bullet removeFromParent];
 }
 
+- (void)Bullet:(Projectile *)bullet hittedPlayer:(Player *)player{
+    [player die];
+}
+
 -(void) addBody:(GameObject *)body{
     [self.physicsController addBody:body];
 }
@@ -321,11 +321,6 @@
     }
 }
 
-// Called when player die
--(void) playerDied{
-    self.isPlayerDead = YES;
-}
-
 
 // Remove gameOver from the game and restart the game
 -(void) removeGameOver {
@@ -337,6 +332,15 @@
 
 -(void) entityDied:(GameEntity *)entity{
     
+    if([entity isKindOfClass:[Player class]]){
+        // Initialize GameOver
+        self.gameOver = [[GameOver alloc]initWithSize:_size];
+        self.gameOver.gameOverDelegate = self;
+        
+        [_sceneLayer addChild: self.gameOver];
+        
+        self.isPlayerDead = true;
+    }
 }
 
 @end

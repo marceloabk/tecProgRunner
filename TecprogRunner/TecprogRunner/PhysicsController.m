@@ -118,8 +118,22 @@
         }
         
         [self.gameLayer Bullet:bullet hittedEnemy:enemy];
-    } else if((bodyAisEnemy || bodyBisEnemy) && (bodyAisPlayer || bodyBisPlayer)) {
-        [self.gameLayer playerDied];
+    } else if((bodyAisProjectile || bodyBisProjectile) && (bodyAisPlayer || bodyBisPlayer)) {
+        
+        Player* player;
+        Projectile* bullet;
+        
+        if(bodyAisPlayer){
+            player = (Player*)contact.bodyA.node;
+            bullet = (Projectile*)contact.bodyB.node;
+        }else if(bodyBisPlayer){
+            player = (Player*)contact.bodyB.node;
+            bullet = (Projectile*)contact.bodyA.node;
+        }else{
+            // Nothing to do
+        }
+        
+        [self.gameLayer Bullet:bullet hittedPlayer:player];
     }
 }
 

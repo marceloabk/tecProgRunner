@@ -31,9 +31,9 @@
 
 
 /**
- Handle when player contact a enemy
+ Handle when player contact a bullet
  */
--(void) playerDied;
+-(void) Bullet:(Projectile*)bullet hittedPlayer:(Player*) player;
 
 @end
 
