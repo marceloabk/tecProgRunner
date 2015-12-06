@@ -69,6 +69,7 @@
 		67C0F7791BB95DC6003A02B1 /* WeakEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C0F7781BB95DC6003A02B1 /* WeakEnemy.m */; };
 		67F76BA71BCF300600BA4A62 /* EnemyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F76BA61BCF300600BA4A62 /* EnemyGenerator.m */; };
 		67FB615D1C13E5CF0045DC62 /* GameOverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FB615C1C13E5CF0045DC62 /* GameOverTests.m */; };
+		67FD0DE81C15031F00BA6D54 /* GameLayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FD0DE71C15031F00BA6D54 /* GameLayerTests.m */; };
 		67FFA6CF1B99301C00354487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6CE1B99301C00354487 /* main.m */; };
 		67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FFA6D11B99301C00354487 /* AppDelegate.m */; };
 		67FFA6D71B99301C00354487 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 67FFA6D61B99301C00354487 /* GameScene.sks */; };
@@ -190,6 +191,7 @@
 		67F76BA51BCF300600BA4A62 /* EnemyGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyGenerator.h; sourceTree = "<group>"; };
 		67F76BA61BCF300600BA4A62 /* EnemyGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyGenerator.m; sourceTree = "<group>"; };
 		67FB615C1C13E5CF0045DC62 /* GameOverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverTests.m; sourceTree = "<group>"; };
+		67FD0DE71C15031F00BA6D54 /* GameLayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayerTests.m; sourceTree = "<group>"; };
 		67FFA6C91B99301C00354487 /* TecprogRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TecprogRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67FFA6CD1B99301C00354487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67FFA6CE1B99301C00354487 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 				09235A171BFBE0BD0005EB53 /* GameObjectTests.m */,
 				67FFA6ED1B99301C00354487 /* TecprogRunnerTests.m */,
 				67FB615C1C13E5CF0045DC62 /* GameOverTests.m */,
+				67FD0DE71C15031F00BA6D54 /* GameLayerTests.m */,
 				67FFA6EB1B99301C00354487 /* Supporting Files */,
 			);
 			path = TecprogRunnerTests;
@@ -1007,6 +1010,7 @@
 				09235A181BFBE0BD0005EB53 /* GameObjectTests.m in Sources */,
 				67FB615D1C13E5CF0045DC62 /* GameOverTests.m in Sources */,
 				674FC4921BF02C6F00B40914 /* EnemyGeneratorTests.m in Sources */,
+				67FD0DE81C15031F00BA6D54 /* GameLayerTests.m in Sources */,
 				E93489171BC7FDBA0038CCF1 /* PhysicsController.m in Sources */,
 				E9A1D9A71BECCE32008508BB /* Tile.m in Sources */,
 				E9A1D9A91BECD5E3008508BB /* TileGeneratorTests.m in Sources */,
