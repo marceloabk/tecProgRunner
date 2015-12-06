@@ -60,6 +60,7 @@
     
     for (int i = 0; i < 10; i ++) {
         Tile* tile = [self.tileGenerator createTileGroundWithSize:tileSize];
+        tile.hidden = false;
     }
     
     XCTAssert([self.tileGenerator countRecycledTiles] == 0);

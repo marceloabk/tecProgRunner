@@ -61,7 +61,6 @@
 		09B2796E1C07D0C2008D473F /* Rhinoceros.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 09B2796D1C07D0C2008D473F /* Rhinoceros.mp3 */; };
 		09CB5AB11BA8C53C006E3A64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB01BA8C53C006E3A64 /* Foundation.framework */; };
 		09CB5AB41BA8C5A5006E3A64 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */; };
-		09CB5AB61BA8C5AE006E3A64 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */; };
 		09EE628A1BE4FDAC00A9B2D3 /* SpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EE62891BE4FDAC00A9B2D3 /* SpriteNode.m */; };
 		671923791C07F1D200B5D4D7 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 671923781C07F1D200B5D4D7 /* GameOver.m */; };
 		674FC4921BF02C6F00B40914 /* EnemyGeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 674FC4911BF02C6F00B40914 /* EnemyGeneratorTests.m */; };
@@ -176,7 +175,6 @@
 		09CB5AB01BA8C53C006E3A64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09CB5AB21BA8C5A5006E3A64 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		09CB5AB31BA8C5A5006E3A64 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
-		09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		09EE62881BE4FDAC00A9B2D3 /* SpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteNode.h; sourceTree = "<group>"; };
 		09EE62891BE4FDAC00A9B2D3 /* SpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteNode.m; sourceTree = "<group>"; };
 		671923771C07F1D200B5D4D7 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09CB5AB61BA8C5AE006E3A64 /* GameKit.framework in Frameworks */,
 				09CB5AB11BA8C53C006E3A64 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,7 +481,6 @@
 		67FFA6C01B99301C00354487 = {
 			isa = PBXGroup;
 			children = (
-				09CB5AB51BA8C5AE006E3A64 /* GameKit.framework */,
 				09CB5AB01BA8C53C006E3A64 /* Foundation.framework */,
 				67FFA6CB1B99301C00354487 /* TecprogRunner */,
 				67FFA6EA1B99301C00354487 /* TecprogRunnerTests */,
@@ -856,6 +852,12 @@
 				TargetAttributes = {
 					67FFA6C81B99301C00354487 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = VAY56F3PWP;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+						};
 					};
 					67FFA6E61B99301C00354487 = {
 						CreatedOnToolsVersion = 6.4;

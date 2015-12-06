@@ -81,7 +81,8 @@
         DebugLog(@"unknown layer type");
     }
     
-    #warning VERIFY WHEN LAYER IS TYPE PAUSE
+    
+    //TODO: Verify when layer is type pause
     
 }
 
@@ -128,7 +129,7 @@
     [self.trainingCenterLayer activateLayer];
 }
 
-#warning not used method
+//TODO: implement present pause layer
 -(void) presentPauseLayer{
     // Pause Game Layer
     DebugLog("PAUSE GAME LAYER NOT WORKING YET");

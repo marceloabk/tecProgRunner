@@ -14,8 +14,6 @@
 #import "EnemyGenerator.h"
 #import "GameOver.h"
 
-#warning Must add pause layer to hud layer
-
 @interface GameLayer : SKNode <LayerRequirements, GameObjectsContact, physicsControllerAddBody, pauseDelegate, GameEntityDelegate, gameOverDelegate>
 
 /**

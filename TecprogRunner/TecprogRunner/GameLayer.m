@@ -159,8 +159,6 @@
 
     self.layer = [SKNode node];
     
-#warning why have layer and _sceneLayer?
-    
     // Adding layers to game layer
     [self addChild:self.layer];
     [self.layer addChild:_sceneLayer];

@@ -37,22 +37,36 @@ struct line{
     GameObject* lastGameObject;
 }
 
+- (instancetype)initWithSize:(CGSize)size{
+    
+    self = [super init];
+    
+    if(self != nil){
+        
+        _clouds = [[NSMutableArray<GameObject*> alloc] init];
+        _tiles = [[NSMutableArray<Tile*> alloc] init];
+        _tileGenerator = [[TileGenerator alloc] init];
+        _size = size;
+        
+    }else{
+        NSException *exception = [NSException exceptionWithName:@"Background layer init" reason:@"Can't init background layer" userInfo:nil];
+        [exception raise];
+    }
+    
+    return self;
+}
+
 -(instancetype) initWithSize:(CGSize)size andBodyAdder:(id<physicsControllerAddBody>)physicsBodyAdder{
     
     NSAssert(physicsBodyAdder != nil, @"physicsBodyAdder is nil on BackgroundLayer");
     
     DebugLog(@"Initializing BackgroundLayer");
     
-    self = [super init];
+    self = [self initWithSize:size];
     
     if(self != nil){
         
         self.physicsBodyAdder = physicsBodyAdder;
-        
-        _clouds = [[NSMutableArray<GameObject*> alloc] init];
-        _tiles = [[NSMutableArray<Tile*> alloc] init];
-        _tileGenerator = [[TileGenerator alloc] init];
-        _size = size;
         
     }else{
         NSException *exception = [NSException exceptionWithName:@"Background layer init" reason:@"Can't init background layer" userInfo:nil];
