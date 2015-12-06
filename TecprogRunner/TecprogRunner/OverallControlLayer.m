@@ -100,8 +100,7 @@
         self.storeLayer = [[StoreLayer alloc] initWithSize:layerSize];
         [self addChild:self.storeLayer];
         [self.storeLayer activateLayer];
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         DebugLog(@"EXCEPTION WHILE INITIALIZING STORE LAYER");
     }
 }

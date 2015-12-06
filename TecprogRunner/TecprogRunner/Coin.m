@@ -20,8 +20,7 @@
         
         // Init the Sprite with the texture created
         self = [super initWithTexture:coinTexture];
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         self = nil;
     }
     
@@ -39,12 +38,32 @@
     return self;
 }
 
++(Coin*) generateCoinInParent:(SKNode*)parent withPosition:(CGPoint)position{
+    Coin *newCoin;
+    
+    if(parent != nil){
+        
+        // Initialize and add Coin to parent
+        newCoin = [[Coin alloc] initWithPosition:position];
+        [parent addChild:newCoin];
+        
+        newCoin.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
+        
+    }else{
+        
+        DebugLog(@"Not able to instantiate coin - parent is nil");
+        
+        newCoin = nil;
+    }
+    
+    return newCoin;
+}
+
 -(instancetype) initWithPosition:(CGPoint)position{
     
     @try {
         self = [self init];
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         self = nil;
     }
     
@@ -71,8 +90,7 @@
     // Generating physics Body
     @try {
         self.physicsBody = [self generatePhysicsBody];
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         [self removeFromParent];
     }
     
@@ -80,7 +98,9 @@
     self.value = COIN_DEFAULT_VALUE;
 }
 
-// Generate projectile physics body
+/**
+ Generate Coin physics body
+*/
 -(SKPhysicsBody *) generatePhysicsBody{
     
     SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
@@ -104,19 +124,34 @@
     return physicsBody;
 }
 
-// Load animations of coin spinning
+/**
+ Load animations of coin spinning
+ @return (SKAction*) The spinning animation action
+*/
 -(SKAction*) loadSpinningAnimation{
     
-    // Creating a Mutable Array filled with Run Animations
-    NSMutableArray *runTextures = [super generateAnimationImages:@"Coin" andCount:6];
+    // Spin animation starts with nil value
+    SKAction *spin = nil;
     
-    // Using textures to make an action
-    SKAction *run = [SKAction animateWithTextures:runTextures timePerFrame:0.1];
+    @try {
+        // Creating a Mutable Array filled with Run Animations
+        NSMutableArray *runTextures = [super generateAnimationImages:@"Coin" andCount:6];
+        
+        // Using textures to make an action
+        spin = [SKAction animateWithTextures:runTextures timePerFrame:0.1];
+        
+    }@catch (NSException *exception) {
+        // Continue
+    }
     
-    return run;
+    
+    return spin;
 }
 
-// Make the spinning animation repeat forever
+/**
+ The spinning animation repeating forever
+ @return (SKAction*) The spinning animation repeating forever action
+*/
 -(SKAction *) spinningAnimation{
     
     // Load animations
@@ -126,30 +161,8 @@
     SKAction *repeatAnimation = [SKAction repeatActionForever:runAnimation];
     
     return repeatAnimation;
-    
 }
 
-
-+(Coin*) generateCoinInParent:(SKNode*)parent withPosition:(CGPoint)position{
-    Coin *newCoin;
-    
-    if(parent != nil){
-        
-        // Initialize and add Coin to parent
-        newCoin = [[Coin alloc] initWithPosition:position];
-        [parent addChild:newCoin];
-        
-        newCoin.velocity = CGVectorMake(BACKGROUND_VELOCITY_X, 0.0);
-        
-    }else{
-        
-        DebugLog(@"Not able to instantiate coin - parent is nil");
-        
-        newCoin = nil;
-    }
-    
-    return newCoin;
-}
 
 -(void) runScoredMoviment{
 

@@ -19,8 +19,7 @@
         SKTexture *strongEnemyTexture = [super generateTextureWithImageNamed:INITIAL_STRONG_ENEMY_IMAGE];
         
         self = [super initWithTexture:strongEnemyTexture];
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         self = nil;
     }
     
@@ -61,8 +60,19 @@
     
     DebugLog(@"Loading idle Animation");
     
-    NSMutableArray *idleTextures = [super generateAnimationImages:@"enemyIdle" andCount:2];
-    SKAction *idle = [SKAction animateWithTextures:idleTextures timePerFrame:0.3];
+    // Initialize animation as nil
+    SKAction *idle = nil;
+    
+    @try {
+        // Storage all textures in an array
+        NSMutableArray *idleTextures = [super generateAnimationImages:@"enemyIdle" andCount:2];
+        
+        // Make an action with textures inside array
+        idle = [SKAction animateWithTextures:idleTextures timePerFrame:0.3];
+        
+    }@catch (NSException *exception) {
+        // Continue
+    }
     
     return idle;
 }
@@ -86,8 +96,7 @@
         Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition andOwner:className];
         
         [self.parent addChild:projectile];
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         DebugLog(@"CATCHED EXCEPTION WHILE THROWING PROJECTILE");
     }
     

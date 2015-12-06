@@ -19,8 +19,7 @@
         // Init the Sprite with the texture created
         self = [super initWithTexture:enemyTexture];
         
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         self = nil;
     }
     
@@ -48,8 +47,7 @@
     // Set a physics body for Enemy
     @try {
         self.physicsBody = [self generatePhysicsBody];
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         [self removeFromParent];
     }
 

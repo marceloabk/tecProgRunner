@@ -13,9 +13,5 @@
 
 @interface WeakEnemy : Enemy
 
-/**
- Make the animation in idle state
-*/
--(SKAction*) idleAnimation;
 
 @end

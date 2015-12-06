@@ -11,10 +11,23 @@
 
 @interface Coin : GameObject
 
+/**
+ Coin value
+*/
 @property (nonatomic) unsigned int value;
 
+/**
+ Generate Coin in his parent
+ @param parent SKNode* The parent which the coin will be added
+ @param position CGPoint Position relative to parent
+ @return (Coin*) Instance of a Coin
+*/
 +(Coin*) generateCoinInParent:(SKNode*)parent withPosition:(CGPoint)position;
 
+
+/**
+ Run the procedures when a Coin get picked
+*/
 -(void) runScoredMoviment;
 
 @end

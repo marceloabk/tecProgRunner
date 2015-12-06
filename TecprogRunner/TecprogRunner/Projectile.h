@@ -15,8 +15,10 @@
 @interface Projectile : GameObject
 
 /**
- Initialize the projectile with a position
- and a string representing the class of the owner
+ Initialize the projectile
+ @param position CGPoint initial position of projectile
+ @param ownerName NSString containing the name of the class of the owner
+ @return instancetype The instance of a bullet moving
 */
 -(instancetype) initWithPosition:(CGPoint)position andOwner:(NSString*)ownerName;
 

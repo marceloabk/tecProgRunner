@@ -20,7 +20,8 @@
 
 
 /**
- Used to generate a physics body to enemies
+ Generate a physics body to enemy
+ @return (SKPhysicsBody*) The instance of the enemy physics body
 */
 -(SKPhysicsBody *) generatePhysicsBody;
 

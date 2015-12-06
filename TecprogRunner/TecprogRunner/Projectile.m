@@ -23,11 +23,9 @@
         // Creating a texture for the Projectile
         SKTexture *projectileTexture = [super generateTextureWithImageNamed:DEFAULT_PROJECTILE_IMAGE];
         
-        
         // Init the Sprite with the texture created
         self = [super initWithTexture:projectileTexture];
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         DebugLog(@"Catched exception while initializing projectile");
         self = nil;
     }
@@ -53,7 +51,6 @@
     return self;
 }
 
-// Set basics Projectile attributes
 -(void) setBasicsAttributes{
     
     // Verify if the Owner is a Enemy
@@ -64,14 +61,15 @@
     // Generate a Physics Body for Projectile
     @try {
         self.physicsBody = [self generatePhysicsBody];
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         [self removeFromParent];
     }
     
 }
 
-// Set presentation and final position according to Owner
+/** 
+ Set orientation and final position according to Owner
+*/
 -(void) setRoot{
     
     // The value of the x in future will depend by character habilities
@@ -90,7 +88,9 @@
     
 }
 
-// Generate projectile physics body
+/**
+ Generate projectile physics body
+*/
 -(SKPhysicsBody *) generatePhysicsBody{
     
     // The bullet physics body should be a circle
@@ -115,16 +115,19 @@
     return physicsBody;
 }
 
-// Simulates the trajectory of the launched projectile
+/**
+ Simulates the trajectory of the launched projectile
+*/
 -(void) moveProjectile{
     
     // Set the move action
     SKAction *moveProjectile = [SKAction moveBy:_movimentVector duration:1.2];
     
-    // Run the action and remove projectile
+    // Run the action then remove projectile
     [self runAction:moveProjectile completion:^{
         [self removeFromParent];
     }];
+    
 }
 
 

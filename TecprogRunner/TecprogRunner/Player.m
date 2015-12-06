@@ -260,6 +260,8 @@
     
     if(self.moviment != moviment){
         
+        DebugLog(@"Changing player animation");
+        
         self.moviment = moviment;
         
         [self removeAllActions];

@@ -21,8 +21,7 @@
         
         // Init the Sprite with the texture created
         self = [super initWithTexture:weakEnemyTexture];
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         self = nil;
     }
 
@@ -51,8 +50,7 @@
     // Generate and set physics body
     @try {
         self.physicsBody = [super generatePhysicsBody];
-    }
-    @catch (NSException *exception) {
+    }@catch (NSException *exception) {
         [self removeFromParent];
     }
     
@@ -64,6 +62,10 @@
 }
 
 
+/**
+ Make the animation in idle state
+ @return (SKAction*) Animation of Weak Enemy in idle state.
+ */
 -(SKAction*) idleAnimation{
     
     // Load animation
@@ -75,16 +77,29 @@
     return repeatAnimation;
 }
 
-// Load animations of weak enemy in idle state
+/**
+ Load animations of weak enemy in idle state
+ @return (SKAction*) The animation of enemy in idle state action
+*/
 -(SKAction*) loadIdleAnimation{
     
     DebugLog(@"Loading idle Animation");
     
-    // Creating a Mutable Array filled with Idle Animations
-    NSMutableArray *idleTextures = [super generateAnimationImages:WEAK_ENEMY_IDLE andCount:2];
     
-    // Using textures to make an action
-    SKAction *idle = [SKAction animateWithTextures:idleTextures timePerFrame:0.3];
+    // Initialize animation as nil
+    SKAction *idle = nil;
+    
+    @try {
+        
+        // Creating a Mutable Array filled with Idle Animations
+        NSMutableArray *idleTextures = [super generateAnimationImages:WEAK_ENEMY_IDLE andCount:2];
+        
+        // Using textures to make an action
+        idle = [SKAction animateWithTextures:idleTextures timePerFrame:0.3];
+    }@catch (NSException *exception) {
+        // Continue
+    }
+    
     
     return idle;
 }
