@@ -79,7 +79,7 @@
         // Defining types for Collision
         physicsBody.categoryBitMask = ColliderTypePlayer;
         physicsBody.collisionBitMask = ColliderTypeProjectile | ColliderTypeEnemy | ColliderTypeGround;
-        physicsBody.contactTestBitMask = ColliderTypeCoin;
+        physicsBody.contactTestBitMask = ColliderTypeCoin | ColliderTypeProjectile;
     }@catch (NSException *exception) {
         // Throw exception
         [exception raise];
@@ -206,7 +206,7 @@
     
     // Initial projectile position is the current player position plus half player width
     // This way the projectile is created in player border and it doesn't collide with player
-    CGPoint initialProjectilePosition = CGPointMake(self.position.x + self.size.width/2, self.position.y);
+    CGPoint initialProjectilePosition = CGPointMake(self.position.x + self.size.width, self.position.y);
     
     NSString *className = [NSString stringWithFormat:@"%@", self.class];
     
