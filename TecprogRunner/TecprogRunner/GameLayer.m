@@ -42,7 +42,7 @@
     
     if(self != nil){
         _size = size;
-        self.isPlayerDead = false;
+        self.isPlayerDead = NO;
         self.name = @"layer";
         [self initializePhysicsController];
     }else{
@@ -73,15 +73,15 @@
     
     SKNode *node = [self nodeAtPoint:touchLocation];
     
-    if(self.isPlayerDead == true){
+    if(self.isPlayerDead == YES){
         [self.gameOver touchesBegan:touches withEvent:event];
     }else if ([node.name isEqualToString:@"pauseButton"] ){
         // Pause or unpause game;
         [self pausedClicked];
     }else{
-        if(self.scene.view.paused == false){
+        if(self.scene.view.paused == NO){
             
-            if((touchLocation.x < _size.width/2) && self.player.playerOnGround == true){
+            if((touchLocation.x < _size.width/2) && self.player.playerOnGround == YES){
                 DebugLog(@"User clicked on left side of game layer and is on ground");
                 [self.player jump];
             }else if(touchLocation.x > _size.width/2){
@@ -107,13 +107,13 @@
 
 -(void) pausedClicked{
     
-    if(self.scene.view.paused == false){
+    if(self.scene.view.paused == NO){
     
         [_sceneLayer addChild:self.pauseLayer];
         
         //Applying delay to render paused layer on screen
         [self runAction:[SKAction waitForDuration:0.03] completion:^{
-            self.scene.view.paused = true;
+            self.scene.view.paused = YES;
             [self deactivateTimer];
         }];
     }
@@ -138,7 +138,7 @@
     
     _lastTime = currentTime;
     
-    if(self.scene.view.paused == false){
+    if(self.scene.view.paused == NO){
         [_physicsController updateWithDeltaTime:delta];
         [_backgroundLayer updateWithDeltaTime:delta];
         
@@ -290,9 +290,9 @@
 
 -(void) homeButtonPressed{
     
-    if(self.scene.view.paused == true){
+    if(self.scene.view.paused == YES){
         
-        self.scene.view.paused = false;
+        self.scene.view.paused = NO;
         [self.pauseLayer removeFromParent];
         [self.layerChangeDelegate changeToLayer:menu];
     }
@@ -300,9 +300,9 @@
 
 -(void) restartButtonPressed{
     
-    if(self.scene.view.paused == true){
+    if(self.scene.view.paused == YES){
         
-        self.scene.view.paused = false;
+        self.scene.view.paused = NO;
         [self.pauseLayer removeFromParent];
         
         [self.gameRestartDelegate restartGame];
@@ -311,8 +311,8 @@
 
 -(void) continueButtonPressed{
     
-    if(self.scene.view.paused == true){
-        self.scene.view.paused = false;
+    if(self.scene.view.paused == YES){
+        self.scene.view.paused = NO;
         
         _pausedTime = CACurrentMediaTime();
         DebugLog(@"Pause time: %.2f",  _pausedTime - _lastTime);
@@ -325,13 +325,13 @@
 
 // Called when player die
 -(void) playerDied{
-    self.isPlayerDead = true;
+    self.isPlayerDead = YES;
 }
 
 
 // Remove gameOver from the game and restart the game
 -(void) removeGameOver {
-    self.scene.view.paused = false;
+    self.scene.view.paused = NO;
     [self.gameOver removeFromParent];
     [self.gameRestartDelegate restartGame];
 }

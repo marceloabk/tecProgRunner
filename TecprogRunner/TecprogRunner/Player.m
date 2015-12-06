@@ -57,8 +57,8 @@
     // Generate a Physics Body for Player
     self.physicsBody = [self generatePhysicsBody];
     
-    self.playerOnGround = true;
-    self.isOnGround = false;
+    self.playerOnGround = YES;
+    self.isOnGround = NO;
     
     [self defineAnimations];
 }
@@ -182,22 +182,27 @@
     return repeatFallForever;
 }
 
-// Make player perform a jump when called
--(void) jump{
+-(BOOL) jump{
+    
+    BOOL jumped = NO;
     
     if(self.isOnGround){
-        
         self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.physicsBody.velocity.dy + JUMP_IMPULSE);
-        self.isOnGround = false;
+        self.isOnGround = NO;
+        
+        jumped = YES;
         
     }else{
         // Player can't jump while is in the air, by now
+        // Variable jumped remain as NO
     }
     
+    return jumped;
 }
 
-// Make player throw a projectile when called
--(void) throwProjectile{
+-(BOOL) throwProjectile{
+    
+    BOOL success = NO;
     
     // Initial projectile position is the current player position plus half player width
     // This way the projectile is created in player border and it doesn't collide with player
@@ -212,15 +217,20 @@
         
         [self.parent addChild:projectile];
         
+        success = YES;
+        
     }@catch (NSException *exception) {
+        //Success remain as NO
         DebugLog(@"CATCHED EXCEPTION WHILE THROWING PROJECTILE");
     }
+    
+    return success;
 }
 
 -(void) setIsOnGround:(BOOL)isOnGround{
     
     // Changing animation depending player status is on ground
-    if(isOnGround == true){
+    if(isOnGround == YES){
         [self changeToAction:PlayerMovimentRun];
     }else{
         [self changeToAction:PlayerMovimentJump];
@@ -242,11 +252,11 @@
     }
     
     // Ansure that player is on ground
-    if(self.isOnGround == false && self.physicsBody.velocity.dy == 0){
+    if(self.isOnGround == NO && self.physicsBody.velocity.dy == 0){
         isOnGroundChecker++;
         
         if(isOnGroundChecker > 1){
-            self.isOnGround = true;
+            self.isOnGround = YES;
         }else{
             // Nothing to do
         }

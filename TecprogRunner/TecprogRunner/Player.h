@@ -39,12 +39,14 @@ typedef enum playerMoviments{
 
 /**
  Run jump procedures
+ @return YES if the player jumped, otherwise, NO.
 */
--(void) jump;
+-(BOOL) jump;
 
 /**
  Throw projectile procedures
-*/
--(void) throwProjectile;
+ @return YES if a projectile has throwed, otherwise, NO.
+ */
+-(BOOL) throwProjectile;
 
 @end

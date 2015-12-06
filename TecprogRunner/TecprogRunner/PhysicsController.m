@@ -81,7 +81,7 @@
         BOOL bodyAboveGround = contact.contactNormal.dy >= 1 && contact.contactNormal.dx <= 0;
         
         if(bodyAboveGround){
-            gameObj.isOnGround = true;
+            gameObj.isOnGround = YES;
             gameObj.velocity = CGVectorMake(gameObj.velocity.dx, 0.0);
         }else{
             // There's no alternative path
@@ -135,14 +135,14 @@
     if(bodyAisGround && !bodyBisGround){
         
         GameObject* gameObj = ((GameObject*)contact.bodyA.node);
-        gameObj.isOnGround = false;
+        gameObj.isOnGround = NO;
         
         // Ensures that obj is above ground
         for (SKPhysicsBody* bodyContacted in gameObj.physicsBody.allContactedBodies) {
             if(bodyContacted != contact.bodyA && [bodyContacted.node.name isEqualToString:@"ground"]){
                 
                 if(contact.contactNormal.dy == 0){
-                    gameObj.isOnGround = true;
+                    gameObj.isOnGround = YES;
                     break;
                 }else{
                     // Nothing to do
@@ -156,14 +156,14 @@
     }else if(bodyBisGround && !bodyAisGround){
         
         GameObject* gameObj = ((GameObject*)contact.bodyB.node);
-        gameObj.isOnGround = false;
+        gameObj.isOnGround = NO;
         
         // Ensures that obj is above ground
         for (SKPhysicsBody* bodyContacted in gameObj.physicsBody.allContactedBodies) {
             if(bodyContacted != contact.bodyB && [bodyContacted.node.name isEqualToString:@"ground"]){
                 
                 if(contact.contactNormal.dy == 0){
-                    gameObj.isOnGround = true;
+                    gameObj.isOnGround = YES;
                     break;
                 }
             }
@@ -185,7 +185,7 @@
             // There's no alternative path
         }
         
-        if([_bodies containsObject:body] == false){
+        if([_bodies containsObject:body] == NO){
             [_bodies addObject:body];
             DebugLog(@"adding body with name: %@", body.name);
         }else{

@@ -70,7 +70,7 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
 
 -(BOOL) save{
     
-    BOOL success = false;
+    BOOL success = NO;
     
     // Get archived data
     NSData* encodedData = [NSKeyedArchiver archivedDataWithRootObject: self];
@@ -128,8 +128,8 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
     self.gems = STARTING_COINS_OR_GEMS_AMOUNT;
     self.coins = STARTING_COINS_OR_GEMS_AMOUNT;
     
-    self.musicAvailibility = false;
-    self.soundEffectsAvailibility = false;
+    self.musicAvailibility = NO;
+    self.soundEffectsAvailibility = NO;
 }
 
 -(void) encodeWithCoder:(NSCoder *)encoder{

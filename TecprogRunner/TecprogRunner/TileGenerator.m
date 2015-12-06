@@ -46,14 +46,14 @@
 
 -(BOOL) recycleTile:(Tile *)tile{
     
-    BOOL success = false;
+    BOOL success = NO;
     BOOL containsTile = [_recycleTiles containsObject:tile];
     
-    if(containsTile == false && tile != nil){
+    if(containsTile == NO && tile != nil){
         [_recycleTiles addObject:tile];
-        success = true;
+        success = YES;
     }else{
-        // Result continue as false
+        // Result continue as NO
     }
     
     return success;

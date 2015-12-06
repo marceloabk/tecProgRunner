@@ -81,18 +81,18 @@
     Tile* newTile = [self.tileGenerator createTileGroundWithSize:tileSize];
     
     BOOL tileRecycled = [self.tileGenerator recycleTile:newTile];
-    XCTAssert([self.tileGenerator countRecycledTiles] == 1 && tileRecycled == true);
+    XCTAssert([self.tileGenerator countRecycledTiles] == 1 && tileRecycled == YES);
     
     tileRecycled = [self.tileGenerator recycleTile:newTile];
     
-    XCTAssert([self.tileGenerator countRecycledTiles] == 1 && tileRecycled == false);
+    XCTAssert([self.tileGenerator countRecycledTiles] == 1 && tileRecycled == NO);
 }
 
 - (void)testRecyclingNilTile{
     
     BOOL tileRecycled = [self.tileGenerator recycleTile:nil];
     
-    XCTAssert(tileRecycled == false && self.tileGenerator.countRecycledTiles == 0);
+    XCTAssert(tileRecycled == NO && self.tileGenerator.countRecycledTiles == 0);
 }
 
 @end
