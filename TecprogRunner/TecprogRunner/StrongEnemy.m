@@ -90,10 +90,9 @@
     // Initial projectile position is the current player position minus half player width
     // This way the projectile is created in player border and it doesn't collide with player
     CGPoint initialProjectilePosition = CGPointMake(self.position.x - self.size.width/2, self.position.y);
-    NSString *className = [NSString stringWithFormat:@"%@", self.class];
     
     @try {
-        Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition andOwner:className];
+        Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition andOwner:self];
         
         [self.parent addChild:projectile];
     }@catch (NSException *exception) {

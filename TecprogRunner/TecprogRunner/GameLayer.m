@@ -268,14 +268,16 @@
 
 -(void) Bullet:(Projectile *)bullet hittedEnemy:(Enemy *)enemy{
     
-    enemy.health--;
-    if (enemy.health == 0) {
-        [enemy die];
-    }else{
-        // Nothing to do
+    if([bullet.owner isKindOfClass:[Player class]]){
+        enemy.health--;
+        if (enemy.health == 0) {
+            [enemy die];
+        }else{
+            // Nothing to do
+        }
+        
+        [bullet removeFromParent];
     }
-    
-    [bullet removeFromParent];
 }
 
 - (void)Bullet:(Projectile *)bullet hittedPlayer:(Player *)player{

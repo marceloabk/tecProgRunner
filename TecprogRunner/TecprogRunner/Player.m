@@ -208,10 +208,8 @@
     // This way the projectile is created in player border and it doesn't collide with player
     CGPoint initialProjectilePosition = CGPointMake(self.position.x + self.size.width, self.position.y);
     
-    NSString *className = [NSString stringWithFormat:@"%@", self.class];
-    
     @try {
-        Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition andOwner:className];
+        Projectile *projectile = [[Projectile alloc]initWithPosition:initialProjectilePosition andOwner:self];
         
         [self.physicsBodyAdder addBody:projectile];
         

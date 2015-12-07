@@ -7,17 +7,15 @@
 //  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import "Projectile.h"
-
-@interface Projectile()
-@property NSString* ownerName;
-@end
+#import "GameEntity.h"
+#import "Enemy.h"
 
 @implementation Projectile{
     BOOL _isEnemy;
     CGVector _movimentVector;
 }
 
--(instancetype) initWithPosition:(CGPoint)position andOwner:(NSString*)ownerName{
+-(instancetype) initWithPosition:(CGPoint)position andOwner:(GameEntity*)owner{
     
     @try {
         // Creating a texture for the Projectile
@@ -37,7 +35,7 @@
         
         self.position = position;
         
-        self.ownerName = ownerName;
+        self.owner = owner;
         
         [self setBasicsAttributes];
         [self moveProjectile];
@@ -54,7 +52,7 @@
 -(void) setBasicsAttributes{
     
     // Verify if the Owner is a Enemy
-    _isEnemy = [self.ownerName isEqualToString:ENEMY_NAME];
+    _isEnemy = [self.owner isKindOfClass:[Enemy class]];
     
     [self setRoot];
     

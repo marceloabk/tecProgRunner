@@ -24,7 +24,7 @@
     
     if(position.y < MINIMUN_HEIGHT){
         [self die];
-    }else if(position.x < 0){
+    }else if(position.x < MINIMUN_WIDTH){
         [self die];
     }
 }

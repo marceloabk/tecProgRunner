@@ -48,7 +48,7 @@
 
 #define MINIMUN_HEIGHT (-300)
 
-#define MINIMUN_WIDTH (0)
+#define MINIMUN_WIDTH (-50)
 
 @protocol physicsControllerAddBody <NSObject>
 @required

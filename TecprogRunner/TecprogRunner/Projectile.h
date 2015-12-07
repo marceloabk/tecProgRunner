@@ -12,7 +12,12 @@
 #define PLAYER_NAME @"Player"
 #define ENEMY_NAME @"StrongEnemy"
 
+@class GameEntity;
+
 @interface Projectile : GameObject
+
+
+@property (nonatomic) GameEntity *owner;
 
 /**
  Initialize the projectile
@@ -20,6 +25,6 @@
  @param ownerName NSString containing the name of the class of the owner
  @return instancetype The instance of a bullet moving
 */
--(instancetype) initWithPosition:(CGPoint)position andOwner:(NSString*)ownerName;
+-(instancetype) initWithPosition:(CGPoint)position andOwner:(GameEntity*)owner;
 
 @end
