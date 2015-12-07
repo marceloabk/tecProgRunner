@@ -166,6 +166,7 @@
     [_sceneLayer addChild:_hudLayer];
     
     self.pauseLayer = [[PauseLayer alloc] initWithSize:_size];
+    self.pauseLayer.name = @"pauseLayer";
     self.pauseLayer.pauseDelegate = self;
     [self.pauseLayer activatePauseLayer];
 

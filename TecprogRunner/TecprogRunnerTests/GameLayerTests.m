@@ -67,6 +67,24 @@
     XCTAssertNotNil(self.gameLayer.physicsController, "Game layer is not initializing the physicsController");
 }
 
+// testPausedClicked succeed, commenting because it use private methods and attributes
+
+// Test when the player clicked in the pause button
+//-(void) testPausedClicked{
+//    // Preparing the test
+//    NSArray *sceneLayerChildren = [self.gameLayer children];
+//    NSString *pauseLayerName = @"pauseLayer";
+//    BOOL isTherePauseLayer = false;
+//    
+//    for (SKNode *node in sceneLayerChildren) {
+//        if ([node.name isEqualToString:pauseLayerName]) {
+//            NSLog(@"Found the pause layer");
+//            isTherePauseLayer = true;
+//        }
+//    }
+//    
+//    XCTAssert(isTherePauseLayer == true, "SceneLayer isn't loading the pause layer");
+//}
 
 
 @end
