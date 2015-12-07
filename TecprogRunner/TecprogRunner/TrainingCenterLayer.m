@@ -86,6 +86,7 @@
     
     CGPoint speedStarsPosition = CGPointMake(DEFAULT_STARS_X_POSITION, DEFAULT_LAYER_HEIGHT-282);
     _levelSpeedStars = [self loadStarSprite:_levelSpeedStars withPosition:speedStarsPosition];
+    
 
     
 }
@@ -200,5 +201,18 @@
     
 }
 
+
+-(void) gemsChoosed{
+
+}
+
+
+-(void) coinsChoosed{
+
+}
+
+-(void) freeCoinsChoosed{
+
+}
 
 @end
