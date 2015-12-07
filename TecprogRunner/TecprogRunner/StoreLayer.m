@@ -19,6 +19,20 @@
     SpriteNode *_gemsCard;
     SpriteNode *_freeCoinsCard;
     
+    SKSpriteNode *_80Gems;
+    SKSpriteNode *_300Gems;
+    SKSpriteNode *_700Gems;
+    SKSpriteNode *_2000Gems;
+    SKSpriteNode *_4500Gems;
+    SKSpriteNode *_10000Gems;
+    
+    SKSpriteNode *_80Coins;
+    SKSpriteNode *_300Coins;
+    SKSpriteNode *_700Coins;
+    SKSpriteNode *_2000Coins;
+    SKSpriteNode *_4500Coins;
+    SKSpriteNode *_10000Coins;
+    
     int _cardChoosen;
 
 }
@@ -57,7 +71,69 @@
 -(void) loadButtons{
 
     [self loadBackButton: @"backButton"];
+    [self loadGemsNodes];
+
+}
+
+-(void)loadGemsNodes{
+
+    _80Gems = [SKSpriteNode spriteNodeWithImageNamed:@"80Gems"];
+    _300Gems = [SKSpriteNode spriteNodeWithImageNamed:@"300Gems"];
+    _700Gems = [SKSpriteNode spriteNodeWithImageNamed:@"700Gems"];
+    _2000Gems = [SKSpriteNode spriteNodeWithImageNamed:@"2000Gems"];
+    _4500Gems = [SKSpriteNode spriteNodeWithImageNamed:@"4500Gems"];
+    _10000Gems = [SKSpriteNode spriteNodeWithImageNamed:@"10000Gems"];
     
+    CGPoint pos1 = CGPointMake(199, 375-109);
+    CGPoint pos2 = CGPointMake(194, 375-177);
+    CGPoint pos3 = CGPointMake(194, 375-248);
+    CGPoint pos4 = CGPointMake(429, 375-109);
+    CGPoint pos5 = CGPointMake(428, 375-177);
+    CGPoint pos6 = CGPointMake(418, 375-248);
+    CGPoint anc = CGPointMake(0, 1);
+    
+    _80Gems.position = pos1;
+    _300Gems.position = pos2;
+    _700Gems.position = pos3;
+    _2000Gems.position = pos4;
+    _4500Gems.position = pos5;
+    _10000Gems.position = pos6;
+    
+    _80Gems.anchorPoint = anc;
+    _300Gems.anchorPoint = anc;
+    _700Gems.anchorPoint = anc;
+    _2000Gems.anchorPoint = anc;
+    _4500Gems.anchorPoint = anc;
+    _10000Gems.anchorPoint = anc;
+    
+    _80Gems.zPosition = 5;
+    _300Gems.zPosition = 5;
+    _700Gems.zPosition = 5;
+    _2000Gems.zPosition = 5;
+    _4500Gems.zPosition = 5;
+    _10000Gems.zPosition = 5;
+    
+    _80Gems.alpha = 0;
+    _300Gems.alpha = 0;
+    _700Gems.alpha = 0;
+    _2000Gems.alpha = 0;
+    _4500Gems.alpha = 0;
+    _10000Gems.alpha = 0;
+    
+    [_80Gems setScale:0.5];
+    [_300Gems setScale:0.5];
+    [_700Gems setScale:0.5];
+    [_2000Gems setScale:0.5];
+    [_4500Gems setScale:0.5];
+    [_10000Gems setScale:0.5];
+    
+    
+    _80Gems.name = @"80Gems";
+    _300Gems.name = @"300Gems";
+    _700Gems.name = @"700Gems";
+    _2000Gems.name = @"2000Gems";
+    _4500Gems.name = @"4500Gems";
+    _10000Gems.name = @"10000Gems";
 
 }
 
@@ -160,7 +236,7 @@
     
     _cardChoosen = 1;
     
-    [self changeBackButton:@"coinsBack"];
+    
     
 }
 
@@ -189,13 +265,30 @@
     slot.position = CGPointMake(143, 375-44);
     slot.anchorPoint = CGPointMake(0, 1);
     [slot setScale:0.5];
+    slot.alpha = 0;
     [self.layer addChild:slot];
+    
+    [slot runAction:[SKAction fadeAlphaTo:1 duration:0.7]];
     
     [self addGemNodes];
 
 }
 
 -(void) addGemNodes{
+    
+    [self.layer addChild:_80Gems];
+    [self.layer addChild:_300Gems];
+    [self.layer addChild:_700Gems];
+    [self.layer addChild:_2000Gems];
+    [self.layer addChild:_4500Gems];
+    [self.layer addChild:_10000Gems];
+    
+    [_80Gems runAction:[SKAction fadeAlphaTo:1 duration:1.7]];
+    [_300Gems runAction:[SKAction fadeAlphaTo:1 duration:1.7]];
+    [_700Gems runAction:[SKAction fadeAlphaTo:1 duration:1.7]];
+    [_2000Gems runAction:[SKAction fadeAlphaTo:1 duration:1.7]];
+    [_4500Gems runAction:[SKAction fadeAlphaTo:1 duration:1.7]];
+    [_10000Gems runAction:[SKAction fadeAlphaTo:1 duration:1.7]];
 
 }
 
