@@ -10,8 +10,8 @@
 
 @implementation TrainingCenterSpecificLayer
 
--(instancetype) initWithSize:(CGSize)size{
-    
+-(instancetype) initWithSize:(CGSize)size andAttribute : (NSString *) attribute andAttributeNumber : (int) num{
+
     self = [super init];
     
     if(self != nil){
@@ -19,6 +19,8 @@
         self.layer = [SKNode node];
         [self addChild:self.layer];
         
+        self.attributeString = attribute;
+        self.attributeNumber = num;
         
         
     }else{

@@ -13,9 +13,9 @@
 @interface TrainingCenterSpecificLayer : SKNode
 
 /**
- Initialize Training Center using a size
+ Initialize Training Center using a size and attribute number and attribute name
  */
--(instancetype) initWithSize:(CGSize)size andAttribute : (NSString *) attribute;
+-(instancetype) initWithSize:(CGSize)size andAttribute : (NSString *) attribute andAttributeNumber : (int) num;
 
 /**
  Layer that represent Training Center on screen
@@ -26,5 +26,22 @@
  Method used to activate Training Center layer
  */
 -(void) activateLayer;
+
+@property (nonatomic) int attributeNumber;
+@property (nonatomic) NSString * attributeString;
+
+@property (nonatomic) SKSpriteNode *background;
+
+@property (nonatomic) SKSpriteNode *attributeName;
+
+@property (nonatomic) SKSpriteNode *exitButton;
+@property (nonatomic) SKSpriteNode *upgradeButton;
+
+@property (nonatomic) SKSpriteNode *levelStars;
+
+@property (nonatomic) SKLabelNode *cost;
+
+
+
 
 @end
