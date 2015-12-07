@@ -19,6 +19,12 @@
 
 -(void) setUp{
     [super setUp];
+    
+    // Just creating a size for tests
+    CGSize randomSize = CGSizeMake(20, 20);
+    self.gameLayer = [[GameLayer alloc]initWithSize:randomSize];
+    [self.gameLayer activateLayer];
+    
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -40,26 +46,27 @@
 }
 
 // Test if gameLayer is loading the pause button
--(void) testloadPauseButton{
-    // Just creating a size for tests
-    CGSize randomSize = CGSizeMake(20, 20);
-    self.gameLayer = [[GameLayer alloc]initWithSize:randomSize];
-    [self.gameLayer activateLayer];
-    
+-(void) testLoadPauseButton{
+    // Preparing the test
     NSArray *gameLayerChildren = [self.gameLayer children];
-                            
-    
     NSString *pauseButtonName = @"pauseButton";
     BOOL isTherePauseButton = false;
     
     for (SKNode *node in gameLayerChildren) {
         if ([node.name isEqualToString:pauseButtonName]) {
+            NSLog(@"Found the pause button");
             isTherePauseButton = true;
         }
     }
     
     XCTAssert(isTherePauseButton == true, "GameLayer isn't loading the pause button");
 }
+
+// Test if gameLayer is initializing the PhysicsController
+-(void) testInitializePhysicsController{
+    XCTAssertNotNil(self.gameLayer.physicsController, "Game layer is not initializing the physicsController");
+}
+
 
 
 @end
