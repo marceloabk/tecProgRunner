@@ -9,7 +9,8 @@
 #import "GameData.h"
 
 #define STARTING_LEVEL 1
-#define STARTING_COINS_OR_GEMS_AMOUNT 100
+#define STARTING_COINS_AMOUNT 100
+#define STARTING_GEMS_AMOUNT 5
 
 @implementation GameData
 
@@ -40,32 +41,45 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
 /**
  Load data inside the singleton
 */
-+(instancetype) loadInstance{
+//+(instancetype) loadInstance{
+//    
+//    DebugLog(@"Loading Game Data Instance");
+//    
+//    // Initialize game data
+//    GameData* gameData = [[GameData alloc] init];
+//    
+//    // Catch game data file path
+//    NSString *filePath = [GameData filePath];
+//    
+//    // Decode data
+//    NSData* decodedData = [NSData dataWithContentsOfFile: filePath];
+//    
+//    if(decodedData != nil){
+//        
+//        DebugLog(@"Setting game data using decoded data");
+//        gameData = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
+//        
+//    }else{
+//        // Create and throw a exception
+//        NSException *exception = [NSException exceptionWithName:@"Game Data init" reason:@"Can't initialize Game Data" userInfo:nil];
+//        [exception raise];
+//    }
+//    
+//    return gameData;
+//}
+
++(instancetype)loadInstance{
     
-    DebugLog(@"Loading Game Data Instance");
+    NSData* decodedData = [NSData dataWithContentsOfFile: [GameData filePath]];
     
-    // Initialize game data
-    GameData* gameData = [[GameData alloc] init];
-    
-    // Catch game data file path
-    NSString *filePath = [GameData filePath];
-    
-    // Decode data
-    NSData* decodedData = [NSData dataWithContentsOfFile: filePath];
-    
-    if(decodedData != nil){
-        
-        DebugLog(@"Setting game data using decoded data");
-        gameData = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
-        
-    }else{
-        // Create and throw a exception
-        NSException *exception = [NSException exceptionWithName:@"Game Data init" reason:@"Can't initialize Game Data" userInfo:nil];
-        [exception raise];
+    if (decodedData) {
+        GameData* gameData = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
+        return gameData;
     }
     
-    return gameData;
+    return [[GameData alloc] init];
 }
+
 
 
 -(BOOL) save{
@@ -94,7 +108,7 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
         NSLog(@"Decoding data on Game Data");
         
         // Decode all informations
-        _score = [decoder decodeIntForKey: SSGameDataKey1];
+        _highScore = [decoder decodeIntForKey: SSGameDataKey1];
         _levelJump = [decoder decodeIntForKey: SSGameDataKey2];
         _levelLuck = [decoder decodeIntForKey: SSGameDataKey3];
         _levelPower = [decoder decodeIntForKey: SSGameDataKey4];
@@ -125,8 +139,8 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
     self.levelShooting = STARTING_LEVEL;
     self.levelSpeed = STARTING_LEVEL;
     self.levelPower = STARTING_LEVEL;
-    self.gems = STARTING_COINS_OR_GEMS_AMOUNT;
-    self.coins = STARTING_COINS_OR_GEMS_AMOUNT;
+    self.gems = STARTING_GEMS_AMOUNT;
+    self.coins = STARTING_COINS_AMOUNT;
     
     self.musicAvailibility = NO;
     self.soundEffectsAvailibility = NO;
@@ -137,7 +151,7 @@ static NSString* const SSGameDataKey10 = @"soundEffectsAvailibility";
     NSAssert(encoder != nil, @"There's no encoder on GameData");
     
     // Encode all data
-    [encoder encodeInt:self.score forKey: SSGameDataKey1];
+    [encoder encodeInt:self.highScore forKey: SSGameDataKey1];
     [encoder encodeInt:self.levelJump forKey: SSGameDataKey2];
     [encoder encodeInt:self.levelLuck forKey: SSGameDataKey3];
     [encoder encodeInt:self.levelPower forKey: SSGameDataKey4];

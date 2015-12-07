@@ -101,9 +101,9 @@
 		6B1E16411C152B5D00E727A5 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E16401C152B5D00E727A5 /* IAPHelper.m */; };
 		6B1E16441C152B8E00E727A5 /* TecProgIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E16431C152B8E00E727A5 /* TecProgIAPHelper.m */; };
 		6B1E164E1C153F5E00E727A5 /* gameCenterGameOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1E164A1C153F5E00E727A5 /* gameCenterGameOver.png */; };
-		6B1E164F1C153F5E00E727A5 /* gameOverBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1E164B1C153F5E00E727A5 /* gameOverBg.png */; };
 		6B1E16501C153F5E00E727A5 /* homeGameOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1E164C1C153F5E00E727A5 /* homeGameOver.png */; };
 		6B1E16511C153F5E00E727A5 /* restartGameOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1E164D1C153F5E00E727A5 /* restartGameOver.png */; };
+		6B1E16551C1545C400E727A5 /* gameOverBg5.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1E16541C1545C400E727A5 /* gameOverBg5.png */; };
 		6B2D98DF1BB4E8C5005B342E /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98DE1BB4E8C5005B342E /* SettingsLayer.m */; };
 		6B2D98E21BB4E9C0005B342E /* BackgroundLayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */; };
 		6B49F93C1BDD684400E7164D /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B49F93B1BDD684400E7164D /* iRate.m */; };
@@ -257,9 +257,9 @@
 		6B1E16421C152B8E00E727A5 /* TecProgIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TecProgIAPHelper.h; sourceTree = "<group>"; };
 		6B1E16431C152B8E00E727A5 /* TecProgIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TecProgIAPHelper.m; sourceTree = "<group>"; };
 		6B1E164A1C153F5E00E727A5 /* gameCenterGameOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameCenterGameOver.png; sourceTree = "<group>"; };
-		6B1E164B1C153F5E00E727A5 /* gameOverBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameOverBg.png; sourceTree = "<group>"; };
 		6B1E164C1C153F5E00E727A5 /* homeGameOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeGameOver.png; sourceTree = "<group>"; };
 		6B1E164D1C153F5E00E727A5 /* restartGameOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartGameOver.png; sourceTree = "<group>"; };
+		6B1E16541C1545C400E727A5 /* gameOverBg5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gameOverBg5.png; path = "../../../../Images/Game Over/gameOverBg5.png"; sourceTree = "<group>"; };
 		6B2D98DD1BB4E8C5005B342E /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
 		6B2D98DE1BB4E8C5005B342E /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
 		6B2D98E01BB4E9C0005B342E /* BackgroundLayerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayerSettings.h; sourceTree = "<group>"; };
@@ -688,8 +688,8 @@
 		6B1E16491C153F5E00E727A5 /* Game Over */ = {
 			isa = PBXGroup;
 			children = (
+				6B1E16541C1545C400E727A5 /* gameOverBg5.png */,
 				6B1E164A1C153F5E00E727A5 /* gameCenterGameOver.png */,
-				6B1E164B1C153F5E00E727A5 /* gameOverBg.png */,
 				6B1E164C1C153F5E00E727A5 /* homeGameOver.png */,
 				6B1E164D1C153F5E00E727A5 /* restartGameOver.png */,
 			);
@@ -976,6 +976,7 @@
 				098090101BDE736000045C9F /* background.png in Resources */,
 				6B1E162F1C15267500E727A5 /* 4500Gems.png in Resources */,
 				67FFA6E21B99301C00354487 /* LaunchScreen.xib in Resources */,
+				6B1E16551C1545C400E727A5 /* gameOverBg5.png in Resources */,
 				67FFA6DF1B99301C00354487 /* Images.xcassets in Resources */,
 				0980901F1BDE736000045C9F /* levelStars1.png in Resources */,
 				0980901E1BDE736000045C9F /* atributesTable.png in Resources */,
@@ -1008,7 +1009,6 @@
 				09808FFE1BDE736000045C9F /* playerRunning4.png in Resources */,
 				098090001BDE736000045C9F /* playerRunning6.png in Resources */,
 				098090021BDE736000045C9F /* weakEnemyIdle2.png in Resources */,
-				6B1E164F1C153F5E00E727A5 /* gameOverBg.png in Resources */,
 				6B1E16381C15268500E727A5 /* atributesTable.png in Resources */,
 				6B1E162D1C15267500E727A5 /* 700Gems.png in Resources */,
 				098090061BDE736000045C9F /* Coin4.png in Resources */,

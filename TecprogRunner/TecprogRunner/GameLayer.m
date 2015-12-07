@@ -265,7 +265,7 @@
     
     [_hudLayer updateScoreLabel:self.pointsScored];
     
-    [GameData sharedGameData].score = self.pointsScored;
+//    [GameData sharedGameData].hi= self.pointsScored;
     
 }
 
@@ -338,8 +338,12 @@
     
     if([entity isKindOfClass:[Player class]]){
         // Initialize GameOver
-        self.gameOver = [[GameOver alloc]initWithSize:_size andScore:self.pointsScored];
+        self.paused = true;
+        self.gameOver = [[GameOver alloc]initWithSize:_size andScore:self.timePassed];
         self.gameOver.gameOverDelegate = self;
+        
+        [self.timer invalidate];
+
         
         [_sceneLayer addChild: self.gameOver];
         

@@ -8,6 +8,7 @@
 //
 
 #import "GameOver.h"
+#import "GameData.h"
 
 @interface GameOver()
 
@@ -22,6 +23,8 @@
 
 @property (nonatomic) SKSpriteNode *background;
 
+@property (nonatomic) int lastScore;
+
 @end
 
 @implementation GameOver 
@@ -33,6 +36,9 @@
     self = [super init];
     
     if(self != nil){
+        
+        [self checkHighScore:scorePassed];
+        self.lastScore = scorePassed;
         
         self.layer = [SKNode node];
         [self addChild:self.layer];
@@ -50,7 +56,26 @@
     return self;
 }
 
--(void) loadLabels{}
+-(void) loadLabels{
+
+    self.highScore = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+   self. highScore.text = [[NSString alloc] initWithFormat:@"%i", [GameData sharedGameData].highScore];
+   self. highScore.fontColor = [UIColor whiteColor];
+    self.highScore.fontSize = 30;
+    self.highScore.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+    self.highScore.position = CGPointMake(545, 315);
+    self.highScore.zPosition = GAME_OVER_Z_POSITION + 20;
+    
+    self.score = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    self.score.text = [[NSString alloc] initWithFormat:@"%i", self.lastScore];
+    self.score.fontColor = [UIColor whiteColor];
+    self.score.fontSize = 30;
+    self.score.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+    self.score.position = CGPointMake(116, 315);
+    self.score.zPosition = GAME_OVER_Z_POSITION + 20;
+
+
+}
 
 -(void) activateLayer{
     
@@ -59,6 +84,9 @@
     [self.layer addChild:_restartButton];
     [self.layer addChild:_home];
     [self.layer addChild:_gameCenter];
+    
+    [self.layer addChild:self.highScore];
+    [self.layer addChild:self.score];
 }
 
 /**
@@ -67,7 +95,7 @@
 -(void) loadBackground{
     
     // Initialize background sprite node
-    _background = [SpriteNode spriteNodeWithImageNamed:@"gameOverBg" andPosition:CGPointZero
+    _background = [SpriteNode spriteNodeWithImageNamed:@"gameOverBg5" andPosition:CGPointZero
                                            anchorPoint:CGPointZero andScale:0.5 andZPosition:GAME_OVER_Z_POSITION];
 }
 
@@ -97,6 +125,15 @@
 
 }
 
+
+-(void) checkHighScore : (int) points{
+
+    if([GameData sharedGameData].highScore < points){
+        [GameData sharedGameData].highScore = points;
+    }
+    
+    [[GameData sharedGameData] save];
+}
 
 
 

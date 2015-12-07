@@ -19,7 +19,7 @@
 /**
  Store game score.
 */
-@property (nonatomic) unsigned int score;
+@property (nonatomic) unsigned int highScore;
 
 /**
  Store the player jump level.
