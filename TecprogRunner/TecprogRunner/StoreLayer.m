@@ -18,6 +18,9 @@
     SpriteNode *_coinsCard;
     SpriteNode *_gemsCard;
     SpriteNode *_freeCoinsCard;
+    
+    int _cardChoosen;
+
 }
 
 -(instancetype) initWithSize:(CGSize)size{
@@ -29,6 +32,8 @@
         self.layer = [SKNode node];
         [self addChild:self.layer];
         self.name = @"layer";
+        
+        _cardChoosen = 0;
         
         [self loadBackground];
         [self loadButtons];
@@ -102,19 +107,49 @@
     
     SKAction *scale = [SKAction scaleTo:0.23 duration:0.7];
     SKAction *move = [SKAction moveTo:CGPointMake(85, 375-112) duration:0.7];
-    
+    SKAction *fade = [SKAction fadeAlphaTo:0 duration:0.3];
+
     [_gemsCard runAction:scale];
     [_gemsCard runAction:move];
     
+    [_coinsCard runAction:fade];
+    [_freeCoinsCard runAction:fade];
+    
+    _cardChoosen = 2;
+
 }
 
 
 -(void) coinsChoosed{
     
+    SKAction *scale = [SKAction scaleTo:0.23 duration:0.7];
+    SKAction *move = [SKAction moveTo:CGPointMake(85, 375-112) duration:0.7];
+    SKAction *fade = [SKAction fadeAlphaTo:0 duration:0.3];
+    
+    [_coinsCard runAction:scale];
+    [_coinsCard runAction:move];
+    
+    [_gemsCard runAction:fade];
+    [_freeCoinsCard runAction:fade];
+    
+    _cardChoosen = 1;
+    
 }
 
 -(void) freeCoinsChoosed{
     
+    SKAction *scale = [SKAction scaleTo:0.23 duration:0.7];
+    SKAction *move = [SKAction moveTo:CGPointMake(85, 375-112) duration:0.7];
+    SKAction *fade = [SKAction fadeAlphaTo:0 duration:0.3];
+
+    [_freeCoinsCard runAction:scale];
+    [_freeCoinsCard runAction:move];
+    
+    [_gemsCard runAction:fade];
+    [_coinsCard runAction:fade];
+    
+    _cardChoosen = 3;
+
 }
 
 @end
