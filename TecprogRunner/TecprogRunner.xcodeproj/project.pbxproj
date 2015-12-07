@@ -119,6 +119,7 @@
 		6B73AC901C1559300073A323 /* SpeedLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B73AC881C1559300073A323 /* SpeedLabel.png */; };
 		6B73AC911C1559300073A323 /* trainLayerBlur.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B73AC891C1559300073A323 /* trainLayerBlur.png */; };
 		6B73AC921C1559300073A323 /* upgadeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B73AC8A1C1559300073A323 /* upgadeButton.png */; };
+		6B73AC951C155B340073A323 /* TrainingCenterSpecificLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B73AC941C155B340073A323 /* TrainingCenterSpecificLayer.m */; };
 		6BF9FB7D1BC57C33004878CC /* TrainingCenterBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */; };
 		6BF9FB801BC57C40004878CC /* TrainingCenterLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9FB7F1BC57C40004878CC /* TrainingCenterLayer.m */; };
 		E913DED71BDBD0A600DB3FC9 /* Label.m in Sources */ = {isa = PBXBuildFile; fileRef = E913DED61BDBD0A600DB3FC9 /* Label.m */; };
@@ -299,6 +300,8 @@
 		6B73AC881C1559300073A323 /* SpeedLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SpeedLabel.png; path = "../../../../Images/Training center/SpeedLabel.png"; sourceTree = "<group>"; };
 		6B73AC891C1559300073A323 /* trainLayerBlur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trainLayerBlur.png; path = "../../../../Images/Training center/trainLayerBlur.png"; sourceTree = "<group>"; };
 		6B73AC8A1C1559300073A323 /* upgadeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upgadeButton.png; path = "../../../../Images/Training center/upgadeButton.png"; sourceTree = "<group>"; };
+		6B73AC931C155B340073A323 /* TrainingCenterSpecificLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCenterSpecificLayer.h; sourceTree = "<group>"; };
+		6B73AC941C155B340073A323 /* TrainingCenterSpecificLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingCenterSpecificLayer.m; sourceTree = "<group>"; };
 		6BF9FB7B1BC57C33004878CC /* TrainingCenterBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCenterBackground.h; sourceTree = "<group>"; };
 		6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingCenterBackground.m; sourceTree = "<group>"; };
 		6BF9FB7E1BC57C40004878CC /* TrainingCenterLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCenterLayer.h; sourceTree = "<group>"; };
@@ -791,6 +794,8 @@
 				6BF9FB7F1BC57C40004878CC /* TrainingCenterLayer.m */,
 				6BF9FB7B1BC57C33004878CC /* TrainingCenterBackground.h */,
 				6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */,
+				6B73AC931C155B340073A323 /* TrainingCenterSpecificLayer.h */,
+				6B73AC941C155B340073A323 /* TrainingCenterSpecificLayer.m */,
 			);
 			name = "Training Center";
 			sourceTree = "<group>";
@@ -1157,6 +1162,7 @@
 			files = (
 				09CB5AB41BA8C5A5006E3A64 /* GameKitHelper.m in Sources */,
 				E92857491BA25D1100DF4959 /* BackgroundLayer.m in Sources */,
+				6B73AC951C155B340073A323 /* TrainingCenterSpecificLayer.m in Sources */,
 				67F76BA71BCF300600BA4A62 /* EnemyGenerator.m in Sources */,
 				6B0FD4061BA90C6900C22BD6 /* OverallControlLayer.m in Sources */,
 				E928573D1BA25C7600DF4959 /* Enemy.m in Sources */,

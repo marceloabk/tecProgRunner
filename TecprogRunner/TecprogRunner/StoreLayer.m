@@ -13,6 +13,7 @@
 #define CARD_Y_POSITION 302
 
 @implementation StoreLayer{
+    
     BackgroundLayerStore *_backgroundLayerStore;
     SpriteNode *_backButton;
     SpriteNode *_coinsCard;
