@@ -236,7 +236,8 @@
     
     _cardChoosen = 1;
     
-    
+    [self changeBackButton:@"coinsBack"];
+
     
 }
 

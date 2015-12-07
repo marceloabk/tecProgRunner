@@ -268,6 +268,14 @@
         // Activate Menu layer
         [GameData sharedGameData].layerActivated = menu;
         [self.overallControlLayer changeLayer];
+    }else if([node.name isEqualToString:@"volumeOff1"] || [node.name isEqualToString:@"volumeOn1"]){
+        [GameData sharedGameData].soundEffectsAvailibility = ![GameData sharedGameData].soundEffectsAvailibility;
+        [self.overallControlLayer.settingsLayer changedSetting];
+        
+    }else if([node.name isEqualToString:@"volumeOff2"] || [node.name isEqualToString:@"volumeOn2"]){
+        [GameData sharedGameData].musicAvailibility = ![GameData sharedGameData].musicAvailibility;
+        [self.overallControlLayer.settingsLayer changedSetting];
+        
     }else{
         DebugLog(@"node %@ unknown for settings",node.name);
     }

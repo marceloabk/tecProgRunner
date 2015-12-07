@@ -29,8 +29,7 @@
         
         self.name = @"layer";
         
-        [self loadBackground];
-        [self loadButtons];
+        [self loadEverything];
         
     
     }else{
@@ -42,6 +41,12 @@
 }
 
 
+-(void) loadEverything{
+
+    [self loadBackground];
+    [self loadButtons];
+
+}
 -(void) loadBackground{
 
     // Setting background size
@@ -72,6 +77,9 @@
     CGPoint position = CGPointMake(142, DEFAULT_LAYER_HEIGHT - 150);
     _musicButton = [SpriteNode spriteNodeWithImageNamed:soundEffects andPosition:position
                                                 anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+    
+    NSString *name = [[NSString alloc] initWithFormat:@"%@1", soundEffects];
+    _musicButton.name = name;
 
 }
 
@@ -89,6 +97,9 @@
     _soundEffectsButton = [SpriteNode spriteNodeWithImageNamed:music andPosition:position
                                                        anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
 
+    NSString *name = [[NSString alloc] initWithFormat:@"%@2", music];
+    _soundEffectsButton.name = name;
+
 }
 
 -(void) loadBack{
@@ -96,6 +107,19 @@
     CGPoint position = CGPointMake(30, 363);
     _backButton = [SpriteNode spriteNodeWithImageNamed:@"backButton" andPosition:position
                                                anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+    
+}
+
+-(void) changedSetting{
+
+    [self.layer removeFromParent];
+    
+    self.layer = [SKNode node];
+    [self addChild:self.layer];
+    
+    [self loadEverything];
+    [self activateLayer];
+
     
 }
 

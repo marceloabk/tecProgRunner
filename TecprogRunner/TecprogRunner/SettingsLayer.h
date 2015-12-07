@@ -26,4 +26,8 @@
 */
 -(void) activateLayer;
 
+/**
+ Method used to change interface after changed setting
+ */
+-(void) changedSetting;
 @end
