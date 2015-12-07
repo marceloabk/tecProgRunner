@@ -80,6 +80,12 @@
     
     self.speedButton = [SpriteNode spriteNodeWithImageNamed:@"speedButton" andPosition:position1 anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
 
+    
+    self.jumpButton.name = @"jumpButton";
+    self.luckButton.name = @"luckButton";
+    self.powerButton.name = @"powerButton";
+    self.shootingButton.name = @"shootingButton";
+    self.speedButton.name = @"speedButton";
 }
 
 

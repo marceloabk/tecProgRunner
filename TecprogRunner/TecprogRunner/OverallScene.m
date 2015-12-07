@@ -294,6 +294,21 @@
         [GameData sharedGameData].layerActivated = menu;
         [self.overallControlLayer changeLayer];
         
+    }else if([node.name isEqualToString:@"jumpButton"]){
+        
+        
+    }else if([node.name isEqualToString:@"speedButton"]){
+        
+        
+    }else if([node.name isEqualToString:@"luckButton"]){
+        
+        
+    }else if([node.name isEqualToString:@"shootingButton"]){
+        
+        
+    }else if([node.name isEqualToString:@"powerButton"]){
+        
+        
     }else{
         DebugLog(@"node %@ unknown for training center", node.name);
     }
