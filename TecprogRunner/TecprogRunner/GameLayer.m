@@ -282,7 +282,7 @@
 }
 
 - (void)Bullet:(Projectile *)bullet hittedPlayer:(Player *)player{
-    [player runAction:[SKAction moveBy:CGVectorMake(-10, 0) duration:0.2]];
+    [player runAction:[SKAction moveBy:CGVectorMake(-10, 0) duration:0.2] withKey:@"Bullet"];
 }
 
 -(void) addBody:(GameObject *)body{

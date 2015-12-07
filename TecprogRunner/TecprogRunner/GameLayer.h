@@ -67,4 +67,6 @@
 // Called when player die
 -(void) playerDied;
 
+- (void)Bullet:(Projectile *)bullet hittedPlayer:(Player *)player;
+
 @end

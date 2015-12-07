@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 #import "GameLayer.h"
+#import "Projectile.h"
+#import "Player.h"
 
 @interface GameLayerTests : XCTestCase
 
@@ -65,6 +67,20 @@
 // Test if gameLayer is initializing the PhysicsController
 -(void) testInitializePhysicsController{
     XCTAssertNotNil(self.gameLayer.physicsController, "Game layer is not initializing the physicsController");
+}
+
+// Test Bullet hitted player method
+-(void) testBulletHittedPlayer{
+    // Preparing the test
+    CGPoint randomTestPosition = CGPointMake(20, 20);
+    Projectile *projectile = [[Projectile alloc]initWithPosition: randomTestPosition andOwner:@"me"];
+    Player *player = [[Player alloc]initWithPosition: randomTestPosition];
+    
+    
+    [self.gameLayer Bullet:projectile hittedPlayer:player];
+    
+    SKAction *playerAction = [player actionForKey:@"Bullet"];
+    XCTAssertNotNil(playerAction, "GameLayer isn't creating the player action");
 }
 
 // testPausedClicked succeed, commenting because it use private methods and attributes
