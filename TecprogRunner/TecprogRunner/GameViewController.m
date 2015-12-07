@@ -82,7 +82,7 @@
 
 -(void) playBackgroundMusic{
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.backgroundMusicPlayer play];
+//    [appDelegate.backgroundMusicPlayer play];
 }
 
 @end

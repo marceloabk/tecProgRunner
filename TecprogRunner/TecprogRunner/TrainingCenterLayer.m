@@ -106,7 +106,7 @@
 
 -(void) loadAttributesTable{
 
-    CGPoint position = CGPointMake(50, DEFAULT_LAYER_HEIGHT - 34);
+    CGPoint position = CGPointMake(70, DEFAULT_LAYER_HEIGHT - 34);
     _attributesTable = [SpriteNode spriteNodeWithImageNamed:@"atributesTable" andPosition:position anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
     
 }
@@ -124,7 +124,20 @@
     
     [self putCoins];
     [self putGems];
+    [self putMessage];
 
+    
+}
+
+-(void) putMessage{
+
+    SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithImageNamed:@"selectAtributeMessage"];
+    sprite.position = CGPointMake(441, 187.5);
+    sprite.anchorPoint = CGPointMake(0, 1);
+    sprite.zPosition = 1000;
+    [sprite setScale:0.5];
+    
+    [self.layer addChild:sprite];
     
 }
 

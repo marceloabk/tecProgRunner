@@ -8,8 +8,8 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-#define DEFAULT_STARS_X_POSITION 215
-#define DEFAULT_STARTS_Z_POSITION 100
+#define DEFAULT_STARS_X_POSITION 235
+#define DEFAULT_STARTS_Z_POSITION 120
 
 @interface TrainingCenterLayer : SKNode
 

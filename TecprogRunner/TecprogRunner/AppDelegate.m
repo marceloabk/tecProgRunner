@@ -54,7 +54,7 @@
     self.backgroundMusicPlayer.numberOfLoops = INFINITY;
     
     // Prepare the player to play
-    [self.backgroundMusicPlayer prepareToPlay];
+//    [self.backgroundMusicPlayer prepareToPlay];
 }
 
 @end

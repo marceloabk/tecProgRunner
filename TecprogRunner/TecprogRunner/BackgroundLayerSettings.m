@@ -27,7 +27,7 @@
 -(void) addBackgroundSprite{
     
     // Setting background properties
-    SpriteNode *background = [SpriteNode spriteNodeWithImageNamed:@"background" andPosition:CGPointZero
+    SpriteNode *background = [SpriteNode spriteNodeWithImageNamed:@"backgroundSettings" andPosition:CGPointZero
                                                anchorPoint:CGPointZero andScale:0.5 andZPosition:-1];
     
     [self addChild:background];
