@@ -7,8 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "GameLayer.h"
 
 @interface GameLayerTests : XCTestCase
+
+@property (nonatomic) GameLayer *gameLayer;
 
 @end
 
@@ -34,6 +37,28 @@
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
     }];
+}
+
+// Test if gameLayer is loading the pause button
+-(void) testloadPauseButton{
+    // Just creating a size for tests
+    CGSize randomSize = CGSizeMake(20, 20);
+    self.gameLayer = [[GameLayer alloc]initWithSize:randomSize];
+    [self.gameLayer activateLayer];
+    
+    NSArray *gameLayerChildren = [self.gameLayer children];
+                            
+    
+    NSString *pauseButtonName = @"pauseButton";
+    BOOL isTherePauseButton = false;
+    
+    for (SKNode *node in gameLayerChildren) {
+        if ([node.name isEqualToString:pauseButtonName]) {
+            isTherePauseButton = true;
+        }
+    }
+    
+    XCTAssert(isTherePauseButton == true, "GameLayer isn't loading the pause button");
 }
 
 
