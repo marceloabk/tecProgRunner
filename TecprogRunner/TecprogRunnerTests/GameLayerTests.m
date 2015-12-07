@@ -83,6 +83,16 @@
     XCTAssertNotNil(playerAction, "GameLayer isn't creating the player action");
 }
 
+
+// testDeactivateTimer succeed, commenting because it use private methods
+
+
+// Test deactivateTimer method
+//-(void) testDeactivateTimer{
+//    [self.gameLayer deactivateTimer];
+//    XCTAssertNil(self.gameLayer.timer, "Game layer is not deactivating the timer");
+//}
+
 // testPausedClicked succeed, commenting because it use private methods and attributes
 
 // Test when the player clicked in the pause button
