@@ -2,9 +2,7 @@
 //  TrainingCenterSpecificLayer.m
 //  TecprogRunner
 //
-//  Created by Henrique Dutra on 07/12/15.
-//  Copyright © 2015 Bepid-UnB. All rights reserved.
-//
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.//
 
 #import "TrainingCenterSpecificLayer.h"
 
@@ -22,6 +20,10 @@
         self.attributeString = attribute;
         self.attributeNumber = num;
         
+        [self loadButtons];
+        [self loadLabels];
+        [self loadBackground];
+        
         
     }else{
         NSException *exception = [NSException exceptionWithName:@"TrainingCenterSpecificLayer" reason:@"Can't initialize Training Center Specific Layer" userInfo:nil];
@@ -33,6 +35,26 @@
 
 -(void) activateLayer{
 
+    [self addChild: self.background];
+    [self addChild: self.exitButton];
 }
+
+-(void) loadBackground{
+    
+}
+
+
+-(void) loadButtons{
+    
+}
+
+
+-(void) loadLabels{
+    
+}
+
+
+
+
 
 @end

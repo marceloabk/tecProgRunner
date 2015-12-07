@@ -1,10 +1,9 @@
 //
 //  GameDataTests.m
 //  GameDataTests
+//hea
 //
-//  Created by Henrique Dutra on 07/12/15.
-//  Copyright © 2015 Bepid-UnB. All rights reserved.
-//
+//  Copyright (c) 2015 Group 8 - Tecprog 2/2015. All rights reserved.
 
 #import <XCTest/XCTest.h>
 #import "GameData.h"
