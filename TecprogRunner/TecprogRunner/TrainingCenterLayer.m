@@ -202,17 +202,6 @@
 }
 
 
--(void) gemsChoosed{
 
-}
-
-
--(void) coinsChoosed{
-
-}
-
--(void) freeCoinsChoosed{
-
-}
 
 @end

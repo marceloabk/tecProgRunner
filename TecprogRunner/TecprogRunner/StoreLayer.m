@@ -98,4 +98,23 @@
 
 }
 
+-(void) gemsChoosed{
+    
+    SKAction *scale = [SKAction scaleTo:0.23 duration:0.7];
+    SKAction *move = [SKAction moveTo:CGPointMake(85, 375-112) duration:0.7];
+    
+    [_gemsCard runAction:scale];
+    [_gemsCard runAction:move];
+    
+}
+
+
+-(void) coinsChoosed{
+    
+}
+
+-(void) freeCoinsChoosed{
+    
+}
+
 @end

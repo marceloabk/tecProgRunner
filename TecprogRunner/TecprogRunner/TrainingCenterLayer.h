@@ -28,20 +28,7 @@
 */
 -(void) activateLayer;
 
-/**
- Method used to activate the gems card
- */
--(void) gemsChoosed;
 
-/**
- Method used to activate the coins card
- */
--(void) coinsChoosed;
-
-/**
- Method used to activate the free coins ad
- */
--(void) freeCoinsChoosed;
 
 
 @end

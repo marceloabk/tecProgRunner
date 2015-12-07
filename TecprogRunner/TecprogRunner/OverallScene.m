@@ -231,13 +231,13 @@
         [self.overallControlLayer changeLayer];
         
     }else if([node.name isEqualToString:@"freeCoinsCard"]){
-        [self.overallControlLayer.trainingCenterLayer freeCoinsChoosed];
+        [self.overallControlLayer.storeLayer freeCoinsChoosed];
 
     }else if([node.name isEqualToString:@"coinsCard"]){
-        [self.overallControlLayer.trainingCenterLayer coinsChoosed];
+        [self.overallControlLayer.storeLayer coinsChoosed];
         
     }else if([node.name isEqualToString:@"gemsCard"]){
-        [self.overallControlLayer.trainingCenterLayer gemsChoosed];
+        [self.overallControlLayer.storeLayer gemsChoosed];
 
     }else{
         DebugLog(@"node %@ unknown for store",node.name);
