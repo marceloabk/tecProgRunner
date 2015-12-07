@@ -110,6 +110,15 @@
 		6B49F9461BDD9D5A00E7164D /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B49F9451BDD9D5A00E7164D /* PauseLayer.m */; };
 		6B651A9A1C154A9200C64D59 /* telaInicialVersao1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B651A991C154A9200C64D59 /* telaInicialVersao1.png */; };
 		6B651AB41C1556B200C64D59 /* GameDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B651AB31C1556B200C64D59 /* GameDataTests.m */; };
+		6B73AC821C1558BA0073A323 /* buyCoinSlot.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B73AC811C1558BA0073A323 /* buyCoinSlot.png */; };
+		6B73AC8B1C1559300073A323 /* exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B73AC831C1559300073A323 /* exit.png */; };
+		6B73AC8C1C1559300073A323 /* JumpLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B73AC841C1559300073A323 /* JumpLabel.png */; };
+		6B73AC8D1C1559300073A323 /* LuckLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B73AC851C1559300073A323 /* LuckLabel.png */; };
+		6B73AC8E1C1559300073A323 /* PowerLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B73AC861C1559300073A323 /* PowerLabel.png */; };
+		6B73AC8F1C1559300073A323 /* ShootingLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B73AC871C1559300073A323 /* ShootingLabel.png */; };
+		6B73AC901C1559300073A323 /* SpeedLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B73AC881C1559300073A323 /* SpeedLabel.png */; };
+		6B73AC911C1559300073A323 /* trainLayerBlur.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B73AC891C1559300073A323 /* trainLayerBlur.png */; };
+		6B73AC921C1559300073A323 /* upgadeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B73AC8A1C1559300073A323 /* upgadeButton.png */; };
 		6BF9FB7D1BC57C33004878CC /* TrainingCenterBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */; };
 		6BF9FB801BC57C40004878CC /* TrainingCenterLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9FB7F1BC57C40004878CC /* TrainingCenterLayer.m */; };
 		E913DED71BDBD0A600DB3FC9 /* Label.m in Sources */ = {isa = PBXBuildFile; fileRef = E913DED61BDBD0A600DB3FC9 /* Label.m */; };
@@ -281,6 +290,15 @@
 		6B651AB11C1556B200C64D59 /* GameDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B651AB31C1556B200C64D59 /* GameDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GameDataTests.m; path = ../GameDataTests/GameDataTests.m; sourceTree = "<group>"; };
 		6B651AB51C1556B200C64D59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B73AC811C1558BA0073A323 /* buyCoinSlot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buyCoinSlot.png; path = ../../../../Images/Store/buyCoinSlot.png; sourceTree = "<group>"; };
+		6B73AC831C1559300073A323 /* exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exit.png; path = "../../../../Images/Training center/exit.png"; sourceTree = "<group>"; };
+		6B73AC841C1559300073A323 /* JumpLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = JumpLabel.png; path = "../../../../Images/Training center/JumpLabel.png"; sourceTree = "<group>"; };
+		6B73AC851C1559300073A323 /* LuckLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LuckLabel.png; path = "../../../../Images/Training center/LuckLabel.png"; sourceTree = "<group>"; };
+		6B73AC861C1559300073A323 /* PowerLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PowerLabel.png; path = "../../../../Images/Training center/PowerLabel.png"; sourceTree = "<group>"; };
+		6B73AC871C1559300073A323 /* ShootingLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShootingLabel.png; path = "../../../../Images/Training center/ShootingLabel.png"; sourceTree = "<group>"; };
+		6B73AC881C1559300073A323 /* SpeedLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SpeedLabel.png; path = "../../../../Images/Training center/SpeedLabel.png"; sourceTree = "<group>"; };
+		6B73AC891C1559300073A323 /* trainLayerBlur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trainLayerBlur.png; path = "../../../../Images/Training center/trainLayerBlur.png"; sourceTree = "<group>"; };
+		6B73AC8A1C1559300073A323 /* upgadeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upgadeButton.png; path = "../../../../Images/Training center/upgadeButton.png"; sourceTree = "<group>"; };
 		6BF9FB7B1BC57C33004878CC /* TrainingCenterBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCenterBackground.h; sourceTree = "<group>"; };
 		6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingCenterBackground.m; sourceTree = "<group>"; };
 		6BF9FB7E1BC57C40004878CC /* TrainingCenterLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCenterLayer.h; sourceTree = "<group>"; };
@@ -494,6 +512,7 @@
 		09808FEA1BDE736000045C9F /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				6B73AC811C1558BA0073A323 /* buyCoinSlot.png */,
 				6B1E16241C15267500E727A5 /* 80Gems.png */,
 				6B1E16251C15267500E727A5 /* 300Gems.png */,
 				6B1E16261C15267500E727A5 /* 700Gems.png */,
@@ -511,6 +530,14 @@
 		09808FEE1BDE736000045C9F /* Training center */ = {
 			isa = PBXGroup;
 			children = (
+				6B73AC831C1559300073A323 /* exit.png */,
+				6B73AC841C1559300073A323 /* JumpLabel.png */,
+				6B73AC851C1559300073A323 /* LuckLabel.png */,
+				6B73AC861C1559300073A323 /* PowerLabel.png */,
+				6B73AC871C1559300073A323 /* ShootingLabel.png */,
+				6B73AC881C1559300073A323 /* SpeedLabel.png */,
+				6B73AC891C1559300073A323 /* trainLayerBlur.png */,
+				6B73AC8A1C1559300073A323 /* upgadeButton.png */,
 				6B1E16331C15268500E727A5 /* jumpButton.png */,
 				6B1E16341C15268500E727A5 /* luckButton.png */,
 				6B1E16351C15268500E727A5 /* powerButton.png */,
@@ -1046,6 +1073,7 @@
 				098090041BDE736000045C9F /* Coin2.png in Resources */,
 				098090141BDE736000045C9F /* pauseRestarButton.png in Resources */,
 				0980901D1BDE736000045C9F /* gemsCard.png in Resources */,
+				6B73AC8B1C1559300073A323 /* exit.png in Resources */,
 				6B1E16511C153F5E00E727A5 /* restartGameOver.png in Resources */,
 				6B1E162B1C15267500E727A5 /* 80Gems.png in Resources */,
 				098090171BDE736000045C9F /* backgroundSettings.png in Resources */,
@@ -1059,22 +1087,27 @@
 				0980900D1BDE736000045C9F /* storeButton.png in Resources */,
 				6B1E16301C15267500E727A5 /* 10000Gems.png in Resources */,
 				098090111BDE736000045C9F /* pauseButton.png in Resources */,
+				6B73AC821C1558BA0073A323 /* buyCoinSlot.png in Resources */,
 				6B1E162C1C15267500E727A5 /* 300Gems.png in Resources */,
 				09808FFE1BDE736000045C9F /* playerRunning4.png in Resources */,
 				098090001BDE736000045C9F /* playerRunning6.png in Resources */,
 				098090021BDE736000045C9F /* weakEnemyIdle2.png in Resources */,
 				6B1E16381C15268500E727A5 /* atributesTable.png in Resources */,
+				6B73AC8C1C1559300073A323 /* JumpLabel.png in Resources */,
 				6B1E162D1C15267500E727A5 /* 700Gems.png in Resources */,
 				098090061BDE736000045C9F /* Coin4.png in Resources */,
 				6B1E163C1C15268500E727A5 /* shootingButton.png in Resources */,
 				6B1E162E1C15267500E727A5 /* 2000Gems.png in Resources */,
 				098090031BDE736000045C9F /* Coin1.png in Resources */,
 				67FFA6DD1B99301C00354487 /* Main.storyboard in Resources */,
+				6B73AC8E1C1559300073A323 /* PowerLabel.png in Resources */,
 				098090151BDE736000045C9F /* settingsBackground.png in Resources */,
 				6B1E163A1C15268500E727A5 /* luckButton.png in Resources */,
+				6B73AC911C1559300073A323 /* trainLayerBlur.png in Resources */,
 				6B651A9A1C154A9200C64D59 /* telaInicialVersao1.png in Resources */,
 				0980900B1BDE736000045C9F /* gameCenterButton.png in Resources */,
 				0980900C1BDE736000045C9F /* menuBg.png in Resources */,
+				6B73AC8D1C1559300073A323 /* LuckLabel.png in Resources */,
 				098090251BDE736000045C9F /* trainingCenterButton.png in Resources */,
 				098090071BDE736000045C9F /* Coin5.png in Resources */,
 				098090081BDE736000045C9F /* Coin6.png in Resources */,
@@ -1083,13 +1116,16 @@
 				09A6DC861BE2EB24007A77EC /* diamond.png in Resources */,
 				09808FFC1BDE736000045C9F /* playerRunning2.png in Resources */,
 				098090211BDE736000045C9F /* levelStars3.png in Resources */,
+				6B73AC8F1C1559300073A323 /* ShootingLabel.png in Resources */,
 				0980900E1BDE736000045C9F /* tapToPlay.png in Resources */,
 				098090131BDE736000045C9F /* pauseHomeButton.png in Resources */,
 				6B1E16501C153F5E00E727A5 /* homeGameOver.png in Resources */,
+				6B73AC921C1559300073A323 /* upgadeButton.png in Resources */,
 				6B1E163B1C15268500E727A5 /* powerButton.png in Resources */,
 				0980901C1BDE736000045C9F /* freeCoinsCard.png in Resources */,
 				098090221BDE736000045C9F /* levelStars4.png in Resources */,
 				098090051BDE736000045C9F /* Coin3.png in Resources */,
+				6B73AC901C1559300073A323 /* SpeedLabel.png in Resources */,
 				6B1E163D1C15268500E727A5 /* speedButton.png in Resources */,
 				098090201BDE736000045C9F /* levelStars2.png in Resources */,
 				098090231BDE736000045C9F /* levelStars5.png in Resources */,
@@ -1437,6 +1473,7 @@
 				6B651AB91C1556B200C64D59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

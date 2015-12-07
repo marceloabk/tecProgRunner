@@ -204,7 +204,7 @@
     
     _cardChoosen = 2;
 
-    [self putGemsSlot];
+    [self putGemsSlot: 1];
     
     [self changeBackButton:@"gemsBack"];
 
@@ -236,6 +236,8 @@
     
     _cardChoosen = 1;
     
+    [self putGemsSlot:2];
+
     [self changeBackButton:@"coinsBack"];
 
     
@@ -260,9 +262,17 @@
 }
 
 
--(void) putGemsSlot{
+-(void) putGemsSlot : (int) num{
 
-    SKSpriteNode *slot = [SKSpriteNode spriteNodeWithImageNamed:@"buyGemsSlot"];
+    SKSpriteNode *slot;
+    
+    if(num == 1){
+        slot = [SKSpriteNode spriteNodeWithImageNamed:@"buyGemsSlot"];
+    }
+    else{
+       slot = [SKSpriteNode spriteNodeWithImageNamed:@"buyCoinSlot"];
+
+    }
     slot.position = CGPointMake(143, 375-44);
     slot.anchorPoint = CGPointMake(0, 1);
     [slot setScale:0.5];
