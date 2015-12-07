@@ -116,7 +116,7 @@
             // game center
         }
         else if ([node.name isEqualToString:@"home"]) {
-           
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"goHome" object:nil];
         }else {
             // Exception
         }

@@ -50,6 +50,8 @@
         [exception raise];
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(homeButtonPressed) name:@"goHome" object:nil];
+    
     return self;
 }
 
@@ -291,12 +293,11 @@
 
 -(void) homeButtonPressed{
     
-    if(self.scene.view.paused == YES){
-        
-        self.scene.view.paused = NO;
-        [self.pauseLayer removeFromParent];
-        [self.layerChangeDelegate changeToLayer:menu];
-    }
+    
+    self.scene.view.paused = NO;
+    [self.pauseLayer removeFromParent];
+    [self.layerChangeDelegate changeToLayer:menu];
+    
 }
 
 -(void) restartButtonPressed{
