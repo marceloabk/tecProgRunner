@@ -35,9 +35,7 @@
         
         _cardChoosen = 0;
         
-        [self loadBackground];
-        [self loadButtons];
-        [self loadCards];
+        [self loadEverything];
     }else{
         NSException *exception = [NSException exceptionWithName:@"Store layer" reason:@"Can't initialize Store Layer" userInfo:nil];
         [exception raise];
@@ -45,7 +43,6 @@
     
     return self;
 }
-
 
 -(void) loadBackground{
 
@@ -59,15 +56,20 @@
 
 -(void) loadButtons{
 
-    [self loadBackButton];
+    [self loadBackButton: @"backButton"];
+    
 
 }
 
--(void) loadBackButton{
+-(void) loadBackButton: (NSString *) buttonName{
 
     CGPoint position = CGPointMake(30, 363);
-    _backButton = [SpriteNode spriteNodeWithImageNamed:@"backButton" andPosition:position
-                                               anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+    _backButton = [SpriteNode spriteNodeWithImageNamed: @"backButton"];
+    [_backButton setScale:0.4];
+    _backButton.position = position;
+    _backButton.name = buttonName;
+    _backButton.anchorPoint = CGPointMake(0, 1);
+    _backButton.zPosition = 2;
 
 }
 
@@ -103,10 +105,19 @@
 
 }
 
+-(void) changeBackButton : (NSString *) name{
+
+    [_backButton removeFromParent];
+    [self loadBackButton:name];
+    
+    [self.layer addChild:_backButton];
+    
+}
+
 -(void) gemsChoosed{
     
     SKAction *scale = [SKAction scaleTo:0.23 duration:0.7];
-    SKAction *move = [SKAction moveTo:CGPointMake(85, 375-112) duration:0.7];
+    SKAction *move = [SKAction moveTo:CGPointMake(45, 375-112) duration:0.7];
     SKAction *fade = [SKAction fadeAlphaTo:0 duration:0.3];
 
     [_gemsCard runAction:scale];
@@ -117,13 +128,28 @@
     
     _cardChoosen = 2;
 
+    [self putGemsSlot];
+    
+    [self changeBackButton:@"gemsBack"];
+
 }
 
+-(void) backToMainLayer{
+
+    [self.layer removeFromParent];
+    
+    self.layer = [SKNode node];
+    [self addChild:self.layer];
+    
+    [self loadEverything];
+    [self activateLayer];
+
+}
 
 -(void) coinsChoosed{
     
     SKAction *scale = [SKAction scaleTo:0.23 duration:0.7];
-    SKAction *move = [SKAction moveTo:CGPointMake(85, 375-112) duration:0.7];
+    SKAction *move = [SKAction moveTo:CGPointMake(45, 375-112) duration:0.7];
     SKAction *fade = [SKAction fadeAlphaTo:0 duration:0.3];
     
     [_coinsCard runAction:scale];
@@ -134,12 +160,14 @@
     
     _cardChoosen = 1;
     
+    [self changeBackButton:@"coinsBack"];
+    
 }
 
 -(void) freeCoinsChoosed{
     
     SKAction *scale = [SKAction scaleTo:0.23 duration:0.7];
-    SKAction *move = [SKAction moveTo:CGPointMake(85, 375-112) duration:0.7];
+    SKAction *move = [SKAction moveTo:CGPointMake(45, 375-112) duration:0.7];
     SKAction *fade = [SKAction fadeAlphaTo:0 duration:0.3];
 
     [_freeCoinsCard runAction:scale];
@@ -150,6 +178,40 @@
     
     _cardChoosen = 3;
 
+    [self changeBackButton:@"freeCoinsBack"];
+
 }
+
+
+-(void) putGemsSlot{
+
+    SKSpriteNode *slot = [SKSpriteNode spriteNodeWithImageNamed:@"buyGemsSlot"];
+    slot.position = CGPointMake(143, 375-44);
+    slot.anchorPoint = CGPointMake(0, 1);
+    [slot setScale:0.5];
+    [self.layer addChild:slot];
+    
+    [self addGemNodes];
+
+}
+
+-(void) addGemNodes{
+
+}
+
+-(void) putCoinsSlot{
+
+}
+
+
+
+-(void) loadEverything{
+    
+    [self loadBackground];
+    [self loadButtons];
+    [self loadCards];
+    
+}
+
 
 @end

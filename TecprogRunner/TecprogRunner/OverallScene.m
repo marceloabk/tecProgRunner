@@ -239,6 +239,15 @@
     }else if([node.name isEqualToString:@"gemsCard"]){
         [self.overallControlLayer.storeLayer gemsChoosed];
 
+    }else if([node.name isEqualToString:@"freeCoinsBack"]){
+        [self.overallControlLayer.storeLayer backToMainLayer];
+        
+    }else if([node.name isEqualToString:@"gemsBack"]){
+        [self.overallControlLayer.storeLayer backToMainLayer];
+        
+    }else if([node.name isEqualToString:@"coinsBack"]){
+        [self.overallControlLayer.storeLayer backToMainLayer];
+        
     }else{
         DebugLog(@"node %@ unknown for store",node.name);
     }

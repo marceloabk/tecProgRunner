@@ -41,4 +41,9 @@
  */
 -(void) freeCoinsChoosed;
 
+/**
+ Method used to activate the main layer back
+ */
+-(void) backToMainLayer;
+
 @end
