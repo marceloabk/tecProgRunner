@@ -59,8 +59,29 @@
     
     [self loadBack];
     [self loadAttributesTable];
-    
+    [self loadAttributesLabels];
 }
+
+-(void) loadAttributesLabels{
+
+    CGPoint position1 = CGPointMake(80, 375-91);
+    CGPoint position2 = CGPointMake(80, 375-138);
+    CGPoint position3 = CGPointMake(80, 375-185);
+    CGPoint position4 = CGPointMake(80, 375-238);
+    CGPoint position5 = CGPointMake(80, 375-288);
+    
+    self.jumpButton = [SpriteNode spriteNodeWithImageNamed:@"jumpButton" andPosition:position5 anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+    
+    self.luckButton = [SpriteNode spriteNodeWithImageNamed:@"luckButton" andPosition:position2 anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+    
+    self.powerButton = [SpriteNode spriteNodeWithImageNamed:@"powerButton" andPosition:position3 anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+
+    self.shootingButton = [SpriteNode spriteNodeWithImageNamed:@"shootingButton" andPosition:position4 anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+    
+    self.speedButton = [SpriteNode spriteNodeWithImageNamed:@"speedButton" andPosition:position1 anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:2];
+
+}
+
 
 -(void) loadBack{
     
@@ -117,11 +138,18 @@
     [self.layer addChild:_trainingCenterBackground];
     [self.layer addChild:_backButton];
     [self.layer addChild:_attributesTable];
+    
     [self.layer addChild:_levelJumpStars];
     [self.layer addChild:_levelLuckStars];
     [self.layer addChild:_levelPowerStars];
     [self.layer addChild:_levelShootingStars];
     [self.layer addChild:_levelSpeedStars];
+    
+    [self.layer addChild:self.jumpButton];
+    [self.layer addChild:self.luckButton];
+    [self.layer addChild:self.powerButton];
+    [self.layer addChild:self.shootingButton];
+    [self.layer addChild:self.speedButton];
     
     [self putCoins];
     [self putGems];

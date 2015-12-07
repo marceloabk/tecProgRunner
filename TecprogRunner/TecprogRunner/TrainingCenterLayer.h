@@ -28,7 +28,11 @@
 */
 -(void) activateLayer;
 
-
+@property (nonatomic) SKSpriteNode *jumpButton;
+@property (nonatomic) SKSpriteNode *powerButton;
+@property (nonatomic) SKSpriteNode *luckButton;
+@property (nonatomic) SKSpriteNode *shootingButton;
+@property (nonatomic) SKSpriteNode *speedButton;
 
 
 @end

@@ -248,11 +248,11 @@
 		6B1E16291C15267500E727A5 /* 10000Gems.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10000Gems.png; sourceTree = "<group>"; };
 		6B1E162A1C15267500E727A5 /* buyGemsSlot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buyGemsSlot.png; sourceTree = "<group>"; };
 		6B1E16321C15268500E727A5 /* atributesTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atributesTable.png; sourceTree = "<group>"; };
-		6B1E16331C15268500E727A5 /* jumpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jumpButton.png; sourceTree = "<group>"; };
-		6B1E16341C15268500E727A5 /* luckButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = luckButton.png; sourceTree = "<group>"; };
-		6B1E16351C15268500E727A5 /* powerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerButton.png; sourceTree = "<group>"; };
-		6B1E16361C15268500E727A5 /* shootingButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shootingButton.png; sourceTree = "<group>"; };
-		6B1E16371C15268500E727A5 /* speedButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedButton.png; sourceTree = "<group>"; };
+		6B1E16331C15268500E727A5 /* jumpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jumpButton.png; path = ../Settings/jumpButton.png; sourceTree = "<group>"; };
+		6B1E16341C15268500E727A5 /* luckButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = luckButton.png; path = ../Settings/luckButton.png; sourceTree = "<group>"; };
+		6B1E16351C15268500E727A5 /* powerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = powerButton.png; path = ../Settings/powerButton.png; sourceTree = "<group>"; };
+		6B1E16361C15268500E727A5 /* shootingButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shootingButton.png; path = ../Settings/shootingButton.png; sourceTree = "<group>"; };
+		6B1E16371C15268500E727A5 /* speedButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speedButton.png; path = ../Settings/speedButton.png; sourceTree = "<group>"; };
 		6B1E163F1C152B5D00E727A5 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		6B1E16401C152B5D00E727A5 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		6B1E16421C152B8E00E727A5 /* TecProgIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TecProgIAPHelper.h; sourceTree = "<group>"; };
@@ -465,11 +465,6 @@
 			isa = PBXGroup;
 			children = (
 				6B1E16321C15268500E727A5 /* atributesTable.png */,
-				6B1E16331C15268500E727A5 /* jumpButton.png */,
-				6B1E16341C15268500E727A5 /* luckButton.png */,
-				6B1E16351C15268500E727A5 /* powerButton.png */,
-				6B1E16361C15268500E727A5 /* shootingButton.png */,
-				6B1E16371C15268500E727A5 /* speedButton.png */,
 				09808FE61BDE736000045C9F /* backgroundSettings.png */,
 				09808FE71BDE736000045C9F /* settingsButton.png */,
 				09808FE81BDE736000045C9F /* volumeOff.png */,
@@ -498,6 +493,11 @@
 		09808FEE1BDE736000045C9F /* Training center */ = {
 			isa = PBXGroup;
 			children = (
+				6B1E16331C15268500E727A5 /* jumpButton.png */,
+				6B1E16341C15268500E727A5 /* luckButton.png */,
+				6B1E16351C15268500E727A5 /* powerButton.png */,
+				6B1E16361C15268500E727A5 /* shootingButton.png */,
+				6B1E16371C15268500E727A5 /* speedButton.png */,
 				09A6DC851BE2EB24007A77EC /* diamond.png */,
 				09808FEF1BDE736000045C9F /* atributesTable.png */,
 				09808FF01BDE736000045C9F /* levelStars1.png */,
