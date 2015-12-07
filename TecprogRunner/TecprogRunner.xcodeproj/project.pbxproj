@@ -98,6 +98,8 @@
 		6B1E163B1C15268500E727A5 /* powerButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1E16351C15268500E727A5 /* powerButton.png */; };
 		6B1E163C1C15268500E727A5 /* shootingButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1E16361C15268500E727A5 /* shootingButton.png */; };
 		6B1E163D1C15268500E727A5 /* speedButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1E16371C15268500E727A5 /* speedButton.png */; };
+		6B1E16411C152B5D00E727A5 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E16401C152B5D00E727A5 /* IAPHelper.m */; };
+		6B1E16441C152B8E00E727A5 /* TecProgIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E16431C152B8E00E727A5 /* TecProgIAPHelper.m */; };
 		6B2D98DF1BB4E8C5005B342E /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98DE1BB4E8C5005B342E /* SettingsLayer.m */; };
 		6B2D98E21BB4E9C0005B342E /* BackgroundLayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */; };
 		6B49F93C1BDD684400E7164D /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B49F93B1BDD684400E7164D /* iRate.m */; };
@@ -246,6 +248,10 @@
 		6B1E16351C15268500E727A5 /* powerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerButton.png; sourceTree = "<group>"; };
 		6B1E16361C15268500E727A5 /* shootingButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shootingButton.png; sourceTree = "<group>"; };
 		6B1E16371C15268500E727A5 /* speedButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedButton.png; sourceTree = "<group>"; };
+		6B1E163F1C152B5D00E727A5 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
+		6B1E16401C152B5D00E727A5 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
+		6B1E16421C152B8E00E727A5 /* TecProgIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TecProgIAPHelper.h; sourceTree = "<group>"; };
+		6B1E16431C152B8E00E727A5 /* TecProgIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TecProgIAPHelper.m; sourceTree = "<group>"; };
 		6B2D98DD1BB4E8C5005B342E /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
 		6B2D98DE1BB4E8C5005B342E /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
 		6B2D98E01BB4E9C0005B342E /* BackgroundLayerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayerSettings.h; sourceTree = "<group>"; };
@@ -541,6 +547,7 @@
 		67FFA6CB1B99301C00354487 /* TecprogRunner */ = {
 			isa = PBXGroup;
 			children = (
+				6B1E163E1C152B3700E727A5 /* TecProgIAPHelper */,
 				6B49F9391BDD682700E7164D /* iRate */,
 				E93489131BC7FD640038CCF1 /* PhysicsController */,
 				093A62D51BB46A6A00BF2074 /* PhysicsCategories */,
@@ -656,6 +663,17 @@
 				6B0FD4181BA91AE400C22BD6 /* BackgroundLayerStore.m */,
 			);
 			name = Store;
+			sourceTree = "<group>";
+		};
+		6B1E163E1C152B3700E727A5 /* TecProgIAPHelper */ = {
+			isa = PBXGroup;
+			children = (
+				6B1E163F1C152B5D00E727A5 /* IAPHelper.h */,
+				6B1E16401C152B5D00E727A5 /* IAPHelper.m */,
+				6B1E16421C152B8E00E727A5 /* TecProgIAPHelper.h */,
+				6B1E16431C152B8E00E727A5 /* TecProgIAPHelper.m */,
+			);
+			name = TecProgIAPHelper;
 			sourceTree = "<group>";
 		};
 		6B2D98DC1BB4E8B2005B342E /* Settings */ = {
@@ -1028,9 +1046,11 @@
 				E913DED71BDBD0A600DB3FC9 /* Label.m in Sources */,
 				67FFA6D21B99301C00354487 /* AppDelegate.m in Sources */,
 				6B49F93C1BDD684400E7164D /* iRate.m in Sources */,
+				6B1E16441C152B8E00E727A5 /* TecProgIAPHelper.m in Sources */,
 				6BF9FB801BC57C40004878CC /* TrainingCenterLayer.m in Sources */,
 				6792F7391BCF220E006030DE /* StrongEnemy.m in Sources */,
 				E93489161BC7FDBA0038CCF1 /* PhysicsController.m in Sources */,
+				6B1E16411C152B5D00E727A5 /* IAPHelper.m in Sources */,
 				6B0FD4161BA91A3900C22BD6 /* StoreLayer.m in Sources */,
 				093A62D81BB46C4F00BF2074 /* Coin.m in Sources */,
 				6B0FD4101BA9122900C22BD6 /* MenuLayer.m in Sources */,
