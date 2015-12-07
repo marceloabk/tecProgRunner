@@ -108,6 +108,7 @@
 		6B2D98E21BB4E9C0005B342E /* BackgroundLayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */; };
 		6B49F93C1BDD684400E7164D /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B49F93B1BDD684400E7164D /* iRate.m */; };
 		6B49F9461BDD9D5A00E7164D /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B49F9451BDD9D5A00E7164D /* PauseLayer.m */; };
+		6B651A9A1C154A9200C64D59 /* telaInicialVersao1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B651A991C154A9200C64D59 /* telaInicialVersao1.png */; };
 		6BF9FB7D1BC57C33004878CC /* TrainingCenterBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */; };
 		6BF9FB801BC57C40004878CC /* TrainingCenterLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9FB7F1BC57C40004878CC /* TrainingCenterLayer.m */; };
 		E913DED71BDBD0A600DB3FC9 /* Label.m in Sources */ = {isa = PBXBuildFile; fileRef = E913DED61BDBD0A600DB3FC9 /* Label.m */; };
@@ -268,6 +269,7 @@
 		6B49F93B1BDD684400E7164D /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		6B49F9441BDD9D5A00E7164D /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
 		6B49F9451BDD9D5A00E7164D /* PauseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseLayer.m; sourceTree = "<group>"; };
+		6B651A991C154A9200C64D59 /* telaInicialVersao1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = telaInicialVersao1.png; path = ../../../Images/telaInicial/telaInicialVersao1.png; sourceTree = "<group>"; };
 		6BF9FB7B1BC57C33004878CC /* TrainingCenterBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCenterBackground.h; sourceTree = "<group>"; };
 		6BF9FB7C1BC57C33004878CC /* TrainingCenterBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingCenterBackground.m; sourceTree = "<group>"; };
 		6BF9FB7E1BC57C40004878CC /* TrainingCenterLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCenterLayer.h; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 		09808FBA1BDE736000045C9F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6B651A991C154A9200C64D59 /* telaInicialVersao1.png */,
 				6B1E16491C153F5E00E727A5 /* Game Over */,
 				09808FBB1BDE736000045C9F /* Characters */,
 				09808FCB1BDE736000045C9F /* Coin */,
@@ -1018,6 +1021,7 @@
 				67FFA6DD1B99301C00354487 /* Main.storyboard in Resources */,
 				098090151BDE736000045C9F /* settingsBackground.png in Resources */,
 				6B1E163A1C15268500E727A5 /* luckButton.png in Resources */,
+				6B651A9A1C154A9200C64D59 /* telaInicialVersao1.png in Resources */,
 				0980900B1BDE736000045C9F /* gameCenterButton.png in Resources */,
 				0980900C1BDE736000045C9F /* menuBg.png in Resources */,
 				098090251BDE736000045C9F /* trainingCenterButton.png in Resources */,
