@@ -9,7 +9,7 @@
 #import "GameData.h"
 
 #define STARTING_LEVEL 1
-#define STARTING_COINS_OR_GEMS_AMOUNT 0
+#define STARTING_COINS_OR_GEMS_AMOUNT 100
 
 @implementation GameData
 

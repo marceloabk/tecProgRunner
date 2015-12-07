@@ -7,6 +7,9 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "SpriteNode.h"
+
+#define GAME_OVER_Z_POSITION 10000000
 
 // This protocol says when to remove the gameOver
 @protocol gameOverDelegate <NSObject>
@@ -17,7 +20,11 @@
 
 @interface GameOver : SKNode
 
--(instancetype) initWithSize:(CGSize)size;
+-(instancetype) initWithSize:(CGSize)size andScore: (int) scorePassed;
+
 @property (nonatomic) id<gameOverDelegate> gameOverDelegate;
+
+@property SKNode *layer;
+
 
 @end

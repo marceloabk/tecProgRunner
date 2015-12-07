@@ -11,32 +11,38 @@
 
 @interface GameOver()
 
-@property (nonatomic) CGSize size;
-@property (nonatomic) SKSpriteNode *gameOver;
+@property (nonatomic) SKLabelNode *score;
+@property (nonatomic) SKLabelNode *highScore;
+
+@property (nonatomic) SKSpriteNode *home;
+
+@property (nonatomic) SKSpriteNode *gameCenter;
+
+@property (nonatomic) SKSpriteNode *restartButton;
+
+@property (nonatomic) SKSpriteNode *background;
 
 @end
 
 @implementation GameOver 
 
+
 // Initialize GameOver class
--(instancetype) initWithSize:(CGSize)size{
+-(instancetype) initWithSize:(CGSize)size andScore: (int) scorePassed{
     
     self = [super init];
     
     if(self != nil){
-        self.size = size;
-        self.zPosition = 100;
         
-        // Creating gameOverSize according to the screen
-        CGFloat gameOverWidth = size.width/1.5;
-        CGFloat gameOverHeight = size.height/1.5;
-        CGSize gameOverSize = CGSizeMake(gameOverWidth, gameOverHeight);
+        self.layer = [SKNode node];
+        [self addChild:self.layer];
         
-        self.gameOver = [[SKSpriteNode alloc]initWithColor:[UIColor brownColor] size:gameOverSize];
-        self.gameOver.position = CGPointMake(size.width/2, size.height/2);
+        [self loadBackground];
+        [self loadButtons];
+        [self loadLabels];
         
-        [self addChild:self.gameOver];
-        [self addRestartButton];
+        [self activateLayer];
+        
     }else{
         // Exception
     }
@@ -44,14 +50,55 @@
     return self;
 }
 
-// Add restart button to GameOver node
--(void) addRestartButton{
-    // Create a 50x50 button just for tests
-    CGSize restartButtonSize = CGSizeMake(50, 50);
-    SKSpriteNode *restart = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:restartButtonSize];
-    restart.name = @"restartButton";
-    [self.gameOver addChild:restart];
+-(void) loadLabels{}
+
+-(void) activateLayer{
+    
+    // Add all components in layer
+    [self.layer addChild:_background];
+    [self.layer addChild:_restartButton];
+    [self.layer addChild:_home];
+    [self.layer addChild:_gameCenter];
 }
+
+/**
+ Load the background presented in pause
+ */
+-(void) loadBackground{
+    
+    // Initialize background sprite node
+    _background = [SpriteNode spriteNodeWithImageNamed:@"gameOverBg" andPosition:CGPointZero
+                                           anchorPoint:CGPointZero andScale:0.5 andZPosition:GAME_OVER_Z_POSITION];
+}
+
+/**
+ Load the buttons presented in pause
+ */
+-(void) loadButtons{
+    
+    static const CGFloat buttonZPosition = GAME_OVER_Z_POSITION + 10;
+    
+    // Create restart button
+    CGPoint restartButtonPosition = CGPointMake(279, DEFAULT_LAYER_HEIGHT - 125);
+    _restartButton = [SpriteNode spriteNodeWithImageNamed:@"restartGameOver" andPosition:restartButtonPosition
+                                              anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:buttonZPosition];
+    _restartButton.name = @"restartButton";
+    
+    CGPoint homePosition = CGPointMake(40, DEFAULT_LAYER_HEIGHT - 251);
+    _home = [SpriteNode spriteNodeWithImageNamed:@"homeGameOver" andPosition:homePosition
+                                               anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:buttonZPosition];
+    
+    _home.name = @"home";
+    
+    CGPoint gameCenterPosition = CGPointMake(572, DEFAULT_LAYER_HEIGHT - 277);
+    _gameCenter = [SpriteNode spriteNodeWithImageNamed:@"gameCenterGameOver" andPosition:gameCenterPosition
+                                               anchorPoint:SKETCH_ANCHOR_POINT andScale:0.5 andZPosition:buttonZPosition];
+    _gameCenter.name = @"gameCenter";
+
+}
+
+
+
 
 // Called whenever the player touches the screen
 -(void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -65,7 +112,12 @@
         if ([node.name isEqualToString:@"restartButton"]) {
             [self.gameOverDelegate removeGameOver];
             NSLog(@"Touching restart button");
-        } else {
+        }else if ([node.name isEqualToString:@"gameCenter"]) {
+            // game center
+        }
+        else if ([node.name isEqualToString:@"home"]) {
+           
+        }else {
             // Exception
         }
     }

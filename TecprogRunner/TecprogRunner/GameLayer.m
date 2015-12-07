@@ -337,7 +337,7 @@
     
     if([entity isKindOfClass:[Player class]]){
         // Initialize GameOver
-        self.gameOver = [[GameOver alloc]initWithSize:_size];
+        self.gameOver = [[GameOver alloc]initWithSize:_size andScore:self.pointsScored];
         self.gameOver.gameOverDelegate = self;
         
         [_sceneLayer addChild: self.gameOver];

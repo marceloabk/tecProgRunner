@@ -100,6 +100,10 @@
 		6B1E163D1C15268500E727A5 /* speedButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1E16371C15268500E727A5 /* speedButton.png */; };
 		6B1E16411C152B5D00E727A5 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E16401C152B5D00E727A5 /* IAPHelper.m */; };
 		6B1E16441C152B8E00E727A5 /* TecProgIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E16431C152B8E00E727A5 /* TecProgIAPHelper.m */; };
+		6B1E164E1C153F5E00E727A5 /* gameCenterGameOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1E164A1C153F5E00E727A5 /* gameCenterGameOver.png */; };
+		6B1E164F1C153F5E00E727A5 /* gameOverBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1E164B1C153F5E00E727A5 /* gameOverBg.png */; };
+		6B1E16501C153F5E00E727A5 /* homeGameOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1E164C1C153F5E00E727A5 /* homeGameOver.png */; };
+		6B1E16511C153F5E00E727A5 /* restartGameOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1E164D1C153F5E00E727A5 /* restartGameOver.png */; };
 		6B2D98DF1BB4E8C5005B342E /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98DE1BB4E8C5005B342E /* SettingsLayer.m */; };
 		6B2D98E21BB4E9C0005B342E /* BackgroundLayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2D98E11BB4E9C0005B342E /* BackgroundLayerSettings.m */; };
 		6B49F93C1BDD684400E7164D /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B49F93B1BDD684400E7164D /* iRate.m */; };
@@ -252,6 +256,10 @@
 		6B1E16401C152B5D00E727A5 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		6B1E16421C152B8E00E727A5 /* TecProgIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TecProgIAPHelper.h; sourceTree = "<group>"; };
 		6B1E16431C152B8E00E727A5 /* TecProgIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TecProgIAPHelper.m; sourceTree = "<group>"; };
+		6B1E164A1C153F5E00E727A5 /* gameCenterGameOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameCenterGameOver.png; sourceTree = "<group>"; };
+		6B1E164B1C153F5E00E727A5 /* gameOverBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameOverBg.png; sourceTree = "<group>"; };
+		6B1E164C1C153F5E00E727A5 /* homeGameOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeGameOver.png; sourceTree = "<group>"; };
+		6B1E164D1C153F5E00E727A5 /* restartGameOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartGameOver.png; sourceTree = "<group>"; };
 		6B2D98DD1BB4E8C5005B342E /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
 		6B2D98DE1BB4E8C5005B342E /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
 		6B2D98E01BB4E9C0005B342E /* BackgroundLayerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayerSettings.h; sourceTree = "<group>"; };
@@ -330,6 +338,7 @@
 		09808FBA1BDE736000045C9F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6B1E16491C153F5E00E727A5 /* Game Over */,
 				09808FBB1BDE736000045C9F /* Characters */,
 				09808FCB1BDE736000045C9F /* Coin */,
 				09808FD21BDE736000045C9F /* Game */,
@@ -676,6 +685,17 @@
 			name = TecProgIAPHelper;
 			sourceTree = "<group>";
 		};
+		6B1E16491C153F5E00E727A5 /* Game Over */ = {
+			isa = PBXGroup;
+			children = (
+				6B1E164A1C153F5E00E727A5 /* gameCenterGameOver.png */,
+				6B1E164B1C153F5E00E727A5 /* gameOverBg.png */,
+				6B1E164C1C153F5E00E727A5 /* homeGameOver.png */,
+				6B1E164D1C153F5E00E727A5 /* restartGameOver.png */,
+			);
+			path = "Game Over";
+			sourceTree = "<group>";
+		};
 		6B2D98DC1BB4E8B2005B342E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -971,10 +991,12 @@
 				098090041BDE736000045C9F /* Coin2.png in Resources */,
 				098090141BDE736000045C9F /* pauseRestarButton.png in Resources */,
 				0980901D1BDE736000045C9F /* gemsCard.png in Resources */,
+				6B1E16511C153F5E00E727A5 /* restartGameOver.png in Resources */,
 				6B1E162B1C15267500E727A5 /* 80Gems.png in Resources */,
 				098090171BDE736000045C9F /* backgroundSettings.png in Resources */,
 				0980901B1BDE736000045C9F /* coinsCard.png in Resources */,
 				098090011BDE736000045C9F /* weakEnemyIdle1.png in Resources */,
+				6B1E164E1C153F5E00E727A5 /* gameCenterGameOver.png in Resources */,
 				098090191BDE736000045C9F /* volumeOff.png in Resources */,
 				09808FFA1BDE736000045C9F /* playerJumping1.png in Resources */,
 				0980900A1BDE736000045C9F /* projectile.png in Resources */,
@@ -986,6 +1008,7 @@
 				09808FFE1BDE736000045C9F /* playerRunning4.png in Resources */,
 				098090001BDE736000045C9F /* playerRunning6.png in Resources */,
 				098090021BDE736000045C9F /* weakEnemyIdle2.png in Resources */,
+				6B1E164F1C153F5E00E727A5 /* gameOverBg.png in Resources */,
 				6B1E16381C15268500E727A5 /* atributesTable.png in Resources */,
 				6B1E162D1C15267500E727A5 /* 700Gems.png in Resources */,
 				098090061BDE736000045C9F /* Coin4.png in Resources */,
@@ -1007,6 +1030,7 @@
 				098090211BDE736000045C9F /* levelStars3.png in Resources */,
 				0980900E1BDE736000045C9F /* tapToPlay.png in Resources */,
 				098090131BDE736000045C9F /* pauseHomeButton.png in Resources */,
+				6B1E16501C153F5E00E727A5 /* homeGameOver.png in Resources */,
 				6B1E163B1C15268500E727A5 /* powerButton.png in Resources */,
 				0980901C1BDE736000045C9F /* freeCoinsCard.png in Resources */,
 				098090221BDE736000045C9F /* levelStars4.png in Resources */,
